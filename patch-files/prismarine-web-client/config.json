@@ -1,0 +1,7 @@
+{
+  "defaultHost": "127.0.0.1",
+  "defaultHostPort": 20565,
+  "defaultProxy": "",
+  "defaultProxyPort": 0,
+  "defaultVersion": "1.16.1"
+}
