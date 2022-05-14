@@ -7,7 +7,7 @@ class TitleScreen extends LitElement {
       .minecraft {
         position: absolute;
         top: 30px;
-        left: calc(50% - 137px);
+        left: calc(50% - 128px);
       }
 
       .minecraft .minec {

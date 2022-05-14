@@ -33,12 +33,17 @@ html {
 
 @font-face {
     font-family: minecraft;
-    src: url(pirulen.otf);
+    src: url(minecraft.woff);
 }
 
 @font-face {
     font-family: mojangles;
     src: url(pirulen.otf);
+}
+
+@font-face {
+    font-family: uifont;
+    src: url(mojangles.ttf);
 }
 
 body {
