@@ -87,7 +87,7 @@ class PlayScreen extends LitElement {
       <p class="title">Join a Server</p>
 
       <main class="edit-boxes">
-        <div class="wrapper">
+        <div class="wrapper" style="display: none;">
           <pmui-editbox
             pmui-width="150px"
             pmui-label="Server IP"
@@ -103,7 +103,7 @@ class PlayScreen extends LitElement {
             @input=${e => { this.serverport = e.target.value }}
             ></pmui-editbox>
         </div>
-        <div class="wrapper">
+        <div class="wrapper" style="display: none;">
           <pmui-editbox
             pmui-width="150px"
             pmui-label="Proxy"
@@ -127,7 +127,7 @@ class PlayScreen extends LitElement {
             pmui-value="${this.username}"
             @input=${e => { this.username = e.target.value }}
           ></pmui-editbox>
-          <pmui-editbox
+          <pmui-editbox style="display: none;"
             pmui-width="150px"
             pmui-label="Bot Version"
             pmui-id="botversion"
@@ -135,13 +135,12 @@ class PlayScreen extends LitElement {
             @input=${e => { this.version = e.target.value }}
           ></pmui-editbox>
         </div>
-        <p class="extra-info-bv"></p>
-      </main>
-
-      <div class="button-wrapper">
+      <div class="wrapper">
         <pmui-button pmui-width="150px" pmui-label="Connect" @pmui-click=${this.onConnectPress}></pmui-button>
         <pmui-button pmui-width="150px" pmui-label="Cancel" @pmui-click=${() => displayScreen(this, document.getElementById('title-screen'))}></pmui-button>
       </div>
+
+      </main>
     `
   }
 
