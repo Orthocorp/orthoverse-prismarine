@@ -38,12 +38,12 @@ html {
 
 @font-face {
     font-family: mojangles;
-    src: url(pirulen.otf);
+    src: url(mojangles.ttf);
 }
 
 @font-face {
-    font-family: uifont;
-    src: url(mojangles.ttf);
+    font-family: pirulen;
+    src: url(pirulen.otf);
 }
 
 body {
@@ -89,7 +89,7 @@ canvas {
   image-rendering: -o-crisp-edges;
   image-rendering: pixelated;
   -ms-interpolation-mode: nearest-neighbor;
-  font-family: minecraft, mojangles, monospace;
+  font-family: pirulen, minecraft, mojangles, monospace;
 }
 
 @media only screen and (max-width: 971px) {
