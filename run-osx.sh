@@ -16,6 +16,10 @@ echo "Node version: $(node --version)"
 # uncomment for debug info
 set -x
 
+# Copy the latest version
+cp -r ./patch-files/prismarine-web-client ./
+cp -r ./patch-files/flying-squid ./
+
 cd ./flying-squid
 osascript -e "tell application \"Terminal\" to do script \"cd '$(pwd)' && bash -c 'node examples/orthoverse.js'\""
 
