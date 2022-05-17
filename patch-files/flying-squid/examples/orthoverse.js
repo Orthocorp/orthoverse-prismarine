@@ -1,7 +1,7 @@
 const mcServer = require('flying-squid')
 
 mcServer.createMCServer({
-  motd: 'A Minecraft Server \nRunning flying-squid',
+  motd: 'The Orthoverse \nProvided by Flying Squid',
   port: 20565,
   'max-players': 10,
   'online-mode': false,
@@ -13,7 +13,7 @@ mcServer.createMCServer({
     name: 'orthogen',
     options: {
       seed: 100,
-      version: '1.16.1'
+      version: '1.15.2'
     }
   },
   kickTimeout: 10000,
@@ -28,5 +28,5 @@ mcServer.createMCServer({
   },
   'everybody-op': true,
   'max-entities': 100,
-  version: '1.16.1'
+  version: '1.15.2'
 })
