@@ -1,6 +1,47 @@
 {
   "0:0" : {
     "feature" : "113311103301333333333333103301113311",
-    "function" : "henge"
+    "function" : "henge",
+    "name": "Orthohenge"
+  },
+  "-30:-30" : {
+    "feature" : "10bb0105bb5055335555335545bb5444bb440001",
+    "function" : "henge",
+    "name": "Luodenhenge"
+  },
+  "0:-30" : {
+    "feature" : "2c70a2c179f0c933f3253341b337a07e1d62ecc0",
+    "function" : "henge",
+    "name": "Pohjanhenge"
+  },
+  "30:-30" : {
+    "feature" : "3aaaaa333333bb33bbbb33bb3333333aaaaa0001",
+    "function" : "henge",
+    "name": "Koillisenhenge"
+  },
+  "-30:0" : {
+    "feature" : "2ce7b0158d20d333ee83335861ee6c214b2e285c",
+    "function" : "henge",
+    "name": "Lännenhenge"
+  },
+  "30:0" : {
+    "feature" : "ffbbfffabb3faa3333aa33338abb3889bb980002",
+    "function" : "henge",
+    "name": "Idänhenge"
+  },
+  "-30:30" : {
+    "feature" : "0x2624eaa10cbe330710333dcb1e3bdbf10a601b1c",
+    "function" : "henge",
+    "name": "Lounaanhenge"
+  },
+  "0:30" : {
+    "feature" : "ffaaa1faaa00bb33bbbb33bbf55500ff55500002",
+    "function" : "henge",
+    "name": "Etelänhenge"
+  },
+  "30:30" : {
+    "feature" : "5a0db81065d1723365d23342cc816f80213c4b7e",
+    "function" : "henge",
+    "name": "Kaakkonhenge"
   }
 }
