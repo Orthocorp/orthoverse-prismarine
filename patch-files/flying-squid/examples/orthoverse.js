@@ -7,7 +7,7 @@ const serv = mcServer.createMCServer({
   'max-players': 10,
   'online-mode': false,
   logging: true,
-  gameMode: 0,
+  gameMode: 3,
   difficulty: 1,
   worldFolder: 'world',
   generation: {
