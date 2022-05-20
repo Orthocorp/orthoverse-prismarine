@@ -7,7 +7,7 @@ const serv = mcServer.createMCServer({
   'max-players': 10,
   'online-mode': false,
   logging: true,
-  gameMode: 1,
+  gameMode: 0,
   difficulty: 1,
   worldFolder: 'world',
   generation: {
@@ -31,16 +31,6 @@ const serv = mcServer.createMCServer({
   'max-entities': 100,
   version: '1.15.2'
 })
-
-setInterval(function() {
-  if (serv.players) {
-  serv.players.forEach((player, i) => {
-    console.log("Player: " + i + "\n")
-    console.log(Math.floor(player.position.x))
-    console.log(Math.floor(player.position.z));
-  });
-  }
-}, 10000)
 
 // teleport check
 setInterval(function() {
