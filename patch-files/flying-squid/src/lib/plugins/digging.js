@@ -7,6 +7,7 @@ module.exports.player = function (player, serv, { version }) {
   }
 
   player._client.on('block_dig', async ({ location, status, face }) => {
+    if (player.gameMode > 1) return;
     if (status === 3 || status === 4) {
       const heldItem = player.inventory.slots[36 + player.heldItemSlot]
       if (!heldItem || heldItem.type === -1) return
