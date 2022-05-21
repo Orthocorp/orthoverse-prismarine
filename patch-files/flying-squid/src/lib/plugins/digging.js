@@ -7,7 +7,6 @@ module.exports.player = function (player, serv, { version }) {
   }
 
   player._client.on('block_dig', async ({ location, status, face }) => {
-    if (player.gameMode > 1) return;
     if (status === 3 || status === 4) {
       const heldItem = player.inventory.slots[36 + player.heldItemSlot]
       if (!heldItem || heldItem.type === -1) return
@@ -55,13 +54,17 @@ module.exports.player = function (player, serv, { version }) {
       if (currentlyDugBlock.type === 0) return
       if (status === 0) {
         if (player.gameMode === 1) {
+          console.log("Creative digging entered")
           creativeDigging(pos)
         } else if (player.gameMode === 0) {
+          console.log("Survival digging entered")
           startDigging(pos)
         }
-      } else if (status === 1) {
+      } else if (status === 1 || player.gameMode >= 2) {
+        console.log("Trying to cancel digging")
         cancelDigging(pos)
       } else if (status === 2) {
+        console.log("Completing digging")
         completeDigging(pos)
       }
     }
