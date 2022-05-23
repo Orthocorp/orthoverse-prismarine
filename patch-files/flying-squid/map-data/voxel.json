@@ -2,7 +2,7 @@
     "0:0": [
         "0xdecaf9eb81d2e2289aad58f4df641a5a44bd84ff",
         "Orthohenge",
-        15
+        7
     ],
     "-5:-3": [
         "0x98e6e76e7f466c41085f8f54ee954530df0eec29",
@@ -5121,7 +5121,7 @@
     ],
     "30:-30": [
         "0x3aaaaa333333bbbbbbbbbbbb3333333aaaaa0001",
-        "Koillinsenhenge",
+        "Koillisenhenge",
         0
     ],
     "-30:-29": [
@@ -5479,9 +5479,24 @@
         "Gopdokitina",
         2
     ],
-    "-32:36": [
+    "-2:36": [
         "0xf363ac52bdd0fd77ce8c9c74f639e05ccff33556",
         "Kimpanirbia",
+        0
+    ],
+    "28:36": [
+        "0x88a451e73ffa518ce97517c9e0b1913665801744",
+        "Parmahiany",
+        0
+    ],
+    "-32:36": [
+        "0x05310c5594a3c961f212308317ff3a4fdd8f82af",
+        "Nortasdor",
+        2
+    ],
+    "-1:6": [
+        "0x8dbf304e3f6b3cfd989f68334ed7162348d26163",
+        "North Gilvihidia",
         0
     ]
 }
