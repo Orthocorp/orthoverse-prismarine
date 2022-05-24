@@ -44,6 +44,50 @@ module.exports.player = function(player, serv) {
           player.teleport(new Vec3(xStor, player.position.y + 1.5, zStor));
           z = x = jump + 1;
         }
+
+        // northwest
+        if (((Math.floor(xStor) === 36+x) && (Math.floor(zStor) === 36+z)) ||     
+            ((Math.floor(xStor) === 37+x) && (Math.floor(zStor) === 37+z))) {
+          zStor = zStor + 15.5 - jump;
+          xStor = xStor + 15.5 - jump;
+          if (zStor < - 3000 ) {zStor = zStor + 3*jump}
+          if (xStor < -3000 ) {xStor = xStor + 3*jump}
+          player.teleport(new Vec3(xStor, player.position.y + 1.5, zStor));
+          z = x = jump + 1;
+        }
+        // southwest
+        if (((Math.floor(xStor) === 36+x) && (Math.floor(zStor) === 59+z)) ||     
+            ((Math.floor(xStor) === 37+x) && (Math.floor(zStor) === 58+z))) {
+          zStor = zStor - 15.5 + jump;
+          xStor = xStor + 15.5 - jump;
+          if (zStor > 3000 ) {zStor = zStor - 3*jump}
+          if (xStor < -3000 ) {xStor = xStor + 3*jump}
+          player.teleport(new Vec3(xStor, player.position.y + 1.5, zStor));
+          z = x = jump + 1;
+        }
+
+        // northeast
+        if (((Math.floor(xStor) === 58+x) && (Math.floor(zStor) === 37+z)) ||     
+            ((Math.floor(xStor) === 59+x) && (Math.floor(zStor) === 36+z))) {
+          zStor = zStor + 15.5 - jump;
+          xStor = xStor - 15.5 + jump;
+          if (zStor < -3000 ) {zStor = zStor + 3*jump}
+          if (xStor > 3000 ) {xStor = xStor - 3*jump}
+          player.teleport(new Vec3(xStor, player.position.y + 1.5, zStor));
+          z = x = jump + 1;
+        }
+        // southeast
+        if (((Math.floor(xStor) === 58+x) && (Math.floor(zStor) === 58+z)) ||     
+            ((Math.floor(xStor) === 59+x) && (Math.floor(zStor) === 59+z))) {
+          zStor = zStor - 15.5 + jump;
+          xStor = xStor - 15.5 + jump;
+          if (zStor > 3000 ) {zStor = zStor - 3*jump}
+          if (xStor > 3000 ) {xStor = xStor - 3*jump}
+          console.log(xStor, zStor)
+          player.teleport(new Vec3(xStor, player.position.y + 1.5, zStor));
+          z = x = jump + 1;
+        }
+
       }
     }
   })
