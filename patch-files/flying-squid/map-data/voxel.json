@@ -4,10 +4,3060 @@
         "Orthohenge",
         7
     ],
-    "999:999": [
-        "0x51e1886cd4becc1fc9878d4f58f7bacb05ce7d2e",
-        "Sorvikitoli",
+    "-5:-3": [
+        "0x98e6e76e7f466c41085f8f54ee954530df0eec29",
+        "Lemvastsia",
+        0
+    ],
+    "25:26": [
+        "0x9ad9fc40c8dbdd68b28bd7fc7ad7fcb9548dc7ef",
+        "Dasherdor",
+        0
+    ],
+    "1:-29": [
+        "0xa36db7211c323ef3123efbab41b8f0dde6956da2",
+        "Oltaria",
+        10
+    ],
+    "31:1": [
+        "0x2ccc96b3690f88f05b1b99319c4ecfce033dddd5",
+        "Telastala",
+        9
+    ],
+    "31:31": [
+        "0x1762d89f821f4f90887f79906cfe46983adb760c",
+        "Vangcanina",
+        0
+    ],
+    "-29:31": [
+        "0xead6cca19fdd00035106aa0b5e7d852aa1c68968",
+        "Belforsance",
+        1
+    ],
+    "1:0": [
+        "0x4c9dba5fbbfddf8e006f28d0534f918d8fcf4daa",
+        "Parnirada",
+        0
+    ],
+    "-29:-30": [
+        "0x0419408d3fd7e3e3f0ddfbc03dd135af15d56cd8",
+        "Vorforsnia",
+        0
+    ],
+    "1:-30": [
+        "0xff5f6a455eb48b3475d11a6db686935aaa36d31c",
+        "Kargvanlia",
+        0
+    ],
+    "31:-30": [
+        "0xd191441efd409fb3ddf1992b0af2f9955d447c97",
+        "Lemsonize",
+        0
+    ],
+    "-29:0": [
+        "0xc99bd88526a29f574d297a931f8232b53b5670dd",
+        "Norfaraly",
+        0
+    ],
+    "31:0": [
+        "0xb923e795ac57f0bcca4bb7bf2dd058f51bf1f2c9",
+        "Kargtarala",
+        0
+    ],
+    "-29:30": [
+        "0x3806a8e4c942461307020474c2e0dcc43fa7fac1",
+        "Iliastaly",
+        0
+    ],
+    "1:30": [
+        "0xba97a28db8abee987996432339b7a7f6dee188cc",
+        "Vorgordor",
+        0
+    ],
+    "1:31": [
+        "0x91ce876ee05fe4ebba3843f96bdaf5d3cdd4de60",
+        "Lemennia",
+        1
+    ],
+    "1:-1": [
+        "0xc7d4a159f0dc39a9fe3cc201bffa81e6d7973428",
+        "Jezandel",
+        0
+    ],
+    "1:-31": [
+        "0x88d19b31f45e275508d616dce198830445501561",
+        "Jezilsia",
+        0
+    ],
+    "31:-31": [
+        "0xce5cdf946ee3eddda51e6d4abc5fcc80bd71f828",
+        "Ilirimain",
+        0
+    ],
+    "-30:31": [
+        "0x2830b5a3b5242bc2c64c390594ed971e7ded47d2",
+        "Dundallia",
+        4
+    ],
+    "31:-29": [
+        "0x75b1fdb8ebe12750765b945c634b122ee3beb466",
+        "Dashnirtria",
+        10
+    ],
+    "31:-1": [
+        "0x86894b45fa5543eed3c57b031cac574698f358dc",
+        "Kargselada",
+        0
+    ],
+    "-29:29": [
+        "0x2c0d351e5b58722676da689a4c2b7cfe68a6052e",
+        "Lemnirize",
+        0
+    ],
+    "1:29": [
+        "0x2b021a68a192beb820529ef382efc06815f32baf",
+        "Dashundaria",
+        0
+    ],
+    "31:29": [
+        "0x60515c2da6c76ef0b092534fa5be84b07e4da689",
+        "Fangwanina",
+        0
+    ],
+    "0:-1": [
+        "0x43f155fde219fdfccd58b08c6d0f52f9ed43d162",
+        "Norcanland",
+        9
+    ],
+    "-29:1": [
+        "0xbd3c84f7307a304c46072aca72f35e2b7b910b18",
+        "Hathania",
         2
+    ],
+    "-30:-31": [
+        "0xf7af9db60c5308d5aa56ea1aedf7edd6a8b366bd",
+        "Westmorain",
+        0
+    ],
+    "0:-31": [
+        "0x0b5f816fcc571324f901ec597141e5d0f053691f",
+        "Mormorala",
+        0
+    ],
+    "30:-31": [
+        "0x6cc159fde31d92334ada3ed5c0665cbacbc044a9",
+        "Norcorance",
+        0
+    ],
+    "31:30": [
+        "0xf745db08f52633a186eeb590219c9995201914c8",
+        "Isvetico",
+        1
+    ],
+    "-30:-1": [
+        "0xf2cbb9fb1affcb6596b0572d44a5a8f156789823",
+        "Lanramala",
+        0
+    ],
+    "30:-1": [
+        "0x38106f0c4af7aad085e7948def430581243654ce",
+        "Mavramina",
+        0
+    ],
+    "-30:29": [
+        "0x92b3576535ea246965bc1883a9083a31b2d1ecc4",
+        "Vorvetaly",
+        0
+    ],
+    "-29:-1": [
+        "0x156f93153484f29fc611cd524a005f0e16ddcd1f",
+        "Vorillia",
+        1
+    ],
+    "0:29": [
+        "0x09430565e3a38884fedd42e5fd0e05656f7b24b2",
+        "Vorcorili",
+        0
+    ],
+    "-1:-1": [
+        "0xa5945dc6972cf17c8abf0a6410a799b94b189bb8",
+        "Unnarmark",
+        0
+    ],
+    "-31:-31": [
+        "0x46ad685398266a9f4860efc7a71b17af3c9d39db",
+        "Dunerico",
+        0
+    ],
+    "-1:-31": [
+        "0xb6925f96eda641c5d683ec8f2922ac4c034a8318",
+        "Lemsizsia",
+        0
+    ],
+    "29:-31": [
+        "0x4f325de1febc5f2e7506425ca7cc9eda3d8498e1",
+        "Felrimmark",
+        0
+    ],
+    "29:-1": [
+        "0xc8c9a1ec80382a81e7c81bf019cf34fae27b255e",
+        "Sorenbia",
+        0
+    ],
+    "29:29": [
+        "0x3413c3a0957c6d542dbdad41d6170e93cffd0ca2",
+        "Arvetdel Magna",
+        0
+    ],
+    "-1:0": [
+        "0xd7758d5936672ed05a6d128b9e76293578d931bf",
+        "Jeztorina",
+        0
+    ],
+    "-31:-30": [
+        "0x34be15adbbcff56abd05bea96c95b483ff9454df",
+        "Nornirala",
+        0
+    ],
+    "-31:29": [
+        "0xed50b7114a69c69cbbb9a38d234d1514fd952413",
+        "Rothramtria",
+        1
+    ],
+    "-1:-30": [
+        "0x540cb04ebab67e05a620b97bb367ac5e4ed68f09",
+        "Unhosico",
+        0
+    ],
+    "29:-30": [
+        "0x01c8570dc64bcbb4f5868369f6ba4e57da2fb777",
+        "Nortordor",
+        0
+    ],
+    "-31:0": [
+        "0x9c9feeb6f792c79f813f1959e6daf0e9afbfd3c6",
+        "Westnaria",
+        0
+    ],
+    "29:0": [
+        "0xb033a55ab756c4633bd71405582f63f9b08f6a05",
+        "Kimfurico",
+        0
+    ],
+    "-31:30": [
+        "0xb8d05f366674529b1d4725a57b010ab802a76be4",
+        "Ontormark",
+        0
+    ],
+    "-1:30": [
+        "0x2a93bfe8c532d6b4b99babed6f815aa4779a72e2",
+        "Nasvetia",
+        0
+    ],
+    "29:30": [
+        "0xb018ac399491b9320a456ad0e696d2032b6badd3",
+        "Rothilland",
+        0
+    ],
+    "-1:1": [
+        "0x2f29c316e0fff43a236fb45a5c1233ce25e4f981",
+        "Westenala",
+        0
+    ],
+    "-31:-29": [
+        "0x4d0ea7be1ac2e95cbd3b33c7980522aee596a28c",
+        "Lemramia",
+        0
+    ],
+    "-1:29": [
+        "0xa44942e38db7198dedbc4b70ec188b84b3490aee",
+        "Hersizala",
+        2
+    ],
+    "-1:-29": [
+        "0x9d3dcc92b19eb66ae50e3b9a9b6efc44a0e3d34d",
+        "Ganburico",
+        0
+    ],
+    "29:31": [
+        "0x9012825677fa66b894e1f4227ea2e90357431c6e",
+        "Gilxiorany",
+        0
+    ],
+    "-1:2": [
+        "0x95b0cb330519db2bcaf74b90c1bde3d62f673718",
+        "Lanvetland",
+        0
+    ],
+    "-31:-28": [
+        "0x7533e4f6110e12b685801352049fb3e5222d1cc8",
+        "Gilundarico",
+        0
+    ],
+    "30:1": [
+        "0xe9b4a11f3447b908f0680b97982d616af3066ead",
+        "Morilnia",
+        5
+    ],
+    "-1:-28": [
+        "0xb81d84d516fc6147232b9f31f07734dcf0c3f3ed",
+        "Norwanlia",
+        0
+    ],
+    "29:-28": [
+        "0xc57c2ae436d9525c5288c8fa96ce8a38a9a244fb",
+        "Ilitorland",
+        0
+    ],
+    "-31:2": [
+        "0x9d4831ca90a4eaba0fbff85bd70ddf3b3535130d",
+        "Coranmark",
+        0
+    ],
+    "29:2": [
+        "0x0b81db72058827057571f17d1b427b4717e7b619",
+        "Penvetize",
+        0
+    ],
+    "-31:32": [
+        "0x47b73c9016c9b64bcdb86b4108b5bc9835e6341d",
+        "Dashwantria",
+        0
+    ],
+    "0:2": [
+        "0xde733a3768a7cb8fee8000acbba8748e9cfad33f",
+        "Parernia Magna",
+        0
+    ],
+    "30:-28": [
+        "0x4036d67ac8ac3684f18f9b88dd9f7ff2e46a6928",
+        "Corerdel",
+        0
+    ],
+    "-30:2": [
+        "0x68f4b917739241fa6af7164ae718875ff2760b22",
+        "Cairairia",
+        0
+    ],
+    "30:2": [
+        "0xfaaa6bba354c535a827c954fd94a7346c5238a40",
+        "Ganvetdel",
+        0
+    ],
+    "-30:32": [
+        "0xa318000db9ea33d27473ade203078c64b479bdb3",
+        "Norganaly",
+        0
+    ],
+    "0:32": [
+        "0xbd7be38acc4a082dc6da849c0eec1bc581b2613f",
+        "Sagmoria",
+        0
+    ],
+    "-1:32": [
+        "0x77444d7c9355e550483600cb957bd88bb732d171",
+        "Erenada",
+        1
+    ],
+    "29:-29": [
+        "0x3f6cfcdb7fbf6f503803ac5d19c10d5fee063181",
+        "Telvastnia",
+        2
+    ],
+    "30:32": [
+        "0x57d4b135667a7af6b6946e700e1708500c73a683",
+        "Nortoria",
+        0
+    ],
+    "1:2": [
+        "0xde9dc65512a7be6d846d6f2be942b09affeff497",
+        "Fangarbnia",
+        0
+    ],
+    "29:32": [
+        "0xd330349f7015dfb560b7f7a05895494d90f7e517",
+        "Vangorbden Magna",
+        1
+    ],
+    "-31:1": [
+        "0xfe4efe476f9f5742a539f509f62fc49941f375b1",
+        "Morforsala",
+        10
+    ],
+    "29:1": [
+        "0xfff37b9427c715fd6c6b319586812d8818eda940",
+        "Ilifurina",
+        10
+    ],
+    "-29:-28": [
+        "0x4311dcbb365683867f637b065aa6617d03c9f875",
+        "Hertorico",
+        0
+    ],
+    "1:-28": [
+        "0xf07b1d2dfa5a703fac107030aa0fb23d3b69e409",
+        "Fangselaly",
+        0
+    ],
+    "31:-28": [
+        "0x07a75178f95389f8e1bebdca4d8d0dd2c1e62969",
+        "Arastain",
+        0
+    ],
+    "-29:2": [
+        "0xf65ac87b4dba850bed00e74f1c698f0986d86f43",
+        "Dunwenaly",
+        0
+    ],
+    "31:2": [
+        "0x863ccd56b516f63a66a6e62c16fd992eaa3fc16f",
+        "Gildalsia",
+        0
+    ],
+    "-30:-28": [
+        "0x100ec1084ab4973e197c25ea084d9051e1db3786",
+        "Isramlia",
+        1
+    ],
+    "0:-28": [
+        "0xd6aacf84f1d3f9d575ca976ac0f03e43de108753",
+        "Mavberili",
+        1
+    ],
+    "-29:32": [
+        "0x666d1dcd0c5a3467dd2f16ee6015bea1b933a29a",
+        "Fangmoraly",
+        0
+    ],
+    "1:32": [
+        "0x06ff49d2cc68c8103e0a8a43356552436a94d00f",
+        "Kimmorbia",
+        0
+    ],
+    "31:32": [
+        "0x934c80e3a3e9136ee3558950385b66ac5e7d9bf7",
+        "Herairiti",
+        0
+    ],
+    "2:2": [
+        "0x540873d253ef75f62520075e48ddf8a1112b0750",
+        "Kimcornia",
+        0
+    ],
+    "-28:-28": [
+        "0x705360aa5ee97311e91c0375a27a18527538e3a4",
+        "Kimvaniti",
+        0
+    ],
+    "32:-28": [
+        "0x70c6cbc469f2b13ee7a78e10e889e70c4beb23eb",
+        "Sorastia",
+        0
+    ],
+    "-28:2": [
+        "0x5c5e31e896a053b626238e79c601ddd32f2abc01",
+        "Nastorize",
+        0
+    ],
+    "32:2": [
+        "0x8509cbdca048c136f572eee0b2c844f1c9da96c6",
+        "Urorbica",
+        0
+    ],
+    "-28:32": [
+        "0x30b610a5fd33d6a798d411ab8debde5ba291c4f4",
+        "Fangsondor",
+        0
+    ],
+    "2:32": [
+        "0xf3e4d421e826a03848254095455ce818ace25af6",
+        "Olgorico",
+        0
+    ],
+    "2:1": [
+        "0x8181aa1daa7deb8a068b83b5344997313e6fe8f0",
+        "Kargramance",
+        0
+    ],
+    "-28:-29": [
+        "0x49093ba53d1116cc384ada5bcda52e1802c0d193",
+        "Fangsoniti",
+        0
+    ],
+    "2:-29": [
+        "0x4058aaebfe0698946303be550b7c215cff023212",
+        "Rashrimmia",
+        0
+    ],
+    "32:-29": [
+        "0xbab60caa1cbbc3c99f86988ad99167b3179a1e2d",
+        "Kimtarili",
+        0
+    ],
+    "32:1": [
+        "0xbb9b56310cef65daa5b61a236faf15dac2488441",
+        "Jezmornia",
+        0
+    ],
+    "-28:31": [
+        "0x32030b31cf91245969c9c7f3e8df1a2be89a28b2",
+        "Jezforsland",
+        0
+    ],
+    "2:31": [
+        "0x3a6d1ec3e139deb6e4ca285c35a8607d1090b06f",
+        "Rashburtria",
+        0
+    ],
+    "32:31": [
+        "0x22b396fc049073c1a10f4c1faf98ccf0849289cd",
+        "Mavilica",
+        0
+    ],
+    "2:0": [
+        "0xebdc31b0f03dda022502c1fe89854b80372e407b",
+        "Quilanada",
+        0
+    ],
+    "-28:-30": [
+        "0x9d1ec92566ba9fb8b2fb00d0a1fe66e5ebf834a0",
+        "Taztoraly",
+        0
+    ],
+    "2:-28": [
+        "0x5f25a7372cec2e1ef6724ca3d2e7c052f06a7c8c",
+        "Parnatmark",
+        1
+    ],
+    "2:-30": [
+        "0xf3ec230a6728742e47f4c1edd15a8f352baba1fb",
+        "Kimnarize",
+        0
+    ],
+    "32:-30": [
+        "0x46e00215c00eb835c2d2843f5eb161cff93ef2c3",
+        "Voranico",
+        0
+    ],
+    "-28:0": [
+        "0x35bd520b0e5c37e8aa7f29abfbdc1c13f302a393",
+        "Lanrimmark",
+        0
+    ],
+    "32:0": [
+        "0x693ea759f872861add34ddbe3967c75122cd0b05",
+        "Jezeraly",
+        0
+    ],
+    "-28:30": [
+        "0xf13abd73fbb95effa1064e81951ce8e8b9f85e4e",
+        "Rashmariti",
+        0
+    ],
+    "2:30": [
+        "0x7d3a40ced915ff51727e942bc2d00ee00fab1694",
+        "Giluirden",
+        0
+    ],
+    "32:30": [
+        "0xdcea28ea24eda4ff089c593973a8100a42c08720",
+        "Pendasden",
+        0
+    ],
+    "2:-1": [
+        "0x6a722895c8f9c5e26594339d2e474a3451229851",
+        "Kargertria",
+        0
+    ],
+    "-28:-31": [
+        "0x3ac77688661105723fedb76b45ec6b821dcdc3e0",
+        "Quiltoriti",
+        0
+    ],
+    "2:-31": [
+        "0xd64d37bdad19aa59d9c43ff4f756f19809bfd761",
+        "Kargwenland",
+        0
+    ],
+    "-28:-1": [
+        "0x121892ab01c691b378dff4c048098fedc862c028",
+        "Lanbermia",
+        0
+    ],
+    "32:-1": [
+        "0x733c16e119bf74d09b5c9a2307c8c5f807b38c1b",
+        "Feluirnia",
+        0
+    ],
+    "2:29": [
+        "0xd492c4971ef568f33a1255a8b346f572ba65173b",
+        "Morbarance",
+        0
+    ],
+    "32:29": [
+        "0x0f35e171edadcde01d50c3fffa75b33c981679ef",
+        "Olsizance",
+        0
+    ],
+    "-28:-32": [
+        "0x6d075df8e96c8b9aa84a69ca1a16249b7c20459f",
+        "Isganlia",
+        0
+    ],
+    "2:-32": [
+        "0xc1281cb50e5219fea5e71b751d2ab178dcf390d0",
+        "Vorrimany",
+        0
+    ],
+    "32:-32": [
+        "0x0773a971f9504f70349864369da509bc9919a061",
+        "Olastbia",
+        0
+    ],
+    "-28:-2": [
+        "0xcb28519d3987564ad4aae94d0073fb34ccca307f",
+        "Tazastala",
+        0
+    ],
+    "32:-2": [
+        "0x2a39ede78c377aa931b2b61ddae06b2a1c1125f8",
+        "Mornatina",
+        0
+    ],
+    "-28:28": [
+        "0xa0f160e0c45b6bb55386506fd70c933eb3068a36",
+        "Dashilili",
+        0
+    ],
+    "2:28": [
+        "0x401bac0f381c4255894aa125bba2b762e77cca58",
+        "Parerdel",
+        0
+    ],
+    "32:28": [
+        "0x3a6a54534fcc599c552b09145cefa078ee0e0f11",
+        "Dunvastlia",
+        0
+    ],
+    "1:-2": [
+        "0x6f7f4620cdd69d66537004e09e2db7364a781e2b",
+        "Nassonsia",
+        0
+    ],
+    "-29:-32": [
+        "0x30c95c13de4c8ec168018e38fc06cbe23510c91a",
+        "Telbardel",
+        0
+    ],
+    "31:-32": [
+        "0xb8fbc1ee1e9a8357e11862a3d7737db22e987dbc",
+        "Unbarany Magna",
+        0
+    ],
+    "31:-2": [
+        "0x94424ee28fb7923f2a14bf663461e71ca79b6cfb",
+        "Ganzumala",
+        0
+    ],
+    "31:28": [
+        "0x17ca104ece5c8f5d3f5244bc21fab3ee0892507b",
+        "Unrimmark",
+        0
+    ],
+    "0:-2": [
+        "0x56fc1a8ae009bb3469128dfeacaad6dd27e7b60a",
+        "Sagentria",
+        0
+    ],
+    "-28:29": [
+        "0xcf83824c792553ffc4edf2191758ea9b81854fea",
+        "Soruirada",
+        1
+    ],
+    "-30:-32": [
+        "0x4d5662d3c4e21517c79f145019ac05f544cd0918",
+        "Lanilany",
+        0
+    ],
+    "0:-32": [
+        "0x5c4138812a05575c927c414cdc8ca7bf8457825d",
+        "Jezhosance",
+        0
+    ],
+    "30:-32": [
+        "0x0108ade7cc2fd6a1f64ef769be98a9a82eaa7175",
+        "Mormornia",
+        8
+    ],
+    "-30:-2": [
+        "0xe7100e939ff1b793584a23d3dfee2e4f374420be",
+        "Herforsland",
+        0
+    ],
+    "-29:28": [
+        "0xb0ed8afc91eebf1befa2ea7ed6cd63d93ee47220",
+        "Mavbersia",
+        1
+    ],
+    "1:28": [
+        "0x7399dd78df79bad1fcf593cd2cbcffd745ade0ad",
+        "Arvastland",
+        1
+    ],
+    "-30:28": [
+        "0xb61acf614cf45969ab31684ced9ad15bf2f60019",
+        "Rothtardel",
+        0
+    ],
+    "0:28": [
+        "0x5388fb161b0269260f791096ce9dd3772bd950db",
+        "Westneria",
+        0
+    ],
+    "-1:-2": [
+        "0x8f626958ec428d258f6481b563126640f8aef54e",
+        "Isnataly",
+        0
+    ],
+    "-31:-32": [
+        "0xe4f1ffb476d5c3d10b270988527f2bde649c3a15",
+        "Urwanden",
+        0
+    ],
+    "-1:-32": [
+        "0x38f84e92b468a1885e73cedc9a4d5632de07eabb",
+        "Gandasbia",
+        0
+    ],
+    "29:-2": [
+        "0xf32422641a767d162345cf831cdd3b87dfeb7c7b",
+        "Urramsia",
+        0
+    ],
+    "-31:28": [
+        "0xb2ab4ab95d3dcd777ee920f5f08938df7d8fc80f",
+        "Felsizada",
+        0
+    ],
+    "-1:28": [
+        "0x52e62d8f7d68a986b88a017a950bcc4227b8be53",
+        "Cairwenbia",
+        0
+    ],
+    "-2:-2": [
+        "0xe8d30ad5ec74ae1732fe3793147d74b8dede6cda",
+        "Nornatmark",
+        0
+    ],
+    "-32:-32": [
+        "0xe91d08aff9b098e752d5d07bbc4c2cf0c040d3c3",
+        "Parastbia",
+        0
+    ],
+    "-2:-32": [
+        "0xf28566e0ed9baf2828d6493f7bfe82f95cb3d8f4",
+        "Dashsizain",
+        0
+    ],
+    "28:-32": [
+        "0x2083f7549de8d0c6ab7a357916b1bf6def5e66f0",
+        "Ersonize",
+        0
+    ],
+    "-32:-2": [
+        "0xbe3ff1d11f29fd8341f3175fdbaafbd02405f87f",
+        "Jezvastiti",
+        0
+    ],
+    "28:-2": [
+        "0xa8c1db5b021d1f4fdc4d91628c0bb3523996e023",
+        "Lansance",
+        0
+    ],
+    "-32:28": [
+        "0x07f31c9f53696aeac93501964a26cfe73b531b98",
+        "Vangcortria",
+        0
+    ],
+    "-2:28": [
+        "0x7d600fee9e4162c74a59c7ca3973342d8aa491c7",
+        "Unrimiti",
+        0
+    ],
+    "28:28": [
+        "0x452cbdb813e4d10ab72bae77062f792975fbe38a",
+        "Dashairlia",
+        0
+    ],
+    "-2:-1": [
+        "0x078b5c3604d2cd40e8a2a5a70e62e80e123182ec",
+        "Onilaly",
+        0
+    ],
+    "-32:-31": [
+        "0xa8047dce2a42968379e68870274ed2f534082edd",
+        "Gilhosaly",
+        0
+    ],
+    "2:-2": [
+        "0xa9ee2658e4df4d3ce5928deaa5d71b14a4d258f5",
+        "Isdasina",
+        2
+    ],
+    "-2:-31": [
+        "0x9673ac8dfa66238243d6d528c416376ef2957102",
+        "Vorselmia",
+        0
+    ],
+    "28:-31": [
+        "0x7d6423c5077b2540fafd6258ce93314048dbe41c",
+        "Taznardor",
+        0
+    ],
+    "1:-32": [
+        "0x2df20300d72e1d45437dc5324925764721aaf100",
+        "Arxiorsia",
+        2
+    ],
+    "-32:-1": [
+        "0x3ad16d6637befe4cd9cc79fb26518952e82a6693",
+        "Westnarsia",
+        0
+    ],
+    "28:-1": [
+        "0x913584b37e95adc92750a6c0f9e05944cfdd0245",
+        "Telbarance",
+        0
+    ],
+    "-32:29": [
+        "0x9dbe3dc4086bce032e2dcfdee1ecc6530b128bba",
+        "Sorerain",
+        0
+    ],
+    "-2:29": [
+        "0x73f5318483b289f08fd513c9a51687f480b84e30",
+        "Mavcorany",
+        0
+    ],
+    "-2:0": [
+        "0x441d26480b438c670719503fe27b8c9036e6bdd1",
+        "Nasmarili",
+        0
+    ],
+    "-32:-30": [
+        "0x6c7a67a447dbd87a05ef45387b307d4a098c31ee",
+        "Erxiordor",
+        0
+    ],
+    "-2:-30": [
+        "0x10977e22d1aaeb54e5a413f505774b324c141b31",
+        "Penundaria",
+        0
+    ],
+    "28:-30": [
+        "0x1831b5dda453f8de675b8340bdc7a8d36f46132b",
+        "Vorfromain",
+        0
+    ],
+    "-32:0": [
+        "0xa9e986877d7d01c93a8866de3830e2e7c853eead",
+        "Parwenance",
+        0
+    ],
+    "28:0": [
+        "0xf078059c0d54f1ed03c77d9f8a42a70950831f07",
+        "Sorsonlia",
+        0
+    ],
+    "-2:30": [
+        "0xe7b3a1fc63f4779994e46761f57def02c90c62c1",
+        "Mavendel",
+        0
+    ],
+    "28:30": [
+        "0x7a7eafd19a52f4e9e268ad6e008dc41322018370",
+        "Jezselany",
+        0
+    ],
+    "-2:1": [
+        "0x953bbd4240b2a904c87b7e06f1344b8129f990f9",
+        "Ganorbany",
+        0
+    ],
+    "-32:-29": [
+        "0x0cce22d7ec1d80781cc4aaf242a8b7d38fc30467",
+        "Parnatance",
+        0
+    ],
+    "-2:-29": [
+        "0x4256a9164b946e16baed337e5b3adf689ccb1f06",
+        "Westnerdel",
+        0
+    ],
+    "28:-29": [
+        "0x5ced482f6ea3db6a3480fa730461d82f24409538",
+        "Hathrimili",
+        0
+    ],
+    "-32:1": [
+        "0xd126fbaf6a30403b85f1e67d98750a0f9afba485",
+        "Parselica",
+        0
+    ],
+    "28:1": [
+        "0x8c2b195e2c9e171545e4d37d8b7a0c5a338deea6",
+        "Onnatico",
+        0
+    ],
+    "28:29": [
+        "0x651da61ec8c9512b816086835c7f90c485850b62",
+        "Lemertria",
+        1
+    ],
+    "-2:31": [
+        "0xc5ae424764ba8320c7ee4b4488192155c8307985",
+        "Morilaly",
+        0
+    ],
+    "28:31": [
+        "0xbfe4de3c57ba438423b5a25ec89d3fa626ede5bd",
+        "Urfuraly",
+        0
+    ],
+    "-2:2": [
+        "0x7201b1546c901dc012897b02a668872d00bf39b4",
+        "Ermorica",
+        0
+    ],
+    "-2:-28": [
+        "0x3188bb9c81d2199fcce0ae79d9d5221e8e2f9dad",
+        "Sorburaly",
+        0
+    ],
+    "28:-28": [
+        "0xf818e36fa7897a1b79b0f06f12bd754670299b62",
+        "Morxioriti",
+        0
+    ],
+    "28:2": [
+        "0x82d746d7d53515b22ad058937ee4d139ba09ff07",
+        "Parzilance",
+        0
+    ],
+    "-32:32": [
+        "0xf60da18265b7c6b6209a9ae9eb0494b83910a129",
+        "Kimvetala",
+        0
+    ],
+    "28:32": [
+        "0x68803f5dd3462c5f83ab8448a92125fbc051447e",
+        "Norairsia",
+        0
+    ],
+    "-2:3": [
+        "0xaf88097460d0ba2a99c04deb30e05ff21e0dd246",
+        "Soranize",
+        0
+    ],
+    "-32:-27": [
+        "0xfa1be40548f485e431fea18251bdef9fa10fa8bf",
+        "Fangustdel",
+        0
+    ],
+    "-2:-27": [
+        "0xd9e884b2e1151140495b089fd6b07d0296616198",
+        "Sagburden",
+        0
+    ],
+    "28:-27": [
+        "0xef7120b4e049cf25fc1734d37ac2ea1b2581ea4e",
+        "Urenland",
+        0
+    ],
+    "-32:3": [
+        "0x5c548483fa13d793c4e4879dc3920d87b95bae48",
+        "Lanselili",
+        0
+    ],
+    "28:3": [
+        "0xe1562939df9ef5fe102453c933f0462d457af647",
+        "Rothvastico",
+        0
+    ],
+    "-2:33": [
+        "0x3a49ac28faef502e1ddeaefb03d59282d2511112",
+        "Arselnia",
+        0
+    ],
+    "28:33": [
+        "0x787178491bb2fea50337f8d4f493d8309277bdb5",
+        "Olnerany",
+        0
+    ],
+    "-1:3": [
+        "0xa367073deaddcfacb0495cb84aff97592ba100fb",
+        "Vorhosance",
+        0
+    ],
+    "-31:-27": [
+        "0xf834617e1d391c753dd066f804d8f3452f155367",
+        "Gilwentria",
+        0
+    ],
+    "-1:-27": [
+        "0xe28dd44b633ad5a9fc89b8ee9b1dfbc465da3f2c",
+        "Rashenany",
+        0
+    ],
+    "29:-27": [
+        "0x57b231ed3339c52c096ce8e2e170b01b7ad6a93b",
+        "Tazentria",
+        0
+    ],
+    "-31:3": [
+        "0xcfc55953332b160e42c5753c1723daed8ea813bf",
+        "Dunenili",
+        0
+    ],
+    "29:3": [
+        "0xacb4b9e5a85d08dbf6138d3c3e87a6aec13d07c9",
+        "Kargustden",
+        0
+    ],
+    "-31:33": [
+        "0xfb7af5fc5029ba67739d15b1cca65cae5e04bf88",
+        "Maveniti",
+        0
+    ],
+    "-1:33": [
+        "0x38012eaf414bfe674d6dd071d854e0bca4e39b1c",
+        "Parundardor",
+        0
+    ],
+    "29:33": [
+        "0x8b42186ee3401d191116552ec65ca017001dfa22",
+        "Lemcorize",
+        0
+    ],
+    "30:-27": [
+        "0xf50476727032d1c8cc6f14871034349324c23138",
+        "Penorbia",
+        0
+    ],
+    "-30:3": [
+        "0xfbe849ea94aa5acd53c83776449620b1b51976db",
+        "Penilia",
+        0
+    ],
+    "30:3": [
+        "0x9a78855d2571532e22f7010628fbd4c180398ef4",
+        "Nordaliti",
+        0
+    ],
+    "-30:33": [
+        "0xd5246bdb05de2906099ec574f11f0993262def45",
+        "Telvetmia",
+        0
+    ],
+    "30:33": [
+        "0x0bd976f5499b6b5d5799b6b3365e774f81d66f62",
+        "Fanguirain",
+        0
+    ],
+    "1:3": [
+        "0x970e169e3cc3b7a0c377ef4710c31daef84d7657",
+        "Unmordor",
+        0
+    ],
+    "-29:-2": [
+        "0x7dd9e0ff2e9034e76d0ff63f7ad32b1fb208244c",
+        "Parvanica",
+        3
+    ],
+    "1:-27": [
+        "0xa282c9b761cd80b0bdd976ac73f424c01963b3fc",
+        "Cairberada",
+        0
+    ],
+    "31:-27": [
+        "0xce5342092c148eb8b7446076191b53cb728c7735",
+        "Jeznatmark",
+        0
+    ],
+    "-32:31": [
+        "0xfee1f466fcf8d7d5bf17002955f4e9c194f3b0e6",
+        "Westmorbia",
+        10
+    ],
+    "-29:3": [
+        "0x8a6eed55c77a2e9720e60528c180081034d7ca52",
+        "Fangnaria",
+        0
+    ],
+    "31:3": [
+        "0x53d1c9151aaa842b8d05b3364bda4be368c8a6a5",
+        "Vorramia",
+        0
+    ],
+    "-29:33": [
+        "0xf90dc5d08800e5dc68a2869e92e12b6e8fc9e47a",
+        "Isgorica",
+        0
+    ],
+    "1:33": [
+        "0x5cccac287f114c92127aac9123a80583a98d5e23",
+        "Arvastiti",
+        0
+    ],
+    "31:33": [
+        "0xf4e2b388490d1bd6009436815b1e092eb32e9735",
+        "Quiluirada",
+        0
+    ],
+    "0:33": [
+        "0x1eb695d7575eda1f2c8a0aa6edf871b5fc73ea6d",
+        "Parfursia",
+        1
+    ],
+    "-32:-28": [
+        "0xf54197dbf8218230a5b3d172927d229e66e695e7",
+        "Telertria",
+        2
+    ],
+    "2:-27": [
+        "0x0c2c449974d5e13485a1afa41e5854bbb43991e3",
+        "Olfromden",
+        0
+    ],
+    "-32:2": [
+        "0xaee530945325b5f4dbaa2b19455bd5a64bbe3fef",
+        "Ilicorada",
+        2
+    ],
+    "32:33": [
+        "0x01fb51f8a664f0f2b7cf8f6eee89f7c1b7e05ba1",
+        "Iswandel",
+        0
+    ],
+    "-27:-27": [
+        "0xe11ca121ffc10b45b5bf4f1c02056ce435bd2528",
+        "Olforsland",
+        0
+    ],
+    "30:-2": [
+        "0xdd1e16e9b7dd8f047b982c771a30b526c35e1bf0",
+        "Olfurance",
+        3
+    ],
+    "-27:33": [
+        "0x73be5d148a98ca0e83ac6fb6ab9bde0c808dcca8",
+        "Urhosbia",
+        0
+    ],
+    "3:33": [
+        "0xa25837c77901977638ff818034d51e6cb14e0ad7",
+        "Vanguirland",
+        0
+    ],
+    "-31:31": [
+        "0x0a4679137bbe5e589f280bff1638663fe59c3beb",
+        "Telnersia",
+        4
+    ],
+    "33:33": [
+        "0x215ad18dfe2cb3c152982d18b0556be953b7b2b3",
+        "Vorrimmark",
+        0
+    ],
+    "-1:31": [
+        "0x084efaa5079eaebd9d0a6f08af83976f9f8422a8",
+        "Fangnarico",
+        4
+    ],
+    "2:3": [
+        "0x4fff4edee02e48f97745f759e5f2a84e035e67c6",
+        "Westensia",
+        1
+    ],
+    "-31:-2": [
+        "0xa4edade797b3c429e07527b46eb0a9f60a4d4b8e",
+        "Mornarain",
+        3
+    ],
+    "-28:-27": [
+        "0x52731a7d7d90b6f96d510699d8945a24e4cd2e1b",
+        "Fangwenica",
+        1
+    ],
+    "3:2": [
+        "0xd45833fb4d5c8ba878820a7809b437cd50777a00",
+        "Lanwenmark",
+        0
+    ],
+    "-27:-28": [
+        "0x3ad65b36de772b5902c12bc0e602e35379b3637f",
+        "Onbarnia",
+        0
+    ],
+    "-32:33": [
+        "0xecf2fd0961f8ff38d657085ba2d18b0ebd3926d4",
+        "Jezberbia",
+        2
+    ],
+    "3:-28": [
+        "0xd09d2a4bef6c854cd0fc2eb6ed4715b1466a5890",
+        "Rashzumlia",
+        0
+    ],
+    "33:-28": [
+        "0xe2d2b1aef4bfeba63054d3ebaeb6a25618b54be9",
+        "Onilnia",
+        0
+    ],
+    "32:-27": [
+        "0x9ca3fd702efa630637cfafa8257e2a40660f3036",
+        "Nasvanany",
+        1
+    ],
+    "-28:3": [
+        "0x1b67f32cb4155dd49ed59b514ebf251ab7ce71d4",
+        "Erdasden",
+        1
+    ],
+    "-27:2": [
+        "0x9978ce2da916c36b5e15d7f2a656c921faadfb99",
+        "Fanguirsia",
+        0
+    ],
+    "32:3": [
+        "0x5b3a9a05fec4434c6182246576a425c4472a3ec0",
+        "Fangrimdel",
+        1
+    ],
+    "-28:33": [
+        "0x5281a4d9bc2b6b64ca66313ffb6dbbc3b6efd3f5",
+        "Rothnatili",
+        1
+    ],
+    "33:2": [
+        "0xcbfc8fe2dac2096e7ab5affc7112604962431699",
+        "Ganramia",
+        0
+    ],
+    "-27:32": [
+        "0xa5d779284f4a319621ec7ff1ca88479a6c1308e7",
+        "Arvastia",
+        0
+    ],
+    "-29:-29": [
+        "0x5a9b8026032db575b2b42af7853df193ad9adb25",
+        "Unenden",
+        5
+    ],
+    "0:3": [
+        "0x866f5da24591b2401f04c1f3dd0cbc799bb52fdf",
+        "Corzilland",
+        2
+    ],
+    "33:32": [
+        "0x08a5ae3656c5a0bb45318e48cc9a174aedbf32d2",
+        "Onfarance",
+        0
+    ],
+    "29:28": [
+        "0xfe4d069e5f88b749514d02819d37da729a770599",
+        "Unzumize",
+        3
+    ],
+    "3:1": [
+        "0x092a4dadbd81cb100675ff3e3e3bb9a2e1a51345",
+        "Norsiztria",
+        0
+    ],
+    "-30:-27": [
+        "0x9ae283842b626aa54b38db59d735e71d3fb66c13",
+        "Mavniria",
+        2
+    ],
+    "0:-27": [
+        "0xa501c4a54f5379370b440000322aa31cab584430",
+        "Fangvastain",
+        2
+    ],
+    "-27:-29": [
+        "0xf11cabfd8c201aa74435277a37c7fe8409f93d9e",
+        "Nornatbia",
+        0
+    ],
+    "3:-29": [
+        "0xde2a2911c86353ddf2d4f3859538f644af1d47e7",
+        "Rotherdor",
+        0
+    ],
+    "3:-27": [
+        "0x3bd760c9f98e3e0b1d9eb84b348df42a6cebb2a1",
+        "Belastsia",
+        1
+    ],
+    "33:3": [
+        "0x994efe065db3957d1c920aa336d813fbe1f942b8",
+        "Gilsizain",
+        1
+    ],
+    "33:-29": [
+        "0xb227514c69b8c82a96882e9e645deac72eca96c9",
+        "Sorastize",
+        0
+    ],
+    "-27:1": [
+        "0x9be05cb7919b393302cb3cdf2804eb0a3068629f",
+        "Cairberain",
+        0
+    ],
+    "-29:-27": [
+        "0x5def9901396be7ad56ba34a1b50822a9a63a72fc",
+        "Belastain",
+        2
+    ],
+    "3:31": [
+        "0x0e5d9665a4f23abdfad53f6127c74ba588c29468",
+        "Vorfromia",
+        0
+    ],
+    "33:31": [
+        "0xd6583368217ab8dc3ff4bd537a26f4b471d168f6",
+        "Dashburia",
+        0
+    ],
+    "3:0": [
+        "0xe17eb2f086d62b88dec53a15322e44c783027854",
+        "Arfarsia",
+        0
+    ],
+    "-27:-30": [
+        "0x730e3847aeb85d7d143a16eed9be8397ba2c1f20",
+        "Morbarize",
+        0
+    ],
+    "3:-30": [
+        "0x189cd6f032fd6e90c064d38b58ed106157902b1d",
+        "Arsada",
+        0
+    ],
+    "33:-30": [
+        "0x693b4935ab829c42dbee619c2a3b68af689ae692",
+        "Nornerany",
+        0
+    ],
+    "-27:0": [
+        "0xaf0e126d11161fd002200e980103b78470e660e4",
+        "Kargundarsia",
+        0
+    ],
+    "33:0": [
+        "0x54d4dd04264cb5517eb9c6d8bb1132b45f0c9637",
+        "Erfardel",
+        0
+    ],
+    "-27:30": [
+        "0x8f14e827dacf43ce47f4e3ea2be7e391db30187f",
+        "Vangramala",
+        0
+    ],
+    "33:30": [
+        "0x983e888467ead50616070c7f2ff6e990a6ec74ec",
+        "Mavnaraly",
+        0
+    ],
+    "2:33": [
+        "0x0e267fe1f0bc4541f760687605fb2a092aa63c17",
+        "Felanmark",
+        10
+    ],
+    "3:-1": [
+        "0x437518083ad7b8408f668e89356b019372341869",
+        "Isselnia",
+        0
+    ],
+    "3:3": [
+        "0x480821d6578de75444de12c868497d260f32fad9",
+        "Onfurden",
+        2
+    ],
+    "-32:30": [
+        "0x23a17fd14ce3c135016a64555aaebb2301998241",
+        "Jeztarain",
+        3
+    ],
+    "-27:-31": [
+        "0xee9bfd33364e589378e000875c682c648bb121f6",
+        "Lantormia",
+        0
+    ],
+    "3:-31": [
+        "0x2bac2e89fc5190b3ac5ab7c436bc5307fb8fbbf8",
+        "Rothmortria",
+        0
+    ],
+    "33:-31": [
+        "0x96845df5e87391d4a6cabd50a78e25b58a10e975",
+        "Fanggorili",
+        0
+    ],
+    "-27:-1": [
+        "0xe23b25a8056b91f38c2ca29afc95d4d52d8f05df",
+        "Isvetain",
+        0
+    ],
+    "-27:31": [
+        "0xd73722631540e3359513c31aab183cd7a9c90ac5",
+        "Telzilize",
+        1
+    ],
+    "33:-1": [
+        "0xc909b942aab051a4eb0384966516ef4112a02fb1",
+        "Ganrambia",
+        0
+    ],
+    "33:-27": [
+        "0xbd5318f6604cfa30d9ea85078b96a047dfa3d3cd",
+        "Gilandel",
+        2
+    ],
+    "-27:3": [
+        "0xae249efa7809a1c22d986cb5fad5605ea6df20d9",
+        "Kimusttria",
+        2
+    ],
+    "-27:29": [
+        "0x0dc3fe20dbd6d5ad2de2a5d9774b4345b81bff37",
+        "Nasnersia",
+        0
+    ],
+    "3:29": [
+        "0xc7f83c2ebc8d207c424036be2f32125005cb3c21",
+        "Gilnatden",
+        0
+    ],
+    "33:29": [
+        "0xade9a42dca171e587c29ce161592f9cb231aaccf",
+        "Fangselnia",
+        0
+    ],
+    "3:-2": [
+        "0x3e9fce7a0fb6bec578193737c649a82720e7a8a7",
+        "Corforsico",
+        0
+    ],
+    "3:32": [
+        "0xd2caa4be1a314d3bd8a9e4eb2161dffb3a9221e3",
+        "Lemramland",
+        2
+    ],
+    "32:32": [
+        "0xfcd991ba83bb0c10132ed03989e616916591a399",
+        "Gancorili",
+        4
+    ],
+    "-2:32": [
+        "0x1a7138fc2992a04e8f13f5a9c0116787259c47ae",
+        "Mavgania",
+        3
+    ],
+    "-27:-32": [
+        "0x1bec007ef90b5499c2899e648570940d2181a4c9",
+        "Gilastain",
+        0
+    ],
+    "-27:-2": [
+        "0x6249b71424de579e8c4d7b2255ea991d012c5040",
+        "Urdasmia",
+        0
+    ],
+    "33:-2": [
+        "0xe71685a5cbb7ab45407feb653b7b260862241ff8",
+        "Fangmarala",
+        0
+    ],
+    "3:28": [
+        "0x4eac028fd4fe262419bc30b1ca750f430d737a74",
+        "Cairfromico",
+        0
+    ],
+    "-28:1": [
+        "0x582c1688a0461e77a151fb18fc2078be80a67466",
+        "Quilorbsia",
+        12
+    ],
+    "33:1": [
+        "0x585f2a9cfdf536570e0e597ce30613498978de1d",
+        "Sorsonance",
+        2
+    ],
+    "3:-3": [
+        "0x5c8d04fef585edc5f0c8aae81a46357a5a2c40a3",
+        "Onvetada",
+        0
+    ],
+    "33:-32": [
+        "0x9dd75051991eecf9c2f17ce8ac42fdd656e691ca",
+        "Belastmia",
+        1
+    ],
+    "-27:-33": [
+        "0x4fa537718c024a7d61f3168422682cc97bb52234",
+        "Olnatia",
+        0
+    ],
+    "3:-33": [
+        "0xaaa4bdccbc660f053f783c0e9909295a26b2bf04",
+        "Ernatmia",
+        0
+    ],
+    "3:30": [
+        "0x8c3fdf5e9f998ebaca50da09735624d425d69cc8",
+        "Onforstria",
+        2
+    ],
+    "33:-33": [
+        "0xae5d90ec3dc45b345617c5112c4f96d963a9a472",
+        "Sorsondel",
+        0
+    ],
+    "33:-3": [
+        "0xe7ab10ce3d044bbd984f6f55bec573f4e79398fc",
+        "Gilsondel",
+        0
+    ],
+    "-27:27": [
+        "0x25cbfae62b35a3af7b91ee28856e21feeb9bca18",
+        "Lemnirance",
+        0
+    ],
+    "3:27": [
+        "0x3392bbccab8578c35c119d1e2e72c1f1960deeb1",
+        "Ernerada",
+        0
+    ],
+    "33:27": [
+        "0x8064eebd2d1ccd4290924665efc17c8f2da5bfc4",
+        "Kargsizdel",
+        0
+    ],
+    "2:-3": [
+        "0x6c8a38b22b473b3737b87656b92dacc17c798fe3",
+        "Sagnirnia",
+        0
+    ],
+    "-28:-33": [
+        "0x1aab5ad27515409cf96f8ee10c41e2fd8f0365dd",
+        "Kimzilden",
+        0
+    ],
+    "2:-33": [
+        "0x525adb68341f24ac29c1c25404a454c48bec135a",
+        "Dashilina",
+        0
+    ],
+    "-28:-3": [
+        "0x4c46ba3f922b8987e267e099ea39b87c73d14b26",
+        "Cairsili",
+        0
+    ],
+    "32:-3": [
+        "0x6d459582511ce2af6456b995c624beaee44799a5",
+        "Kimburdel",
+        0
+    ],
+    "2:27": [
+        "0x2b1eed3049eec63c56a4b8ba3a00aba58937a2da",
+        "Isuirsia",
+        0
+    ],
+    "32:27": [
+        "0x2e939b745e93ced1f3d892a3eaad910b54c72217",
+        "Sorvandor",
+        0
+    ],
+    "31:-33": [
+        "0xbca82017abc4d00cffe791af3242632a74a23efa",
+        "Cairnerdel",
+        0
+    ],
+    "3:-32": [
+        "0xea83a7a09229f7921d9a72a1f5ff03aa5ba096e2",
+        "Arsiti",
+        2
+    ],
+    "31:-3": [
+        "0x4a39e423d4c15d7e48b42fe4436843a9339b3061",
+        "Rashfromland",
+        0
+    ],
+    "-29:27": [
+        "0x7adceebc4410c2ab26697bf98fff3f843ae69828",
+        "Ilifromize",
+        0
+    ],
+    "31:27": [
+        "0xb4a7c1efd2e8adc73bd5747548099a0feaf62a20",
+        "Vangarbize",
+        0
+    ],
+    "0:-3": [
+        "0x8fbed6ebcbedadedd6e126823c7f78d8a6ad6c45",
+        "Rashmarden",
+        0
+    ],
+    "-27:28": [
+        "0x16bc0bf4934f24d3c35cfc81097afb64ab99fb81",
+        "Erenina",
+        2
+    ],
+    "-30:-33": [
+        "0xb27ac2ff7a32b3b6f180dcdf695c197faa8781be",
+        "Parramia",
+        0
+    ],
+    "0:-33": [
+        "0x5cb7ccb8280049c11af654ad13167a2d95f36477",
+        "Dashgorica",
+        0
+    ],
+    "30:-33": [
+        "0x0579c6285a429047d2c1758148a7da25f12811cd",
+        "Arhosaly",
+        0
+    ],
+    "-29:-3": [
+        "0xbf1fe7e73268da09bd1f412a23c08a1c39e436b0",
+        "Morsbia",
+        1
+    ],
+    "-30:-3": [
+        "0xf26ee6ba8a2bc9a0b985876baa7b2ab865ef4964",
+        "Ganhosili",
+        0
+    ],
+    "30:-3": [
+        "0x08492eaa6301b71aabe8c269f03663b6b6a2d116",
+        "Kimenland",
+        0
+    ],
+    "-1:-3": [
+        "0x4e68e4726412ef4dee57691a1f9b0f8f7f0e13c7",
+        "Penilaly",
+        0
+    ],
+    "-27:-3": [
+        "0x5b8a42fc0c151aa7f4f764b805abea1fc3516921",
+        "Mavmorden",
+        2
+    ],
+    "-31:-33": [
+        "0xd3193eeea394736d4f41d58636da676451b6bcdb",
+        "Unairdel",
+        0
+    ],
+    "-1:-33": [
+        "0x6ee192dba1e6011e654b9aadd184f99bfa98ead4",
+        "Telundarico",
+        0
+    ],
+    "-31:27": [
+        "0xdca875f1514152e3049761fe32c9782719a2f34b",
+        "Belburiti",
+        0
+    ],
+    "1:-3": [
+        "0xf6f92a1e3eee58e3717cf3c074185c9101e86b47",
+        "Lemrimsia",
+        10
+    ],
+    "1:-33": [
+        "0xe682da633e6b6cbbf9657916c80eece60b867a3c",
+        "Telrimain",
+        2
+    ],
+    "-1:27": [
+        "0xf516edcd3bafe856e5a8daad8a105222e967c172",
+        "Fangmarina",
+        0
+    ],
+    "29:27": [
+        "0xef43b410dcc1b21ea559787c6dbb4e624d6ff660",
+        "Quiltarland",
+        0
+    ],
+    "-2:-3": [
+        "0x5c06181645941012fc42c3ba662f77c195eef0e5",
+        "Westzildel",
+        0
+    ],
+    "-32:-33": [
+        "0x67f3d16a91991cf169920f1e79f78e66708da328",
+        "Ganbertria",
+        0
+    ],
+    "-2:-33": [
+        "0x58a3c1aac4c4482979c15cfed36928b1128cc306",
+        "Kimildel",
+        0
+    ],
+    "-31:-1": [
+        "0x766c94a76f3652b85358da0d5c039635e20c27d7",
+        "Hathforsmia",
+        5
+    ],
+    "28:-3": [
+        "0x37b3a26804c91098d5590d97d9844bd4a058a69f",
+        "Dashiltria",
+        0
+    ],
+    "-32:27": [
+        "0xa70a71c08bf2153674eb798df927d43b4eacdcbc",
+        "Nasniria",
+        0
+    ],
+    "-2:27": [
+        "0x41a64c110f5f6fa1a71eb803333c4aeffec0126b",
+        "Rothforsnia",
+        0
+    ],
+    "33:28": [
+        "0x132db8234171cc9d8a65853cf03d5c0f46c8867e",
+        "Rashundariti",
+        3
+    ],
+    "28:27": [
+        "0x47f343795058d1a5b05f0490b89c691ffbc39c88",
+        "Belenize",
+        0
+    ],
+    "28:-33": [
+        "0x87a6bf6f6cdf15d5f2eb1ff9a6a39f5f4e05c164",
+        "Mormorina",
+        1
+    ],
+    "-32:-3": [
+        "0xb6418ba9662e39d4acf4483a4877ccd4cd0b7aea",
+        "Jeztorsia",
+        1
+    ],
+    "-33:-33": [
+        "0xbfa98a20c132c7b55c9828be682b3d9e75ee56fb",
+        "Nasberia",
+        0
+    ],
+    "-3:-33": [
+        "0x46816d46868fe789873a60cc202a3f878f17a4bc",
+        "Lemfarnia",
+        0
+    ],
+    "27:-33": [
+        "0xc7759d32d668a648fec454266e65a7adc402ebe3",
+        "Kimwanbia",
+        0
+    ],
+    "-33:-3": [
+        "0xa5688baf900b93ae4a1886e3c7d4ef4e4cc81d7c",
+        "Paranain",
+        0
+    ],
+    "27:-3": [
+        "0x4f4b5b3e529b742a67f08c2dee6820aa6302d1e0",
+        "Westcanain",
+        0
+    ],
+    "-33:27": [
+        "0x37d5a8bd3e6c1cdbba45dda83dafe1b4ae3a871a",
+        "Kargrimlia",
+        0
+    ],
+    "-3:27": [
+        "0x60cbb2c9067917b4a547556f8758ac32cdd9eb0c",
+        "Beltorland",
+        0
+    ],
+    "-3:-3": [
+        "0xce7a325202a210b137dad2a0a26bed92afc50d35",
+        "Corsaly",
+        1
+    ],
+    "-33:-32": [
+        "0xf2c72b367b3538677b92ded1b1321a72054cc75f",
+        "Onnerance",
+        0
+    ],
+    "-3:-32": [
+        "0x50e04b6a9a35a69464860569460aaeb2f53ceb5d",
+        "Ganselance",
+        0
+    ],
+    "32:-33": [
+        "0x3ef7bf350074efde3fd107ce38e652a10a5750f5",
+        "Noranmark",
+        3
+    ],
+    "-28:27": [
+        "0xfaf7adba4dcbfe585071837129abc805d2cd093c",
+        "Ganwenain",
+        3
+    ],
+    "27:27": [
+        "0x20da8df0cf4121f4102afdcc0484baadd9fd4481",
+        "Arforsiti",
+        1
+    ],
+    "27:-2": [
+        "0x9fefd7c1f03ea741d3a9155b76e2c03ab59d97dc",
+        "Olanico",
+        0
+    ],
+    "-33:28": [
+        "0x0765241f5bbdab6b13c17f260f53d3853bfcd3b4",
+        "Mornirden",
+        0
+    ],
+    "-3:28": [
+        "0x93c750c82e40cc061165db56e6f6bc1ae3765d38",
+        "Arvanize",
+        0
+    ],
+    "27:-32": [
+        "0x8a1e029deb0d3ee6937347030904fe8680fe8d5f",
+        "Taznirada",
+        1
+    ],
+    "-33:-2": [
+        "0x43c2846492fa8d12287fda3609a03a7c9d3acffc",
+        "Ursany",
+        1
+    ],
+    "-3:-1": [
+        "0x515e2afbc324df76e2ec8d7fe69a261e1ce4c747",
+        "Lanenlia",
+        1
+    ],
+    "-33:-31": [
+        "0x3a57d26e8ee8709aff0ff852d84fc073ab169d17",
+        "Lemvanize",
+        0
+    ],
+    "-3:-31": [
+        "0x3f4ca538f22c23feeacdf4667dffa9a72c2a7903",
+        "Quilsmark",
+        0
+    ],
+    "-30:27": [
+        "0xffd7bef39a1aac64563359ab50353c77ab19ba91",
+        "Dunselia",
+        3
+    ],
+    "-33:-1": [
+        "0x9cb96d7d6748d8f21e14f1b8a57a6e65eae8eeb8",
+        "Fangnarica",
+        0
+    ],
+    "-3:-2": [
+        "0x77f167cdc43b967658eb8ae473f94402c1672986",
+        "Fangilain",
+        2
+    ],
+    "27:-1": [
+        "0x7ad3a7ae4c2fe67b2bb72b9cf67ee9f49bb46c99",
+        "Ontarnia",
+        0
+    ],
+    "-33:29": [
+        "0xe4cca9074aac4adf56bc680c47a5868bf04b8719",
+        "Hathramdel",
+        0
+    ],
+    "-3:29": [
+        "0x043cf0414ad2991e910e464e4f3e80f14d7cf0b9",
+        "Felramaly",
+        0
+    ],
+    "27:29": [
+        "0xd9e8fb1c5f74e56e1f90d0bf0d5543891dc9283d",
+        "Ilizummark",
+        0
+    ],
+    "-3:0": [
+        "0x25fd8f72e1149bcd6392f8ffb095caa2aa3f0def",
+        "Penburmark",
+        0
+    ],
+    "-33:-30": [
+        "0x8aa058381e4c4d1812664930d45dcc14a2caaab1",
+        "Quilbardel",
+        0
+    ],
+    "-3:-30": [
+        "0xf486ec417984e1ddd8ff6ead3e5d67ff8ed64887",
+        "Feluirlia",
+        0
+    ],
+    "-31:-3": [
+        "0x1d72c5814f65e7ce655f5b8ed4c5b26ac6f1fba4",
+        "Jezvastance",
+        3
+    ],
+    "29:-3": [
+        "0x632b06c3cd93826f7295f8483909b03bc831a447",
+        "Rashsondor",
+        11
+    ],
+    "27:-30": [
+        "0x4dede8c7c7d23ec3aa62562383a8d0d1355fd7f2",
+        "Vangnaraly",
+        0
+    ],
+    "-33:0": [
+        "0x3469bd3f851874c9bd5505003948ca1f0e0bbf72",
+        "Cairdalica",
+        0
+    ],
+    "27:0": [
+        "0xcc687d9eb289315e7c5fe2c385643c301f77afe8",
+        "Uncaniti",
+        0
+    ],
+    "-3:30": [
+        "0x88e794bd6baabf9aa212b092fefcbd42c4303df8",
+        "Kargmaria",
+        0
+    ],
+    "-3:-29": [
+        "0x664be931d68a1d35ace49267a76b26168f2c1828",
+        "Jezwanaly",
+        0
+    ],
+    "-33:30": [
+        "0x9ee68596c7fd5a06b584b19eeebd465027264da7",
+        "Lemnarada",
+        1
+    ],
+    "27:30": [
+        "0x20d4316680bbd262d9da9406451d9aaf7034c9f8",
+        "Westenili",
+        1
+    ],
+    "-33:-29": [
+        "0x209c0cede12277a4af883cbaf7fc18b4c2659296",
+        "Tazburany",
+        9
+    ],
+    "27:1": [
+        "0x60b04ae1c84500e4b3a63b108348168d9fa81cca",
+        "Felerden",
+        0
+    ],
+    "27:31": [
+        "0x3c1748c08e85364ad0d2b2100ec3518dd91e1279",
+        "Nasvanada",
+        0
+    ],
+    "-3:2": [
+        "0x9fb0c66ddf23d3fc27d51292bed4fe5976141ecd",
+        "Kargvastain",
+        0
+    ],
+    "-33:-28": [
+        "0xe61adec2a67f6d05b5f9038b8ebac2280274909f",
+        "Penwanina",
+        0
+    ],
+    "-33:1": [
+        "0xa8665b55b00a7df2c5c10c2536a5d774dc1a5ff7",
+        "Fangenany",
+        1
+    ],
+    "-33:2": [
+        "0x6c40a42b24c82d10bf0fc65decb9ae6d73346d9f",
+        "Dundasbia",
+        0
+    ],
+    "-3:1": [
+        "0xd2a17b04bd9e29f53919a6c808954faf421d0bf6",
+        "Ersizico",
+        2
+    ],
+    "-33:31": [
+        "0xc5aebfc4249a210fa93ad005720c8891e16a23bb",
+        "Sordasany",
+        1
+    ],
+    "27:2": [
+        "0x8a96c984b426027b792a706a632eda144c075a5f",
+        "Mavdasico",
+        8
+    ],
+    "-33:32": [
+        "0x6cfe0f1cfc110be97c4d5cc838f26c8f5ca08f17",
+        "Ilimoriti",
+        0
+    ],
+    "-3:32": [
+        "0xb93e35e879d94dc8ee5acc314d552bd8e6b7b1aa",
+        "Nasuirland",
+        8
+    ],
+    "27:28": [
+        "0x0a2d71e8989dd2719c8394588c33528f1e97a3d5",
+        "Naserada",
+        3
+    ],
+    "-3:-28": [
+        "0xd0c1e43c9fc360643ee40225d29d77514aec696a",
+        "Urforsdor",
+        1
+    ],
+    "27:32": [
+        "0xe52c619b53bfc79be2fc427e6f098631c78046d8",
+        "Rashcornia",
+        0
+    ],
+    "-33:-27": [
+        "0xd6321d7b0c8ad08caf93c1f9c9cb98dc50bafc3e",
+        "Dunmoraly",
+        0
+    ],
+    "-3:-27": [
+        "0xa84e92ae7cb92e0970a62c0192ec9a7c69017a20",
+        "Ontariti",
+        0
+    ],
+    "27:-27": [
+        "0xced6ed96f4cf8cde91bf714c2dd1f7761d80c03b",
+        "Lemilala",
+        0
+    ],
+    "-33:3": [
+        "0x5dc4437f97af66fd7628700638232996ef58e960",
+        "Hathnarina",
+        0
+    ],
+    "27:3": [
+        "0x3e45649c868335346de084ae706e5294ddf8b6c2",
+        "Sorfarain",
+        0
+    ],
+    "-33:33": [
+        "0x7c0e7ebcc9f0d93a57ce9df060632f8ef931fbb0",
+        "Iliastica",
+        0
+    ],
+    "-3:33": [
+        "0xc34e20dd3e4bd135a61af2575e763b4841d5c5b1",
+        "Vorrimdor",
+        0
+    ],
+    "27:33": [
+        "0x70442e7ea8714e05283577e64c7113d34e57336f",
+        "Gilustiti",
+        0
+    ],
+    "32:-31": [
+        "0xc930f1687425c4fdac1dcc235f2188237769499c",
+        "Dashfromada",
+        5
+    ],
+    "-3:4": [
+        "0xfeb65cc3fe7490e71d929f37b14b516db627b877",
+        "Rashrimmark",
+        0
+    ],
+    "-29:-33": [
+        "0x46bac855ceda31ad63874899338c087218fb765e",
+        "Fangrimia",
+        4
+    ],
+    "-33:4": [
+        "0xa18e653fcf5db1147c45f6b9ce3d51643aa75843",
+        "Cairforsden",
+        8
+    ],
+    "27:4": [
+        "0x72918d52e658a7ca7a7f86088397685784ae3d35",
+        "Corfarize",
+        0
+    ],
+    "-33:34": [
+        "0x99896586c6caeec9e41733974f6614ab4084eb77",
+        "Ontorany",
+        0
+    ],
+    "-3:31": [
+        "0xa9416735d59819daa461e2752604ae9722e1a0ae",
+        "Norzilbia",
+        2
+    ],
+    "-3:34": [
+        "0x83cb506ed2c58f604767ed13ab74e8dd3ce39402",
+        "Lemarbance",
+        0
+    ],
+    "27:-31": [
+        "0x00031a9829a11efa041c4383fbe0979dc6bbe1b4",
+        "Nasganiti",
+        3
+    ],
+    "27:34": [
+        "0xc2fe50e4e2a72346108527a815627dda4bbd165c",
+        "Ilicannia",
+        8
+    ],
+    "-2:4": [
+        "0x6fdcc8daaaff1e501d852a9f8571411f9b1ed562",
+        "Sagramala",
+        0
+    ],
+    "-32:-26": [
+        "0x850f383a90dc3db3cc71e212f112aedbca9cb5f3",
+        "Sagandel",
+        0
+    ],
+    "-2:-26": [
+        "0x8fff70e9da93449f7a74cedace12b37b34424d2f",
+        "Olramdor",
+        0
+    ],
+    "28:-26": [
+        "0xef80b63268980ca116f8c98c687a2e82aaf9d328",
+        "Kimerbia",
+        0
+    ],
+    "-32:4": [
+        "0x5a438dce6690b77acd4debb3d9c68d55ad690cd0",
+        "Giltorica",
+        0
+    ],
+    "28:4": [
+        "0x9b3d0c27702dacc7bfbc74a11dcf25a1ab548582",
+        "Vangorbden Parva",
+        0
+    ],
+    "-32:34": [
+        "0xe646136fa2e2124c7f56478fad8e05ae2ecb067d",
+        "Morarbany",
+        0
+    ],
+    "-2:34": [
+        "0x2d74b12b8b31df59902e5aafed000ab1406bfbaa",
+        "Dunnirland",
+        0
+    ],
+    "28:34": [
+        "0xc45538bcb1c5d1afed3080211035224b6e1a9bc1",
+        "Iliburance",
+        0
+    ],
+    "27:-26": [
+        "0x2d6dcb0fc05989041769cd8f5d3a5bf2c9e1a72f",
+        "Paraniti",
+        1
+    ],
+    "-30:1": [
+        "0x2cde3c309ef95411f78b338a7de85c4454316208",
+        "Isrimtria",
+        15
+    ],
+    "-1:4": [
+        "0x1df2fc85f8754349e6df4d35b89d25d42f2d3b49",
+        "Norerden Magna",
+        0
+    ],
+    "-31:-26": [
+        "0x1ba03bde544ed72f18711adee015ecf5f3b8d36c",
+        "Westdasmia",
+        0
+    ],
+    "-1:-26": [
+        "0x4ba4779cd01a83754040d9233a3968510d1f41b3",
+        "Sororbia",
+        0
+    ],
+    "29:-26": [
+        "0x99c7ba65fda251ecd176cd53d63c27165e72e9a2",
+        "Vorsonaly",
+        0
+    ],
+    "-31:4": [
+        "0x478470e8bd13f46600e9805a12fd3b46bf53434e",
+        "Nassizili",
+        0
+    ],
+    "29:4": [
+        "0x4daf7d8555218e3355f838620b0b12683bce0425",
+        "Nordaltria",
+        0
+    ],
+    "-31:34": [
+        "0xee1ba1a4ce13b970fbbe19bbedb75060e13b53bb",
+        "Errimili",
+        0
+    ],
+    "-1:34": [
+        "0xc3d396fced2c1964f7c39066387c027f50c98ec3",
+        "Mavsizmark",
+        0
+    ],
+    "29:34": [
+        "0x24b2f6adf875372b8f78a66ad6afdecf5ee9b0e1",
+        "Norerden Parva",
+        0
+    ],
+    "27:-28": [
+        "0x0bd3e174aae5a26db5ef312ba3c24cc9ea83bfcb",
+        "Sorramada",
+        2
+    ],
+    "1:-26": [
+        "0xbc8c96d22c246d5d9f7a7ecab53118cb61c89f6f",
+        "Kimnatlia",
+        0
+    ],
+    "31:-26": [
+        "0x508175ba74ccb481d79e54efdba1e179019243c0",
+        "Ganfromlia",
+        0
+    ],
+    "-29:4": [
+        "0xc2535b6c15aeaa1311495825c2cfa76bd6a928ad",
+        "Ilizilmia",
+        0
+    ],
+    "0:4": [
+        "0x7df1b2dbd78d4f2d98236cf48496f5109c7e5a58",
+        "Telxiorden",
+        1
+    ],
+    "-33:-26": [
+        "0x2e8c2a545bcf0c06e605a6ef21c351bfaac2c284",
+        "Ernirala",
+        2
+    ],
+    "31:4": [
+        "0x07a3738021459eb2da6b90b431c194f7d200b4c5",
+        "Isburden",
+        0
+    ],
+    "-29:34": [
+        "0x81cf686ac5dd3b40d054b878ed0cad5cf4f9f819",
+        "Ganvetance",
+        0
+    ],
+    "1:34": [
+        "0xd8788b022ec214762b1a2c89d8b4d869f5b1ee24",
+        "Corvania",
+        0
+    ],
+    "31:34": [
+        "0xb61ae794bed7943bbb1cefa64e4df539a4ac259d",
+        "Ilivannia",
+        0
+    ],
+    "2:4": [
+        "0x09772ba2cff13bb2c67487891f4eeb8665f30b83",
+        "Corforsland",
+        0
+    ],
+    "-28:-26": [
+        "0xb9e9af657f0bcdff0f90fa21fadc15e73eb62422",
+        "Vorvastain",
+        0
+    ],
+    "2:-26": [
+        "0x3f50e9b473feadff3d536adcce52260485f4298f",
+        "Urairico",
+        0
+    ],
+    "-30:-26": [
+        "0xf21da8f56eb5280002b70cae4c7a4105894fcc31",
+        "Fangrimada",
+        1
+    ],
+    "0:-26": [
+        "0x0740f61f506524f81f083b41007589ea143e0580",
+        "Morenance",
+        1
+    ],
+    "30:-26": [
+        "0x0453d46f5a6cab114f5a705f1cb5208992016858",
+        "Morhoslia",
+        1
+    ],
+    "-30:4": [
+        "0xf29ec134b5c3f62a32e50a7dafdc5cadbff542b9",
+        "Mavdaldor",
+        1
+    ],
+    "30:4": [
+        "0x53d9d9e5f5c5f4bdec94e821f3a53861acc3c5fc",
+        "Kargvetance",
+        1
+    ],
+    "-30:34": [
+        "0xcc1fdaae372efe8b3a1948a96b9cc9ac24e3e0bf",
+        "Onnarsia",
+        1
+    ],
+    "32:-26": [
+        "0x46e1dead82682ba315fcd480adb9d831978a739e",
+        "Norcanbia",
+        0
+    ],
+    "0:34": [
+        "0x67f35c5ea46ac3e7d4c7cbc673a572797dab9686",
+        "Onfromany",
+        1
+    ],
+    "-28:4": [
+        "0xfae558e4d808ee6142e56e936da77fa0f06e9b61",
+        "Iliustbia",
+        0
+    ],
+    "32:4": [
+        "0x1d6dd832f91a242d2c58a3d6de38c4d0c5652212",
+        "Kimastia",
+        0
+    ],
+    "-28:34": [
+        "0x8f0705e53f5d3339d6b433afb75dfc7f63caa99e",
+        "Kargforsden",
+        0
+    ],
+    "2:34": [
+        "0x10796793856ad4f769480d6dc49e3bae3ea02a57",
+        "Herdalany",
+        0
+    ],
+    "32:34": [
+        "0x448fc2d604fc2e8bd62a0529b06c503f0bd6fbfe",
+        "Onillia",
+        0
+    ],
+    "30:34": [
+        "0xe01fe87309959d658b14c9808ba6f835b826dea4",
+        "Rashastance",
+        1
+    ],
+    "3:4": [
+        "0xa8eaccacf07c4985955b08df267d2cde5584fdd3",
+        "Mavandel",
+        0
+    ],
+    "-27:-26": [
+        "0x6d1613e905533984417ea490fb55814499c66150",
+        "Olvetain",
+        0
+    ],
+    "1:4": [
+        "0x674b990f59099b86e18d84804266292f81301ad2",
+        "Pargantria",
+        1
+    ],
+    "-29:-26": [
+        "0xe6badf702f28de2d4e3efc92cb659821a9bd8981",
+        "Naszumize",
+        1
+    ],
+    "-3:-26": [
+        "0x6e22bf96725c46ecb19c47fabb7bf969905049ce",
+        "Lemarbmark",
+        2
+    ],
+    "3:-26": [
+        "0x5090db2c10213beca75bc7a9163e3ddb94587d7a",
+        "Erorbtria",
+        0
+    ],
+    "33:-26": [
+        "0x4323e434337419944f15788baa5078adb7ec5daf",
+        "Mavenmark",
+        0
+    ],
+    "27:-29": [
+        "0x6ea4dd984c3ff2ba20edefd0381d32d832b13152",
+        "Nastarala",
+        3
+    ],
+    "-27:4": [
+        "0x4b445081f45c20a70f3bb2adba374e385f258b44",
+        "Jezilmark",
+        0
+    ],
+    "-27:34": [
+        "0x1ffd639a6e26da0e8b2a1bd6cad1e910739e6ec7",
+        "Penrimico",
+        0
+    ],
+    "3:34": [
+        "0xfcfa06abbe758fc06aab849025c19e4dbb65ba3d",
+        "Lanvanden",
+        0
+    ],
+    "33:34": [
+        "0xa8811aecf0fc5d0831881ffc0615643b0e475d71",
+        "Soranlia",
+        0
+    ],
+    "4:4": [
+        "0x0896b9e2b60cae8e0783a4e8537d83b243a3ac9c",
+        "Ganfarlia",
+        0
+    ],
+    "-26:-26": [
+        "0xee226098e7db5adb8a38b668755935499c4dd0b2",
+        "Nasfurdor",
+        0
+    ],
+    "4:-26": [
+        "0x4ec1c2106ce933262b592408bcf01bdb261ca383",
+        "Quilmoriti",
+        0
+    ],
+    "34:-26": [
+        "0xfc211222a38c40fc651e83c6010f46f9c29abb8f",
+        "Penairmark",
+        0
+    ],
+    "-26:4": [
+        "0x745d7ac789e77ad0200cdc58bd8d93b31d951b87",
+        "Vangganala",
+        0
+    ],
+    "34:4": [
+        "0xbd9570609478a2023ca859dcb86fbcfc10cd9070",
+        "Quililica",
+        0
+    ],
+    "4:34": [
+        "0x75a2f8c4e31691ca76b8d32866338ba3f8ebc915",
+        "Sorcorsia",
+        0
+    ],
+    "34:34": [
+        "0xa25e635f3ab5c209a8cdf235591761ba1023b9fd",
+        "Parselada",
+        0
+    ],
+    "4:3": [
+        "0x45ad8b6db7bcfaaca7d4948501c0f01778a5ed0d",
+        "Kargfurmark",
+        0
+    ],
+    "-26:-27": [
+        "0xec7d6a7056ab2512e78b205421cfa9e9cf37c718",
+        "Nasfardor",
+        0
+    ],
+    "4:-27": [
+        "0xac9735efedb73822596c6e39c83dfe27ac4ebe0c",
+        "Vangsizala",
+        0
+    ],
+    "34:-27": [
+        "0x54da6d037e4e6f2c4d4ed42deb3abdcd8a685c20",
+        "Dunbarmia",
+        0
+    ],
+    "-26:3": [
+        "0xea6301bffea7f473c0b2c8438e06354aadbfe673",
+        "Morrimnia",
+        0
+    ],
+    "34:3": [
+        "0x4d6701e268ea2c6d5ea39b69d22dc70efedf2140",
+        "Ganeraly",
+        0
+    ],
+    "-26:33": [
+        "0xc69a9e312444fbf9b05dd73ff152ab07104bf68b",
+        "Jezdasmark",
+        0
+    ],
+    "4:33": [
+        "0x514fbed4844d87277a0acf3bddcc2f3ceca718e9",
+        "Mavdasance",
+        0
+    ],
+    "34:33": [
+        "0x7c19ecf67055d595068af011e6986f9fdfacab73",
+        "Gilorbada",
+        0
+    ],
+    "4:2": [
+        "0x4ba1ab860904d6153c7a3356603a4a0dedc9e9e1",
+        "Onastdel",
+        0
+    ],
+    "-26:-28": [
+        "0x454b346e330e71f45dc8d387b0d84c4c57ae8610",
+        "Lemenico",
+        0
+    ],
+    "4:-28": [
+        "0xc358fc2a099829f826b80a42b8df272c9976cb32",
+        "Corastbia",
+        0
+    ],
+    "34:-28": [
+        "0x57fdbb8b43d620677ef0bc8bf4fd18c033bb24eb",
+        "Telairsia",
+        0
+    ],
+    "-26:2": [
+        "0xce4fd07bf1a89d6773a9aeb7fd0b158570c261e1",
+        "Dunberica",
+        0
+    ],
+    "34:2": [
+        "0xa4ba27cc233ec993b39be04872304c2c734a0c4e",
+        "Ercorico",
+        0
+    ],
+    "-26:32": [
+        "0x009326c2937f06e3e66a431dadedd13458df6c59",
+        "Penenina",
+        0
+    ],
+    "4:32": [
+        "0x3d52844965c576cc00643dbbc60baa7d3a8289e0",
+        "Olvetance",
+        0
+    ],
+    "34:32": [
+        "0x7933365aacc6dde409b88e40b3c87fe244c4f0c9",
+        "Kimtarmia",
+        0
+    ],
+    "4:1": [
+        "0xcdce052bf1f9c7e43c61f9765b3fabf543b0f5f3",
+        "Dunbertria",
+        0
+    ],
+    "-26:-29": [
+        "0x17539909ffab8db5554c891ad3aa0db723636b0a",
+        "Jezforsdor",
+        0
+    ],
+    "4:-29": [
+        "0xad7ccc0d0887f383741855fb9af4ade9c6a487d7",
+        "Norerala",
+        0
+    ],
+    "34:-29": [
+        "0x52c8f287d038031d7d896c6ebfc301d83b8c29c1",
+        "Parorbbia",
+        0
+    ],
+    "-26:1": [
+        "0x64b84a4bb569d91ec2b35680ff26e5fae5363401",
+        "Rashdaltria",
+        0
+    ],
+    "34:1": [
+        "0xf2eabb1590513755d49b4d5b88b7d780ffcea8fb",
+        "Vorantria",
+        0
+    ],
+    "-26:31": [
+        "0xf2cfb0aacab599ec5e5c79f62731e9cafadc926d",
+        "Kimselada",
+        0
+    ],
+    "4:31": [
+        "0x4cc0f52c948458d42331f486988932fe25703a55",
+        "Erillia",
+        0
+    ],
+    "34:31": [
+        "0xa09b5d289cd1d1d23ad3d146f3dc49b0c8452111",
+        "Armoriti",
+        0
+    ],
+    "4:0": [
+        "0x21a9f92d58d1a362f17f142cbe8a9fe16ce51e67",
+        "Fanggoriti",
+        0
+    ],
+    "4:-30": [
+        "0x14f36d9f6fdbc00d92591b35ed410c0f65d216d4",
+        "Vangforsdor",
+        0
+    ],
+    "34:-30": [
+        "0x5628ae7fb357228243a92e9742e29b094e5a9714",
+        "Hathcorala",
+        0
+    ],
+    "-26:-30": [
+        "0x3b9b311d8923419fd1bcd35cdecefac167fc7c6e",
+        "Kargganain",
+        1
+    ],
+    "-26:0": [
+        "0x8a03452a995dfcffe531595906bff5f5781f7e49",
+        "Corastden",
+        0
+    ],
+    "34:0": [
+        "0x7ece642278641f59728b7d3b3eb3a5b2e8619d7e",
+        "Penustdel",
+        0
+    ],
+    "-26:30": [
+        "0xab5801a7d398351b8be11c439e05c5b3259aec9b",
+        "Hathairbia",
+        0
+    ],
+    "4:30": [
+        "0xfa00de44d6ee65d19652d31d7fdd180decae4990",
+        "Iliwansia",
+        0
+    ],
+    "34:30": [
+        "0xa96e8bc0a7b825621fecac1bd8bc8ac7406b4e3b",
+        "Nasxiorize",
+        1
+    ],
+    "-26:-31": [
+        "0xdd7e15aa534b9a076b3980c7d2e5ecc80c3ceccc",
+        "Kimcordor",
+        0
+    ],
+    "34:-1": [
+        "0xbf451fed33a99f83a63961317f54c6dc92314df2",
+        "Tazenland",
+        0
+    ],
+    "-26:29": [
+        "0x8ff08e3f65ea6fb6524190dfdcd8048c779b9e75",
+        "Cairvetaly",
+        0
+    ],
+    "4:29": [
+        "0x70fcec2e3cc58799bf580f8d4dad260b5cb822a5",
+        "Gilmorance",
+        8
+    ],
+    "4:-31": [
+        "0x0fad1d64a5923310c2f652d565fb1b83cfcad24c",
+        "Urzilia",
+        1
+    ],
+    "34:29": [
+        "0x2a3f5381c3bb6aa77029b48316e9c441675c9dd4",
+        "Jezenili",
+        0
+    ],
+    "4:-2": [
+        "0x2c7d825ea1a4c872b8a72993e7e94290bb334831",
+        "Onundarmark",
+        0
+    ],
+    "-26:-32": [
+        "0x8fd2fbd945b19ba2ea2e7d30aef788f60e154160",
+        "Rothziltria",
+        0
+    ],
+    "4:-32": [
+        "0x5d7d57fe5ee80548037652e055b3a63505898d8e",
+        "Onvanize",
+        0
+    ],
+    "34:-32": [
+        "0xb5f0ea4d448067c0c6e85d60e3f62f382a8aa4d4",
+        "Tazfrombia",
+        0
+    ],
+    "34:-31": [
+        "0xa071a08f6f03cb4247433dfa19dde9b863d5b6ed",
+        "Cairforsdor",
+        1
+    ],
+    "-26:-2": [
+        "0xd1466646f11832da4e36771ab6be6597af7517b0",
+        "Lemberica",
+        0
+    ],
+    "34:-2": [
+        "0xed29e802a43e44812af7003e9a8ca92b9e210e09",
+        "Corfromico",
+        0
+    ],
+    "-26:28": [
+        "0xd6cf3792dfafee23239d224e5fd563618bdb953d",
+        "Ganvastina",
+        0
+    ],
+    "4:28": [
+        "0x70522cbad5234607bbcdd9ac12a18353efcaef31",
+        "Ganzilain",
+        0
+    ],
+    "34:28": [
+        "0x708eb4755ef95291b4a955421b0cda4aca0456fd",
+        "Tazvantria",
+        0
+    ],
+    "-26:-1": [
+        "0x6c4e667bbe78b818e87f9ce2e0063dcbd575d272",
+        "Dunvanica",
+        2
+    ],
+    "4:-3": [
+        "0xbc20bfd6fca8b7e7e316dd22afb910e6b074be71",
+        "Onmorica",
+        0
+    ],
+    "-26:-33": [
+        "0x5b4a3fe8bee30a2fdae0b43e1221336eb7bedf4c",
+        "Nasvanain",
+        0
+    ],
+    "4:-33": [
+        "0xa3f30d47e21f66933262ad6726a62a27e0c55f65",
+        "Morcanina",
+        0
+    ],
+    "34:-33": [
+        "0xfd3e4081b7ba3aa69c65232e40763a9f7f350738",
+        "Jezfuraly",
+        0
+    ],
+    "-26:-3": [
+        "0x04726239b84245f216a4ccc66ce0fa9456b3e70e",
+        "Rothgoraly",
+        0
+    ],
+    "-26:27": [
+        "0x2119f22b99ba1c0b105d2758c81a2bbe1484f1e6",
+        "Dunastaly",
+        0
+    ],
+    "4:27": [
+        "0x7271334be7daf2fa38faf71fcab45c600b1df1d3",
+        "Rashfuria Magna",
+        0
+    ],
+    "4:-4": [
+        "0xf064637659b1930a606548ee5dc4508518fff53a",
+        "Ungantria",
+        0
+    ],
+    "34:-3": [
+        "0x9cf8991f4d7b3221e1c23c9c4dad099a5c00d9a0",
+        "Morwendor",
+        1
+    ],
+    "-26:-34": [
+        "0xd3dd0fbe3e32748112201eaff2d75648fde61234",
+        "Lemrimia",
+        0
+    ],
+    "34:-34": [
+        "0xe277a29e6243f949a5e476bdcba58b3e4fea7795",
+        "Unsili",
+        0
+    ],
+    "-26:-4": [
+        "0x75a64de4e172f058c07a68d8847445e1fcf8508e",
+        "Iliburaly",
+        0
+    ],
+    "33:4": [
+        "0xa22a9c92de19a7e933f2b03a10209ffaff5be9bd",
+        "Ganbarland",
+        4
+    ],
+    "34:26": [
+        "0x19af61064435840d27dfa9e5e9dabd5130d9d03b",
+        "Gilfromance",
+        0
+    ],
+    "4:-34": [
+        "0x2afe1d6324a313f0966f72c979204c2adbe398db",
+        "Teldasili",
+        1
+    ],
+    "-27:-34": [
+        "0xb6f7d0cc758f85f7fe57a6bbdaf259373cbd7121",
+        "Erzilnia",
+        0
+    ],
+    "34:-4": [
+        "0x573123ff11deb1dfef022717691e7d327e2f9e73",
+        "Parundarmia",
+        1
+    ],
+    "3:-34": [
+        "0x47fa55db3f7fe04293049544b72d993579c792b7",
+        "Telforsina",
+        0
+    ],
+    "-26:26": [
+        "0xb15fa27dc6883befa866e41db5ea59409b00a497",
+        "Fangtorize",
+        1
+    ],
+    "4:26": [
+        "0xe248e8e146482ae90dc02daed506d802a8c5ee9f",
+        "Felwanica",
+        1
+    ],
+    "34:27": [
+        "0xd6fcb49d9333e5dff6aa0ec84795c5df781aa3b0",
+        "Tazendor",
+        2
+    ],
+    "3:-4": [
+        "0x6d863e1ad3fed1caec3c26c9d547a86ee1e4e630",
+        "Ganairico",
+        1
+    ],
+    "33:-34": [
+        "0x920d2bd5bfa95a74e3c89a5f6e162a8e742656f6",
+        "Norzumland",
+        0
+    ],
+    "-27:-4": [
+        "0xe2dede563547d8029c65260667672fcfc2a62663",
+        "Gilvetnia",
+        0
+    ],
+    "33:-4": [
+        "0x0e8489ceab8c5b11c97828a005b4a9d79c4f6d8b",
+        "Gilnermark",
+        0
+    ],
+    "-27:26": [
+        "0x1159f66fe6bfe86450f6147acb208aa17ee3ed89",
+        "Morfarnia",
+        0
+    ],
+    "3:26": [
+        "0x5e1a7ad65de2602106cda50639d101a53cf11aa6",
+        "Onsizany",
+        0
+    ],
+    "33:26": [
+        "0x1739c6b91dfdf7c298a9de07d7be5c48eb172f44",
+        "Felwenada",
+        0
+    ],
+    "2:-4": [
+        "0xe88f37d5e5f76f6e9508242be06a349d6104c17d",
+        "Nordalina",
+        0
+    ],
+    "-28:-34": [
+        "0xca8d0561f5306b5f08c01b30561819ab6ea27f3c",
+        "Rothvetica",
+        0
+    ],
+    "2:-34": [
+        "0x72d0474ea276e628072624116caea7f05e2b33f9",
+        "Unarbsia",
+        0
+    ],
+    "32:-34": [
+        "0x0390e99b9baf6652fa07b33ad586d67b8ff9fbaf",
+        "Rashmarina",
+        0
+    ],
+    "-28:-4": [
+        "0xbeb9a7f9001676a7825e66e417566ae4002db10c",
+        "Jezansia",
+        0
+    ],
+    "2:26": [
+        "0xd145aa3e5902ab451276e48d266d19899aa3afd7",
+        "Westgania",
+        0
+    ],
+    "32:-4": [
+        "0x6630bdf0512a8a4a14c7a8f56dba34ba493711ac",
+        "Arburaly",
+        1
+    ],
+    "-28:26": [
+        "0xe0b734fc74fe781e98203876ca50121200f3cf49",
+        "Mavfromico",
+        9
+    ],
+    "1:-4": [
+        "0xf62dbe7d6668c62ab18477f1c3eca4c4d9ac1ef3",
+        "Fangtorbia",
+        0
+    ],
+    "-29:-34": [
+        "0x0cfd800aa73be565a013a6823b7454d81dbb1703",
+        "Kimxiorain",
+        0
+    ],
+    "1:-34": [
+        "0xc59e486ae87cccaf8bafb29f4f7d5441ce34f932",
+        "Gangordel",
+        0
+    ],
+    "31:-34": [
+        "0x1227d619b84a4e7daa86e09ca786f40ff88b23db",
+        "Felgoria",
+        0
+    ],
+    "31:-4": [
+        "0xa93ad8b8504bc7cf2869e19bcc331aef46b0eac4",
+        "Dashendor",
+        0
+    ],
+    "-29:26": [
+        "0xef1843f2c260226ace65350c47cae9015aba0882",
+        "Corsica",
+        0
+    ],
+    "1:26": [
+        "0x165cd37b4c644c2921454429e7f9358d18a45e14",
+        "Duntardel",
+        0
+    ],
+    "31:26": [
+        "0xb25769a98ba57b8e2ec7348e70aba6b93fa913f0",
+        "Jeznirden Magna",
+        0
+    ],
+    "0:-4": [
+        "0xd04a5b60e96bc624269d82a9bb0e750b7de1b595",
+        "Quilganain",
+        8
+    ],
+    "-30:-34": [
+        "0x44156fbd462255da1022b3dc031cccca30a5508f",
+        "Kargwanany",
+        0
+    ],
+    "-29:-4": [
+        "0xb8f6ab7b30cff81d3b285a792b2917b35c885675",
+        "Dunanala",
+        2
+    ],
+    "0:-34": [
+        "0xecd559d690c5f70467aab56359d4e9a8ca00b428",
+        "Onanance",
+        0
+    ],
+    "30:-34": [
+        "0x0ed8ab83f94e52626c355b38d50176f7367b8b14",
+        "Lanastmia",
+        0
+    ],
+    "-30:-4": [
+        "0x2bd64de8480ef1cc273b02ead9def669adddd2ad",
+        "Nasustico",
+        0
+    ],
+    "30:-4": [
+        "0xf98120ea4034ccc56d46655c4dc8b70596c49934",
+        "Penorbdel",
+        2
+    ],
+    "-30:26": [
+        "0x4791dc0936697592b25422e3bb1d4718ff7ff61e",
+        "Jeztortria",
+        8
+    ],
+    "0:26": [
+        "0x1cadfb4a9b7287ef12b537cdf1a0a87a09e6e9f4",
+        "Penmaraly",
+        0
+    ],
+    "30:26": [
+        "0x07b5218285b05521779cfe9773cfca8d56e44154",
+        "Kimdalbia",
+        0
+    ],
+    "-1:-4": [
+        "0x37cf7596772ebceb76b725b5afdcac79ecec9561",
+        "Lemxiorsia",
+        0
+    ],
+    "-31:-34": [
+        "0x0a0b4f4dd962242f7ab7e9af626d9480984a7eb3",
+        "Tazuiria",
+        0
+    ],
+    "-1:-34": [
+        "0xc6caab2ba33895223d13600444ec29f07ab52714",
+        "Dunairbia",
+        0
+    ],
+    "29:-34": [
+        "0xc767729676d49c90647cca446cfcbc8952ad3233",
+        "Lemwanmark",
+        0
+    ],
+    "-31:-4": [
+        "0xf04cf1ff2147bf144e538a233a99546634c60149",
+        "Parburnia",
+        0
+    ],
+    "29:-4": [
+        "0xde6d68140283ef1e0354043bfcf9269f0f0d3b1b",
+        "Ursain",
+        0
+    ],
+    "-31:26": [
+        "0x460ad98a9fbc993270fc82cc87608facc0c0069e",
+        "Sagforsmark",
+        0
+    ],
+    "-1:26": [
+        "0xae608dd70cf12814420b678112ca093353c3019c",
+        "Parmorland",
+        0
+    ],
+    "29:26": [
+        "0x19f0b7fb54b3e5fb958d18fda9199c534da527db",
+        "Landasain",
+        0
+    ],
+    "-2:-4": [
+        "0x7d2aab828da260bccfe642e918fcc275eaa417db",
+        "Kimsizaly",
+        0
+    ],
+    "-32:-34": [
+        "0x52a2d63228a18637a03574115315d11f78ab10a0",
+        "Kimgoriti",
+        0
+    ],
+    "-2:-34": [
+        "0xd391f99f2e04ca5eef2ebb5e083d5fd831592efa",
+        "Vangvandel",
+        0
+    ],
+    "28:-34": [
+        "0xe3eda69ac860eb695e5dfeffc5330461c1f9b8d6",
+        "Penerica",
+        0
+    ],
+    "28:-4": [
+        "0x75b6ada5d8df55714aea13572e6ecee19f6be2c8",
+        "Fangustina",
+        0
+    ],
+    "-32:26": [
+        "0x9c678ff225437f614d249fc7fa2e0d3462dcd1c3",
+        "Cordalili",
+        0
+    ],
+    "-2:26": [
+        "0x4f7e59b8eed8531d64ee31e54b98c62df1a981f9",
+        "Dashvanica",
+        1
     ],
     "0:-30": [
         "0x2c70a2c179f0c95cf3252541b337a07e1d62ecc0",
@@ -28,6 +3078,2036 @@
         "0x5a0db81065d172ab65d2bc42cc816f80213c4b7e",
         "Kaakkonhenge",
         0
+    ],
+    "28:26": [
+        "0xc9e119f8383ab0f9d579cf630e26760b272db0ab",
+        "Iserany",
+        0
+    ],
+    "-3:-4": [
+        "0x585f1b4e34a6c0982ca0900dc6226ae129b635aa",
+        "Unilsia",
+        0
+    ],
+    "-33:-34": [
+        "0x9e56d870d36349872dd7a293fe9341ecd72109c7",
+        "Nasairdor",
+        0
+    ],
+    "-3:-34": [
+        "0x73b2dfa958a6d90db2a6be8a1c3200dc62e90763",
+        "Jezgorsia",
+        0
+    ],
+    "27:-34": [
+        "0xe1f61dc65af3146a491ea4f282191399c2953447",
+        "Unhosdor",
+        0
+    ],
+    "-33:-4": [
+        "0xe97bb3e3fc8389232c5da10f937a624aa8b794d2",
+        "Hermorain",
+        0
+    ],
+    "27:-4": [
+        "0x9508ac652ffdfae1871b3320707bdb9f0a77d63f",
+        "Vorzumada",
+        0
+    ],
+    "-33:26": [
+        "0xbc46e5ed57a4f104efc68d147058b169dfcbcd4e",
+        "Tazfurmark",
+        0
+    ],
+    "-3:26": [
+        "0x211dc7ade18f1af42aa6c176a578b22e44f7e192",
+        "Norburnia",
+        0
+    ],
+    "27:26": [
+        "0x79c263e0cf5281eb77ae81a5764f84421ab18b75",
+        "Dashforsany",
+        0
+    ],
+    "-4:-4": [
+        "0x95182e89c0604ec22d1a95a610993748cfd9fc4e",
+        "Rothanica",
+        0
+    ],
+    "-34:-34": [
+        "0x902c4a70afcbeaa9a771e164ce63f0c3cc5cf851",
+        "Nasvastain",
+        0
+    ],
+    "26:-34": [
+        "0x0309f6561b900bb547afdd6d513115b82ffaf1aa",
+        "Gilnerica",
+        0
+    ],
+    "-34:-4": [
+        "0x28b4d3ca6ce1e0ef21e037fca34f21fd46f73bce",
+        "Cormortria",
+        0
+    ],
+    "26:-4": [
+        "0x7326d5e8a51793710de2e1dc46b25729332143b4",
+        "Naszilnia",
+        0
+    ],
+    "-34:26": [
+        "0x968dea825e03c2cbb09126e5e4b1a44642c6cd70",
+        "Kimvandor Magna",
+        0
+    ],
+    "-4:26": [
+        "0x417cabb9109457946f7cc2a1e9fb9c758ae405b5",
+        "Felorbdel",
+        0
+    ],
+    "26:26": [
+        "0x007894cf2105ea05b45caded2ca304d4b4c1416c",
+        "Hathburance",
+        0
+    ],
+    "-4:-3": [
+        "0x6ec053e94a7c8945523f64be2642958102c592a1",
+        "Olramdel",
+        0
+    ],
+    "-34:-33": [
+        "0xe42d79aaa73354192916c0902c870e513125d70b",
+        "Kimxiordor",
+        0
+    ],
+    "26:-33": [
+        "0xae84f62cf90f2567ece9157822bfff5c25eda61b",
+        "Erastala",
+        0
+    ],
+    "-34:-3": [
+        "0x55ac804fd575235cd933bcd122f6177b5da5d234",
+        "Vangzilden",
+        0
+    ],
+    "26:-3": [
+        "0x6dce65a3bd6f6ec1ff14794664a59dd74fd53731",
+        "Dunsizala",
+        0
+    ],
+    "-34:27": [
+        "0x8d0a0703346e50f2c90a3eb93f499ea9dcbc0555",
+        "Dunilico",
+        0
+    ],
+    "-4:27": [
+        "0x18325f3e8b8583bc17f33ff0caf02bd8fa16dfcb",
+        "Westnirada",
+        0
+    ],
+    "26:27": [
+        "0xba73d0515f7b0610a972c25a5768b05c5f5d0c1e",
+        "Belzumdor",
+        0
+    ],
+    "-4:-2": [
+        "0xae4c4e3b8ced0b37b4e9a49962db7ac96df04500",
+        "Telnatden",
+        0
+    ],
+    "-34:-32": [
+        "0x3eb7d2b95dd177632ae90e5778a4698bea6eb80a",
+        "Felsiziti",
+        0
+    ],
+    "26:-32": [
+        "0xbd6b6896993aacb8a60a1966460ec2a4e3895f04",
+        "Lemastany",
+        0
+    ],
+    "-34:-2": [
+        "0x16f296dfa6db4cd5ee65cc611bf66dff78be7558",
+        "Cairwandor",
+        0
+    ],
+    "26:-2": [
+        "0x84ac1ca244aa291f65de9d810504e36d8ba2f11b",
+        "Corfromia",
+        0
+    ],
+    "-34:28": [
+        "0x1c994dfc2d0b0f2b65e6337b917bf77a295a68d0",
+        "Mavsizain",
+        0
+    ],
+    "-4:28": [
+        "0x73c5019f85ac06d5d0b08512fb95702f2e485027",
+        "Vangdaldel",
+        0
+    ],
+    "26:28": [
+        "0x2f9a3640b071f6a9cf5adaeaf108f3648c2847b1",
+        "Dasheniti",
+        0
+    ],
+    "-4:-1": [
+        "0x5cbe62e83ea71233767cdefae763c8a28877d826",
+        "Nasrimnia",
+        0
+    ],
+    "-34:-31": [
+        "0x751cacfa8e4b185d5b1f9571b5f4519f256584ba",
+        "Kimvandor Parva",
+        0
+    ],
+    "-4:-31": [
+        "0x07ded78fa03607c01abf72e1b9439c14f4bc20be",
+        "Cairorbmia",
+        0
+    ],
+    "26:-31": [
+        "0x52a2c1585be8773c9082c73c2f7baef576352510",
+        "Isnirize",
+        0
+    ],
+    "-34:-1": [
+        "0x5c03be88ec92e17891c65812444407d7808e2f76",
+        "Quilnatia",
+        0
+    ],
+    "26:-1": [
+        "0x60417adf3d6b3eece0c08c708c498c6e9fac0a7b",
+        "Cairsonain",
+        0
+    ],
+    "-34:29": [
+        "0xd043e64a3e4de1138c19c750da1f6b2d4221c44c",
+        "Penrimance",
+        0
+    ],
+    "-4:29": [
+        "0x573f3bb41a8d6a6d9bc853b2316116dfe9e9ebe3",
+        "Urramden",
+        0
+    ],
+    "26:29": [
+        "0x7878a4387c13ac088ec716e1d85402b9b6fd5495",
+        "Quiltarili",
+        0
+    ],
+    "-4:0": [
+        "0x20f3dd027f6789eec3bdea7c0e51aab4b2f65c31",
+        "Corvastina",
+        0
+    ],
+    "-34:-30": [
+        "0x8253d479098d67bdb7b5d917570b72f694ceea8f",
+        "Belastden",
+        0
+    ],
+    "-4:-30": [
+        "0x283bb1ccf75670a95cb3c5aa1fdcbf9e26476686",
+        "Ernarico",
+        0
+    ],
+    "26:-30": [
+        "0xa8ad6c9ca5c69bc360eae8de8dc882583ef4e136",
+        "Sorzilmia",
+        0
+    ],
+    "-34:0": [
+        "0xcb38ac3f3a9dd0781dc343eed64209a4baffec31",
+        "Cairselada",
+        0
+    ],
+    "26:0": [
+        "0xd4374a63730b0467392e4eea89522a0106bd71b6",
+        "Telairain",
+        0
+    ],
+    "-34:30": [
+        "0xf11c60b392c11000638d739499644cf2811e024e",
+        "Telsland",
+        0
+    ],
+    "-4:30": [
+        "0x9ba75f59e4f2e7fb6a568611b7e0f5ce37dae2c4",
+        "Jezdasia",
+        0
+    ],
+    "26:30": [
+        "0x963a009d62045a74e357cdc0a48892aff528c177",
+        "Tazsdel",
+        0
+    ],
+    "-4:1": [
+        "0xc3896240631f105548446c806b6b2687820f9bfe",
+        "Dashenina",
+        0
+    ],
+    "-4:-29": [
+        "0xb828877d0805f3e2dffff9450458545988e89cc9",
+        "Fangerance",
+        1
+    ],
+    "26:31": [
+        "0xea9f319d533915afa8fa65eb9cd2ca5cfbf4d20d",
+        "Tazcortria",
+        8
+    ],
+    "-4:2": [
+        "0x3cbe31e52972885826b01bcbd8a77859c3fa7655",
+        "Kargganaly",
+        0
+    ],
+    "-34:-28": [
+        "0xfb4c81f113a34508b06c291137eb77143386a8bc",
+        "Belairili",
+        8
+    ],
+    "26:-29": [
+        "0x72cdc5c227020c0cb67361c759044fb5dc4dd522",
+        "Penfuria",
+        9
+    ],
+    "-4:-28": [
+        "0x509b0e066f3f116ed498fea800fe5cefc0f100be",
+        "Gilforsala",
+        8
+    ],
+    "26:-28": [
+        "0x169aefa84f42fcaef7b96e1c3fa7026fcb5b66ba",
+        "Isvastaly",
+        0
+    ],
+    "-34:2": [
+        "0x5bc4e3853712cca33064c1d6403eb70eaee70788",
+        "Nornaraly",
+        0
+    ],
+    "26:2": [
+        "0x7dba5be1e1ce58cebc3fdc38af4fcd91e74dfef1",
+        "Felburico",
+        8
+    ],
+    "-34:32": [
+        "0x336c11ceff76e2d824414388c19f703ba920dd5f",
+        "Gilforssia",
+        8
+    ],
+    "-34:1": [
+        "0xffd05882f96e410a1cf293eca26409df0e7c866b",
+        "Kimastico",
+        9
+    ],
+    "26:1": [
+        "0x5cdaafead3952f9a475c0f55dec2b0a5d4d3c459",
+        "Penairance",
+        9
+    ],
+    "-34:31": [
+        "0xb357c34cc3aad505aa6ce6eba2a91284de15f15f",
+        "Sorenia",
+        9
+    ],
+    "-4:32": [
+        "0x9ec8ebc9fb0cf26613d39a8947035a2d401b52f5",
+        "Belmarlia",
+        0
+    ],
+    "-4:31": [
+        "0xb2082d604511d5a534a0f055e138eca1b8c0b93c",
+        "Quilziliti",
+        9
+    ],
+    "-34:-29": [
+        "0xfa5a812941ce09a6c857cdcc7166abf3d46ae5b3",
+        "Belundarico",
+        10
+    ],
+    "26:32": [
+        "0x449f4e19f38e9f6d3167a6ab3cceffbd2c6605dd",
+        "Felensia",
+        0
+    ],
+    "-34:-27": [
+        "0x155abbb3390ace8bb9d452d31c703a251584b01b",
+        "Telastany",
+        0
+    ],
+    "-32:-4": [
+        "0xc85a1a5f914fc27b23ff8cf2832201a3ae0794c3",
+        "Parberina",
+        11
+    ],
+    "-4:-27": [
+        "0x9fb1f49175150d5af38e1615f1e60455d8bb0837",
+        "Felzilden",
+        0
+    ],
+    "26:-27": [
+        "0xf2d4a3699a7936d3ad28f83f018eb475bac7f41d",
+        "Felselland",
+        0
+    ],
+    "26:3": [
+        "0xf7ed60b1e6d4ac6529f89fba5179d8097d577c46",
+        "Rothfarmark",
+        0
+    ],
+    "-34:33": [
+        "0x2ce99bf1c9cf6dfd0ef5e735001273afaa4a38ca",
+        "Belastala",
+        0
+    ],
+    "-34:3": [
+        "0x7de8fce0f514687d6311789f959afb51a3681565",
+        "Dashvetmark",
+        1
+    ],
+    "-4:33": [
+        "0xe921009495bce95a64771b225d3234b7fa6d895a",
+        "Ilivetmark",
+        8
+    ],
+    "26:33": [
+        "0x5e59c29f8e4de691d907823f1a8d76e628306a63",
+        "Vangvanance",
+        0
+    ],
+    "-34:-26": [
+        "0xcedad2cd7d2d92ae2193b68c635088fa3b41e121",
+        "Fangwenden",
+        0
+    ],
+    "26:-26": [
+        "0x8d322ff8dc31a44c682855979165f20b972112db",
+        "Istarland",
+        0
+    ],
+    "-4:-26": [
+        "0xf5f5238db66194835f90df511cc7c8ff02e0660a",
+        "Vorfarland",
+        9
+    ],
+    "-34:4": [
+        "0x2ef254362cdf4a40db981041deb0a22fbac05a35",
+        "Onnatina",
+        0
+    ],
+    "-4:34": [
+        "0x57e648f095dc7d8b26e97dfd1d03be8d7fbfbf71",
+        "Arvetdel Parva",
+        0
+    ],
+    "26:34": [
+        "0x34aebd219e365fd86497cd47290b72e702d30a82",
+        "Olrimmia",
+        0
+    ],
+    "-34:-25": [
+        "0x25217b4a6138350350a2ce1f97a6b0111bbfdb56",
+        "Penberbia",
+        0
+    ],
+    "-4:-25": [
+        "0x74a4d3275c16e4d9f5c7af6a7ec143164c461639",
+        "Vangnatsia",
+        0
+    ],
+    "-34:34": [
+        "0x40dfc27ca78b6fbcfb78e91d3d2426cf6a281e39",
+        "Erxiorili",
+        10
+    ],
+    "-34:5": [
+        "0xb995d6aa9e739b7155407e8d570147ea2ae376d0",
+        "Kimrimili",
+        1
+    ],
+    "32:26": [
+        "0xcafebd31be7fe8c117b9011cd2ea2fd6e180e058",
+        "Jezvanina Magna",
+        13
+    ],
+    "-34:35": [
+        "0x53c4f6f0bbe9b21facd5871c802ce7546c59b34a",
+        "Arniriti",
+        1
+    ],
+    "-4:35": [
+        "0x688e7b66eda69392f76a2f5b6ec989aa113c11e6",
+        "Westsizsia",
+        9
+    ],
+    "26:35": [
+        "0xe2caa1cdc125860ef0ac14b9b0df7605f9305504",
+        "Fangberada",
+        9
+    ],
+    "-3:5": [
+        "0xa0144a16bdb128ef66a5bc9b24cf9d845285971d",
+        "Westsiztria",
+        0
+    ],
+    "26:-25": [
+        "0xb6bbb19902e19365da38aea05b871c6cc9a587b2",
+        "Olstria",
+        2
+    ],
+    "-33:-25": [
+        "0xe1ff0e87f877bdd828a6ed0b0c8e9ee36fb76453",
+        "Parernia Parva",
+        0
+    ],
+    "-3:-25": [
+        "0x51dd04918dea448de5efe786850ae125b83aa2e4",
+        "Felsizaly",
+        0
+    ],
+    "27:-25": [
+        "0x25b022e29d3594751a4e2afd52fcb0210cd4ffa1",
+        "Gansonance",
+        0
+    ],
+    "-33:5": [
+        "0xdca2116e0fb3b6016dd6eb981e5b8ca6bda5f472",
+        "Lemforsain",
+        0
+    ],
+    "27:5": [
+        "0x6b7977beb79fc27022b1962dbd65c6d3835a613c",
+        "Lemfurala",
+        0
+    ],
+    "-33:35": [
+        "0x85f5b2cb29e9a413963d324e4027182c4861360e",
+        "Dunganiti",
+        0
+    ],
+    "-3:35": [
+        "0xb398f08ccac9fc5849e61e4cc905125bf2622d74",
+        "Urseltria",
+        0
+    ],
+    "27:35": [
+        "0xd4288f38ff0ce749d99e302346c779a12ccc7336",
+        "Quilforslia",
+        0
+    ],
+    "-2:5": [
+        "0x35ac9fc7862d2ee069289a94bd90083c2f91561e",
+        "Vangfarden",
+        0
+    ],
+    "-32:-25": [
+        "0x7050994a9050a0307a7233c15809ffa422bd51fd",
+        "Penanbia",
+        0
+    ],
+    "-2:-25": [
+        "0x7262201a145fb5d2dc86502fb4bf32e923e8c49a",
+        "Ganfromnia",
+        0
+    ],
+    "28:-25": [
+        "0xb3635c098b78fbec4a9be0312d60e7f3b5d5b7d6",
+        "Jeznirica",
+        0
+    ],
+    "-32:5": [
+        "0xeb527a271ddd3fba7aac18f3a492ce1a421619d9",
+        "Vangwenance",
+        0
+    ],
+    "28:5": [
+        "0xbd0a238036e54c2586aceebb21db70dc9f605fdf",
+        "Istorada",
+        0
+    ],
+    "-32:35": [
+        "0x607562fe48bbb1e388f0459ddaef9650c77d5d24",
+        "Onustili",
+        0
+    ],
+    "-2:35": [
+        "0x58100118d30aa418ae3a7664c984073f690780fa",
+        "Dashairany",
+        0
+    ],
+    "28:35": [
+        "0x8e726c319e9f6871004f6956472e59fbb2f53fb0",
+        "Jezrimala",
+        9
+    ],
+    "-31:-25": [
+        "0x32e6bc421d032a3606436990205d8034e5dbc0b5",
+        "Ganwendor",
+        8
+    ],
+    "-1:5": [
+        "0x8dd8cc8d942c40679d84a6c0476279db0d12016a",
+        "Vorilmark",
+        1
+    ],
+    "-31:5": [
+        "0x080a5a5820e0f5a6036c50b83a5e25d5e63d13c7",
+        "Isenbia",
+        0
+    ],
+    "29:-25": [
+        "0xa535cc4fd7e2a424f06f4a25a479c649a3c24c5e",
+        "Vangxiorany",
+        1
+    ],
+    "29:5": [
+        "0x67a970a687d38d7f290093f759aed111ce0f0e20",
+        "Gilfurili",
+        0
+    ],
+    "-1:-25": [
+        "0x61de9b6cc6175f3f4b9c634d0a89081506897ea8",
+        "Ilitornia",
+        10
+    ],
+    "-31:35": [
+        "0xc22d8031be7f6b6e46a964d479af2de8bae40f5b",
+        "Jezvanina Parva",
+        0
+    ],
+    "29:35": [
+        "0x0000000000000000000000000029235a3654cfc7",
+        "Aranica",
+        0
+    ],
+    "-1:35": [
+        "0x2e5a87980480d5644c3ac83bdd0106713c938494",
+        "Nasilbia",
+        9
+    ],
+    "0:5": [
+        "0x0000000341fcae1872a1499273071d717602dd94",
+        "Dunundarlia",
+        0
+    ],
+    "-30:-25": [
+        "0x0000000367db71d517d2295cc477d49dcce37250",
+        "Dunnardor",
+        0
+    ],
+    "0:-25": [
+        "0x4f3239b98401c4955922c0b27a1b34027295c65b",
+        "Feldasland",
+        0
+    ],
+    "0:31": [
+        "0x4747477222244233277233244222277474740000",
+        "Pencanlia",
+        7
+    ],
+    "30:-25": [
+        "0x0000000520945075164018b6fd2340234ffc04df",
+        "Fangendel",
+        0
+    ],
+    "30:31": [
+        "0x1744717222274222244222247222271222219999",
+        "Pencanala",
+        7
+    ],
+    "1:1": [
+        "0x26c7ec9dd866a8cc41fc3187eaf6fb9d0839e49a",
+        "Tazustmia",
+        7
+    ],
+    "30:5": [
+        "0xd9a5bbf82cb83bd9114121b2c38e39468fdda68d",
+        "Isnatize",
+        0
+    ],
+    "1:5": [
+        "0x5b9904f548080d750d0816d7b408f8d01684efb1",
+        "Fangustbia",
+        0
+    ],
+    "-29:-25": [
+        "0x0e9aed0adc9ac3f7ec1c4922825d754adb80a5f8",
+        "Kimtarany",
+        0
+    ],
+    "1:-25": [
+        "0xbc68073255e330204469e2bd7264c77fc8091ad3",
+        "Kimdalain",
+        0
+    ],
+    "31:-25": [
+        "0xed60ae26dee273d05bc64e4694d78bcaa0f4aadb",
+        "Unbarany Parva",
+        1
+    ],
+    "-28:5": [
+        "0xb731fa12df2ad91efff4d4a06c8fb73a9518a2cf",
+        "Sagvastaly",
+        0
+    ],
+    "32:5": [
+        "0x606ff2a2158cb50dcf9b71ac5d49f582beb110c9",
+        "Corzilmark",
+        0
+    ],
+    "-28:35": [
+        "0xcc7cf2ffbbe115ef2c1c15e686769e86bd53b143",
+        "Parnirtria",
+        0
+    ],
+    "2:35": [
+        "0x984572bbe56c9ee793c9b5520a270f23a3ee79e7",
+        "Herdallia",
+        0
+    ],
+    "32:35": [
+        "0x58292dccdb7609540b8520b60d448fd8395740fd",
+        "Ernersia",
+        0
+    ],
+    "3:5": [
+        "0xbfed5b485599ef436fc4256d8f50859b7bd05709",
+        "Nasdaltria",
+        0
+    ],
+    "-27:-25": [
+        "0xb2277c6567be71f09aebde976dbe280cf073c8c8",
+        "Vornarsia",
+        0
+    ],
+    "3:-25": [
+        "0x1c7469308e2e6c17901d68e818792e5ae24cb106",
+        "Isvansia",
+        0
+    ],
+    "33:-25": [
+        "0x4aa628bc312276bf104b0f8e8306f2ea64d96fba",
+        "Iliberany",
+        0
+    ],
+    "-27:5": [
+        "0x5775dd737c0749702efa85a263e657516ed552fb",
+        "Rashtarina",
+        0
+    ],
+    "33:5": [
+        "0x0322382eb9e3552e3c567c00097b89a00a43b00f",
+        "Gilganain",
+        0
+    ],
+    "-27:35": [
+        "0xe701e2bac582ff454c81ab5025c96364617217a8",
+        "Ganvetany",
+        0
+    ],
+    "3:35": [
+        "0x40341d56f083558560db3bdb17ccd77758a475ea",
+        "Gilanain",
+        0
+    ],
+    "33:35": [
+        "0x1e270f06f7ea46bd0acc77da68f29225e8c6907e",
+        "Gilnaraly",
+        0
+    ],
+    "4:5": [
+        "0xe254eaf27ae0545d924c25c2e0a73fc468e67f10",
+        "Corrambia",
+        0
+    ],
+    "-26:-25": [
+        "0xdd1d1cb71683b3e362c687eefa573aa6cd51290f",
+        "Cairwanain",
+        0
+    ],
+    "-29:5": [
+        "0xaa794371b2c92db860f5d808406ec36fde79e077",
+        "Olcantria",
+        1
+    ],
+    "4:-25": [
+        "0x3f4d472d814ab920d320d457269dc85a358b2baf",
+        "Fangburia",
+        0
+    ],
+    "34:-25": [
+        "0xc4fcf1336567bff5f1e5ed095aab304b00ac602a",
+        "Lanvetina",
+        0
+    ],
+    "-26:5": [
+        "0x5f75962e9682b57ce10d275aeb4c1dd2e753aad4",
+        "Giltorany",
+        0
+    ],
+    "34:5": [
+        "0xdf5fa32b726a5118281e74ad3b7c707423e28f8b",
+        "Dunarbany",
+        0
+    ],
+    "34:35": [
+        "0xa56b0d4cf6faac7ce44baa84983ffdb60646b48c",
+        "Sortorany",
+        0
+    ],
+    "5:5": [
+        "0x333272052b302f73543889876454bb8efa78676c",
+        "Fangnirica",
+        0
+    ],
+    "-25:-25": [
+        "0x0d1faf9cbea4b2422c0c7ae8668b519df359ed63",
+        "Sorvanmark",
+        0
+    ],
+    "31:5": [
+        "0xb627b2d3cdded57ee3ccd1c77eda67b67a3b6921",
+        "Lansonmia",
+        1
+    ],
+    "5:-25": [
+        "0x13725a8324ae192cdc9eb7a7d55bf951da6485bc",
+        "Landasmia",
+        0
+    ],
+    "35:-25": [
+        "0x611edb25ac33eea56a4c6a641ff11522b0f086eb",
+        "Taztardor",
+        0
+    ],
+    "-25:5": [
+        "0x09535045d74ce4c8e6efd3020bfa1612436f4418",
+        "Kargxiordel",
+        0
+    ],
+    "35:5": [
+        "0x2f63177de1a1a0f6e33f84acd952a3d10755a20b",
+        "Fangburiti",
+        0
+    ],
+    "35:35": [
+        "0xed8477074529478064ff1ada1bbdb85075a43b57",
+        "Hathziliti",
+        0
+    ],
+    "5:4": [
+        "0x52a12aba7a169f57c3cbb26106f9917d709c2cee",
+        "Ganramsia",
+        0
+    ],
+    "-25:-26": [
+        "0xbd6773563b4b220bc9d1d6188bd032625e72ff46",
+        "Gilmardor",
+        0
+    ],
+    "5:-26": [
+        "0xf68ce41d7397f1cec20ae59156bf1281c3800543",
+        "Kargairina",
+        0
+    ],
+    "35:-26": [
+        "0xf9442bf215f6af2fde58d68dc815e8ce97d88951",
+        "Corzilmia",
+        0
+    ],
+    "-25:4": [
+        "0xf2ffcb5d50e401d947cdf32001c1c32865a24924",
+        "Norenlia",
+        0
+    ],
+    "35:4": [
+        "0x90b7df85b6dd4f3e9076a210012e4ae91807fc05",
+        "Norfarance",
+        0
+    ],
+    "-25:34": [
+        "0xef27aeb7757bb393ebe1ef28aa083130670c466e",
+        "Cairzildor",
+        0
+    ],
+    "5:34": [
+        "0xb5b28b428bf1f3d073ef6b89ac5bab398fdcd08e",
+        "Gannirland",
+        0
+    ],
+    "35:34": [
+        "0xd0caddc97e6adb0958c6866b0f290d5ecdebe5c9",
+        "Belbarany",
+        0
+    ],
+    "5:3": [
+        "0x736ca8e1a643c737b680045dce687705c46cb669",
+        "Felwanili",
+        0
+    ],
+    "-25:-27": [
+        "0x949213c7de0129274ee9e28fe54d1ba90ee51b30",
+        "Vangbarland",
+        0
+    ],
+    "5:-27": [
+        "0x6bc6970964cb57c7babd442de8ff68db3c8cdde5",
+        "Jezilain Magna",
+        0
+    ],
+    "35:-27": [
+        "0x2260eb232c40e00b0e238c04637d825c25a6a5e3",
+        "Rashnatize",
+        0
+    ],
+    "-25:3": [
+        "0x75f0e5f888d1f49adfb4b6600982c2fdac1413f2",
+        "Isgoriti",
+        0
+    ],
+    "35:3": [
+        "0xf9134ff93f47675c05ee2778dc034e355f247f0e",
+        "Jezforsnia",
+        0
+    ],
+    "-25:33": [
+        "0x67593a4f0c1e290eae66459ee160a82945a5886f",
+        "Vangmormia",
+        0
+    ],
+    "5:33": [
+        "0x9dcf1ca9eb45a356093d4351bdcb73ef80215c1b",
+        "Jeznirden Parva",
+        0
+    ],
+    "35:33": [
+        "0x779c80aea1c793c5fee4afd3581f5af3f96d0b57",
+        "Onundarina",
+        0
+    ],
+    "5:2": [
+        "0xc2b67accf01dde7133e9439f84ca8af5d7a094dd",
+        "Eranance",
+        0
+    ],
+    "-25:-28": [
+        "0xb2f5dec9ed4d16b733dd20b5c3a7f5714582bb37",
+        "Belsizance",
+        0
+    ],
+    "5:-28": [
+        "0x7ec1bc93e665ca2bc9f875b449ab3731ed6ee197",
+        "Herfarance",
+        0
+    ],
+    "35:-28": [
+        "0xc0e96a12f4b8f0ab8057449b80200c251c502f79",
+        "Sagilize",
+        0
+    ],
+    "-25:2": [
+        "0x460c15fe440f4a1b32af827e3765c7f9f01a12ac",
+        "Onfromala",
+        0
+    ],
+    "35:2": [
+        "0x3155cec966fb82486eaddf4667fb3504d12bda4a",
+        "Beltorain",
+        0
+    ],
+    "-25:32": [
+        "0xd8bd8737ce0c03b2bc2ef074b47a5f5009a727e3",
+        "Parrimlia",
+        0
+    ],
+    "5:32": [
+        "0xf42d24328995821d755e417a8c82e0d7efc1c99e",
+        "Kimganance",
+        0
+    ],
+    "35:32": [
+        "0x60b27c23d944ce8ddc2f38675b45e54441f50b0f",
+        "Rashuirmark",
+        0
+    ],
+    "5:1": [
+        "0x1bb233ecd72e5869556fbc5b75eb4194de5a3538",
+        "Sorxiorsia",
+        0
+    ],
+    "-25:-29": [
+        "0xe729e82c62ba98ee226dbf680803cfb4189dbe30",
+        "Ersaly",
+        0
+    ],
+    "5:-29": [
+        "0x45ab8162941f360c3dbd666fc91d4cc9b72a88f0",
+        "Sagilina",
+        0
+    ],
+    "35:-29": [
+        "0xac03eddb3e953467e1aca513abd93543e47f5242",
+        "Telrimance",
+        0
+    ],
+    "-25:1": [
+        "0xda7fc7825eba671c937d4ec6517f66248caa8ef2",
+        "Kimvanaly",
+        0
+    ],
+    "35:1": [
+        "0xab52ef38e528cc2a34d14772114e8382d87c71bc",
+        "Quildalize",
+        0
+    ],
+    "-25:31": [
+        "0x2cbe198f1e39c75da6216352d2603db5d4af4f3d",
+        "Cairbartria",
+        0
+    ],
+    "5:31": [
+        "0xc1e2e14c69b38a3b9185f3b7b2261e87d15d16c1",
+        "Sorastain",
+        0
+    ],
+    "35:31": [
+        "0xf4ee129bede6ac5e870bcf972e74a117b4809df9",
+        "Rashsizico",
+        0
+    ],
+    "5:0": [
+        "0xfec58763fcd5df39dd78a454a8304f41209fd1b8",
+        "Telmorden",
+        0
+    ],
+    "-25:-30": [
+        "0x9cdc9fda8bab5290296848ecfe8e287c12e012fe",
+        "Sagnirdor",
+        0
+    ],
+    "5:-30": [
+        "0x94f5c78b4763e75b98cea5bf4cc35b8d96e0373f",
+        "Telxiordor",
+        0
+    ],
+    "35:-30": [
+        "0xdd86eaada59714246baab9c8a940b1028a061d05",
+        "Norzilina",
+        0
+    ],
+    "-25:0": [
+        "0x474dcfb22b651a1a8e860064eda2a16d5a5a7c3a",
+        "Sagnirance",
+        0
+    ],
+    "35:0": [
+        "0xe77a6319fdc1456e5def674fbc7d77e72b9efcc9",
+        "Felsonland",
+        0
+    ],
+    "-25:30": [
+        "0x95053227fae84704762412692ae2f10690c5c9a0",
+        "Vangselize",
+        0
+    ],
+    "5:30": [
+        "0x9da13a3a1fe5c7dae732bf3a75635c5e7f4f2070",
+        "Sagvastada",
+        0
+    ],
+    "35:30": [
+        "0x0e3ffe387ab5b3f776444da1014f64a17e833cf9",
+        "Quilramada",
+        0
+    ],
+    "5:-1": [
+        "0x0ec3f8c16d11148d70e50b2bfd68e229d89fb35b",
+        "Olsoniti",
+        0
+    ],
+    "-25:-31": [
+        "0x9e3df1f4a40349f1cbcc1a92e1c277724ba94f19",
+        "Erfromdor",
+        0
+    ],
+    "5:-31": [
+        "0xfe1cda7ae9775cbb7875d0390fb61381ae835ada",
+        "Corgannia",
+        0
+    ],
+    "35:-31": [
+        "0x292abdd9007029976bceaf88016713d447399996",
+        "Rothanize",
+        0
+    ],
+    "-25:-1": [
+        "0x2c67c1fc93cb54f87ff7a06de1fe20c592693332",
+        "Mavenain",
+        0
+    ],
+    "35:-1": [
+        "0x3f9279b64782aca3fe8c82b033670b1771d5b688",
+        "Westxiorany",
+        0
+    ],
+    "-25:29": [
+        "0x41d7c7ac6e062f754faf04784e9a3e2471939661",
+        "Mavrimmia",
+        0
+    ],
+    "5:29": [
+        "0x50e9bf7ff3314c3cf4e6daf29b9a40a7af0f2832",
+        "Hathenland",
+        0
+    ],
+    "35:29": [
+        "0x3391be5c8112100f3ff79f3e8f27d3b70ead243d",
+        "Mavburaly",
+        0
+    ],
+    "5:-2": [
+        "0x7c74915377474f705d218c9a35f46ba2b5046e8c",
+        "Dunxiornia",
+        0
+    ],
+    "-25:-32": [
+        "0xc1985a875bdf1e22466daaa7c7b44ca757d4fb40",
+        "Parnirina",
+        0
+    ],
+    "-29:35": [
+        "0xf64f46d36568b0f248473d6c0edf2e38221a9eb5",
+        "Lanvetbia",
+        1
+    ],
+    "5:-32": [
+        "0xbcd34d149a27f580840afd2a7e51f9a498d0ebad",
+        "Urselala",
+        0
+    ],
+    "35:-32": [
+        "0x286934bbaee844a88ca9ef633d5e513cc404790f",
+        "Herbarize",
+        0
+    ],
+    "-30:35": [
+        "0x1a1992ac1bec503e82ba04f98c6851702681c35e",
+        "Mavnermark",
+        2
+    ],
+    "-25:-2": [
+        "0xf69761192a62a2c9fb16fefb55238bafa3c3688a",
+        "Felhosia",
+        8
+    ],
+    "35:-2": [
+        "0xe21064bf4c8ebd0dd198ab3c7b9add701cd1c276",
+        "Mortarsia",
+        0
+    ],
+    "-25:28": [
+        "0x35a77e69e992e9b80b0aa4285482124ab37469b0",
+        "Felgania",
+        0
+    ],
+    "5:28": [
+        "0xa90834a4c3be54625f684def73753c9986be4423",
+        "Erensia",
+        0
+    ],
+    "35:28": [
+        "0xb12ec309798f6cb62bdc8d42b6b4fdf25531d9f3",
+        "Jezuirnia",
+        0
+    ],
+    "5:-3": [
+        "0x3c6f87172c08095db5cfcdb72f7d52465cca14ee",
+        "Cairnatbia",
+        0
+    ],
+    "-25:-33": [
+        "0xa6f2d1449d8b81fa58aa09578a788cf1e8c39d17",
+        "Ilisonili",
+        0
+    ],
+    "5:-33": [
+        "0x02cb6eece762d973bb9a50bc0fa941baa1ded62e",
+        "Sorfuria",
+        0
+    ],
+    "35:-33": [
+        "0x2c0865369a671111129087c73371734e3899aa56",
+        "Onselina",
+        0
+    ],
+    "-25:-3": [
+        "0x3a9dd0e1e4475e47945c53edd0b8da5387210cc6",
+        "Feldasnia",
+        0
+    ],
+    "35:-3": [
+        "0x1709828d0bf5491c8d88c93d7b8a2ae1dce441a1",
+        "Vormarance",
+        0
+    ],
+    "-25:27": [
+        "0x1a4394ad3d5b6a40d0528d586f2edb282a847399",
+        "Norsonili",
+        0
+    ],
+    "5:27": [
+        "0x026b71480aaa9d97386404057f5c87100377b98e",
+        "Nasselia",
+        0
+    ],
+    "35:27": [
+        "0xcd2081c2e433120cdaa70f4af01fe0b8c53a791c",
+        "Pendasdor",
+        0
+    ],
+    "5:-4": [
+        "0x9f8a4c9b2634f508d4085f0dbbce719cb01e6e8e",
+        "Rashfardel",
+        0
+    ],
+    "-25:-34": [
+        "0x8ba3320c5faaa610413dbed7fbc1d1c2692fedf8",
+        "Mavzumia",
+        0
+    ],
+    "5:-34": [
+        "0xef79b9d76590b873409430b17b0ec9aecc64fb70",
+        "Parvetica",
+        0
+    ],
+    "35:-34": [
+        "0xf30e9261ce3d1c884d0b7c6b37d7bfc8b46e3daa",
+        "Rothrimada",
+        0
+    ],
+    "-25:-4": [
+        "0xa45df8cc4e4aa626509f210a989f090fcab23708",
+        "Erbaria",
+        0
+    ],
+    "35:-4": [
+        "0x63c24f7d8b37fa7dacf488a2ea98e8f0f0923764",
+        "Fangnirina",
+        0
+    ],
+    "-25:26": [
+        "0xff8b619d174ffc351878ab8a2edcf16ccfe3d3a9",
+        "Tazxiorina",
+        0
+    ],
+    "5:26": [
+        "0xcf9349545d65de9d623038f3927d58e2ec4fdf8c",
+        "Ersizance",
+        0
+    ],
+    "35:26": [
+        "0xadb5ad9be74af9218619162d9404a6c6247c0250",
+        "Rashfuria Parva",
+        0
+    ],
+    "1:35": [
+        "0x34d1de1ca668b21f3937e9c2ad706f97102fecc3",
+        "Iliwanbia",
+        1
+    ],
+    "5:-5": [
+        "0x25097fe999c184ca56f029b9312892fed5f70594",
+        "Olastland",
+        0
+    ],
+    "-25:-35": [
+        "0xf96e30ac710ff61e93f82e2010b7b9852b0a25b5",
+        "Mavundarala",
+        0
+    ],
+    "5:-35": [
+        "0xc89c46e7a01f31306ffa90896065d20095aae733",
+        "Mororbina",
+        0
+    ],
+    "35:-35": [
+        "0x59e76484e3325e4266267abbc310b32e8c524022",
+        "Mavcoria",
+        0
+    ],
+    "-25:-5": [
+        "0xdd2e7965cbc017a73d4574bbf4546757c1d76deb",
+        "Vormarica",
+        0
+    ],
+    "35:-5": [
+        "0x073eb45c638b9d5e402074a2528baeed3b939c27",
+        "Mavenili",
+        0
+    ],
+    "-25:25": [
+        "0x11d4ea5eee793eac87b96fcbfcea83f647c0eab8",
+        "Onvanland",
+        0
+    ],
+    "5:25": [
+        "0x3923ab1fc9eaf3844ad49e1ae9e2c32083e7ba7e",
+        "Morastaly",
+        0
+    ],
+    "35:25": [
+        "0x4bd49374bcbe3704c7b482173049b1002eed3b2e",
+        "Sornatsia",
+        0
+    ],
+    "4:-5": [
+        "0xd1cd0bb410d324395dced0b7e526ddbd6234bc2d",
+        "Urorbili",
+        0
+    ],
+    "0:35": [
+        "0x1b59353e8d945d8116250cc0a229106ac6e426a8",
+        "Westsizdel",
+        2
+    ],
+    "-26:-35": [
+        "0xbe78b8d0b7954127c36cbb5dc7c24ad7d228f96d",
+        "Isfurance",
+        0
+    ],
+    "4:-35": [
+        "0x0a7b73fed6560a50418e058135fb70e2cb237832",
+        "Onwanico",
+        0
+    ],
+    "34:-35": [
+        "0xc921320afdb090278d2f4ccf0d5597d5452823da",
+        "Kimsonbia",
+        0
+    ],
+    "-26:-5": [
+        "0x31effceb56590c57d3b6c50216a9faa0a37bd7a5",
+        "Rashfariti",
+        0
+    ],
+    "34:-5": [
+        "0xe5286fc8cc17ebbdb522cecd87d2548b537a8f49",
+        "Armornia",
+        0
+    ],
+    "-26:25": [
+        "0xe8a59f004d2a14b3c6fd2df93c1b609ddbda9813",
+        "Arwenaly",
+        0
+    ],
+    "4:25": [
+        "0x8026be0a070a094313e8515e0e3d81c5d3967449",
+        "Kimnarany",
+        0
+    ],
+    "34:25": [
+        "0x18f38d44c13d4ca4ee7fb4c23086f702a77346ff",
+        "Iliberada",
+        0
+    ],
+    "3:-5": [
+        "0x191b245aef0b8fcd3d8e02ad29400e898143e28b",
+        "Kimzumain",
+        0
+    ],
+    "-27:-35": [
+        "0x30f906b9660b1e5eafdd1f505c190cdeffcbea70",
+        "Feltorain",
+        0
+    ],
+    "31:35": [
+        "0x41a633647c0f80cb6fe22eab4baec28d6c2c3af1",
+        "Urtarala",
+        1
+    ],
+    "3:-35": [
+        "0x43db050b324fb2c803058910999186b4c7088c7b",
+        "Lansina",
+        0
+    ],
+    "33:-35": [
+        "0x967098c3bd0217a123649a3e3f76d65118c861e4",
+        "Rashsizia",
+        0
+    ],
+    "-27:-5": [
+        "0x580b9ca15035b8c99bda7b959eab185b40b19704",
+        "Belenance",
+        0
+    ],
+    "33:-5": [
+        "0x3772aaacd403b5716defb07db23acf5fd2308c40",
+        "Mavfromdor",
+        0
+    ],
+    "-27:25": [
+        "0xd685daabde32c59e8da9b3026e8b5cada5c12b23",
+        "Lanbaria",
+        0
+    ],
+    "3:25": [
+        "0xa08f359e06ab1221614898614aa479980ffc6220",
+        "Untordor",
+        0
+    ],
+    "30:35": [
+        "0x23cf8ab359e16929944f1aa8de0d3c5dcd3a520e",
+        "Telgantria",
+        2
+    ],
+    "33:25": [
+        "0xf09ee59489722d86ccb9a69c5b2214038c90ef16",
+        "Iliganaly",
+        0
+    ],
+    "2:-5": [
+        "0xf34c199ce418ae7ce2a382bcabc4cf63b9e587dd",
+        "Sordasica",
+        0
+    ],
+    "-28:-35": [
+        "0x2c55fc240a038d2e82f3078996f0c32fe4027fcf",
+        "Sorseldor",
+        0
+    ],
+    "2:-35": [
+        "0x9f0e4d2dca9962d1220fd2c23084f5f9ecab288c",
+        "Fangseltria",
+        0
+    ],
+    "32:-35": [
+        "0x2d696e674246e0fdc34a8fa1c397f73ce6dfd2df",
+        "Cairarbsia",
+        0
+    ],
+    "-28:-5": [
+        "0xa2a8d05e99738a23fa65ee38c8a403d96071ea3e",
+        "Onastili",
+        0
+    ],
+    "32:-5": [
+        "0xbbe37eb4f94386f1dd304776285efa1a36cedb99",
+        "Urastili",
+        0
+    ],
+    "-28:25": [
+        "0xfea758f421437df3c11fa820dc44de4b64bbca20",
+        "Erburili",
+        0
+    ],
+    "2:25": [
+        "0xe0b8d2434687f54eb524cd0e8b8e8a1001c057ff",
+        "Herwanala",
+        0
+    ],
+    "32:25": [
+        "0x5e220fa31eed56db2b540952379471e4e52b13e5",
+        "Dunbarden",
+        0
+    ],
+    "1:-5": [
+        "0xa995d34696148e8c46f8d02bc1edb9d1750b2afb",
+        "Lemtormark",
+        0
+    ],
+    "-29:-35": [
+        "0x21ac917c3a505e7ffc715e5c62f4c5c10c26e8e0",
+        "Erselbia",
+        0
+    ],
+    "1:-35": [
+        "0xc03272594c26cebc89ceef3fd1fc4cfa90be4ea1",
+        "Jeztarico",
+        0
+    ],
+    "31:-35": [
+        "0x99491524b2e1af46e013e40bdb5a8b5d9287ad68",
+        "Sorcantria",
+        0
+    ],
+    "-29:-5": [
+        "0x4a33f3148a9286c1919752d07256c42fc1cfeeed",
+        "Urhosia",
+        0
+    ],
+    "31:-5": [
+        "0x3cbb3a8142dd977f748d7f2197182a28c311a92a",
+        "Jezarbance",
+        0
+    ],
+    "-29:25": [
+        "0x29a4dc01372f56de5e1a3c4f81f9e05974e0df23",
+        "Belnarnia",
+        0
+    ],
+    "1:25": [
+        "0x760f6566355e3d89aa31e282e617954903c42a92",
+        "Westvetsia",
+        0
+    ],
+    "31:25": [
+        "0x2b58c1f0d0dbcdf2eb3754bd54d768fa6703356a",
+        "Arorbdor",
+        0
+    ],
+    "0:-5": [
+        "0xb26cb281de9fca6bee136a328a1c4ab93894ef33",
+        "Jezbarala",
+        0
+    ],
+    "-30:-35": [
+        "0x319c045a21b8801cb9552895b99f56660ea39c8f",
+        "Kimburize",
+        0
+    ],
+    "0:-35": [
+        "0x0cc4ab218c54dccbf82795a43904c92ebf554078",
+        "Olnatlia",
+        0
+    ],
+    "30:-35": [
+        "0x447a24d43e2a06dab0528b550b5c088559fe10a2",
+        "Mavrimaly",
+        0
+    ],
+    "-30:-5": [
+        "0x1e965c2d7bafdb513fed7f8acf3d4807862fc896",
+        "Fangnerina",
+        0
+    ],
+    "30:-5": [
+        "0x0026dd985da16f70e9d9cf739b08c6cdf6a7f407",
+        "Nassiziti",
+        0
+    ],
+    "2:5": [
+        "0x592fc33d5267e4563d7c53956f9fad63093f610f",
+        "Vorcanina",
+        1
+    ],
+    "-30:25": [
+        "0x87ff349f847226c4563f5cdca4210e20ea1e0cc3",
+        "Vangdasaly",
+        0
+    ],
+    "0:25": [
+        "0xc35b10eff96e8d89fcc4ba25ccb41ee830803aca",
+        "Vangastico",
+        0
+    ],
+    "30:25": [
+        "0x7dbda1fd99f819146d805f96ace46bf1e0834d21",
+        "Norastbia",
+        0
+    ],
+    "-1:-5": [
+        "0x3b6baba0b84f9118ee7108bcaa059cdd1572c754",
+        "Argorina",
+        0
+    ],
+    "-31:-35": [
+        "0xec1a6042e1693b48a4d8f259af05f2ea82571b84",
+        "Ganburtria",
+        0
+    ],
+    "-1:-35": [
+        "0x3035d93134cb914cc7cbd743b4946701a2388127",
+        "Jezilain Parva",
+        0
+    ],
+    "29:-35": [
+        "0x7e75f1a11b4f89e7bee547dadb1a6f195727174c",
+        "Belnerina",
+        0
+    ],
+    "-31:-5": [
+        "0x2325e1b803467c2d8d1f2a26e5ec2ab7e7b94572",
+        "Dashensia",
+        0
+    ],
+    "29:-5": [
+        "0xcb7f4fcb4028d00574749d5adb6380522c0b4f98",
+        "Dunorbize",
+        0
+    ],
+    "-31:25": [
+        "0x2e103ef3419e68741055d0255fd0128aed7658fa",
+        "Dunundarico",
+        0
+    ],
+    "-1:25": [
+        "0x7fc9851e53fa7d7792836aef35e294a1168fea01",
+        "Lemcorany",
+        0
+    ],
+    "29:25": [
+        "0xa90d8d049ee56d688da467b5ee88d601515b5710",
+        "Errimada",
+        8
+    ],
+    "-32:-35": [
+        "0xe2e43e624090912f1d5284f5f6329d2f2474c8af",
+        "Sagorbica",
+        0
+    ],
+    "-28:-25": [
+        "0x00000016f127c94a667ae3c9fdf0c31c9c79826f",
+        "Westberala",
+        9
+    ],
+    "2:-25": [
+        "0xf266adab0aee474fb654b86e460d7b7f56f7be7d",
+        "Lanselsia",
+        1
+    ],
+    "-2:-35": [
+        "0x5eb174d0f94800cc1c79b88801ba5ec193229186",
+        "Isastica",
+        0
+    ],
+    "28:-35": [
+        "0xc541b42ec452f4692a931492c19dda930cd0f151",
+        "Gililany",
+        0
+    ],
+    "-32:-5": [
+        "0xa8c666515f662a076bebd92e816731e7f8b5268c",
+        "Belzummia",
+        0
+    ],
+    "28:-5": [
+        "0x98f700129ca896131b09750e691444a855fcb243",
+        "Sagmorica",
+        0
+    ],
+    "-32:25": [
+        "0x52e83cdb7568158cb472ec11fc4b15e39d514ceb",
+        "Telzilbia",
+        0
+    ],
+    "-2:25": [
+        "0xe1cb9739fbb95584586a3513f5858c32f557651e",
+        "Rothmariti",
+        8
+    ],
+    "28:25": [
+        "0x765b037ec991afc1263e7d8efb12f3cba4e98d18",
+        "Gilastland",
+        0
+    ],
+    "-33:-35": [
+        "0xda8102f2504d4783192a5bea420d90bdec943f8e",
+        "Corenance",
+        0
+    ],
+    "-3:-35": [
+        "0x732be24f7ec08d12b7cea42a8036841634ffa382",
+        "Vangbarica",
+        0
+    ],
+    "27:-35": [
+        "0x5c07bcafbdd7081816700f1ea6eb17ac48be89eb",
+        "Parsiznia",
+        0
+    ],
+    "-33:-5": [
+        "0x439da92d62aca5a88d434ebab6106918e51bce8a",
+        "Fangsdel",
+        0
+    ],
+    "27:-5": [
+        "0xf9d97ceea230b27a9f954146189c527bf276bea3",
+        "Unarbica",
+        0
+    ],
+    "-33:25": [
+        "0x4b88f4116d6e4af1a670debe6747c283e4891136",
+        "Rothsonico",
+        0
+    ],
+    "-3:25": [
+        "0x13dd8b8f54c3b54860f8d41a6fbff7ffc6bf01ef",
+        "Cairdasdor",
+        0
+    ],
+    "27:25": [
+        "0x33d68efa6d2428c03098ac239ee304ea3149357b",
+        "Kimsonlia",
+        0
+    ],
+    "-4:-5": [
+        "0x63de27da149ee70f8ce9ccee88d753d7f3bea073",
+        "Sagfromico",
+        0
+    ],
+    "-34:-35": [
+        "0x954f1d1145a85501d3559ce0c59df832d40d67ee",
+        "Rothzilica",
+        0
+    ],
+    "-4:-35": [
+        "0xf849c3169e095a54ed49f7ba1e94f1102c356988",
+        "Westrimtria",
+        0
+    ],
+    "32:-25": [
+        "0x308d05398d5ca0bfe667a02bb18d7edf8b3f3b22",
+        "Rothsizmark",
+        9
+    ],
+    "26:-35": [
+        "0x72e3df4149a2688c14bb806deded906b93ec61c7",
+        "Feluiraly",
+        0
+    ],
+    "-34:-5": [
+        "0x6ccd50e49b4f0b926809f5d20bbf4bab1116ff37",
+        "Ilimarina",
+        0
+    ],
+    "26:-5": [
+        "0x7ed719c418cc3c6f7b26b3b383203f1456d156d0",
+        "Sorustlia",
+        0
+    ],
+    "-34:25": [
+        "0x460fd14c9b74c982922e37ef828ae03367933c0f",
+        "Sormarmark",
+        0
+    ],
+    "-4:25": [
+        "0xc400ebddc13e75ac8fd86617e22e0311e2c72dee",
+        "Vorberico",
+        0
+    ],
+    "26:25": [
+        "0xea5e6731be7faf4ff96f655e4ae004c043215f9a",
+        "Jezvanina Altera",
+        0
+    ],
+    "-5:-5": [
+        "0x14e397e1be4a08fa0906dc70bd40a52d5ae56c04",
+        "Felvania",
+        8
+    ],
+    "-35:-35": [
+        "0x5efcf6d60efacfb17cbc13f43a260b07a3f67f2a",
+        "Onrimany",
+        0
+    ],
+    "25:-35": [
+        "0x9283ad43bd3eb516e792162c72eac72761c01a7f",
+        "Hersizico",
+        0
+    ],
+    "25:-5": [
+        "0x60ec43bb8e002aaea9633a626a568a9857d2ea22",
+        "Hervanica",
+        0
+    ],
+    "-35:25": [
+        "0x355c1ac2884cc38561adfed9a673fca8128580b1",
+        "Pengordel",
+        0
+    ],
+    "-5:-35": [
+        "0x65b34d9a87a9771c55b680fec76948fcf0b4b8ca",
+        "Penfurland",
+        1
+    ],
+    "-30:5": [
+        "0xfaca791263926cc4e046f0e3664c3f26aebe5982",
+        "Sagenia",
+        3
+    ],
+    "-35:-5": [
+        "0x265e07dea3aa13ecba29145dd3fc306723620a2c",
+        "Westairia",
+        1
+    ],
+    "25:25": [
+        "0x471b96e7e6c5e1b350d233bf5297a2a3c29fd852",
+        "Morfarance",
+        0
+    ],
+    "-5:-4": [
+        "0x72672265cf28180b4665dd2f301f423d0e8548ae",
+        "Vorforsize",
+        0
+    ],
+    "-35:-34": [
+        "0x34db79838c12210c8e296db1e2bd0a50beede1ad",
+        "Lannataly",
+        0
+    ],
+    "-5:25": [
+        "0x4f36185a42ae51b9c3d8481d6ba9d3f9c31f4777",
+        "Kimarbmia",
+        1
+    ],
+    "-5:-34": [
+        "0x8f0fa88e9d9f773ec33b22eb41c58104fa926351",
+        "Westsonala",
+        0
+    ],
+    "25:-34": [
+        "0x2a0fb3e11d76af89fecf798209abd5701bb914dc",
+        "Felwensia",
+        0
+    ],
+    "-35:-4": [
+        "0xe1e0341f8473e7270dd6b1109a3d3b0aa7714c1f",
+        "Mordasili",
+        0
+    ],
+    "25:-4": [
+        "0x15a15dc56d7a3aae79f0ad4bbef96f13f499ca45",
+        "Tazsonia",
+        0
+    ],
+    "-35:26": [
+        "0x25904d69555507e86c19164d692c95731c9bc666",
+        "Feldalada",
+        0
+    ],
+    "-29:-31": [
+        "0x842c7bcd0831240fd7635482b58fb68411475456",
+        "Fangerland",
+        7
+    ],
+    "-5:26": [
+        "0x761e507682b85c5d2a9c6f499437008e3ebc24f5",
+        "Uncanize",
+        0
+    ],
+    "-35:-33": [
+        "0x2c36dd7bb3e95e7a0219e70737ee8041f22d2081",
+        "Clandiburium",
+        0
+    ],
+    "-5:-33": [
+        "0x9a56cd840a4e43c48db1ce2345c415860bf85ac6",
+        "Forwuselemi",
+        0
+    ],
+    "25:-3": [
+        "0x5277be068ed783ff99d713fa23ecd521c5365c9f",
+        "West Gilvelotala",
+        0
+    ],
+    "-35:27": [
+        "0xc258fef1455e3927fcf0dad876ef60261acc1a3f",
+        "Feltalotico",
+        0
+    ],
+    "-5:27": [
+        "0x4434c4683e93bb73f34b026df385125e80069c1f",
+        "Nasrehadia",
+        0
+    ],
+    "25:-33": [
+        "0x73404998659b5f526d18eace226866c77f216a6c",
+        "Iscotarka",
+        1
+    ],
+    "-5:-2": [
+        "0x87ff4b16eb88f2c5171680df522eb1a80ed9c96c",
+        "Westcyorbize",
+        0
+    ],
+    "-35:-32": [
+        "0xc4edd2da9c74294152f6a220d966d536102a9ba5",
+        "Corqueselsu",
+        0
+    ],
+    "-35:-3": [
+        "0x66c4a1712cd06fd0289d976fef8a403c50c61550",
+        "Arnpinatbia",
+        1
+    ],
+    "-5:-32": [
+        "0xbe59619b3b823aad6f3b416503734fbacc8469ff",
+        "Lanvaefany",
+        0
+    ],
+    "-35:-2": [
+        "0x2247c5463f5d23b0d07a1dd132f7ca82f1c434d2",
+        "Horlehiada",
+        0
+    ],
+    "25:27": [
+        "0x23f4ad705f4ef82e53fd8961e6ff2707545d1c8f",
+        "Allawanemi",
+        9
+    ],
+    "-5:28": [
+        "0x1333759586726557786213103062103827636905",
+        "Fanhigydeum",
+        0
+    ],
+    "25:28": [
+        "0x4238067608490987998946323749888161848970",
+        "Bilmaerium",
+        0
+    ],
+    "-5:-1": [
+        "0x3077942505019951878772059016407222922321",
+        "Tazmavetland",
+        0
+    ],
+    "25:-32": [
+        "0x9f6c05f9f9803f614cbafeaabbb1ec0ed867e248",
+        "Olwabarbia",
+        1
+    ],
+    "-35:28": [
+        "0x89bd3c7a7febbcf0fba1ef11a556e3f5f4c04f6d",
+        "Cyrrodizka",
+        1
+    ],
+    "25:-31": [
+        "0x9ca17878fe1b96ccb7971e9becd5b4c1cf160ace",
+        "Camycordia",
+        0
+    ],
+    "-35:-1": [
+        "0x696647c01ca6e76b5067ded18a01d945bc650531",
+        "Camnytarmia",
+        0
+    ],
+    "-5:-31": [
+        "0x7ad99535c9d626727b4e04b2599b3e9107a4be83",
+        "Denpodanico",
+        1
+    ],
+    "25:-2": [
+        "0x9d640bc8faf74466935133ce2b167516457024f5",
+        "Elwyvastina",
+        2
+    ],
+    "25:-1": [
+        "0xdaab89ab6f5884555a3e17fd17442ca520a4e0e4",
+        "Hervifarbia",
+        1
+    ],
+    "-35:29": [
+        "0xc38da3e6cbb67b1af6b94fb5b55ebf9fb2304ccd",
+        "Onsoelsia",
+        1
+    ],
+    "-5:29": [
+        "0x85c0c09570c955f6e07522e9ad6041716cbbb7fe",
+        "Fannafurland",
+        0
+    ],
+    "25:29": [
+        "0x75571d32973b0124081c5f9b1af7206ea6bb1039",
+        "Cyravetili",
+        0
+    ],
+    "-5:0": [
+        "0xd58c21c238056de8e26e609b18b2232e151a253b",
+        "Cyrpaemance",
+        0
+    ],
+    "-35:-30": [
+        "0x383e58aaa70700575c3316065adfc3f322dbbb58",
+        "Ganzilina",
+        0
+    ],
+    "-5:-30": [
+        "0x84b206d1065324c77cf7e1f9e131be07efce493a",
+        "Goplytordor",
+        0
+    ],
+    "25:-30": [
+        "0x5278dadc66d843a0aa3f3474a8ac87734023c726",
+        "Erwuwenize",
+        0
+    ],
+    "-35:0": [
+        "0xc50c295a64ff6d4d5cc1e52c57cbae755ceb62a6",
+        "Sagpanerala",
+        0
+    ],
+    "25:0": [
+        "0xd7d77c2430b88dbf3f995eccdc4e515d77fb1f05",
+        "Soralamsha",
+        0
+    ],
+    "-5:30": [
+        "0x7dc2395ebccd353ffd096deb06b9ddc497b64d00",
+        "Westtihosance",
+        0
+    ],
+    "25:30": [
+        "0x6e7e174c136f094019bc736904f650a05d4256fe",
+        "Ermaairola",
+        0
+    ],
+    "-35:-31": [
+        "0xdc1d7d5e1a3c02dc717ba8323b06f699432fc960",
+        "Westerammark",
+        3
+    ],
+    "-5:1": [
+        "0xa4de059161151f5f62f06f93c94544f8a68deb7e",
+        "Belhyustden",
+        1
+    ],
+    "-5:-29": [
+        "0x8da5a55186e0aa922bd97e9ac90acbc3d464d5ce",
+        "Jezcygydsha",
+        0
+    ],
+    "25:-29": [
+        "0x25bb7fb7ede78e6e0b2efbecd50e4c4dcd1f108a",
+        "Vanagarbola",
+        0
+    ],
+    "25:1": [
+        "0x72b3d6c898611511d8e2264a7246836a65b3c4a5",
+        "Eldotoriti",
+        0
+    ],
+    "25:31": [
+        "0xb00c1c847622d95a9a38fac0467ec05e17e71364",
+        "Forasizeum",
+        0
+    ],
+    "-35:1": [
+        "0xe1737ff875ae4bb65ba82b10ddcae5d914c2100f",
+        "Nasinatico",
+        1
+    ],
+    "-5:2": [
+        "0xaae814aa6bf949028892216bb112210b83c0750d",
+        "Ganacantria",
+        0
+    ],
+    "-35:31": [
+        "0xd744d0e9fa923c680585b8f831e2ba3b682e7ed3",
+        "Rotvivastbwe",
+        9
+    ],
+    "-35:-29": [
+        "0x4795f353e68753dab349d890989a7da390180d5d",
+        "Lanmemarala",
+        10
+    ],
+    "-5:-28": [
+        "0xf32ca6dbd29be0e1931eec8fb8d57fa2eb73bf76",
+        "Dunmojorka",
+        0
+    ],
+    "-35:-28": [
+        "0xd9351683b157feef3228f3bb9c74e0740268a93d",
+        "Ethpovastina",
+        10
     ],
     "-30:-30": [
         "0x10bb0105bb5055bb5555bb5545bb5444bb440001",
@@ -64,9 +5144,364 @@
         "Rebma",
         0
     ],
+    "25:-28": [
+        "0x137f41ca27f570d4c50e56d5c20ae2807225f09c",
+        "Emquafurance",
+        1
+    ],
+    "-35:2": [
+        "0x3e5b0b828181b94387b8f95b3b019ae60565b192",
+        "Emqueemtria",
+        0
+    ],
+    "-35:32": [
+        "0xe8bf424e047372d249d0826c5567655ba3b72f18",
+        "Gilrailka",
+        0
+    ],
+    "25:2": [
+        "0x97422904c615fb9bfbc1f63e2f4ee6d3c3f100f8",
+        "Erlecarden",
+        10
+    ],
+    "-5:32": [
+        "0xd91e223e7f9d3c2ab02db9b1a1ad109e84b426af",
+        "Fitvidizmi",
+        9
+    ],
+    "25:32": [
+        "0x0b5f351101f03a343baba870b7c7929da6317da1",
+        "Rotvaberica",
+        2
+    ],
+    "-5:3": [
+        "0x7b325d66dc0229625731aec4308e3d1f2d3bb211",
+        "Lemqueberia",
+        3
+    ],
+    "-35:30": [
+        "0x41cf9f9ce2a3164cacfca985009de9ebdc3dce04",
+        "Mavdinardor",
+        12
+    ],
+    "-5:-27": [
+        "0x074dca1eec3ba8a51e338e98df33c17a2dbce321",
+        "Lemciundarili",
+        0
+    ],
+    "-35:-27": [
+        "0x208264f5ff29535a245c59c66fd8051cba59b49a",
+        "Karmedasland",
+        1
+    ],
+    "25:3": [
+        "0x7e716637f19f6b7442b815e77d1d54f20bf0a25d",
+        "Dynlewander",
+        0
+    ],
+    "-35:33": [
+        "0x4511773b4e4bd336caca31a5d8bfc4e70f23e862",
+        "Ethwuvetka",
+        8
+    ],
+    "-5:33": [
+        "0x497b488bbfc28d142372f0d39b7bdb2efa6cad24",
+        "Gatalsizeum",
+        8
+    ],
+    "-35:3": [
+        "0x61388026aab5254fe33406e56c138d331e7996de",
+        "Unpaustden",
+        1
+    ],
+    "25:33": [
+        "0x6f4ba34467a2ff618f689269d43a800959bd98c8",
+        "Gyrpibaria",
+        0
+    ],
+    "-5:4": [
+        "0xc8fd697ac2d7b3ec99554a37cdf9823f9cf6d371",
+        "Cyrleamala",
+        0
+    ],
+    "-35:-26": [
+        "0x333a45050e5e66a061a4a8024f0181404cf51012",
+        "Fanherimico",
+        0
+    ],
     "0:-29": [
         "0x8a59c3eba3665a49a6b104819d9952b4bc93e58f",
         "Tir Na Nog",
         0
+    ],
+    "-5:-26": [
+        "0x3888d97b4855944e1c96c1aa839a0e29f9e4bdeb",
+        "Clanoance",
+        0
+    ],
+    "25:-26": [
+        "0x323f0d72a9ca7815add1aba506a247e420005a1a",
+        "Arcsaxioria",
+        0
+    ],
+    "25:4": [
+        "0x6070f09a7f228dae57c8f5d97c27b15706aca504",
+        "Kimaldizeum",
+        0
+    ],
+    "-35:34": [
+        "0xe6d3c49b6208c6f6f55f65c62318b61e485c4f63",
+        "Lantouirbia",
+        0
+    ],
+    "-5:34": [
+        "0xb7ecdd2c1724eda6bc9fcb13f08225406820ae15",
+        "Baldoxiorsu",
+        0
+    ],
+    "25:34": [
+        "0x6883c557e13751713258767f831ea57461fe0852",
+        "Parmatorala",
+        0
+    ],
+    "-5:5": [
+        "0x021fd5cad549b578735880a8a76160ab1f8c42ba",
+        "Empakorium",
+        0
+    ],
+    "-35:-25": [
+        "0x8a8753a880d561e5ef0e983a54731df93c3b8f08",
+        "Dascadanada",
+        0
+    ],
+    "-5:-25": [
+        "0x82d58c350411672e328b95234683bfd3f6e42ab6",
+        "Denhyiliti",
+        0
+    ],
+    "-35:5": [
+        "0x9e1b19b5c4dc58682bfaf1b475087c7a2780799d",
+        "Tazcabomark",
+        0
+    ],
+    "25:5": [
+        "0xd958976f1eed346ee382233a5c5ec106971a49bd",
+        "Vansybarmi",
+        0
+    ],
+    "-5:31": [
+        "0x19ba47e96f888b9457a14da2db3a8a705ed10297",
+        "Rotwufarize",
+        4
+    ],
+    "-35:35": [
+        "0x373db8f577024f4cae0ddb94bb3960aeb47bc1f5",
+        "Karithvania",
+        0
+    ],
+    "-5:35": [
+        "0x74be71761f934843003d491575a80230f8e86d14",
+        "Bilvastdia",
+        0
+    ],
+    "25:35": [
+        "0x7eda53793519d3de2cd057f426ee072bf0d7d9e8",
+        "Comwucalbya",
+        0
+    ],
+    "-35:-24": [
+        "0x462c092b48c8f7ebb8876769ba610e32613f988c",
+        "Ashyica",
+        0
+    ],
+    "25:-24": [
+        "0x0527be0b949078532920b34ffeb5e01ea45c3be4",
+        "Lansassha",
+        0
+    ],
+    "-5:-24": [
+        "0x7ee0bea39884a67f50948c829fe61147cc54d1f3",
+        "Telditorlia",
+        1
+    ],
+    "-35:6": [
+        "0xa8f1970918561bf507b9a6b1cb9540c341e1845c",
+        "Jezhaustmia",
+        0
+    ],
+    "25:-25": [
+        "0xf83487aad22109537283d7c73899e507d09abba5",
+        "Ganmajorium",
+        3
+    ],
+    "25:-27": [
+        "0xadc7e37927b2c93f849a89900bf93ad8c0b3dd21",
+        "Comtafuraly",
+        4
+    ],
+    "-35:36": [
+        "0xb1759a3f4cdc155096d7616f8c7affc032c3827c",
+        "Frogdoenmark",
+        0
+    ],
+    "-5:36": [
+        "0x5054e6dfe2587e3d03efd6a469f8383c68f56816",
+        "Hattonarbia",
+        0
+    ],
+    "-34:-24": [
+        "0xebebf02459131c38d97ccafe5f93bd651573f57f",
+        "Sorhoorbili",
+        0
+    ],
+    "-4:-24": [
+        "0x690fb98a45e5632ccd2c7e958195a27037eb05a9",
+        "Giquhalotely",
+        0
+    ],
+    "-34:6": [
+        "0x704d5ae03f8a5f341b42ab8c6182935ef618c973",
+        "Iscohialy",
+        0
+    ],
+    "-4:36": [
+        "0xaa343910c01e4369aba8f3f93472f551bf4137da",
+        "Quilwuvanoli",
+        0
+    ],
+    "4:-1": [
+        "0x041cc2266ae38453082b5dcf243b9128ae9f6aa8",
+        "Unviburdia",
+        7
+    ],
+    "-34:36": [
+        "0xdfb85f797030bf70def475c82bc05dd5255e5d7a",
+        "Comrufurbia",
+        1
+    ],
+    "27:-24": [
+        "0x83200a1916c17e116af0ed7302da43040f43eb8b",
+        "Feltowanium",
+        0
+    ],
+    "25:36": [
+        "0xab1efe9da7d5b8eeba24b980cc3bcea972a3e936",
+        "Norquazilada",
+        3
+    ],
+    "26:36": [
+        "0xe9897b4cdc5d1580e6699223e25937e503d38dd0",
+        "Erdoberada",
+        1
+    ],
+    "-3:6": [
+        "0x9b5ecc4d2fb5908b8506bd04ec7b87aad2d96dd0",
+        "Fanzumden",
+        1
+    ],
+    "-33:6": [
+        "0x80867074b7565e79965d8bf6b604d65a685a65fe",
+        "Baldidalmia",
+        0
+    ],
+    "-3:-24": [
+        "0x01e66950353400e93aee7f041c0303103e2ef5ab",
+        "Iscallia",
+        1
+    ],
+    "27:6": [
+        "0xeddda497496efcc431fdf7d451924cea6ffa7f4b",
+        "Hatlyanoli",
+        0
+    ],
+    "-33:36": [
+        "0x2595b91faefe229b8e5420311d63a3d1c98448f9",
+        "Morlitarico",
+        1
+    ],
+    "-33:-24": [
+        "0x80825ad549c9119e40b158195cbc798edee96f50",
+        "Halfaanland",
+        2
+    ],
+    "-3:36": [
+        "0x6845fd11c492167bb47c23cc3e4dc99adf6afad9",
+        "Rotdibobwe",
+        8
+    ],
+    "25:6": [
+        "0x0b0625e7871868eab192a110f4536db0fc32e98a",
+        "Parlahasha",
+        4
+    ],
+    "26:-24": [
+        "0x067c227eb6c630ef8dda9fa70fe999d83071b041",
+        "Dotsadasemi",
+        11
+    ],
+    "27:36": [
+        "0xd03ac55f16bcdb8a8bcbe83059bfb12f10eacec1",
+        "Cairiwanfia",
+        0
+    ],
+    "26:6": [
+        "0x2cc6d9fd704f83dae0cc2a4095f6fface71efab3",
+        "Tazvefurder",
+        11
+    ],
+    "-2:6": [
+        "0x95f1751ba11f482eabf2e599148dc0136ab240a2",
+        "Herforsola",
+        11
+    ],
+    "-2:-24": [
+        "0x0f98932172165a00475eec4b36a6bffa5f3dea7b",
+        "Olfogansia",
+        1
+    ],
+    "28:-24": [
+        "0xaeeaa55ed4f7df9e4c5688011ced1e2a1b696772",
+        "Westithkitina",
+        8
+    ],
+    "-32:6": [
+        "0x9f9b67fd872b435c1d9262736f3f4a36d601f1db",
+        "Tazwuhador",
+        0
+    ],
+    "28:6": [
+        "0xe6d5514b8de7ef9e5f5c4cc2e8ca0207129deb65",
+        "Duncolavola",
+        0
+    ],
+    "-32:-24": [
+        "0xb2d70441d45715b2a9afd09298ef686d6828695f",
+        "Gopdokitina",
+        2
+    ],
+    "-2:36": [
+        "0xf363ac52bdd0fd77ce8c9c74f639e05ccff33556",
+        "Kimpanirbia",
+        0
+    ],
+    "28:36": [
+        "0x88a451e73ffa518ce97517c9e0b1913665801744",
+        "Parmahiany",
+        0
+    ],
+    "-32:36": [
+        "0x05310c5594a3c961f212308317ff3a4fdd8f82af",
+        "Nortasdor",
+        2
+    ],
+    "-1:6": [
+        "0x8dbf304e3f6b3cfd989f68334ed7162348d26163",
+        "North Gilvihidia",
+        0
+    ],
+    "999:999": [
+        "0x51e1886cd4becc1fc9878d4f58f7bacb05ce7d2e",
+        "Sorvikitoli",
+        2
     ]
 }
