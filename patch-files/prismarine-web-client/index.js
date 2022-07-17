@@ -85,7 +85,7 @@ function addPanoramaCubeMap () {
 
   const Entity = require('prismarine-viewer/viewer/lib/entity/Entity')
   for (let i = 0; i < 42; i++) {
-    const m = new Entity('1.16.4', 'bat').mesh
+    const m = new Entity('1.15.2', 'bat').mesh
     m.position.set(Math.random() * 30 - 15, Math.random() * 20 - 10, Math.random() * 10 - 17)
     m.rotation.set(0, Math.PI + Math.random(), -Math.PI / 4, 'ZYX')
     const v = Math.random() * 0.01
@@ -260,6 +260,10 @@ async function connect (options) {
     viewer.listen(worldView)
     worldView.listenToBot(bot)
     worldView.init(bot.entity.position)
+
+    // Color variables
+    //       viewer.scene.background = new THREE.Color(0xbf713e)
+    //       viewer.scene.ambientLight = new THREE.Color(0x222222)
 
     // Bot position callback
     function botPosition () {

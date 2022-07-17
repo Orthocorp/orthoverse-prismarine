@@ -16,10 +16,12 @@ echo "Node version: $(node --version)"
 # uncomment for debug info
 set -x
 
+# rm -fr ./prismarine-web-client/node_modules/prismarine-viewer/public/textures/*
 cp -r ./patch-files/prismarine-web-client ./
 cp -r ./patch-files/flying-squid ./
-cd ./flying-squid/world
-rm -fr *
-cd ..
+
+rm -fr ./flying-squid/world/*
+
+cd flying-squid
 node ./examples/orthoverse.js
 
