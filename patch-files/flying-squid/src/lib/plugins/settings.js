@@ -47,7 +47,7 @@ module.exports.server = function (serv, settings) {
         south = 64
         break
     }
-    return findSpawnZone(world, new Vec3(randomInt(0,31) + (east), 81, randomInt(0, 31) + (south)))
+    return findSpawnZone(world, new Vec3(randomInt(0,31) + (east), 100, randomInt(0, 31) + (south)))
   }
 }
 
