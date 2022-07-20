@@ -203,6 +203,7 @@ class Hud extends LitElement {
     const healthbar = this.shadowRoot.querySelector('#health-bar')
     const foodbar = this.shadowRoot.querySelector('#food-bar')
     // const breathbar = this.shadowRoot.querySelector('#breath-bar')
+    const land = this.shadowRoot.querySelector('#landbar')
     const chat = this.shadowRoot.querySelector('#chat')
     const hotbar = this.shadowRoot.querySelector('#hotbar')
     const xpLabel = this.shadowRoot.querySelector('#xp-label')
@@ -210,6 +211,9 @@ class Hud extends LitElement {
     this.bot = bot
     hotbar.bot = bot
     debugMenu.bot = bot
+
+    let xStor = 0
+    let zStor = 0
 
     chat.init(bot._client, renderer)
     bot.on('spawn', () => playerList.init(bot, host))
@@ -247,6 +251,18 @@ class Hud extends LitElement {
       xpLabel.style.display = bot.experience.level > 0 ? 'block' : 'none'
     })
 
+    bot.on('move', () => {
+      const x = Math.floor(bot.player.entity.position.x / (16*6))
+      const z = Math.floor(bot.player.entity.position.z / (16*6))
+      if ((x !== xStor) || (z !== zStor)) {
+        xStor = x
+        zStor = z
+        land.updateLand(xStor, zStor)
+        console.log(xStor, zStor)
+        //land.update(x, y)
+      }
+    })
+
     // bot.on('breath', () => {
     //   breathbar.updateOxygen(bot.oxygenLevel)
     // })
@@ -259,6 +275,7 @@ class Hud extends LitElement {
       healthbar.gameModeChanged(bot.player.gamemode, bot.game.hardcore)
       healthbar.updateHealth(bot.health)
       foodbar.updateHunger(bot.food)
+      landbar.updateHunger(bot.food)
       // breathbar.updateOxygen(bot.oxygenLevel ?? 20)
       hotbar.init()
     })
@@ -347,6 +364,7 @@ class Hud extends LitElement {
       <!--<pmui-breathbar id="breath-bar"></pmui-breathbar>-->
       <pmui-healthbar id="health-bar"></pmui-healthbar>
       <pmui-foodbar id="food-bar"></pmui-foodbar>
+      <pmui-landbar id="landbar"></pmui-landbar>
       <div id="xp-bar-bg" style="display: none">
         <div class="xp-bar"></div>
         <span id="xp-label"></span>

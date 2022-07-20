@@ -28,9 +28,26 @@ module.exports.server = function (serv, settings) {
   }
 
   serv.getSpawnPoint = async (world) => {
-    const compassNorth = randomInt(0,2)
-    const compassEast = randomInt(0,2)
-    return findSpawnZone(world, new Vec3(randomInt(0,31) + (compassNorth * 64), 81, randomInt(0, 31) + (compassEast * 64)))
+    let south = 0
+    let east = 0
+    const compass = randomInt(0,4)
+    switch (compass) {
+      case 0: // north
+        east = 32
+        break
+      case 1: // east
+        south = 32
+        east = 64
+        break
+      case 2: // west
+        south = 32
+        break
+      case 3: // south
+        east = 32
+        south = 64
+        break
+    }
+    return findSpawnZone(world, new Vec3(randomInt(0,31) + (east), 81, randomInt(0, 31) + (south)))
   }
 }
 

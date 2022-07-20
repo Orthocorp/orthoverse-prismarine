@@ -7,6 +7,7 @@ require('./lib/menus/components/slider')
 require('./lib/menus/components/hotbar')
 require('./lib/menus/components/health_bar')
 require('./lib/menus/components/food_bar')
+require('./lib/menus/components/land')
 require('./lib/menus/components/breath_bar')
 require('./lib/menus/components/debug_overlay')
 require('./lib/menus/components/playerlist_overlay')
@@ -181,7 +182,7 @@ async function connect (options) {
     version: options.botVersion === '' ? false : options.botVersion,
     username,
     password,
-    viewDistance: 'tiny',
+    viewDistance: 'short',
     checkTimeoutInterval: 240 * 1000,
     noPongTimeout: 240 * 1000,
     closeTimeout: 240 * 1000
@@ -297,7 +298,6 @@ async function connect (options) {
     window.setInterval(function () {
       const currentTime = bot.time.timeOfDay
       const moonPhase = bot.time.moonPhase
-      console.log(currentTime)
       if (typeof currentTime !== 'undefined') {
         const intensity = intensityCalc(currentTime)
         viewer.scene.background = new THREE.Color("#" + darkenSky(skyColor, intensity).padStart(6,0))
@@ -308,8 +308,6 @@ async function connect (options) {
           Math.sin(timeToRads(currentTime)),
           0.2
         ).normalize()
-        console.log(intensity)
-        console.log(Math.cos(timeToRads(currentTime)), Math.sin(timeToRads(currentTime)) )
       }
     }, 750)
 
