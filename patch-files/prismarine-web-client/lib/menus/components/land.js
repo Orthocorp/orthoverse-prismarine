@@ -49,7 +49,7 @@ class LandBar extends LitElement {
     super()
     this.landName = lands["0:0"][1]
     this.landShield = "../../../extra-textures/escutcheons/" + lands["0:0"][3]
-    this.landCrown = "../../../extra-textures/crown3.png"
+    this.landCrown = "../../../extra-textures/crown7.png"
   }
 
   async updateLand (x,z) {
@@ -63,13 +63,7 @@ class LandBar extends LitElement {
       } else { 
         this.landShield = "../../../extra-textures/escutcheons/" + lands[landKey][3]
       }
-      let adjustedLevel = ((lands[landKey][2] % 8) - 4)
-      if (adjustedLevel < 0) {
-        adjustedLevel = 0
-        
-      } else {
-        
-      }
+      let adjustedLevel = (lands[landKey][2] % 8)
       this.landCrown = "../../../extra-textures/crown" + adjustedLevel.toString() + ".png"
     } else {
       this.landName = "The Open Sea"
