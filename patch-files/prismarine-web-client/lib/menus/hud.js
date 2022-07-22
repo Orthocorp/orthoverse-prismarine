@@ -254,12 +254,11 @@ class Hud extends LitElement {
     bot.on('move', () => {
       const x = Math.floor(bot.player.entity.position.x / (16*6))
       const z = Math.floor(bot.player.entity.position.z / (16*6))
+      land.updateDir(bot.player.entity.yaw)
       if ((x !== xStor) || (z !== zStor)) {
         xStor = x
         zStor = z
         land.updateLand(xStor, zStor)
-        console.log(xStor, zStor)
-        //land.update(x, y)
       }
     })
 

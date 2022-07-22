@@ -1,8 +1,14 @@
 const Vec3 = require('vec3').Vec3;
 
-// teleport check
-
 module.exports.player = function(player, serv) { 
+
+  // make spawn a bit higher
+  player.on('spawn', () => {
+    let xStor = player.position.x;
+    let zStor = player.position.z;
+    let yStor = player.position.y;
+    player.teleport(new Vec3(xStor, yStor + 10, zStor))
+  })
 
   player.on('move', ({position}, cancelled) => { 
   //orthohenge
@@ -17,7 +23,7 @@ module.exports.player = function(player, serv) {
             (Math.floor(zStor) === 32+z)) {
           zStor = zStor + 15.5 - jump;
           if (zStor < -3000 ) {zStor = zStor + 3*jump}
-          player.teleport(new Vec3(xStor, player.position.y + 1.5, zStor));
+          player.teleport(new Vec3(xStor, player.position.y + 2, zStor));
           z = x = jump + 1;
         }
         // south
@@ -25,7 +31,7 @@ module.exports.player = function(player, serv) {
             (Math.floor(zStor) === 63+z)) {
           zStor = zStor - 15.5 + jump;
           if (zStor > 3000) {zStor = zStor - 3*jump}
-          player.teleport(new Vec3(xStor, player.position.y + 1.5, zStor));
+          player.teleport(new Vec3(xStor, player.position.y + 2, zStor));
           z = x = jump + 1;
         }
         // west
@@ -33,7 +39,7 @@ module.exports.player = function(player, serv) {
             (Math.floor(xStor) === 32+x)) {
           xStor = xStor + 15.5 - jump;
           if (xStor < -3000) {xStor = xStor + 3*jump}
-          player.teleport(new Vec3(xStor, player.position.y + 1.5, zStor));
+          player.teleport(new Vec3(xStor, player.position.y + 2, zStor));
           z = x = jump + 1;
         }
         // east
@@ -41,7 +47,7 @@ module.exports.player = function(player, serv) {
             (Math.floor(xStor) === 63+x)) {
           xStor = xStor -15.5 + jump;
           if (xStor > 3000) {xStor = xStor - 3*jump}
-          player.teleport(new Vec3(xStor, player.position.y + 1.5, zStor));
+          player.teleport(new Vec3(xStor, player.position.y + 2, zStor));
           z = x = jump + 1;
         }
 
@@ -52,7 +58,7 @@ module.exports.player = function(player, serv) {
           xStor = xStor + 15.5 - jump;
           if (zStor < - 3000 ) {zStor = zStor + 3*jump}
           if (xStor < -3000 ) {xStor = xStor + 3*jump}
-          player.teleport(new Vec3(xStor, player.position.y + 1.5, zStor));
+          player.teleport(new Vec3(xStor, player.position.y + 2, zStor));
           z = x = jump + 1;
         }
         // southwest
@@ -62,7 +68,7 @@ module.exports.player = function(player, serv) {
           xStor = xStor + 15.5 - jump;
           if (zStor > 3000 ) {zStor = zStor - 3*jump}
           if (xStor < -3000 ) {xStor = xStor + 3*jump}
-          player.teleport(new Vec3(xStor, player.position.y + 1.5, zStor));
+          player.teleport(new Vec3(xStor, player.position.y + 2, zStor));
           z = x = jump + 1;
         }
 
@@ -73,7 +79,7 @@ module.exports.player = function(player, serv) {
           xStor = xStor - 15.5 + jump;
           if (zStor < -3000 ) {zStor = zStor + 3*jump}
           if (xStor > 3000 ) {xStor = xStor - 3*jump}
-          player.teleport(new Vec3(xStor, player.position.y + 1.5, zStor));
+          player.teleport(new Vec3(xStor, player.position.y + 2, zStor));
           z = x = jump + 1;
         }
         // southeast
@@ -84,7 +90,7 @@ module.exports.player = function(player, serv) {
           if (zStor > 3000 ) {zStor = zStor - 3*jump}
           if (xStor > 3000 ) {xStor = xStor - 3*jump}
           console.log(xStor, zStor)
-          player.teleport(new Vec3(xStor, player.position.y + 1.5, zStor));
+          player.teleport(new Vec3(xStor, player.position.y + 2, zStor));
           z = x = jump + 1;
         }
 

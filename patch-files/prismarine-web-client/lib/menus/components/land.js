@@ -34,6 +34,17 @@ class LandBar extends LitElement {
         text-align: center;
       }
 
+      #compass {
+        position: absolute;
+        bottom: 2px;
+        right: 2px;
+        height: 40px;
+        width: 40px;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+      }
+
     `
   }
 
@@ -53,7 +64,6 @@ class LandBar extends LitElement {
   }
 
   async updateLand (x,z) {
-    console.log("Landbar: ", x,z)
     const landKey = x.toString() + ":" + z.toString()
     if (landKey in lands) {
       this.landName = lands[landKey][1]
@@ -72,12 +82,23 @@ class LandBar extends LitElement {
     }
   }
 
+  async updateDir(dir) {
+    this.shadowRoot.querySelector('#compass').style.transform = 'rotate(' + dir.toString() + 'rad)'
+  }
+
   render () {
     return html`
       <div id="landbar" class="landbar">
         <div class="land-name">${this.landName}</div>
-        <div class="land-crown" id="crown"><img style="width: 40px; height: auto;" src=${this.landCrown}></img></div>
-        <div class="land-shield"><img style="width: 40px; height: auto;" src=${this.landShield}></img></div>
+        <div class="land-crown" id="crown">
+          <img style="width: 40px; height: auto;" src=${this.landCrown}></img>
+       </div>
+        <div class="land-shield">
+          <img style="width: 40px; height: auto;" src=${this.landShield}></img>
+        </div>
+      </div>
+      <div id="compass">
+        <img style="width: 40px; height: auto;" src="../../../extra-textures/compass.png"><img/>
       </div>
     `
   }
