@@ -85,8 +85,8 @@ function addPanoramaCubeMap () {
   group.add(panoramaBox)
 
   const Entity = require('prismarine-viewer/viewer/lib/entity/Entity')
-  for (let i = 0; i < 42; i++) {
-    const m = new Entity('1.15.2', 'bat').mesh
+  for (let i = 0; i < 22; i++) {
+    const m = new Entity('1.15.2', 'blaze').mesh
     m.position.set(Math.random() * 30 - 15, Math.random() * 20 - 10, Math.random() * 10 - 17)
     m.rotation.set(0, Math.PI + Math.random(), -Math.PI / 4, 'ZYX')
     const v = Math.random() * 0.01

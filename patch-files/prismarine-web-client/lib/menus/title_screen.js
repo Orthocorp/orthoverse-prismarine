@@ -6,7 +6,7 @@ const slogan = [
  "GARLIC FOREVER!",
  "THE ONION IS A LIE!",
  "HENGES RULE!",
- "WHY THE BATS?",
+ "WHY THE GARLIC?",
  "FLIP FOR FUN",
  "A QUINDECILLION IS BIG"
 ]
