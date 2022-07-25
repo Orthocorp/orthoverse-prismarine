@@ -404,6 +404,9 @@ async function connect (options) {
             case 'KeyW':
               bot.setControlState('forward', true)
               break
+            case 'KeyE':
+              hud.boots()
+              break
           }
         }
       })

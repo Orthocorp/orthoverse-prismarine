@@ -212,6 +212,21 @@ class Hud extends LitElement {
     hotbar.bot = bot
     debugMenu.bot = bot
 
+    this.bootStatus = false
+    this.boots = function () {
+      console.log(bot)
+      if (this.bootStatus === false) {
+        this.bootStatus = true
+        bot.physics.gravity = 0.04
+        this.bot.physics.sprintSpeed = 1.5   
+      } else {
+        this.bootStatus = false
+        bot.physics.gravity = 0.08
+        bot.physics.sprintSpeed = 0.3
+      }
+      land.bootswap(this.bootStatus)
+    }
+
     let xStor = 0
     let zStor = 0
 

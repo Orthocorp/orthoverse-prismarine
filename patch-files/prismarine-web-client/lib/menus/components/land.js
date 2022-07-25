@@ -45,6 +45,17 @@ class LandBar extends LitElement {
         text-align: center;
       }
 
+      #boots {
+        position: absolute;
+        bottom: 43px;
+        right: 2px;
+        height: 40px;
+        width: 40px;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+      }
+
     `
   }
 
@@ -52,7 +63,8 @@ class LandBar extends LitElement {
     return {
       landName: { type: String },
       landShield: { type: String },
-      landCrown: { type: String }
+      landCrown: { type: String },
+      bootImg: {type: String }
     }
   }
 
@@ -61,6 +73,7 @@ class LandBar extends LitElement {
     this.landName = lands["0:0"][1]
     this.landShield = "../../../extra-textures/escutcheons/" + lands["0:0"][3]
     this.landCrown = "../../../extra-textures/crown7.png"
+    this.bootImg = "../../../extra-textures/boot-dark.png"
   }
 
   async updateLand (x,z) {
@@ -86,6 +99,14 @@ class LandBar extends LitElement {
     this.shadowRoot.querySelector('#compass').style.transform = 'rotate(' + dir.toString() + 'rad)'
   }
 
+  async bootswap(light) {
+    if (light === true) {
+      this.bootImg = "../../../extra-textures/boot-light.png" 
+    } else {
+      this.bootImg = "../../../extra-textures/boot-dark.png"
+    }
+  }
+
   render () {
     return html`
       <div id="landbar" class="landbar">
@@ -96,6 +117,9 @@ class LandBar extends LitElement {
         <div class="land-shield">
           <img style="width: 40px; height: auto;" src=${this.landShield}></img>
         </div>
+      </div>
+      <div id="boots">
+        <img style="width: 40px; height: auto;" src=${this.bootImg}><img/>
       </div>
       <div id="compass">
         <img style="width: 40px; height: auto;" src="../../../extra-textures/compass.png"><img/>
