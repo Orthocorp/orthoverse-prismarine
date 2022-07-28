@@ -62,6 +62,7 @@ class LandBar extends LitElement {
   static get properties () {
     return {
       landName: { type: String },
+      landColor: { type: String},
       landShield: { type: String },
       landCrown: { type: String },
       bootImg: {type: String }
@@ -71,6 +72,7 @@ class LandBar extends LitElement {
   constructor () {
     super()
     this.landName = lands["0:0"][1]
+    this.landColor = "#000000"
     this.landShield = "../../../extra-textures/escutcheons/" + lands["0:0"][3]
     this.landCrown = "../../../extra-textures/crown7.png"
     this.bootImg = "../../../extra-textures/boot-dark.png"
@@ -107,10 +109,21 @@ class LandBar extends LitElement {
     }
   }
 
+  async landnameswap(light) {
+    console.log("About to swap land name color")
+    if (light === 'true') {
+      console.log("Land name color to BLUE")     
+      this.landColor = "#0000ff"
+    } else {
+      this.landColor = "#000000"
+      console.log("Land name color to BLACK")  
+    }
+  }
+
   render () {
     return html`
       <div id="landbar" class="landbar">
-        <div class="land-name">${this.landName}</div>
+        <div class="land-name" style="color: ${this.landColor}">${this.landName}</div>
         <div class="land-crown" id="crown">
           <img style="width: 40px; height: auto;" src=${this.landCrown}></img>
        </div>

@@ -19,7 +19,8 @@ const orthoverse = mcServer.createMCServer({
   },
   kickTimeout: 10000,
   plugins: {
-    hengeportals: 'hengeportals'
+    hengeportals: 'hengeportals',
+    ethereum: 'ethereum'
   },
   modpe: false,
   'view-distance': 10,

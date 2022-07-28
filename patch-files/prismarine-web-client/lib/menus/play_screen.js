@@ -57,7 +57,8 @@ class PlayScreen extends LitElement {
       proxyport: { type: Number },
       username: { type: String },
       password: { type: String },
-      version: { type: String }
+      version: { type: String },
+      walletAddress: { type: String}
     }
   }
 
@@ -70,6 +71,7 @@ class PlayScreen extends LitElement {
     this.username = window.localStorage.getItem('username') ?? 'pviewer' + (Math.floor(Math.random() * 1000))
     this.password = ''
     this.version = ''
+    this.walletAddress = ''
 
     window.fetch('config.json').then(res => res.json()).then(config => {
       this.server = config.defaultHost
@@ -136,12 +138,47 @@ class PlayScreen extends LitElement {
           ></pmui-editbox>
         </div>
       <div class="wrapper">
-        <pmui-button pmui-width="150px" pmui-label="Connect" @pmui-click=${this.onConnectPress}></pmui-button>
+        <pmui-button pmui-width="150px" pmui-label="Log on with wallet" @pmui-click=${this.onWalletPress}></pmui-button>
+      </div>
+      <div class="wrapper">
+        <pmui-button pmui-width="150px" pmui-label="Log on as guest" @pmui-click=${this.onConnectPress}></pmui-button>
+      </div>
+      <div class="wrapper">
         <pmui-button pmui-width="150px" pmui-label="Cancel" @pmui-click=${() => displayScreen(this, document.getElementById('title-screen'))}></pmui-button>
       </div>
 
       </main>
     `
+  }
+
+  onWalletPress () {
+    if (typeof window.ethereum !== "undefined") {
+      ethereum
+        .request({ method: "eth_requestAccounts" })
+        .then((accounts) => {
+           this.walletAddress = accounts[0]
+           console.log("Wallet connected: " + this.walletAddress);
+           window.localStorage.setItem('username', this.username)
+           window.localStorage.setItem('password', '')
+           this.dispatchEvent(new window.CustomEvent('connect', {
+             detail: {
+               server: `${this.server}:${this.serverport}`,
+               proxy: `${this.proxy}${this.proxy !== '' ? `:${this.proxyport}` : ''}`,
+               username: this.username,
+               password: '',
+               wallet: this.walletAddress,
+               botVersion: this.version
+             }
+           }))       
+        }).catch((error) => {
+           console.log(error, error.code);
+           // 4001 - The request was rejected by the user
+           // -32602 - The parameters were invalid
+           // -32603- Internal error
+        });
+     } else {
+       window.open("https://metamask.io/download/", "_blank");
+     }
   }
 
   onConnectPress () {
@@ -152,7 +189,7 @@ class PlayScreen extends LitElement {
         server: `${this.server}:${this.serverport}`,
         proxy: `${this.proxy}${this.proxy !== '' ? `:${this.proxyport}` : ''}`,
         username: this.username,
-        password: this.password,
+        password: '',
         botVersion: this.version
       }
     }))

@@ -214,7 +214,6 @@ class Hud extends LitElement {
 
     this.bootStatus = false
     this.boots = function () {
-      console.log(bot)
       if (this.bootStatus === false) {
         this.bootStatus = true
         bot.physics.gravity = 0.04

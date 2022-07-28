@@ -140,10 +140,12 @@ async function connect (options) {
 
   const hud = document.getElementById('hud')
   const chat = hud.shadowRoot.querySelector('#chat')
+  const landbar = hud.shadowRoot.querySelector('#landbar')
   const debugMenu = hud.shadowRoot.querySelector('#debug-overlay')
   const optionsScrn = document.getElementById('options-screen')
   const keyBindScrn = document.getElementById('keybinds-screen')
   const gameMenu = document.getElementById('pause-screen')
+  const playScreen = document.getElementById('play-screen')
 
   const viewDistance = optionsScrn.renderDistance
   const hostprompt = options.server
@@ -186,6 +188,36 @@ async function connect (options) {
     checkTimeoutInterval: 240 * 1000,
     noPongTimeout: 240 * 1000,
     closeTimeout: 240 * 1000
+  })
+
+  // channel for sending and receiving blockchain information
+  bot._client.registerChannel('ethereum', ['string', []])
+
+  bot._client.on('ethereum', (msg) => {
+    console.log('Ethereum:', msg)
+    // console.log('My wallet: ', playScreen.walletAddress)
+
+    // respond to server challenge
+    if ((msg.slice(0,5) === 'chal:') && (playScreen.walletAddress !== '')) {
+      const challenge = msg.slice(5)
+      ethereum.request({
+             method: "personal_sign",
+             "params": [challenge, playScreen.walletAddress]
+      })
+      .then((response) => {
+        // send the signed response
+        console.log("chal:" + response)
+        bot._client.writeChannel('ethereum', "chal:" + response)
+      })
+    }
+    if ((msg.slice(0,5) === 'ownd:') && (playScreen.walletAddress !== '')) { 
+      if (msg.slice(5) === 'true') {
+        landbar.landnameswap('true')  
+      } else {
+        landbar.landnameswap('false')  
+      }
+    }
+
   })
 
   bot.on('error', (err) => {
