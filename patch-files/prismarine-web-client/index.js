@@ -210,11 +210,19 @@ async function connect (options) {
         bot._client.writeChannel('ethereum', "chal:" + response)
       })
     }
+
+    // wallet accept: challenge accepted - can set entity address
+    if (msg.slice(0,5) === 'wack:') {
+      const address = msg.slice(5)
+      bot.player.entity.ethereum.wallet = address
+      bot.player.entity.ethereum.confirmed = true
+    }
+
     if ((msg.slice(0,5) === 'ownd:') && (playScreen.walletAddress !== '')) { 
       if (msg.slice(5) === 'true') {
         landbar.landnameswap('true')  
       } else {
-        landbar.landnameswap('false')  
+        landbar.landnameswap('false') 
       }
     }
 

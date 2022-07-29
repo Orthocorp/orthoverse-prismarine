@@ -30,6 +30,7 @@ module.exports.player = function(player, serv) {
         serv.info('Confirmed ' + player.username + ' controls ' + addr)
         player.ethereum.wallet = addr
         player.ethereum.confirmed = true
+        player._client.writeChannel('ethereum', 'wack:' + addr)
       }
     }
   })
@@ -49,12 +50,15 @@ module.exports.player = function(player, serv) {
         zCoord = landCoord(zStor)
         console.log(xCoord, zCoord)
         // we have moved into a new tile
-        const landOwner = voxel[xCoord.toString() + ":" + zCoord.toString()][4]
-        if (player.ethereum.wallet === landOwner) {
-          player._client.writeChannel('ethereum', "ownd:true")
-        } else {
-           player._client.writeChannel('ethereum', "ownd:false")         
-        }
+        const landPos = xCoord.toString() + ":" + zCoord.toString()
+        if (landPos in voxel) {
+          const landOwner = voxel[landPos][4]
+          if (player.ethereum.wallet === landOwner) {
+            player._client.writeChannel('ethereum', "ownd:true")
+          } else {
+             player._client.writeChannel('ethereum', "ownd:false")         
+          }
+        } else { player._client.writeChannel('ethereum', "ownd:false") }
       }
 
       xStor = player.position.x;

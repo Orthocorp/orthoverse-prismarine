@@ -89,7 +89,6 @@ module.exports.player = function(player, serv) {
           xStor = xStor - 15.5 + jump;
           if (zStor > 3000 ) {zStor = zStor - 3*jump}
           if (xStor > 3000 ) {xStor = xStor - 3*jump}
-          console.log(xStor, zStor)
           player.teleport(new Vec3(xStor, player.position.y + 2, zStor));
           z = x = jump + 1;
         }

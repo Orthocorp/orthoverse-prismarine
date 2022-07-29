@@ -1,4 +1,5 @@
 const Vec3 = require('vec3').Vec3
+const voxel = require('../../../map-data/voxel.json');
 
 module.exports.player = function (player, serv, { version }) {
   const mcData = require('minecraft-data')(version)
@@ -53,14 +54,27 @@ module.exports.player = function (player, serv, { version }) {
       currentlyDugBlock = block
       if (currentlyDugBlock.type === 0) return
       if (status === 0) {
-        if (player.gameMode === 1) {
-          console.log("Creative digging entered")
-          creativeDigging(pos)
-        } else if (player.gameMode === 0) {
-          console.log("Survival digging entered")
-          startDigging(pos)
+        console.log(player)
+        // only start digging if player is in right location
+        //
+        let owned = false
+        const landPos = currentlyDugBlock.position.x.toString() + ":" + currentlyDugBlock.position.z.toString()
+        if (landPos in voxel) {
+          const landOwner = voxel[landPos][4]
+          if (player.ethereum.wallet === landOwner) {
+            owned = true
+          }
         }
-      } else if (status === 1 || player.gameMode >= 2) {
+        if (owned = true) {
+          if (player.gameMode === 1) {
+            console.log("Creative digging entered")
+            creativeDigging(pos)
+          } else {
+            console.log("Survival digging entered")
+            startDigging(pos)
+          }
+        }
+      } else if (status === 1) {
         console.log("Trying to cancel digging")
         cancelDigging(pos)
       } else if (status === 2) {

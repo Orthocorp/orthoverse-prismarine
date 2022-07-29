@@ -138,7 +138,7 @@ class PlayScreen extends LitElement {
           ></pmui-editbox>
         </div>
       <div class="wrapper">
-        <pmui-button pmui-width="150px" pmui-label="Log on with wallet" @pmui-click=${this.onWalletPress}></pmui-button>
+        <pmui-button pmui-width="150px" pmui-label="Log on with MetaMask" @pmui-click=${this.onWalletPress}></pmui-button>
       </div>
       <div class="wrapper">
         <pmui-button pmui-width="150px" pmui-label="Log on as guest" @pmui-click=${this.onConnectPress}></pmui-button>

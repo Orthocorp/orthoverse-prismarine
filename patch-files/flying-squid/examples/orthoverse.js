@@ -7,7 +7,7 @@ const orthoverse = mcServer.createMCServer({
   'max-players': 10,
   'online-mode': false,
   logging: true,
-  gameMode: 2,
+  gameMode: 1,
   difficulty: 1,
   worldFolder: 'world',
   generation: {
