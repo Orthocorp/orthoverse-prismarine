@@ -1,13 +1,13 @@
 {
-  "name": "flying-squid",
+  "name": "orthoverse-flying-squid",
   "description": "A minecraft server written in node.js",
   "version": "1.5.0",
   "main": "index.js",
   "author": "mhsjlw <mhsjlw@users.noreply.github.com>",
   "contributors": [
     {
-      "name": "rom1504",
-      "email": "romain.rom1@gmail.com"
+      "name": "kf106",
+      "email": "keir@chainfrog.com"
     }
   ],
   "bin": {
@@ -57,10 +57,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/PrismarineJS/flying-squid.git"
+    "url": "https://github.com/kf106/orthoverse-prismarine"
   },
   "bugs": {
-    "url": "http://github.com/PrismarineJS/flying-squid/issues"
+    "url": "https://github.com/kf106/orthoverse-prismarine/issues"
   },
   "devDependencies": {
     "expect": "^28.1.0",

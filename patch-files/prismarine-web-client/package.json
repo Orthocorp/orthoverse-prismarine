@@ -1,5 +1,5 @@
 {
-  "name": "prismarine-web-client",
+  "name": "orthoverse-web-client",
   "version": "1.4.0",
   "description": "A minecraft client running in a browser",
   "main": "index.js",
@@ -30,9 +30,9 @@
     "prismarine-web-client": "./server.js"
   },
   "bugs": {
-    "url": "https://github.com/PrismarineJS/prismarine-web-client/issues"
+    "url": "https://github.com/kf106/orthoverse-prismarine"
   },
-  "homepage": "https://github.com/PrismarineJS/prismarine-web-client#readme",
+  "homepage": "https://github.com/kf106/orthoverse-prismarine#readme",
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.17.1",

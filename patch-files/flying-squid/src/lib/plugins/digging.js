@@ -54,7 +54,6 @@ module.exports.player = function (player, serv, { version }) {
       currentlyDugBlock = block
       if (currentlyDugBlock.type === 0) return
       if (status === 0) {
-        console.log(player)
         // only start digging if player is in right location
         //
         let owned = false

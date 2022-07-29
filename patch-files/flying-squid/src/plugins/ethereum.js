@@ -48,7 +48,6 @@ module.exports.player = function(player, serv) {
       if ((xCoord != landCoord(player.position.x)) || (zCoord != landCoord(player.position.z))) {
         xCoord = landCoord(xStor)
         zCoord = landCoord(zStor)
-        console.log(xCoord, zCoord)
         // we have moved into a new tile
         const landPos = xCoord.toString() + ":" + zCoord.toString()
         if (landPos in voxel) {
