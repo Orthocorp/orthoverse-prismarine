@@ -30,7 +30,7 @@ module.exports.server = function (serv, settings) {
   serv.getSpawnPoint = async (world) => {
     let south = 0
     let east = 0
-    const compass = randomInt(0,4)
+    const compass = randomInt(0, 4)
     switch (compass) {
       case 0: // north
         east = 32
@@ -47,7 +47,7 @@ module.exports.server = function (serv, settings) {
         south = 64
         break
     }
-    return findSpawnZone(world, new Vec3(randomInt(0,31) + (east), 100, randomInt(0, 31) + (south)))
+    return findSpawnZone(world, new Vec3(randomInt(0, 31) + (east), 100, randomInt(0, 31) + (south)))
   }
 }
 
@@ -56,7 +56,7 @@ module.exports.player = async function (player, serv) {
   player.gameMode = serv.gameMode
   player.findSpawnPoint = async () => {
     player.spawnPoint = await serv.getSpawnPoint(player.world)
-    console.log("Spawning to : ", player.spawnPoint)
+    console.log('Spawning to : ', player.spawnPoint)
   }
   player._client.on('settings', ({ viewDistance }) => {
     player.view = viewDistance

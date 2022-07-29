@@ -110,10 +110,10 @@ module.exports.player = async function (player, serv, settings) {
 
     // ethereum init msg that kicks off the whole authentication spiel
     player._client.registerChannel('ethereum', ['string', []], true)
-    const challenge = new Date().toLocaleString() + "\n" + 
-                             "Nonce: " + 
-                             [...Array(8)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
-    player._client.writeChannel('ethereum', "chal:" + challenge)
+    const challenge = new Date().toLocaleString() + '\n' +
+                             'Nonce: ' +
+                             [...Array(8)].map(() => Math.floor(Math.random() * 16).toString(16)).join('')
+    player._client.writeChannel('ethereum', 'chal:' + challenge)
     player.ethereum.challenge = challenge
 
     if (serv.supportFeature('difficultySentSeparately')) {

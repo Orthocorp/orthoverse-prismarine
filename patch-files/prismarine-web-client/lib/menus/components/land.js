@@ -62,61 +62,61 @@ class LandBar extends LitElement {
   static get properties () {
     return {
       landName: { type: String },
-      landColor: { type: String},
+      landColor: { type: String },
       landShield: { type: String },
       landCrown: { type: String },
-      bootImg: {type: String }
+      bootImg: { type: String }
     }
   }
 
   constructor () {
     super()
-    this.landName = lands["0:0"][1]
-    this.landColor = "#000000"
-    this.landShield = "../../../extra-textures/escutcheons/" + lands["0:0"][3]
-    this.landCrown = "../../../extra-textures/crown7.png"
-    this.bootImg = "../../../extra-textures/boot-dark.png"
+    this.landName = lands['0:0'][1]
+    this.landColor = '#000000'
+    this.landShield = '../../../extra-textures/escutcheons/' + lands['0:0'][3]
+    this.landCrown = '../../../extra-textures/crown7.png'
+    this.bootImg = '../../../extra-textures/boot-dark.png'
   }
 
-  async updateLand (x,z) {
-    const landKey = x.toString() + ":" + z.toString()
+  async updateLand (x, z) {
+    const landKey = x.toString() + ':' + z.toString()
     if (landKey in lands) {
       this.landName = lands[landKey][1]
       const shield = lands[landKey][3]
-      if (shield === "none") {
-        this.landShield = "../../../extra-textures/escutcheons/none.png"
-      } else { 
-        this.landShield = "../../../extra-textures/escutcheons/" + lands[landKey][3]
+      if (shield === 'none') {
+        this.landShield = '../../../extra-textures/escutcheons/none.png'
+      } else {
+        this.landShield = '../../../extra-textures/escutcheons/' + lands[landKey][3]
       }
-      let adjustedLevel = (lands[landKey][2] % 8)
-      this.landCrown = "../../../extra-textures/crown" + adjustedLevel.toString() + ".png"
+      const adjustedLevel = (lands[landKey][2] % 8)
+      this.landCrown = '../../../extra-textures/crown' + adjustedLevel.toString() + '.png'
     } else {
-      this.landName = "The Open Sea"
-      this.landShield = "../../../extra-textures/escutcheons/none.png"
-      this.landCrown = "../../../extra-textures/crown0.png"
+      this.landName = 'The Open Sea'
+      this.landShield = '../../../extra-textures/escutcheons/none.png'
+      this.landCrown = '../../../extra-textures/crown0.png'
     }
   }
 
-  async updateDir(dir) {
+  async updateDir (dir) {
     this.shadowRoot.querySelector('#compass').style.transform = 'rotate(' + dir.toString() + 'rad)'
   }
 
-  async bootswap(light) {
+  async bootswap (light) {
     if (light === true) {
-      this.bootImg = "../../../extra-textures/boot-light.png" 
+      this.bootImg = '../../../extra-textures/boot-light.png'
     } else {
-      this.bootImg = "../../../extra-textures/boot-dark.png"
+      this.bootImg = '../../../extra-textures/boot-dark.png'
     }
   }
 
-  async landnameswap(light) {
-    console.log("About to swap land name color")
+  async landnameswap (light) {
+    console.log('About to swap land name color')
     if (light === 'true') {
-      console.log("Land name color to BLUE")     
-      this.landColor = "#0000ff"
+      console.log('Land name color to BLUE')
+      this.landColor = '#0000ff'
     } else {
-      this.landColor = "#000000"
-      console.log("Land name color to BLACK")  
+      this.landColor = '#000000'
+      console.log('Land name color to BLACK')
     }
   }
 

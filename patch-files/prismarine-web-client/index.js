@@ -198,34 +198,33 @@ async function connect (options) {
     // console.log('My wallet: ', playScreen.walletAddress)
 
     // respond to server challenge
-    if ((msg.slice(0,5) === 'chal:') && (playScreen.walletAddress !== '')) {
+    if ((msg.slice(0, 5) === 'chal:') && (playScreen.walletAddress !== '')) {
       const challenge = msg.slice(5)
-      ethereum.request({
-             method: "personal_sign",
-             "params": [challenge, playScreen.walletAddress]
+      window.ethereum.request({
+        method: 'personal_sign',
+        params: [challenge, playScreen.walletAddress]
       })
-      .then((response) => {
+        .then((response) => {
         // send the signed response
-        console.log("chal:" + response)
-        bot._client.writeChannel('ethereum', "chal:" + response)
-      })
+          console.log('chal:' + response)
+          bot._client.writeChannel('ethereum', 'chal:' + response)
+        })
     }
 
     // wallet accept: challenge accepted - can set entity address
-    if (msg.slice(0,5) === 'wack:') {
+    if (msg.slice(0, 5) === 'wack:') {
       const address = msg.slice(5)
       bot.player.entity.ethereum.wallet = address
       bot.player.entity.ethereum.confirmed = true
     }
 
-    if ((msg.slice(0,5) === 'ownd:') && (playScreen.walletAddress !== '')) { 
+    if ((msg.slice(0, 5) === 'ownd:') && (playScreen.walletAddress !== '')) {
       if (msg.slice(5) === 'true') {
-        landbar.landnameswap('true')  
+        landbar.landnameswap('true')
       } else {
-        landbar.landnameswap('false') 
+        landbar.landnameswap('false')
       }
     }
-
   })
 
   bot.on('error', (err) => {
@@ -302,25 +301,24 @@ async function connect (options) {
     worldView.listenToBot(bot)
     worldView.init(bot.entity.position)
 
-
     // Day and night
     const skyColor = viewer.scene.background.getHexString()
 
     // Darken by factor (0 to black, 0.5 half as bright, 1 unchanged)
-    function darkenSky(color, factor) {
-      color = parseInt(color, 16);
-      return (Math.round((color & 0x0000FF) * factor) | 
-             (Math.round(((color >> 8) & 0x00FF) * factor) << 8) | 
-             (Math.round((color >> 16) * factor) << 16)).toString(16);
+    function darkenSky (color, factor) {
+      color = parseInt(color, 16)
+      return (Math.round((color & 0x0000FF) * factor) |
+             (Math.round(((color >> 8) & 0x00FF) * factor) << 8) |
+             (Math.round((color >> 16) * factor) << 16)).toString(16)
     }
 
     // Provides gradual sunrise or sunset sky
-    function intensityCalc(time) {
+    function intensityCalc (time) {
       if ((time >= 13000) && (time <= 23000)) {
         return 0
-      } else if ((time <= 12000) && (time >= 0)){
+      } else if ((time <= 12000) && (time >= 0)) {
         return 0.75
-      } else if ((time < 13000) && (time > 12000)){
+      } else if ((time < 13000) && (time > 12000)) {
         const transition = time - 12000
         return (0.75 - (0.75 * transition / 1000))
       } else {
@@ -330,8 +328,8 @@ async function connect (options) {
     }
 
     // used for directionalLight vector calculation
-    function timeToRads(time) {
-     return time * (Math.PI / 12000)
+    function timeToRads (time) {
+      return time * (Math.PI / 12000)
     }
 
     // Every 750ms change light settings
@@ -340,7 +338,7 @@ async function connect (options) {
       const moonPhase = bot.time.moonPhase
       if (typeof currentTime !== 'undefined') {
         const intensity = intensityCalc(currentTime)
-        viewer.scene.background = new THREE.Color("#" + darkenSky(skyColor, intensity).padStart(6,0))
+        viewer.scene.background = new THREE.Color('#' + darkenSky(skyColor, intensity).padStart(6, 0))
         viewer.ambientLight.intensity = ((intensity < 0.25) ? 0.25 : intensity) + (0.07 - (moonPhase / 100))
         viewer.directionalLight.intensity = intensity + (0.07 - (moonPhase / 100))
         viewer.directionalLight.position.set(

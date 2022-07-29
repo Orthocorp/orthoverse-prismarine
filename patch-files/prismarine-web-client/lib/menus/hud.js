@@ -217,7 +217,7 @@ class Hud extends LitElement {
       if (this.bootStatus === false) {
         this.bootStatus = true
         bot.physics.gravity = 0.04
-        this.bot.physics.sprintSpeed = 1.5   
+        this.bot.physics.sprintSpeed = 1.5
       } else {
         this.bootStatus = false
         bot.physics.gravity = 0.08
@@ -266,8 +266,8 @@ class Hud extends LitElement {
     })
 
     bot.on('move', () => {
-      const x = Math.floor(bot.player.entity.position.x / (16*6))
-      const z = Math.floor(bot.player.entity.position.z / (16*6))
+      const x = Math.floor(bot.player.entity.position.x / (16 * 6))
+      const z = Math.floor(bot.player.entity.position.z / (16 * 6))
       land.updateDir(bot.player.entity.yaw)
       if ((x !== xStor) || (z !== zStor)) {
         xStor = x
@@ -288,7 +288,7 @@ class Hud extends LitElement {
       healthbar.gameModeChanged(bot.player.gamemode, bot.game.hardcore)
       healthbar.updateHealth(bot.health)
       foodbar.updateHunger(bot.food)
-      landbar.updateHunger(bot.food)
+      // landbar may need update too
       // breathbar.updateOxygen(bot.oxygenLevel ?? 20)
       hotbar.init()
     })

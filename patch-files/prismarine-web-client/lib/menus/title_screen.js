@@ -2,13 +2,13 @@ const { openURL, displayScreen } = require('./components/common')
 const { LitElement, html, css } = require('lit')
 
 const slogan = [
- "WITH EXTRA DOOM!",
- "GARLIC FOREVER!",
- "THE ONION IS A LIE!",
- "HENGES RULE!",
- "WHY THE GARLIC?",
- "FLIP FOR FUN",
- "A QUINDECILLION IS BIG"
+  'WITH EXTRA DOOM!',
+  'GARLIC FOREVER!',
+  'THE ONION IS A LIE!',
+  'HENGES RULE!',
+  'WHY THE GARLIC?',
+  'FLIP FOR FUN',
+  'A QUINDECILLION IS BIG'
 ]
 
 const n = Math.floor(Math.random() * slogan.length)
@@ -111,7 +111,7 @@ class TitleScreen extends LitElement {
     return html`
       <div class="minecraft">
         <div class="minec"></div>
-        <span class="splash">${ slogan[n] }</span>
+        <span class="splash">${slogan[n]}</span>
       </div>
 
       <div class="menu">

@@ -1,8 +1,7 @@
 const mcServer = require('flying-squid')
-const Vec3 = require('vec3').Vec3;
 
 const orthoverse = mcServer.createMCServer({
-  motd: 'The Orthoverse \nProvided by Flying Squid',
+  motd: 'The Orthoverse \nMany thanks to PrismarineJS!',
   port: 20565,
   'max-players': 10,
   'online-mode': false,
@@ -33,3 +32,4 @@ const orthoverse = mcServer.createMCServer({
   version: '1.15.2'
 })
 
+console.log(orthoverse.motd)

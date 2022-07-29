@@ -58,7 +58,7 @@ class PlayScreen extends LitElement {
       username: { type: String },
       password: { type: String },
       version: { type: String },
-      walletAddress: { type: String}
+      walletAddress: { type: String }
     }
   }
 
@@ -152,33 +152,33 @@ class PlayScreen extends LitElement {
   }
 
   onWalletPress () {
-    if (typeof window.ethereum !== "undefined") {
-      ethereum
-        .request({ method: "eth_requestAccounts" })
+    if (typeof window.ethereum !== 'undefined') {
+      window.ethereum
+        .request({ method: 'eth_requestAccounts' })
         .then((accounts) => {
-           this.walletAddress = accounts[0]
-           console.log("Wallet connected: " + this.walletAddress);
-           window.localStorage.setItem('username', this.username)
-           window.localStorage.setItem('password', '')
-           this.dispatchEvent(new window.CustomEvent('connect', {
-             detail: {
-               server: `${this.server}:${this.serverport}`,
-               proxy: `${this.proxy}${this.proxy !== '' ? `:${this.proxyport}` : ''}`,
-               username: this.username,
-               password: '',
-               wallet: this.walletAddress,
-               botVersion: this.version
-             }
-           }))       
+          this.walletAddress = accounts[0]
+          console.log('Wallet connected: ' + this.walletAddress)
+          window.localStorage.setItem('username', this.username)
+          window.localStorage.setItem('password', '')
+          this.dispatchEvent(new window.CustomEvent('connect', {
+            detail: {
+              server: `${this.server}:${this.serverport}`,
+              proxy: `${this.proxy}${this.proxy !== '' ? `:${this.proxyport}` : ''}`,
+              username: this.username,
+              password: '',
+              wallet: this.walletAddress,
+              botVersion: this.version
+            }
+          }))
         }).catch((error) => {
-           console.log(error, error.code);
-           // 4001 - The request was rejected by the user
-           // -32602 - The parameters were invalid
-           // -32603- Internal error
-        });
-     } else {
-       window.open("https://metamask.io/download/", "_blank");
-     }
+          console.log(error, error.code)
+          // 4001 - The request was rejected by the user
+          // -32602 - The parameters were invalid
+          // -32603- Internal error
+        })
+    } else {
+      window.open('https://metamask.io/download/', '_blank')
+    }
   }
 
   onConnectPress () {
