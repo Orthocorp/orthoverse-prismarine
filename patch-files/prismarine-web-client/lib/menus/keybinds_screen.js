@@ -1,8 +1,8 @@
-const { LitElement, html, css } = require('lit')
-const { commonCss, displayScreen } = require('./components/common')
+const { LitElement, html, css } = require("lit");
+const { commonCss, displayScreen } = require("./components/common");
 
 class KeyBindsScreen extends LitElement {
-  static get styles () {
+  static get styles() {
     return css`
       ${commonCss}
       .title {
@@ -20,7 +20,8 @@ class KeyBindsScreen extends LitElement {
         height: calc(100% - 64px);
         place-items: center;
         background: rgba(0, 0, 0, 0.5);
-        box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.7), inset 0 -3px 6px rgba(0, 0, 0, 0.7);
+        box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.7),
+          inset 0 -3px 6px rgba(0, 0, 0, 0.7);
       }
 
       .keymap-list {
@@ -77,33 +78,32 @@ class KeyBindsScreen extends LitElement {
         left: 50%;
         transform: translate(-50%);
       }
-
-    `
+    `;
   }
 
-  static get properties () {
+  static get properties() {
     return {
       keymaps: { type: Object },
-      selected: { type: Number }
-    }
+      selected: { type: Number },
+    };
   }
 
-  constructor () {
-    super()
-    this.selected = -1
+  constructor() {
+    super();
+    this.selected = -1;
     this.keymaps = [
-      { defaultKey: 'KeyW', key: 'KeyW', name: 'Walk Forwards' },
-      { defaultKey: 'KeyS', key: 'KeyS', name: 'Walk Backwards' },
-      { defaultKey: 'KeyA', key: 'KeyA', name: 'Strafe Left' },
-      { defaultKey: 'KeyD', key: 'KeyD', name: 'Strafe Right' },
-      { defaultKey: 'Space', key: 'Space', name: 'Jump' },
-      { defaultKey: 'ShiftLeft', key: 'ShiftLeft', name: 'Sneak' },
-      { defaultKey: 'ControlLeft', key: 'ControlLeft', name: 'Sprint' },
-      { defaultKey: 'KeyT', key: 'KeyT', name: 'Open Chat' },
-      { defaultKey: 'Slash', key: 'Slash', name: 'Open Command' },
+      { defaultKey: "KeyW", key: "KeyW", name: "Walk Forwards" },
+      { defaultKey: "KeyS", key: "KeyS", name: "Walk Backwards" },
+      { defaultKey: "KeyA", key: "KeyA", name: "Strafe Left" },
+      { defaultKey: "KeyD", key: "KeyD", name: "Strafe Right" },
+      { defaultKey: "Space", key: "Space", name: "Jump" },
+      { defaultKey: "KeyF", key: "KeyF", name: "Sneak" },
+      { defaultKey: "KeyQ", key: "KeyQ", name: "Sprint" },
+      { defaultKey: "KeyT", key: "KeyT", name: "Open Chat" },
+      { defaultKey: "Slash", key: "Slash", name: "Open Command" },
       // { defaultKey: '0', key: '0', name: 'Attack/Destroy' },
       // { defaultKey: '1', key: '1', name: 'Place Block' },
-      { defaultKey: 'KeyQ', key: 'KeyQ', name: 'Drop Item' },
+      { defaultKey: "KeyX", key: "KeyX", name: "Drop Item" },
       // { defaultKey: 'Digit1', key: 'Digit1', name: 'Hotbar Slot 1' },
       // { defaultKey: 'Digit2', key: 'Digit2', name: 'Hotbar Slot 2' },
       // { defaultKey: 'Digit3', key: 'Digit3', name: 'Hotbar Slot 3' },
@@ -114,60 +114,81 @@ class KeyBindsScreen extends LitElement {
       // { defaultKey: 'Digit8', key: 'Digit8', name: 'Hotbar Slot 8' },
       // { defaultKey: 'Digit9', key: 'Digit9', name: 'Hotbar Slot 9' },
       // { defaultKey: 'KeyE', key: 'KeyE', name: 'Open Inventory' }
-      { defaultKey: 'KeyE', key: 'KeyE', name: 'Toggle Boots' }
-    ]
+      { defaultKey: "KeyE", key: "KeyE", name: "Toggle Boots" },
+    ];
 
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener("keydown", (e) => {
       if (this.selected !== -1) {
-        this.keymaps[this.selected].key = e.code
-        this.selected = -1
-        this.requestUpdate()
+        this.keymaps[this.selected].key = e.code;
+        this.selected = -1;
+        this.requestUpdate();
       }
-    })
+    });
   }
 
-  render () {
+  render() {
     return html`
       <div class="dirt-bg"></div>
 
-        <p class="title">Key Binds</p>
+      <p class="title">Key Binds</p>
 
-        <main>
-          <div class="keymap-list">
-            ${this.keymaps.map((m, i) => html`
-            <div class="keymap-entry">
-              <span>${m.name}</span>
+      <main>
+        <div class="keymap-list">
+          ${this.keymaps.map(
+            (m, i) => html`
+              <div class="keymap-entry">
+                <span>${m.name}</span>
 
-              <div class="keymap-entry-btns">
-                <pmui-button pmui-width="72px" pmui-label="${this.selected === i ? `> ${m.key} <` : m.key}" @pmui-click=${e => {
-                  e.target.setAttribute('pmui-label', `> ${m.key} <`)
-                  this.selected = i
-                  this.requestUpdate()
-                }}></pmui-button>
-                <pmui-button pmui-width="50px" ?pmui-disabled=${m.key === m.defaultKey} pmui-label="Reset" @pmui-click=${() => {
-                  this.keymaps[i].key = this.keymaps[i].defaultKey
-                  this.requestUpdate()
-                  this.selected = -1
-                }}></pmui-button>
+                <div class="keymap-entry-btns">
+                  <pmui-button
+                    pmui-width="72px"
+                    pmui-label="${this.selected === i ? `> ${m.key} <` : m.key}"
+                    @pmui-click=${(e) => {
+                      e.target.setAttribute("pmui-label", `> ${m.key} <`);
+                      this.selected = i;
+                      this.requestUpdate();
+                    }}
+                  ></pmui-button>
+                  <pmui-button
+                    pmui-width="50px"
+                    ?pmui-disabled=${m.key === m.defaultKey}
+                    pmui-label="Reset"
+                    @pmui-click=${() => {
+                      this.keymaps[i].key = this.keymaps[i].defaultKey;
+                      this.requestUpdate();
+                      this.selected = -1;
+                    }}
+                  ></pmui-button>
+                </div>
               </div>
-            </div>
-          `)}
-          </div>
-        </main>
-
-        <div class="bottom-btns">
-          <pmui-button pmui-width="150px" pmui-label="Reset All Keys" ?pmui-disabled=${!this.keymaps.some(v => v.key !== v.defaultKey)} @pmui-click=${this.onResetAllPress}></pmui-button>
-          <pmui-button pmui-width="150px" pmui-label="Done" @pmui-click=${() => displayScreen(this, document.getElementById('options-screen'))}></pmui-button>
+            `
+          )}
         </div>
-    `
+      </main>
+
+      <div class="bottom-btns">
+        <pmui-button
+          pmui-width="150px"
+          pmui-label="Reset All Keys"
+          ?pmui-disabled=${!this.keymaps.some((v) => v.key !== v.defaultKey)}
+          @pmui-click=${this.onResetAllPress}
+        ></pmui-button>
+        <pmui-button
+          pmui-width="150px"
+          pmui-label="Done"
+          @pmui-click=${() =>
+            displayScreen(this, document.getElementById("options-screen"))}
+        ></pmui-button>
+      </div>
+    `;
   }
 
-  onResetAllPress () {
+  onResetAllPress() {
     for (let i = 0; i < this.keymaps.length; i++) {
-      this.keymaps[i].key = this.keymaps[i].defaultKey
+      this.keymaps[i].key = this.keymaps[i].defaultKey;
     }
-    this.requestUpdate()
+    this.requestUpdate();
   }
 }
 
-window.customElements.define('pmui-keybindsscreen', KeyBindsScreen)
+window.customElements.define("pmui-keybindsscreen", KeyBindsScreen);
