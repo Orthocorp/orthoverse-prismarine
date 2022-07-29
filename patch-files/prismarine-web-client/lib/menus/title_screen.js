@@ -1,20 +1,20 @@
-const { openURL, displayScreen } = require('./components/common')
-const { LitElement, html, css } = require('lit')
+const { openURL, displayScreen } = require("./components/common");
+const { LitElement, html, css } = require("lit");
 
 const slogan = [
-  'WITH EXTRA DOOM!',
-  'GARLIC FOREVER!',
-  'THE ONION IS A LIE!',
-  'HENGES RULE!',
-  'WHY THE GARLIC?',
-  'FLIP FOR FUN',
-  'A QUINDECILLION IS BIG'
-]
+  "WITH EXTRA DOOM!",
+  "GARLIC FOREVER!",
+  "THE ONION IS A LIE!",
+  "HENGES RULE!",
+  "WHY THE GARLIC?",
+  "FLIP FOR FUN",
+  "A QUINDECILLION IS BIG",
+];
 
-const n = Math.floor(Math.random() * slogan.length)
+const n = Math.floor(Math.random() * slogan.length);
 
 class TitleScreen extends LitElement {
-  static get styles () {
+  static get styles() {
     return css`
       .minecraft {
         position: absolute;
@@ -27,7 +27,7 @@ class TitleScreen extends LitElement {
         position: absolute;
         top: 0;
         left: 0;
-        background-image: url('extra-textures/orthoverse.png');
+        background-image: url("extra-textures/orthoverse.png");
         background-size: 256px;
         width: 256px;
         height: 68px;
@@ -38,7 +38,7 @@ class TitleScreen extends LitElement {
         position: absolute;
         top: 0;
         left: 155px;
-        background-image: url('textures/1.17.1/gui/title/minecraft.png');
+        background-image: url("textures/1.17.1/gui/title/minecraft.png");
         background-size: 256px;
         width: 155px;
         height: 44px;
@@ -50,7 +50,7 @@ class TitleScreen extends LitElement {
         position: absolute;
         top: 37px;
         left: calc(88px + 5px);
-        background-image: url('extra-textures/edition.png');
+        background-image: url("extra-textures/edition.png");
         background-size: 128px;
         width: 88px;
         height: 14px;
@@ -70,7 +70,7 @@ class TitleScreen extends LitElement {
 
       @keyframes splashAnim {
         to {
-           transform: translate(-50%, -50%) rotateZ(-20deg) scale(1.07);
+          transform: translate(-50%, -50%) rotateZ(-20deg) scale(1.07);
         }
       }
 
@@ -104,10 +104,10 @@ class TitleScreen extends LitElement {
         text-shadow: 1px 1px #222;
         font-size: 10px;
       }
-    `
+    `;
   }
 
-  render () {
+  render() {
     return html`
       <div class="minecraft">
         <div class="minec"></div>
@@ -115,20 +115,38 @@ class TitleScreen extends LitElement {
       </div>
 
       <div class="menu">
-        <pmui-button pmui-width="200px" pmui-label="Play" @pmui-click=${() => displayScreen(this, document.getElementById('play-screen'))}></pmui-button>
-        <pmui-button pmui-width="200px" pmui-label="Options" @pmui-click=${() => displayScreen(this, document.getElementById('options-screen'))}></pmui-button>
-        <div class="menu-row">
-          <pmui-button pmui-width="98px" pmui-label="Github" @pmui-click=${() => openURL('https://github.com/kf106/orthoverse-prismarine')}></pmui-button>
-          <pmui-button pmui-width="98px" pmui-label="Discord" @pmui-click=${() => openURL('https://discord.gg/RdxNgCvhkD')}></pmui-button>
-        </div>
+        <pmui-button
+          pmui-width="200px"
+          pmui-label="Play"
+          @pmui-click=${() =>
+            displayScreen(this, document.getElementById("play-screen"))}
+        ></pmui-button>
+        <pmui-button
+          pmui-width="200px"
+          pmui-label="Options"
+          @pmui-click=${() =>
+            displayScreen(this, document.getElementById("options-screen"))}
+        ></pmui-button>
+
+        <pmui-button
+          pmui-width="200px"
+          pmui-label="Reveal Your Land Token"
+          @pmui-click=${() => openURL("https://orthoverse.io")}
+        ></pmui-button>
+        <pmui-button
+          pmui-width="200px"
+          pmui-label="Read The Degen's Guide"
+          @pmui-click=${() =>
+            openURL("https://orthoverse.io/orthoverse-degens-guide.pdf")}
+        ></pmui-button>
       </div>
 
       <div class="bottom-info">
         <span>Orthoverse Metaverse Client</span>
         <span>Walk among the NFTrees</span>
       </div>
-    `
+    `;
   }
 }
 
-window.customElements.define('pmui-titlescreen', TitleScreen)
+window.customElements.define("pmui-titlescreen", TitleScreen);
