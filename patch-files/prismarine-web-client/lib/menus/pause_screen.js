@@ -1,8 +1,8 @@
-const { LitElement, html, css } = require('lit')
-const { openURL, displayScreen } = require('./components/common')
+const { LitElement, html, css } = require("lit");
+const { openURL, displayScreen } = require("./components/common");
 
 class PauseScreen extends LitElement {
-  static get styles () {
+  static get styles() {
     return css`
       .bg {
         position: absolute;
@@ -40,71 +40,95 @@ class PauseScreen extends LitElement {
         justify-content: space-between;
         width: 100%;
       }
-    `
+    `;
   }
 
-  constructor () {
-    super()
-    this.inMenu = false
+  constructor() {
+    super();
+    this.inMenu = false;
   }
 
-  init (renderer) {
-    const chat = document.getElementById('hud').shadowRoot.querySelector('#chat')
-    const self = this
+  init(renderer) {
+    const chat = document
+      .getElementById("hud")
+      .shadowRoot.querySelector("#chat");
+    const self = this;
 
-    document.addEventListener('keydown', e => {
-      if (chat.inChat) return
-      e = e || window.event
-      if (e.keyCode === 27 || e.key === 'Escape' || e.key === 'Esc') {
+    document.addEventListener("keydown", (e) => {
+      if (chat.inChat) return;
+      e = e || window.event;
+      if (e.keyCode === 27 || e.key === "Escape" || e.key === "Esc") {
         if (self.inMenu) {
-          self.disableGameMenu(renderer)
+          self.disableGameMenu(renderer);
         } else {
-          self.enableGameMenu()
+          self.enableGameMenu();
         }
       }
-    })
+    });
   }
 
-  render () {
+  render() {
     return html`
       <div class="bg"></div>
 
       <p class="title">Game Menu</p>
-    
+
       <main>
-        <pmui-button pmui-width="204px" pmui-label="Back to Game" @pmui-click=${this.onReturnPress}></pmui-button>
-        <div class="row">
-          <pmui-button pmui-width="98px" pmui-label="Github" @pmui-click=${() => openURL('https://github.com/kf106/orthoverse-prismarine')}></pmui-button>
-          <pmui-button pmui-width="98px" pmui-label="Discord" @pmui-click=${() => openURL('https://discord.gg/RdxNgCvhkD')}></pmui-button>
-        </div>
-        <pmui-button pmui-width="204px" pmui-label="Options" @pmui-click=${() => displayScreen(this, document.getElementById('options-screen'))}></pmui-button>
-        <pmui-button pmui-width="204px" pmui-label="Disconnect" @pmui-click=${() => window.location.reload()}></pmui-button>
+        <pmui-button
+          pmui-width="204px"
+          pmui-label="Back to Game"
+          @pmui-click=${this.onReturnPress}
+        ></pmui-button>
+        <pmui-button
+          pmui-width="204px"
+          pmui-label="Options"
+          @pmui-click=${() =>
+            displayScreen(this, document.getElementById("options-screen"))}
+        ></pmui-button>
+        <pmui-button
+          pmui-width="204px"
+          pmui-label="Disconnect"
+          @pmui-click=${() => window.location.reload()}
+        ></pmui-button>
+        <pmui-button
+          pmui-width="200px"
+          pmui-label="Reveal Your Land Token"
+          @pmui-click=${() => openURL("https://orthoverse.io")}
+        ></pmui-button>
+        <pmui-button
+          pmui-width="200px"
+          pmui-label="Read The Degen's Guide"
+          @pmui-click=${() =>
+            openURL("https://orthoverse.io/orthoverse-degens-guide.pdf")}
+        ></pmui-button>
+      </div>
+
       </main>
-    `
+    `;
   }
 
-  disableGameMenu (renderer = false) {
-    this.inMenu = false
-    this.style.display = 'none'
+  disableGameMenu(renderer = false) {
+    this.inMenu = false;
+    this.style.display = "none";
     if (renderer) {
-      renderer.domElement.requestPointerLock()
+      renderer.domElement.requestPointerLock();
     }
   }
 
-  enableGameMenu () {
-    this.inMenu = true
-    document.exitPointerLock()
-    this.style.display = 'block'
-    this.focus()
+  enableGameMenu() {
+    this.inMenu = true;
+    document.exitPointerLock();
+    this.style.display = "block";
+    this.focus();
   }
 
-  onReturnPress (renderer = false) {
-    this.inMenu = false
-    this.style.display = 'none'
+  onReturnPress(renderer = false) {
+    this.inMenu = false;
+    this.style.display = "none";
     if (renderer) {
-      renderer.domElement.requestPointerLock()
+      renderer.domElement.requestPointerLock();
     }
   }
 }
 
-window.customElements.define('pmui-pausescreen', PauseScreen)
+window.customElements.define("pmui-pausescreen", PauseScreen);
