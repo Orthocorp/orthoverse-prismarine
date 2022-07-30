@@ -168,7 +168,7 @@ class PlayScreen extends LitElement {
         <div class="wrapper">
           <pmui-button
             pmui-width="150px"
-            pmui-label="Log on with Wallet Connect"
+            pmui-label="Log on with WalletConnect"
             @pmui-click=${this.onWalletConnectPress}
           ></pmui-button>
         </div>
