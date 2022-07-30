@@ -216,14 +216,14 @@ class PlayScreen extends LitElement {
     // Chosen wallet provider given by the dialog window
     let provider;
 
-    console.log("Initializing...");
-    console.log("WalletConnectProvider is", WalletConnectProvider);
-    console.log(
-      "window.web3 is",
-      window.web3,
-      "window.ethereum is",
-      window.ethereum
-    );
+    // console.log("Initializing...");
+    // console.log("WalletConnectProvider is", WalletConnectProvider);
+    // console.log(
+    //   "window.web3 is",
+    //   window.web3,
+    //   "window.ethereum is",
+    //   window.ethereum
+    // );
 
     // Tell Web3modal what providers we have available.
     const providerOptions = {
@@ -242,8 +242,8 @@ class PlayScreen extends LitElement {
       disableInjectedProvider: true, // !!Must Disable injected provider (Metamask / Brave / Opera) or the popup will not open
     });
 
-    console.log("Web3Modal instance is", web3Modal);
-    console.log("Opening a dialog", web3Modal);
+    // console.log("Web3Modal instance is", web3Modal);
+    // console.log("Opening a dialog", web3Modal);
 
     try {
       provider = await web3Modal.connect();
@@ -252,8 +252,7 @@ class PlayScreen extends LitElement {
       // Get list of accounts of the connected wallet
       const accounts = await this.web3wc.eth.getAccounts();
       // MetaMask does not give you all accounts, only the selected account
-      console.log("Got accounts", accounts);
-
+      // console.log("Got accounts", accounts);
       this.walletAddress = accounts[0];
       console.log("Wallet connected: " + this.walletAddress);
       window.localStorage.setItem("username", this.username);
