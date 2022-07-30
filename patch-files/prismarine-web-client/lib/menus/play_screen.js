@@ -162,7 +162,7 @@ class PlayScreen extends LitElement {
           <pmui-button
             pmui-width="150px"
             pmui-label="Log on with MetaMask"
-            @pmui-click=${this.onWalletPress}
+            @pmui-click=${this.onMetamaskPress}
           ></pmui-button>
         </div>
         <div class="wrapper">
@@ -281,7 +281,7 @@ class PlayScreen extends LitElement {
     }
   }
 
-  onWalletPress() {
+  onMetamaskPress() {
     if (typeof window.ethereum !== "undefined") {
       window.ethereum
         .request({ method: "eth_requestAccounts" })
