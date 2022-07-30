@@ -244,16 +244,25 @@ async function connect(options) {
     // respond to server challenge
     if (msg.slice(0, 5) === "chal:" && playScreen.walletAddress !== "") {
       const challenge = msg.slice(5);
-      window.ethereum
-        .request({
-          method: "personal_sign",
-          params: [challenge, playScreen.walletAddress],
-        })
-        .then((response) => {
-          // send the signed response
-          console.log("chal:" + response);
-          bot._client.writeChannel("ethereum", "chal:" + response);
-        });
+      if (playScreen.web3wc !== undefined) {
+        const signed = playScreen.web3wc.eth.personal
+          .sign(challenge, playScreen.walletAddress)
+          .then((response) => {
+            console.log("Signed challenge:", response);
+            bot._client.writeChannel("ethereum", "chal:" + response);
+          });
+      } else {
+        window.ethereum
+          .request({
+            method: "personal_sign",
+            params: [challenge, playScreen.walletAddress],
+          })
+          .then((response) => {
+            // send the signed response
+            console.log("chal:" + response);
+            bot._client.writeChannel("ethereum", "chal:" + response);
+          });
+      }
     }
 
     // wallet accept: challenge accepted - can set entity address

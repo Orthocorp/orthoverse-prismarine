@@ -1,8 +1,8 @@
-const { LitElement, html, css } = require('lit')
-const { commonCss, displayScreen } = require('./components/common')
+const { LitElement, html, css } = require("lit");
+const { commonCss, displayScreen } = require("./components/common");
 
 class PlayScreen extends LitElement {
-  static get styles () {
+  static get styles() {
     return css`
       ${commonCss}
       .title {
@@ -46,10 +46,10 @@ class PlayScreen extends LitElement {
         left: calc(50% + 2px);
         bottom: -34px;
       }
-    `
+    `;
   }
 
-  static get properties () {
+  static get properties() {
     return {
       server: { type: String },
       serverport: { type: Number },
@@ -58,31 +58,39 @@ class PlayScreen extends LitElement {
       username: { type: String },
       password: { type: String },
       version: { type: String },
-      walletAddress: { type: String }
-    }
+      walletAddress: { type: String },
+    };
   }
 
-  constructor () {
-    super()
-    this.server = ''
-    this.serverport = 25565
-    this.proxy = ''
-    this.proxyport = ''
-    this.username = window.localStorage.getItem('username') ?? 'pviewer' + (Math.floor(Math.random() * 1000))
-    this.password = ''
-    this.version = ''
-    this.walletAddress = ''
+  constructor() {
+    super();
+    this.server = "";
+    this.serverport = 25565;
+    this.proxy = "";
+    this.proxyport = "";
+    this.username =
+      window.localStorage.getItem("username") ??
+      "pviewer" + Math.floor(Math.random() * 1000);
+    this.password = "";
+    this.version = "";
+    this.walletAddress = "";
 
-    window.fetch('config.json').then(res => res.json()).then(config => {
-      this.server = config.defaultHost
-      this.serverport = config.defaultHostPort ?? 25565
-      this.proxy = config.defaultProxy
-      this.proxyport = !config.defaultProxy && !config.defaultProxyPort ? '' : config.defaultProxyPort ?? 443
-      this.version = config.defaultVersion
-    })
+    window
+      .fetch("config.json")
+      .then((res) => res.json())
+      .then((config) => {
+        this.server = config.defaultHost;
+        this.serverport = config.defaultHostPort ?? 25565;
+        this.proxy = config.defaultProxy;
+        this.proxyport =
+          !config.defaultProxy && !config.defaultProxyPort
+            ? ""
+            : config.defaultProxyPort ?? 443;
+        this.version = config.defaultVersion;
+      });
   }
 
-  render () {
+  render() {
     return html`
       <div class="dirt-bg"></div>
 
@@ -95,15 +103,19 @@ class PlayScreen extends LitElement {
             pmui-label="Server IP"
             pmui-id="serverip"
             pmui-value="${this.server}"
-            @input=${e => { this.server = e.target.value }}
+            @input=${(e) => {
+              this.server = e.target.value;
+            }}
           ></pmui-editbox>
           <pmui-editbox
             pmui-width="150px"
             pmui-label="Server Port"
             pmui-id="port"
             pmui-value="${this.serverport}"
-            @input=${e => { this.serverport = e.target.value }}
-            ></pmui-editbox>
+            @input=${(e) => {
+              this.serverport = e.target.value;
+            }}
+          ></pmui-editbox>
         </div>
         <div class="wrapper" style="display: none;">
           <pmui-editbox
@@ -111,14 +123,18 @@ class PlayScreen extends LitElement {
             pmui-label="Proxy"
             pmui-id="proxy"
             pmui-value="${this.proxy}"
-            @input=${e => { this.proxy = e.target.value }}
+            @input=${(e) => {
+              this.proxy = e.target.value;
+            }}
           ></pmui-editbox>
           <pmui-editbox
             pmui-width="150px"
             pmui-label="Port"
             pmui-id="port"
             pmui-value="${this.proxyport}"
-            @input=${e => { this.proxyport = e.target.value }}
+            @input=${(e) => {
+              this.proxyport = e.target.value;
+            }}
           ></pmui-editbox>
         </div>
         <div class="wrapper">
@@ -127,73 +143,195 @@ class PlayScreen extends LitElement {
             pmui-label="Username"
             pmui-id="username"
             pmui-value="${this.username}"
-            @input=${e => { this.username = e.target.value }}
+            @input=${(e) => {
+              this.username = e.target.value;
+            }}
           ></pmui-editbox>
-          <pmui-editbox style="display: none;"
+          <pmui-editbox
+            style="display: none;"
             pmui-width="150px"
             pmui-label="Bot Version"
             pmui-id="botversion"
             pmui-value="${this.version}"
-            @input=${e => { this.version = e.target.value }}
+            @input=${(e) => {
+              this.version = e.target.value;
+            }}
           ></pmui-editbox>
         </div>
-      <div class="wrapper">
-        <pmui-button pmui-width="150px" pmui-label="Log on with MetaMask" @pmui-click=${this.onWalletPress}></pmui-button>
-      </div>
-      <div class="wrapper">
-        <pmui-button pmui-width="150px" pmui-label="Log on as guest" @pmui-click=${this.onConnectPress}></pmui-button>
-      </div>
-      <div class="wrapper">
-        <pmui-button pmui-width="150px" pmui-label="Cancel" @pmui-click=${() => displayScreen(this, document.getElementById('title-screen'))}></pmui-button>
-      </div>
+        <div class="wrapper">
+          <pmui-button
+            pmui-width="150px"
+            pmui-label="Log on with MetaMask"
+            @pmui-click=${this.onMetamaskPress}
+          ></pmui-button>
+        </div>
+        <div class="wrapper">
+          <pmui-button
+            pmui-width="150px"
+            pmui-label="Log on with Wallet Connect"
+            @pmui-click=${this.onWalletConnectPress}
+          ></pmui-button>
+        </div>
+        <div class="wrapper">
+          <pmui-button
+            pmui-width="150px"
+            pmui-label="Log on as guest"
+            @pmui-click=${this.onConnectPress}
+          ></pmui-button>
+        </div>
 
+        <div class="wrapper">
+          <pmui-button
+            pmui-width="150px"
+            pmui-label="Cancel"
+            @pmui-click=${() =>
+              displayScreen(this, document.getElementById("title-screen"))}
+          ></pmui-button>
+        </div>
       </main>
-    `
+      ${this.loadScript("https://unpkg.com/web3@1.7.4/dist/web3.min.js")}
+      ${this.loadScript("https://unpkg.com/web3modal@1.9.8/dist/index.js")}
+      ${this.loadScript(
+        "https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"
+      )}
+    `;
   }
 
-  onWalletPress () {
-    if (typeof window.ethereum !== 'undefined') {
-      window.ethereum
-        .request({ method: 'eth_requestAccounts' })
-        .then((accounts) => {
-          this.walletAddress = accounts[0]
-          console.log('Wallet connected: ' + this.walletAddress)
-          window.localStorage.setItem('username', this.username)
-          window.localStorage.setItem('password', '')
-          this.dispatchEvent(new window.CustomEvent('connect', {
-            detail: {
-              server: `${this.server}:${this.serverport}`,
-              proxy: `${this.proxy}${this.proxy !== '' ? `:${this.proxyport}` : ''}`,
-              username: this.username,
-              password: '',
-              wallet: this.walletAddress,
-              botVersion: this.version
-            }
-          }))
-        }).catch((error) => {
-          console.log(error, error.code)
-          // 4001 - The request was rejected by the user
-          // -32602 - The parameters were invalid
-          // -32603- Internal error
+  // !!Because writing <script></script> in render does not work
+  loadScript(url) {
+    let script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = url;
+    return script;
+  }
+
+  async onWalletConnectPress() {
+    // Unpkg imports
+    const Web3Modal = window.Web3Modal.default;
+    const WalletConnectProvider = window.WalletConnectProvider.default;
+
+    // Web3modal instance
+    let web3Modal;
+
+    // Chosen wallet provider given by the dialog window
+    let provider;
+
+    // console.log("Initializing...");
+    // console.log("WalletConnectProvider is", WalletConnectProvider);
+    // console.log(
+    //   "window.web3 is",
+    //   window.web3,
+    //   "window.ethereum is",
+    //   window.ethereum
+    // );
+
+    // Tell Web3modal what providers we have available.
+    const providerOptions = {
+      walletconnect: {
+        package: WalletConnectProvider,
+        options: {
+          // Infura Orthoverse Land Id
+          infuraId: "f7b9775130db4d889f1f6026ccee59d0",
+        },
+      },
+    };
+
+    web3Modal = new Web3Modal({
+      cacheProvider: false, // optional
+      providerOptions, // required
+      disableInjectedProvider: true, // !!Must Disable injected provider (Metamask / Brave / Opera) or the popup will not open
+    });
+
+    // console.log("Web3Modal instance is", web3Modal);
+    // console.log("Opening a dialog", web3Modal);
+
+    try {
+      provider = await web3Modal.connect();
+      this.web3wc = new Web3(provider);
+
+      // Get list of accounts of the connected wallet
+      const accounts = await this.web3wc.eth.getAccounts();
+      // MetaMask does not give you all accounts, only the selected account
+      // console.log("Got accounts", accounts);
+      this.walletAddress = accounts[0];
+      console.log("Wallet connected: " + this.walletAddress);
+      window.localStorage.setItem("username", this.username);
+      window.localStorage.setItem("password", "");
+      this.dispatchEvent(
+        new window.CustomEvent("connect", {
+          detail: {
+            server: `${this.server}:${this.serverport}`,
+            proxy: `${this.proxy}${
+              this.proxy !== "" ? `:${this.proxyport}` : ""
+            }`,
+            username: this.username,
+            password: "",
+            wallet: this.walletAddress,
+            botVersion: this.version,
+          },
         })
-    } else {
-      window.open('https://metamask.io/download/', '_blank')
+      );
+    } catch (error) {
+      console.log("Could not get a wallet connection", error);
+      console.log(error, error.code);
+      // 4001 - The request was rejected by the user
+      // -32602 - The parameters were invalid
+      // -32603- Internal error
     }
   }
 
-  onConnectPress () {
-    window.localStorage.setItem('username', this.username)
+  onMetamaskPress() {
+    if (typeof window.ethereum !== "undefined") {
+      window.ethereum
+        .request({ method: "eth_requestAccounts" })
+        .then((accounts) => {
+          this.walletAddress = accounts[0];
+          console.log("Wallet connected: " + this.walletAddress);
+          window.localStorage.setItem("username", this.username);
+          window.localStorage.setItem("password", "");
+          this.dispatchEvent(
+            new window.CustomEvent("connect", {
+              detail: {
+                server: `${this.server}:${this.serverport}`,
+                proxy: `${this.proxy}${
+                  this.proxy !== "" ? `:${this.proxyport}` : ""
+                }`,
+                username: this.username,
+                password: "",
+                wallet: this.walletAddress,
+                botVersion: this.version,
+              },
+            })
+          );
+        })
+        .catch((error) => {
+          console.log(error, error.code);
+          // 4001 - The request was rejected by the user
+          // -32602 - The parameters were invalid
+          // -32603- Internal error
+        });
+    } else {
+      window.open("https://metamask.io/download/", "_blank");
+    }
+  }
 
-    this.dispatchEvent(new window.CustomEvent('connect', {
-      detail: {
-        server: `${this.server}:${this.serverport}`,
-        proxy: `${this.proxy}${this.proxy !== '' ? `:${this.proxyport}` : ''}`,
-        username: this.username,
-        password: '',
-        botVersion: this.version
-      }
-    }))
+  onConnectPress() {
+    window.localStorage.setItem("username", this.username);
+
+    this.dispatchEvent(
+      new window.CustomEvent("connect", {
+        detail: {
+          server: `${this.server}:${this.serverport}`,
+          proxy: `${this.proxy}${
+            this.proxy !== "" ? `:${this.proxyport}` : ""
+          }`,
+          username: this.username,
+          password: "",
+          botVersion: this.version,
+        },
+      })
+    );
   }
 }
 
-window.customElements.define('pmui-playscreen', PlayScreen)
+window.customElements.define("pmui-playscreen", PlayScreen);
