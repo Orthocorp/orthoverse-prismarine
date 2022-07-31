@@ -32,7 +32,7 @@ class PlayScreen extends LitElement {
         flex-direction: row;
         gap: 0 4px;
         position: absolute;
-        bottom: 9px;
+        bottom: 5px;
         left: 50%;
         transform: translate(-50%);
         width: 310px;
@@ -139,7 +139,7 @@ class PlayScreen extends LitElement {
         </div>
         <div class="wrapper">
           <pmui-editbox
-            pmui-width="150px"
+            pmui-width="220px"
             pmui-label="Username"
             pmui-id="username"
             pmui-value="${this.username}"
@@ -160,21 +160,21 @@ class PlayScreen extends LitElement {
         </div>
         <div class="wrapper">
           <pmui-button
-            pmui-width="150px"
+            pmui-width="220px"
             pmui-label="Log on with MetaMask"
             @pmui-click=${this.onMetamaskPress}
           ></pmui-button>
         </div>
         <div class="wrapper">
           <pmui-button
-            pmui-width="150px"
+            pmui-width="220px"
             pmui-label="Log on with WalletConnect"
             @pmui-click=${this.onWalletConnectPress}
           ></pmui-button>
         </div>
         <div class="wrapper">
           <pmui-button
-            pmui-width="150px"
+            pmui-width="220px"
             pmui-label="Log on as guest"
             @pmui-click=${this.onConnectPress}
           ></pmui-button>
@@ -182,7 +182,7 @@ class PlayScreen extends LitElement {
 
         <div class="wrapper">
           <pmui-button
-            pmui-width="150px"
+            pmui-width="220px"
             pmui-label="Cancel"
             @pmui-click=${() =>
               displayScreen(this, document.getElementById("title-screen"))}
