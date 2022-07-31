@@ -33,12 +33,12 @@ html {
 
 @font-face {
     font-family: minecraft;
-    src: url(minecraft.woff);
+    src: url(zx_spectrum-7.ttf);
 }
 
 @font-face {
     font-family: mojangles;
-    src: url(mojangles.ttf);
+    src: url(zx_spectrum-7.ttf);
 }
 
 @font-face {

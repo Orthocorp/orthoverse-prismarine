@@ -21,6 +21,7 @@ class OptionsScreen extends LitElement {
         place-content: center;
         transform: translate(-50%);
         font-family: mojangles;
+        font-size: 7px;
       }
 
       .wrapper {
