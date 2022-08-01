@@ -91,6 +91,7 @@ class PalantirContainer extends LitElement {
     this.serverIP = ''
     this.clientId = ''
     this.players = {}
+    this.panelOpened = false
   }
 
   init(bot, ip) {
@@ -101,83 +102,87 @@ class PalantirContainer extends LitElement {
     this.clientId = bot.player.uuid
     this.serverIP = ip
 
-    this.requestUpdate()
+    if (this.panelOpened) {
+      this.requestUpdate()
 
-    //console.log('**** Palantir Init', this.players)
+      console.log('**** Palantir Init', this.players)
 
-    bot.on('playerUpdated', () => this.requestUpdate()) // LitElement seems to be batching requests, so it should be fine?
-    bot.on('playerJoined', () => this.requestUpdate())
-    bot.on('playerLeft', () => this.requestUpdate())
+      bot.on('playerUpdated', () => this.requestUpdate()) // LitElement seems to be batching requests, so it should be fine?
+      bot.on('playerJoined', () => this.requestUpdate())
+      bot.on('playerLeft', () => this.requestUpdate())
+    }
   }
 
   render() {
-    const landnameFor = function (player) {
-      const x = Math.floor(player?.entity.position.x / (16 * 6))
-      const z = Math.floor(player?.entity.position.z / (16 * 6))
-      let landName = ''
-      if (x !== undefined && z !== undefined) {
-        const landKey = x.toString() + ':' + z.toString()
+    if (this.panelOpened) {
+      const landnameFor = function (player) {
+        const x = Math.floor(player?.entity.position.x / (16 * 6))
+        const z = Math.floor(player?.entity.position.z / (16 * 6))
+        let landName = ''
+        if (x !== undefined && z !== undefined) {
+          const landKey = x.toString() + ':' + z.toString()
 
-        if (landKey in lands) {
-          landName = 'now in ' + lands[landKey][1]
-        } else {
-          landName = 'now in The Open Sea'
+          if (landKey in lands) {
+            landName = 'now in ' + lands[landKey][1]
+          } else {
+            landName = 'now in The Open Sea'
+          }
+        }
+
+        console.log('***', player.username, landName)
+        return landName
+      }
+
+      const lists = []
+      const players = Object.values(this.players).sort((a, b) => {
+        if (a.username > b.username) return 1
+        if (a.username < b.username) return -1
+        return 0
+      })
+
+      let tempList = []
+      for (let i = 0; i < players.length; i++) {
+        tempList.push(players[i])
+
+        if ((i + 1) / MAX_ROWS_PER_COL === 1 || i + 1 === players.length) {
+          lists.push([...tempList])
+          tempList = []
         }
       }
 
-      // console.log('***', player.username, landName)
-      return landName
-    }
+      //console.log('**** Palantir Render', lists)
 
-    const lists = []
-    const players = Object.values(this.players).sort((a, b) => {
-      if (a.username > b.username) return 1
-      if (a.username < b.username) return -1
-      return 0
-    })
-
-    let tempList = []
-    for (let i = 0; i < players.length; i++) {
-      tempList.push(players[i])
-
-      if ((i + 1) / MAX_ROWS_PER_COL === 1 || i + 1 === players.length) {
-        lists.push([...tempList])
-        tempList = []
-      }
-    }
-
-    //console.log('**** Palantir Render', lists)
-
-    return html`
-      <div class="palantir-container" id="palantir-container">
-        <span class="title">Connected Users</span>
-        <div class="player-lists">
-          ${lists.map(
-            (list) => html`
-              <div class="player-list">
-                ${list.map(
-                  (player) => html`
-                    <div
-                      class="playerlist-entry${this.clientId === player.uuid
-                        ? ' active-player'
-                        : ''}"
-                      id="plist-player-${player.uuid}"
-                    >
-                      ${player.username}
-                      <div class="playerlist-land">
-                        <p class="playerlist-land-name">
-                          ${landnameFor(player)}
-                        </p>
+      return html`
+        <div class="palantir-container" id="palantir-container">
+          <span class="title">Connected Users</span>
+          <div class="player-lists">
+            ${lists.map(
+              (list) => html`
+                <div class="player-list">
+                  ${list.map(
+                    (player) => html`
+                      <div
+                        class="playerlist-entry${this.clientId === player.uuid
+                          ? ' active-player'
+                          : ''}"
+                        id="plist-player-${player.uuid}"
+                      >
+                        ${player.username}
+                        <div class="playerlist-land">
+                          <p class="playerlist-land-name">
+                            ${landnameFor(player)}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  `
-                )}
-              </div>
-            `
-          )}
+                    `
+                  )}
+                </div>
+              `
+            )}
+          </div>
         </div>
-      </div>
-    `
+      `
+    }
   }
 }
 

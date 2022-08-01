@@ -234,10 +234,12 @@ class Hud extends LitElement {
     this.palantir = function () {
       if (this.palantirStatus === false) {
         this.palantirStatus = true
+        palantirContainer.panelOpened = true
         palantirContainer.init(bot, host)
         palantirContainer.style.display = 'block'
       } else {
         this.palantirStatus = false
+        palantirContainer.panelOpened = false
         palantirContainer.style.display = 'none'
       }
       land.palantirswap(this.palantirStatus)
