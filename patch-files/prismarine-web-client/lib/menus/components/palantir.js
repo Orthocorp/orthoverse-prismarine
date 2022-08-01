@@ -80,7 +80,6 @@ class PalantirContainer extends LitElement {
 
   static get properties() {
     return {
-      serverIP: { type: String },
       clientId: { type: String },
       players: { type: Object },
     }
@@ -88,18 +87,17 @@ class PalantirContainer extends LitElement {
 
   constructor() {
     super()
-    this.serverIP = ''
+
     this.clientId = ''
     this.players = {}
     this.panelOpened = false
   }
 
-  init(bot, ip) {
+  init(bot) {
     const playerList = this.shadowRoot.querySelector('#palantir-container')
 
     this.players = bot.players
     this.clientId = bot.player.uuid
-    this.serverIP = ip
 
     if (this.panelOpened) {
       this.requestUpdate()
