@@ -97,7 +97,6 @@ class PalantirContainer extends LitElement {
   init(bot, ip) {
     const playerList = this.shadowRoot.querySelector('#palantir-container')
 
-    this.isOpen = false
     this.players = bot.players
     this.clientId = bot.player.uuid
     this.serverIP = ip
