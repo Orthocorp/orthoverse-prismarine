@@ -124,7 +124,8 @@ class PalantirContainer extends LitElement {
           landName = 'now in The Open Sea'
         }
       }
-      console.log('***', player.username, landName)
+
+      // console.log('***', player.username, landName)
       return landName
     }
 
