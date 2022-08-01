@@ -2,7 +2,7 @@ const { LitElement, html, css } = require('lit')
 const { isMobile } = require('./components/common')
 
 class Hud extends LitElement {
-  static get styles () {
+  static get styles() {
     return css`
       :host {
         position: absolute;
@@ -186,9 +186,9 @@ class Hud extends LitElement {
     `
   }
 
-  static get properties () {
+  static get properties() {
     return {
-      bot: { type: Object }
+      bot: { type: Object },
     }
   }
 
@@ -197,13 +197,16 @@ class Hud extends LitElement {
    * @param {import('mineflayer').Bot} bot
    * @param {string} host
    */
-  init (renderer, bot, host) {
+  init(renderer, bot, host) {
     const debugMenu = this.shadowRoot.querySelector('#debug-overlay')
-    const playerList = this.shadowRoot.querySelector('#playerlist-overlay')
+    // const playerList = this.shadowRoot.querySelector('#playerlist-overlay')
     const healthbar = this.shadowRoot.querySelector('#health-bar')
     const foodbar = this.shadowRoot.querySelector('#food-bar')
     // const breathbar = this.shadowRoot.querySelector('#breath-bar')
     const land = this.shadowRoot.querySelector('#landbar')
+    const palantirContainer = this.shadowRoot.querySelector(
+      '#palantir-container'
+    )
     const chat = this.shadowRoot.querySelector('#chat')
     const hotbar = this.shadowRoot.querySelector('#hotbar')
     const xpLabel = this.shadowRoot.querySelector('#xp-label')
@@ -226,11 +229,23 @@ class Hud extends LitElement {
       land.bootswap(this.bootStatus)
     }
 
+    palantirContainer.style.display = 'none'
+    this.palantirStatus = false
+    this.palantir = function () {
+      if (this.palantirStatus === false) {
+        this.palantirStatus = true
+        palantirContainer.init(bot, host)
+        palantirContainer.style.display = 'block'
+      } else {
+        this.palantirStatus = false
+        palantirContainer.style.display = 'none'
+      }
+      land.palantirswap(this.palantirStatus)
+    }
     let xStor = 0
     let zStor = 0
 
     chat.init(bot._client, renderer)
-    bot.on('spawn', () => playerList.init(bot, host))
 
     bot.on('entityHurt', (entity) => {
       if (entity !== bot.entity) return
@@ -251,7 +266,8 @@ class Hud extends LitElement {
       healthbar.gameModeChanged(bot.player.gamemode, bot.game.hardcore)
       foodbar.gameModeChanged(bot.player.gamemode)
       // breathbar.gameModeChanged(bot.player.gamemode)
-      this.shadowRoot.querySelector('#xp-bar-bg').style.display = bot.player.gamemode === 1 ? 'none' : 'block'
+      this.shadowRoot.querySelector('#xp-bar-bg').style.display =
+        bot.player.gamemode === 1 ? 'none' : 'block'
     })
 
     bot.on('health', () => {
@@ -260,7 +276,9 @@ class Hud extends LitElement {
     })
 
     bot.on('experience', () => {
-      this.shadowRoot.querySelector('#xp-bar-bg').firstElementChild.style.width = `${182 * bot.experience.progress}px`
+      this.shadowRoot.querySelector(
+        '#xp-bar-bg'
+      ).firstElementChild.style.width = `${182 * bot.experience.progress}px`
       xpLabel.innerHTML = bot.experience.level
       xpLabel.style.display = bot.experience.level > 0 ? 'block' : 'none'
     })
@@ -269,7 +287,7 @@ class Hud extends LitElement {
       const x = Math.floor(bot.player.entity.position.x / (16 * 6))
       const z = Math.floor(bot.player.entity.position.z / (16 * 6))
       land.updateDir(bot.player.entity.yaw)
-      if ((x !== xStor) || (z !== zStor)) {
+      if (x !== xStor || z !== zStor) {
         xStor = x
         zStor = z
         land.updateLand(xStor, zStor)
@@ -281,8 +299,11 @@ class Hud extends LitElement {
     // })
 
     bot.on('spawn', () => {
-      this.shadowRoot.querySelector('#xp-bar-bg').style.display = bot.player.gamemode === 1 ? 'none' : 'block'
-      this.shadowRoot.querySelector('#xp-bar-bg').firstElementChild.style.width = `${182 * bot.experience.progress}px`
+      this.shadowRoot.querySelector('#xp-bar-bg').style.display =
+        bot.player.gamemode === 1 ? 'none' : 'block'
+      this.shadowRoot.querySelector(
+        '#xp-bar-bg'
+      ).firstElementChild.style.width = `${182 * bot.experience.progress}px`
       xpLabel.innerHTML = bot.experience.level
       xpLabel.style.display = bot.experience.level > 0 ? 'block' : 'none'
       healthbar.gameModeChanged(bot.player.gamemode, bot.game.hardcore)
@@ -293,7 +314,10 @@ class Hud extends LitElement {
       hotbar.init()
     })
 
-    if (document.getElementById('options-screen').forceMobileControls || isMobile()) {
+    if (
+      document.getElementById('options-screen').forceMobileControls ||
+      isMobile()
+    ) {
       this.showMobileControls(true)
     } else {
       this.showMobileControls(false)
@@ -301,32 +325,44 @@ class Hud extends LitElement {
   }
 
   /** @param {boolean} bl */
-  showMobileControls (bl) {
-    this.shadowRoot.querySelector('#mobile-top').style.display = bl ? 'flex' : 'none'
-    this.shadowRoot.querySelector('#mobile-left').style.display = bl ? 'block' : 'none'
-    this.shadowRoot.querySelector('#mobile-right').style.display = bl ? 'flex' : 'none'
+  showMobileControls(bl) {
+    this.shadowRoot.querySelector('#mobile-top').style.display = bl
+      ? 'flex'
+      : 'none'
+    this.shadowRoot.querySelector('#mobile-left').style.display = bl
+      ? 'block'
+      : 'none'
+    this.shadowRoot.querySelector('#mobile-right').style.display = bl
+      ? 'flex'
+      : 'none'
   }
 
   /**
    * @param {string} id
    * @param {boolean} action
    */
-  mobileControl (e, id, action) {
+  mobileControl(e, id, action) {
     e.stopPropagation()
     this.bot.setControlState(id, action)
   }
 
-  render () {
+  render() {
     return html`
       <div class="mobile-top-btns" id="mobile-top">
-        <button class="chat-btn" @click=${(e) => {
-          e.stopPropagation()
-          this.shadowRoot.querySelector('#chat').enableChat(false)
-        }}></button>
-        <button class="pause-btn" @click=${(e) => {
-          e.stopPropagation()
-          document.getElementById('pause-screen').enableGameMenu()
-        }}></button>
+        <button
+          class="chat-btn"
+          @click=${(e) => {
+            e.stopPropagation()
+            this.shadowRoot.querySelector('#chat').enableChat(false)
+          }}
+        ></button>
+        <button
+          class="pause-btn"
+          @click=${(e) => {
+            e.stopPropagation()
+            document.getElementById('pause-screen').enableGameMenu()
+          }}
+        ></button>
       </div>
       <div class="mobile-controls-left" id="mobile-left">
         <button
@@ -343,26 +379,32 @@ class Hud extends LitElement {
           @mousedown=${(e) => this.mobileControl(e, 'back', true)}
           @mouseup=${(e) => this.mobileControl(e, 'back', false)}
         ></button>
-        <button class="mobile-control-left"
+        <button
+          class="mobile-control-left"
           @touchstart=${(e) => this.mobileControl(e, 'right', true)}
           @touchend=${(e) => this.mobileControl(e, 'right', false)}
           @mousedown=${(e) => this.mobileControl(e, 'right', true)}
           @mouseup=${(e) => this.mobileControl(e, 'right', false)}
         ></button>
-        <button class="mobile-control-right"
+        <button
+          class="mobile-control-right"
           @touchstart=${(e) => this.mobileControl(e, 'left', true)}
           @touchend=${(e) => this.mobileControl(e, 'left', false)}
           @mousedown=${(e) => this.mobileControl(e, 'left', true)}
           @mouseup=${(e) => this.mobileControl(e, 'left', false)}
         ></button>
-        <button class="mobile-control-sneak" @dblclick=${(e) => {
-          e.stopPropagation()
-          const b = e.target.classList.toggle('is-down')
-          this.bot.setControlState('sneak', b)
-        }}></button>
+        <button
+          class="mobile-control-sneak"
+          @dblclick=${(e) => {
+            e.stopPropagation()
+            const b = e.target.classList.toggle('is-down')
+            this.bot.setControlState('sneak', b)
+          }}
+        ></button>
       </div>
       <div class="mobile-controls-right" id="mobile-right">
-        <button class="mobile-control-jump" 
+        <button
+          class="mobile-control-jump"
           @touchstart=${(e) => this.mobileControl(e, 'jump', true)}
           @touchend=${(e) => this.mobileControl(e, 'jump', false)}
           @mousedown=${(e) => this.mobileControl(e, 'jump', true)}
@@ -371,13 +413,18 @@ class Hud extends LitElement {
       </div>
 
       <pmui-debug-overlay id="debug-overlay"></pmui-debug-overlay>
-      <pmui-playerlist-overlay id="playerlist-overlay"></pmui-playerlist-overlay>
+      <pmui-playerlist-overlay
+        id="playerlist-overlay"
+      ></pmui-playerlist-overlay>
       <div class="crosshair"></div>
       <chat-box id="chat"></chat-box>
       <!--<pmui-breathbar id="breath-bar"></pmui-breathbar>-->
       <pmui-healthbar id="health-bar"></pmui-healthbar>
       <pmui-foodbar id="food-bar"></pmui-foodbar>
       <pmui-landbar id="landbar"></pmui-landbar>
+      <pmui-palantir-container
+        id="palantir-container"
+      ></pmui-palantir-container>
       <div id="xp-bar-bg" style="display: none">
         <div class="xp-bar"></div>
         <span id="xp-label"></span>
