@@ -112,26 +112,27 @@ class PalantirContainer extends LitElement {
     }
   }
 
+  landnameFor(player) {
+    let landName = ''
+    if (player.entity !== undefined) {
+      const x = Math.floor(player.entity.position.x / (16 * 6))
+      const z = Math.floor(player.entity.position.z / (16 * 6))
+
+      const landKey = x.toString() + ':' + z.toString()
+
+      if (landKey in lands) {
+        landName = 'now in ' + lands[landKey][1]
+      } else {
+        landName = 'now in The Open Sea'
+      }
+    }
+
+    console.log('***', player.username, landName)
+    return landName
+  }
+
   render() {
     if (this.panelOpened) {
-      const landnameFor = function (player) {
-        const x = Math.floor(player?.entity.position.x / (16 * 6))
-        const z = Math.floor(player?.entity.position.z / (16 * 6))
-        let landName = ''
-        if (x !== undefined && z !== undefined) {
-          const landKey = x.toString() + ':' + z.toString()
-
-          if (landKey in lands) {
-            landName = 'now in ' + lands[landKey][1]
-          } else {
-            landName = 'now in The Open Sea'
-          }
-        }
-
-        console.log('***', player.username, landName)
-        return landName
-      }
-
       const lists = []
       const players = Object.values(this.players).sort((a, b) => {
         if (a.username > b.username) return 1
@@ -169,7 +170,7 @@ class PalantirContainer extends LitElement {
                         ${player.username}
                         <div class="playerlist-land">
                           <p class="playerlist-land-name">
-                            ${landnameFor(player)}
+                            ${this.landnameFor(player)}
                           </p>
                         </div>
                       </div>
