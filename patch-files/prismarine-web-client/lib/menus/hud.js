@@ -207,12 +207,13 @@ class Hud extends LitElement {
     const palantirContainer = this.shadowRoot.querySelector(
       '#palantir-container'
     )
+    const buildbar = this.shadowRoot.querySelector('#buildbar')
     const chat = this.shadowRoot.querySelector('#chat')
-    const hotbar = this.shadowRoot.querySelector('#hotbar')
+    // const hotbar = this.shadowRoot.querySelector('#hotbar')
     const xpLabel = this.shadowRoot.querySelector('#xp-label')
 
     this.bot = bot
-    hotbar.bot = bot
+    // hotbar.bot = bot
     debugMenu.bot = bot
 
     this.bootStatus = false
@@ -244,10 +245,10 @@ class Hud extends LitElement {
       }
       land.palantirswap(this.palantirStatus)
     }
-    let xStor = 0
-    let zStor = 0
 
     chat.init(bot._client, renderer)
+
+    buildbar.init(bot)
 
     bot.on('entityHurt', (entity) => {
       if (entity !== bot.entity) return
@@ -285,6 +286,9 @@ class Hud extends LitElement {
       xpLabel.style.display = bot.experience.level > 0 ? 'block' : 'none'
     })
 
+    let xStor = 0
+    let zStor = 0
+
     bot.on('move', () => {
       const x = Math.floor(bot.player.entity.position.x / (16 * 6))
       const z = Math.floor(bot.player.entity.position.z / (16 * 6))
@@ -313,7 +317,7 @@ class Hud extends LitElement {
       foodbar.updateHunger(bot.food)
       // landbar may need update too
       // breathbar.updateOxygen(bot.oxygenLevel ?? 20)
-      hotbar.init()
+      // hotbar.init()
     })
 
     if (
@@ -427,11 +431,12 @@ class Hud extends LitElement {
       <pmui-palantir-container
         id="palantir-container"
       ></pmui-palantir-container>
+      <pmui-buildbar id="buildbar"></pmui-buildbar>
       <div id="xp-bar-bg" style="display: none">
         <div class="xp-bar"></div>
         <span id="xp-label"></span>
       </div>
-      <pmui-hotbar id="hotbar"></pmui-hotbar>
+      <!--<pmui-hotbar id="hotbar"></pmui-hotbar>-->
     `
   }
 }

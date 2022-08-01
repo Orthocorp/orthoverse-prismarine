@@ -4,14 +4,15 @@ require('./lib/chat')
 require('./lib/menus/components/button')
 require('./lib/menus/components/edit_box')
 require('./lib/menus/components/slider')
-require('./lib/menus/components/hotbar')
+// require('./lib/menus/components/hotbar')
 require('./lib/menus/components/health_bar')
 require('./lib/menus/components/food_bar')
 require('./lib/menus/components/land')
 require('./lib/menus/components/palantir')
-require('./lib/menus/components/breath_bar')
+require('./lib/menus/components/buildbar')
+// require('./lib/menus/components/breath_bar')
 require('./lib/menus/components/debug_overlay')
-//require('./lib/menus/components/playerlist_overlay')
+// require('./lib/menus/components/playerlist_overlay')
 require('./lib/menus/hud')
 require('./lib/menus/play_screen')
 require('./lib/menus/pause_screen')
@@ -187,6 +188,7 @@ async function connect(options) {
   const chat = hud.shadowRoot.querySelector('#chat')
   const landbar = hud.shadowRoot.querySelector('#landbar')
   const palantir = hud.shadowRoot.querySelector('#palantir')
+  const buildbar = hud.shadowRoot.querySelector('#buildbar')
 
   const debugMenu = hud.shadowRoot.querySelector('#debug-overlay')
   const optionsScrn = document.getElementById('options-screen')
@@ -278,8 +280,10 @@ async function connect(options) {
     if (msg.slice(0, 5) === 'ownd:' && playScreen.walletAddress !== '') {
       if (msg.slice(5) === 'true') {
         landbar.landnameswap('true')
+        buildbar.showBuildbar("true")
       } else {
         landbar.landnameswap('false')
+        buildbar.showBuildbar("false")
       }
     }
   })
@@ -320,7 +324,6 @@ async function connect(options) {
 
     const center = bot.entity.position
 
-    console.log(viewDistance)
     const worldView = new WorldView(bot.world, viewDistance, center)
 
     gameMenu.init(renderer)

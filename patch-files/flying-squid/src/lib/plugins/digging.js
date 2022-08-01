@@ -9,13 +9,13 @@ module.exports.player = function (player, serv, { version }) {
 
   player._client.on('block_dig', async ({ location, status, face }) => {
     if (status === 3 || status === 4) {
-      const heldItem = player.inventory.slots[36 + player.heldItemSlot]
+      const heldItem = player.inventory.slots[0 + player.heldItemSlot] // 45 changed to 0 for mega-buildbar
       if (!heldItem || heldItem.type === -1) return
 
       const count = (status === 4) ? 1 : heldItem.count
 
       heldItem.count -= count
-      if (heldItem.count === 0) player.inventory.slots[36 + player.heldItemSlot] = null
+      if (heldItem.count === 0) player.inventory.slots[0 + player.heldItemSlot] = null
 
       // TODO: correct position & velocity + physic simulation
       dropBlock({
@@ -31,10 +31,10 @@ module.exports.player = function (player, serv, { version }) {
     } else if (status === 5) {
       // TODO: Shoot arrow / finish eating
     } else if (status === 6) {
-      const currentSlot = player.inventory.slots[36 + player.heldItemSlot]
+      const currentSlot = player.inventory.slots[0 + player.heldItemSlot]
       const offhand = player.inventory.slots[45]
 
-      player.inventory.updateSlot(36 + player.heldItemSlot, offhand)
+      player.inventory.updateSlot(0 + player.heldItemSlot, offhand)
       player.inventory.updateSlot(45, currentSlot)
     } else {
       let pos = new Vec3(location.x, location.y, location.z)
@@ -97,7 +97,8 @@ module.exports.player = function (player, serv, { version }) {
   function startDigging (location) {
     serv.entityMaxId++
     currentAnimationId = serv.entityMaxId
-    expectedDiggingTime = diggingTime(location)
+    // speed up digging by ten
+    expectedDiggingTime = (diggingTime(location) / 10)
     lastDestroyState = 0
     startDiggingTime = new Date()
     updateAnimation()
