@@ -34,11 +34,13 @@ class BuildBar extends LitElement {
       }
 
       .item-icon {
-        top: 2px;
-        left: 2px;
+        top: 0px;
+        left: 0px;
         position: absolute;
         width: 20px;
         height: 20px;
+        transform-origin: top left;
+        transform: scale(0.5);
       }
 
       .item-stack {
@@ -92,7 +94,14 @@ class BuildBar extends LitElement {
       if (Math.abs(this.bot.quickBarSlot + QUICK_BAR_START - slot) > 2) return
       const currentSlot = (slot - QUICK_BAR_START - this.bot.quickBarSlot + 2)
       const slotElement = this.shadowRoot.getElementById('buildbar-' + currentSlot)
+      const slotIcon = slotElement.children[0]
       const slotStack = slotElement.children[1]
+      if (newItem?.name) {
+        const iconImg = '../../../extra-textures/blockboxes/' + newItem.name + '.png'
+        slotIcon.innerHTML = "<img style='width: 40px; height: auto;' src='" +
+        iconImg + 
+        "'></img>"
+      }
       slotStack.innerHTML = newItem?.count > 1 ? (newItem.count > 99 ? '99+' : newItem.count) : '0'
     })
   }
@@ -107,8 +116,15 @@ class BuildBar extends LitElement {
         const item = this.bot.inventory.slots[currentSlot]
         console.log("Item", item)
         const slotElement = this.shadowRoot.getElementById('buildbar-' + i)
+        const slotIcon = slotElement.children[0]
         const slotStack = slotElement.children[1]
-        slotStack.innerHTML = item?.count > 1 ? (item.count > 99 ? '99+' : item.count) : '0'
+        if (item?.name) {
+            const iconImg = '../../../extra-textures/blockboxes/' + item.name + '.png'
+            slotIcon.innerHTML = "<img style='width: 40px; height: auto;' src='" +
+            iconImg + 
+            "'></img>"
+        }
+      slotStack.innerHTML = item?.count > 1 ? (item.count > 99 ? '99+' : item.count) : '0'
       }
     }
   }
@@ -127,7 +143,8 @@ class BuildBar extends LitElement {
       <div id="buildbar" class="buildbar" style="display: ${this.displayBuildbar}">
         <div id="buildbar-items-wrapper">
           <div class="buildbar-item" id="buildbar-0">
-              <div class="item-icon"></div>
+              <div class="item-icon">
+              </div>
               <span class="item-stack"></span>
           </div>
           <div class="buildbar-item" id="buildbar-1">
