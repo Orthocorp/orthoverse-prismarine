@@ -207,13 +207,12 @@ class Hud extends LitElement {
     const palantirContainer = this.shadowRoot.querySelector(
       '#palantir-container'
     )
-    const buildbar = this.shadowRoot.querySelector('#buildbar')
     const chat = this.shadowRoot.querySelector('#chat')
-    // const hotbar = this.shadowRoot.querySelector('#hotbar')
+    const hotbar = this.shadowRoot.querySelector('#hotbar')
     const xpLabel = this.shadowRoot.querySelector('#xp-label')
 
     this.bot = bot
-    // hotbar.bot = bot
+    hotbar.bot = bot
     debugMenu.bot = bot
 
     this.bootStatus = false
@@ -247,8 +246,8 @@ class Hud extends LitElement {
     }
 
     chat.init(bot._client, renderer)
-
-    buildbar.init(bot)
+    console.log("Trying to init hotbar")
+    hotbar.init()
 
     bot.on('entityHurt', (entity) => {
       if (entity !== bot.entity) return
@@ -317,7 +316,6 @@ class Hud extends LitElement {
       foodbar.updateHunger(bot.food)
       // landbar may need update too
       // breathbar.updateOxygen(bot.oxygenLevel ?? 20)
-      // hotbar.init()
     })
 
     if (
@@ -431,12 +429,11 @@ class Hud extends LitElement {
       <pmui-palantir-container
         id="palantir-container"
       ></pmui-palantir-container>
-      <pmui-buildbar id="buildbar"></pmui-buildbar>
       <div id="xp-bar-bg" style="display: none">
         <div class="xp-bar"></div>
         <span id="xp-label"></span>
       </div>
-      <!--<pmui-hotbar id="hotbar"></pmui-hotbar>-->
+      <pmui-hotbar id="hotbar"></pmui-hotbar>
     `
   }
 }

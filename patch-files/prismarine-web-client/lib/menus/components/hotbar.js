@@ -5,14 +5,14 @@ class Hotbar extends LitElement {
   static get styles () {
     return css`
       .hotbar {
-        display: none;
+        display: block;
         position: absolute;
         bottom: 0;
         left: 50%;
         transform: translate(-50%);
         width: 182px;
         height: 22px;
-        background: url("textures/1.16.4/gui/widgets.png");
+        background: url("textures/1.15.2/gui/widgets.png");
         background-size: 256px;
       }
 
@@ -22,7 +22,7 @@ class Hotbar extends LitElement {
         top: -1px;
         width: 24px;
         height: 24px;
-        background: url("textures/1.16.4/gui/widgets.png");
+        background: url("textures/1.15.2/gui/widgets.png");
         background-size: 256px;
         background-position-y: -22px;
       }
@@ -108,10 +108,12 @@ class Hotbar extends LitElement {
   }
 
   init () {
+    console.log("Initializing hotbar")
     this.reloadHotbar()
     this.reloadHotbarSelected(0)
 
     document.addEventListener('wheel', (e) => {
+      console.log("Rolled wheel " + e.deltaY.toString())
       const newSlot = ((this.bot.quickBarSlot + Math.sign(e.deltaY)) % 9 + 9) % 9
       this.reloadHotbarSelected(newSlot)
     })
@@ -119,10 +121,12 @@ class Hotbar extends LitElement {
     document.addEventListener('keydown', (e) => {
       const numPressed = e.code.substr(5)
       if (numPressed < 1 || numPressed > 9) return
+      console.log("Pressed " + numPressed.toString())
       this.reloadHotbarSelected(numPressed - 1)
     })
 
     this.bot.inventory.on('updateSlot', (slot, oldItem, newItem) => {
+      console.log("Slot updated with " + newItem?.name)
       if (slot >= this.bot.inventory.hotbarStart + 9) return
       if (slot < this.bot.inventory.hotbarStart) return
 
@@ -137,6 +141,7 @@ class Hotbar extends LitElement {
   }
 
   async reloadHotbar () {
+    console.log("Reloading hotbar")
     for (let i = 0; i < 9; i++) {
       const item = this.bot.inventory.slots[this.bot.inventory.hotbarStart + i]
       const sprite = item ? invsprite[item.name] : invsprite.air
@@ -150,6 +155,7 @@ class Hotbar extends LitElement {
   }
 
   async reloadHotbarSelected (slot) {
+    console.log("Reloading slot " + slot.toString())
     const item = this.bot.inventory.slots[this.bot.inventory.hotbarStart + slot]
     const newLeftPos = (-1 + 20 * slot) + 'px'
     this.shadowRoot.getElementById('hotbar-selected').style.left = newLeftPos
