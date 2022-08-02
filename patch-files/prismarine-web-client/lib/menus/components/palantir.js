@@ -127,6 +127,17 @@ class PalantirContainer extends LitElement {
     return landName
   }
 
+  hide() {
+    this.panelOpened = false
+    this.style.display = 'none'
+  }
+
+  show(bot) {
+    this.panelOpened = true
+    this.init(bot)
+    this.style.display = 'block'
+  }
+
   render() {
     if (this.panelOpened) {
       const lists = []
