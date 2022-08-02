@@ -9,9 +9,9 @@ require('./lib/menus/components/health_bar')
 require('./lib/menus/components/food_bar')
 require('./lib/menus/components/land')
 require('./lib/menus/components/palantir')
-require('./lib/menus/components/breath_bar')
+// require('./lib/menus/components/breath_bar')
 require('./lib/menus/components/debug_overlay')
-//require('./lib/menus/components/playerlist_overlay')
+// require('./lib/menus/components/playerlist_overlay')
 require('./lib/menus/hud')
 require('./lib/menus/play_screen')
 require('./lib/menus/pause_screen')
@@ -278,8 +278,10 @@ async function connect(options) {
     if (msg.slice(0, 5) === 'ownd:' && playScreen.walletAddress !== '') {
       if (msg.slice(5) === 'true') {
         landbar.landnameswap('true')
+        // perhaps later show hotbar here
       } else {
         landbar.landnameswap('false')
+        // perhaps later show hotbar here
       }
     }
   })
@@ -320,7 +322,6 @@ async function connect(options) {
 
     const center = bot.entity.position
 
-    console.log(viewDistance)
     const worldView = new WorldView(bot.world, viewDistance, center)
 
     gameMenu.init(renderer)

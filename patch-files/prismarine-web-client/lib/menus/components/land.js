@@ -124,13 +124,10 @@ class LandBar extends LitElement {
   }
 
   async landnameswap(light) {
-    console.log('About to swap land name color')
     if (light === 'true') {
-      console.log('Land name color to BLUE')
       this.landColor = '#0000ff'
     } else {
       this.landColor = '#000000'
-      console.log('Land name color to BLACK')
     }
   }
 

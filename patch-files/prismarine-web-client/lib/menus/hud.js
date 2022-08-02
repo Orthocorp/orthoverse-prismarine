@@ -244,10 +244,10 @@ class Hud extends LitElement {
       }
       land.palantirswap(this.palantirStatus)
     }
-    let xStor = 0
-    let zStor = 0
 
     chat.init(bot._client, renderer)
+    console.log("Trying to init hotbar")
+    hotbar.init()
 
     bot.on('entityHurt', (entity) => {
       if (entity !== bot.entity) return
@@ -285,6 +285,9 @@ class Hud extends LitElement {
       xpLabel.style.display = bot.experience.level > 0 ? 'block' : 'none'
     })
 
+    let xStor = 0
+    let zStor = 0
+
     bot.on('move', () => {
       const x = Math.floor(bot.player.entity.position.x / (16 * 6))
       const z = Math.floor(bot.player.entity.position.z / (16 * 6))
@@ -313,7 +316,6 @@ class Hud extends LitElement {
       foodbar.updateHunger(bot.food)
       // landbar may need update too
       // breathbar.updateOxygen(bot.oxygenLevel ?? 20)
-      hotbar.init()
     })
 
     if (
