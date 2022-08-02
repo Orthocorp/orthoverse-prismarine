@@ -94,8 +94,6 @@ class PalantirContainer extends LitElement {
   }
 
   init(bot) {
-    const playerList = this.shadowRoot.querySelector('#palantir-container')
-
     this.players = bot.players
     this.clientId = bot.player.uuid
 
