@@ -229,17 +229,16 @@ class Hud extends LitElement {
       land.bootswap(this.bootStatus)
     }
 
-    palantirContainer.style.display = 'none'
+    // Defaut is dark icon
     this.palantirStatus = false
+    // Defaut is hidden
+    palantirContainer.hide(this, land)
     this.palantir = function () {
       if (this.palantirStatus === false) {
-        this.palantirStatus = true
-        palantirContainer.show(bot)
+        palantirContainer.show(this, land, bot)
       } else {
-        this.palantirStatus = false
-        palantirContainer.hide()
+        palantirContainer.hide(this, land)
       }
-      land.palantirswap(this.palantirStatus)
     }
     let xStor = 0
     let zStor = 0

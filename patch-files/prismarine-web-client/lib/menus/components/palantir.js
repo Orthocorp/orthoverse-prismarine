@@ -127,15 +127,31 @@ class PalantirContainer extends LitElement {
     return landName
   }
 
-  hide() {
-    this.panelOpened = false
+  hide(hud, land) {
+    // Hide overlay panel
     this.style.display = 'none'
+    this.panelOpened = false
+    hud.palantirStatus = false
+    // Set to dark icon
+    land.palantirswap(false)
   }
 
-  show(bot) {
-    this.panelOpened = true
-    this.init(bot)
+  show(hud, land, bot) {
+    hud.palantirStatus = true
+    // Show overlay panel
     this.style.display = 'block'
+    this.panelOpened = true
+
+    // Set to light icon
+    land.palantirswap(true)
+
+    this.init(bot)
+
+    // Hide Palantir after 15 sec
+    // Keir: "...it's a lot of work to use a seeing stone" :-)
+    setTimeout(() => {
+      this.hide(hud, land)
+    }, 15000)
   }
 
   render() {
