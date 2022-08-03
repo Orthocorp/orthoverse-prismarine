@@ -2,7 +2,7 @@ const lands = require('../../../lands/voxel.json')
 
 const { LitElement, html, css } = require('lit')
 
-const MAX_ROWS_PER_COL = 10
+const MAX_ROWS_PER_COL = 15
 
 class PalantirContainer extends LitElement {
   static get styles() {
@@ -109,18 +109,15 @@ class PalantirContainer extends LitElement {
   }
 
   landnameFor(player) {
-    let landName = ''
-    if (player.entity !== undefined) {
-      const x = Math.floor(player.entity.position.x / (16 * 6))
-      const z = Math.floor(player.entity.position.z / (16 * 6))
+    let landName = 'now in The Open Sea'
 
-      const landKey = x.toString() + ':' + z.toString()
+    const x = Math.floor(player.entity.position.x / (16 * 6))
+    const z = Math.floor(player.entity.position.z / (16 * 6))
 
-      if (landKey in lands) {
-        landName = 'now in ' + lands[landKey][1]
-      } else {
-        landName = 'now in The Open Sea'
-      }
+    const landKey = x.toString() + ':' + z.toString()
+
+    if (landKey in lands) {
+      landName = 'now in ' + lands[landKey][1]
     }
 
     console.log('***', player.username, landName)
@@ -157,11 +154,20 @@ class PalantirContainer extends LitElement {
   render() {
     if (this.panelOpened) {
       const lists = []
-      const players = Object.values(this.players).sort((a, b) => {
-        if (a.username > b.username) return 1
-        if (a.username < b.username) return -1
-        return 0
-      })
+      // Filter the players list:
+      // 1) Do not display current user
+      // 2) Display only users near me (player.entity.position is not undefined)
+      const players = Object.values(this.players)
+        .filter(
+          (player) =>
+            this.clientId !== player.uuid &&
+            player.entity?.position !== undefined
+        )
+        .sort((a, b) => {
+          if (a.username > b.username) return 1
+          if (a.username < b.username) return -1
+          return 0
+        })
 
       let tempList = []
       for (let i = 0; i < players.length; i++) {
@@ -177,7 +183,7 @@ class PalantirContainer extends LitElement {
 
       return html`
         <div class="palantir-container" id="palantir-container">
-          <span class="title">Connected Users</span>
+          <span class="title">Users Near Me</span>
           <div class="player-lists">
             ${lists.map(
               (list) => html`
