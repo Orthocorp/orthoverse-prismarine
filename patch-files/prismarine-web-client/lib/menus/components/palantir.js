@@ -1,4 +1,5 @@
 const lands = require('../../../lands/voxel.json')
+const owners = require('../../../lands/owners.json')
 
 const { LitElement, html, css } = require('lit')
 
@@ -91,6 +92,24 @@ class PalantirContainer extends LitElement {
     this.clientId = ''
     this.players = {}
     this.panelOpened = false
+    this.OwnerTitles = [
+      ['Landlord', 'Landlord'],
+      ['Steward', 'Steward'],
+      ['Squire', 'Squire'],
+      ['Knight', 'Knight'],
+      ['Baron', 'Baroness'],
+      ['Earl', 'Countess'],
+      ['Duke', 'Duchess'],
+      ['King', 'Queen'],
+      ['Citizen', 'Citizen'],
+      ['Councilor', 'Councilor'],
+      ['Mayor', 'Mayor'],
+      ['Governor', 'Governor'],
+      ['Senator', 'Senator'],
+      ['Protector', 'Protector'],
+      ['President', 'President'],
+      ['Hegemon', 'Hegemon'],
+    ]
   }
 
   init(bot) {
@@ -108,8 +127,30 @@ class PalantirContainer extends LitElement {
     }
   }
 
+  ownerTitleFor(player) {
+    if (
+      player.entity?.ethereum !== undefined &&
+      player.entity.ethereum.wallet.startsWith('0x')
+    ) {
+      const ethereumAddress =
+        owners[player.entity.ethereum.wallet.toLowerCase()]
+      if (owners[ethereumAddress in owners]) {
+        return (
+          // TODO when the skin is ready must check for the female version
+          this.Ownertitles[owners[ethereumAddress].highest_level][0] +
+          ' ' +
+          player.username +
+          ' of ' +
+          owners[ethereumAddress].land_name
+        )
+      }
+    } else {
+      return player.username
+    }
+  }
+
   landnameFor(player) {
-    let landName = 'now in The Open Sea'
+    let landName = ' - now in The Open Sea'
 
     const x = Math.floor(player.entity.position.x / (16 * 6))
     const z = Math.floor(player.entity.position.z / (16 * 6))
@@ -117,7 +158,7 @@ class PalantirContainer extends LitElement {
     const landKey = x.toString() + ':' + z.toString()
 
     if (landKey in lands) {
-      landName = 'now in ' + lands[landKey][1]
+      landName = ' - now in ' + lands[landKey][1]
     }
 
     console.log('***', player.username, landName)
@@ -196,7 +237,7 @@ class PalantirContainer extends LitElement {
                           : ''}"
                         id="plist-player-${player.uuid}"
                       >
-                        ${player.username}
+                        ${this.ownerTitleFor(player)}
                         <div class="playerlist-land">
                           <p class="playerlist-land-name">
                             ${this.landnameFor(player)}
