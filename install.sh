@@ -18,12 +18,12 @@ set -x
 
 git clone https://github.com/PrismarineJS/flying-squid.git
 git clone https://github.com/PrismarineJS/prismarine-web-client.git
+cp -r ./patch-files/prismarine-web-client ./
+cp -r ./patch-files/flying-squid ./
+
 cd flying-squid
 npm install
 cd ../prismarine-web-client
 npm install
 cd ..
-
-cp -r ./patch-files/prismarine-web-client ./
-cp -r ./patch-files/flying-squid ./
 
