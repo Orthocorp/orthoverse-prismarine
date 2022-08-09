@@ -187,7 +187,7 @@ async function connect(options) {
   const chat = hud.shadowRoot.querySelector('#chat')
   const landbar = hud.shadowRoot.querySelector('#landbar')
   const palantir = hud.shadowRoot.querySelector('#palantir')
-
+  const hotbar = hud.shadowRoot.querySelector('#hotbar')
   const debugMenu = hud.shadowRoot.querySelector('#debug-overlay')
   const optionsScrn = document.getElementById('options-screen')
   const keyBindScrn = document.getElementById('keybinds-screen')
@@ -278,10 +278,10 @@ async function connect(options) {
     if (msg.slice(0, 5) === 'ownd:' && playScreen.walletAddress !== '') {
       if (msg.slice(5) === 'true') {
         landbar.landnameswap('true')
-        // perhaps later show hotbar here
+        hotbar.style = 'display: block;'
       } else {
         landbar.landnameswap('false')
-        // perhaps later show hotbar here
+        hotbar.style = 'display: none;'
       }
     }
   })
@@ -586,6 +586,7 @@ async function connect(options) {
 
     hud.init(renderer, bot, host)
     hud.style.display = 'block'
+    hotbar.style.display = 'none'
 
     setTimeout(function () {
       // remove loading screen, wait a second to make sure a frame has properly rendered
