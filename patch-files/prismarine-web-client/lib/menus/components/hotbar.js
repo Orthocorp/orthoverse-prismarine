@@ -131,6 +131,7 @@ class Hotbar extends LitElement {
       if (slot < this.bot.inventory.hotbarStart) return
 
       const sprite = newItem ? invsprite[newItem.name] : invsprite.air
+      console.log("Sprite is this: ", sprite)
       const slotEl = this.shadowRoot.getElementById('hotbar-' + (slot - this.bot.inventory.hotbarStart))
       const slotIcon = slotEl.children[0]
       const slotStack = slotEl.children[1]

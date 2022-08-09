@@ -1,0 +1,2852 @@
+{
+  "acacia_boat": {
+    "x": 0,
+    "y": 0,
+    "name": "Acacia Boat"
+  },
+  "acacia_door": {
+    "x": 64,
+    "y": 0,
+    "name": "Acacia Door"
+  },
+  "acacia_leaves": {
+    "x": 96,
+    "y": 0,
+    "name": "Acacia Leaves"
+  },
+  "acacia_log": {
+    "x": 128,
+    "y": 0,
+    "name": "Acacia Log"
+  },
+  "acacia_planks": {
+    "x": 160,
+    "y": 0,
+    "name": "Acacia Planks"
+  },
+  "acacia_sapling": {
+    "x": 192,
+    "y": 0,
+    "name": "Acacia Sapling"
+  },
+  "acacia_sign": {
+    "x": 224,
+    "y": 0,
+    "name": "Acacia Sign"
+  },
+  "acacia_trapdoor": {
+    "x": 256,
+    "y": 0,
+    "name": "Acacia Trapdoor"
+  },
+  "activator_rail": {
+    "x": 288,
+    "y": 0,
+    "name": "Activator Rail"
+  },
+  "air": {
+    "x": 320,
+    "y": 0,
+    "name": "Air"
+  },
+  "allium": {
+    "x": 352,
+    "y": 0,
+    "name": "Allium"
+  },
+  "andesite": {
+    "x": 416,
+    "y": 0,
+    "name": "Andesite"
+  },
+  "anvil": {
+    "x": 448,
+    "y": 0,
+    "name": "Anvil"
+  },
+  "apple": {
+    "x": 480,
+    "y": 0,
+    "name": "Apple"
+  },
+  "armor_stand": {
+    "x": 512,
+    "y": 0,
+    "name": "Armor Stand"
+  },
+  "arrow": {
+    "x": 544,
+    "y": 0,
+    "name": "Arrow"
+  },
+  "azure_bluet": {
+    "x": 608,
+    "y": 0,
+    "name": "Azure Bluet"
+  },
+  "baked_potato": {
+    "x": 640,
+    "y": 0,
+    "name": "Baked Potato"
+  },
+  "bamboo": {
+    "x": 672,
+    "y": 0,
+    "name": "Bamboo"
+  },
+  "beacon": {
+    "x": 704,
+    "y": 0,
+    "name": "Beacon"
+  },
+  "bedrock": {
+    "x": 768,
+    "y": 0,
+    "name": "Bedrock"
+  },
+  "beef": {
+    "x": 800,
+    "y": 0,
+    "name": "Raw Beef"
+  },
+  "beetroot": {
+    "x": 832,
+    "y": 0,
+    "name": "Beetroot"
+  },
+  "beetroot_seeds": {
+    "x": 864,
+    "y": 0,
+    "name": "Beetroot Seeds"
+  },
+  "beetroot_soup": {
+    "x": 896,
+    "y": 0,
+    "name": "Beetroot Soup"
+  },
+  "bell": {
+    "x": 928,
+    "y": 0,
+    "name": "Bell"
+  },
+  "birch_boat": {
+    "x": 960,
+    "y": 0,
+    "name": "Birch Boat"
+  },
+  "birch_door": {
+    "x": 0,
+    "y": 32,
+    "name": "Birch Door"
+  },
+  "birch_leaves": {
+    "x": 32,
+    "y": 32,
+    "name": "Birch Leaves"
+  },
+  "birch_log": {
+    "x": 64,
+    "y": 32,
+    "name": "Birch Log"
+  },
+  "birch_planks": {
+    "x": 96,
+    "y": 32,
+    "name": "Birch Planks"
+  },
+  "birch_sapling": {
+    "x": 128,
+    "y": 32,
+    "name": "Birch Sapling"
+  },
+  "birch_sign": {
+    "x": 160,
+    "y": 32,
+    "name": "Birch Sign"
+  },
+  "birch_trapdoor": {
+    "x": 192,
+    "y": 32,
+    "name": "Birch Trapdoor"
+  },
+  "black_concrete": {
+    "x": 256,
+    "y": 32,
+    "name": "Black Concrete"
+  },
+  "black_concrete_powder": {
+    "x": 288,
+    "y": 32,
+    "name": "Black Concrete Powder"
+  },
+  "black_dye": {
+    "x": 320,
+    "y": 32,
+    "name": "Black Dye"
+  },
+  "black_glazed_terracotta": {
+    "x": 352,
+    "y": 32,
+    "name": "Black Glazed Terracotta"
+  },
+  "black_shulker_box": {
+    "x": 384,
+    "y": 32,
+    "name": "Black Shulker Box"
+  },
+  "black_stained_glass": {
+    "x": 416,
+    "y": 32,
+    "name": "Black Stained Glass"
+  },
+  "black_terracotta": {
+    "x": 448,
+    "y": 32,
+    "name": "Black Terracotta"
+  },
+  "black_wool": {
+    "x": 480,
+    "y": 32,
+    "name": "Black Wool"
+  },
+  "blaze_powder": {
+    "x": 512,
+    "y": 32,
+    "name": "Blaze Powder"
+  },
+  "blaze_rod": {
+    "x": 544,
+    "y": 32,
+    "name": "Blaze Rod"
+  },
+  "blue_concrete": {
+    "x": 608,
+    "y": 32,
+    "name": "Blue Concrete"
+  },
+  "blue_concrete_powder": {
+    "x": 640,
+    "y": 32,
+    "name": "Blue Concrete Powder"
+  },
+  "blue_dye": {
+    "x": 672,
+    "y": 32,
+    "name": "Blue Dye"
+  },
+  "blue_glazed_terracotta": {
+    "x": 704,
+    "y": 32,
+    "name": "Blue Glazed Terracotta"
+  },
+  "blue_ice": {
+    "x": 736,
+    "y": 32,
+    "name": "Blue Ice"
+  },
+  "blue_orchid": {
+    "x": 768,
+    "y": 32,
+    "name": "Blue Orchid"
+  },
+  "blue_shulker_box": {
+    "x": 800,
+    "y": 32,
+    "name": "Blue Shulker Box"
+  },
+  "blue_stained_glass": {
+    "x": 832,
+    "y": 32,
+    "name": "Blue Stained Glass"
+  },
+  "blue_terracotta": {
+    "x": 864,
+    "y": 32,
+    "name": "Blue Terracotta"
+  },
+  "blue_wool": {
+    "x": 896,
+    "y": 32,
+    "name": "Blue Wool"
+  },
+  "bone": {
+    "x": 960,
+    "y": 32,
+    "name": "Bone"
+  },
+  "bone_meal": {
+    "x": 992,
+    "y": 32,
+    "name": "Bone Meal"
+  },
+  "book": {
+    "x": 0,
+    "y": 64,
+    "name": "Book"
+  },
+  "bookshelf": {
+    "x": 32,
+    "y": 64,
+    "name": "Bookshelf"
+  },
+  "bow": {
+    "x": 64,
+    "y": 64,
+    "name": "Bow"
+  },
+  "bowl": {
+    "x": 192,
+    "y": 64,
+    "name": "Bowl"
+  },
+  "brain_coral": {
+    "x": 224,
+    "y": 64,
+    "name": "Brain Coral"
+  },
+  "brain_coral_block": {
+    "x": 256,
+    "y": 64,
+    "name": "Brain Coral Block"
+  },
+  "brain_coral_fan": {
+    "x": 288,
+    "y": 64,
+    "name": "Brain Coral Fan"
+  },
+  "bread": {
+    "x": 320,
+    "y": 64,
+    "name": "Bread"
+  },
+  "brewing_stand": {
+    "x": 352,
+    "y": 64,
+    "name": "Brewing Stand"
+  },
+  "brick": {
+    "x": 384,
+    "y": 64,
+    "name": "Brick"
+  },
+  "bricks": {
+    "x": 416,
+    "y": 64,
+    "name": "Bricks"
+  },
+  "brown_concrete": {
+    "x": 512,
+    "y": 64,
+    "name": "Brown Concrete"
+  },
+  "brown_concrete_powder": {
+    "x": 544,
+    "y": 64,
+    "name": "Brown Concrete Powder"
+  },
+  "brown_dye": {
+    "x": 576,
+    "y": 64,
+    "name": "Brown Dye"
+  },
+  "brown_glazed_terracotta": {
+    "x": 608,
+    "y": 64,
+    "name": "Brown Glazed Terracotta"
+  },
+  "brown_mushroom": {
+    "x": 640,
+    "y": 64,
+    "name": "Brown Mushroom"
+  },
+  "brown_mushroom_block": {
+    "x": 672,
+    "y": 64,
+    "name": "Brown Mushroom Block"
+  },
+  "brown_shulker_box": {
+    "x": 704,
+    "y": 64,
+    "name": "Brown Shulker Box"
+  },
+  "brown_stained_glass": {
+    "x": 736,
+    "y": 64,
+    "name": "Brown Stained Glass"
+  },
+  "brown_terracotta": {
+    "x": 768,
+    "y": 64,
+    "name": "Brown Terracotta"
+  },
+  "brown_wool": {
+    "x": 800,
+    "y": 64,
+    "name": "Brown Wool"
+  },
+  "bubble_coral": {
+    "x": 832,
+    "y": 64,
+    "name": "Bubble Coral"
+  },
+  "bubble_coral_block": {
+    "x": 864,
+    "y": 64,
+    "name": "Bubble Coral Block"
+  },
+  "bubble_coral_fan": {
+    "x": 896,
+    "y": 64,
+    "name": "Bubble Coral Fan"
+  },
+  "bucket": {
+    "x": 928,
+    "y": 64,
+    "name": "Bucket"
+  },
+  "cake": {
+    "x": 992,
+    "y": 64,
+    "name": "Cake"
+  },
+  "campfire": {
+    "x": 0,
+    "y": 96,
+    "name": "Campfire"
+  },
+  "carrot": {
+    "x": 64,
+    "y": 96,
+    "name": "Carrot"
+  },
+  "carrot_on_a_stick": {
+    "x": 96,
+    "y": 96,
+    "name": "Carrot on a Stick"
+  },
+  "carved_pumpkin": {
+    "x": 128,
+    "y": 96,
+    "name": "Carved Pumpkin"
+  },
+  "cauldron": {
+    "x": 160,
+    "y": 96,
+    "name": "Cauldron"
+  },
+  "chain": {
+    "x": 192,
+    "y": 96,
+    "name": "Chain"
+  },
+  "chainmail_boots": {
+    "x": 224,
+    "y": 96,
+    "name": "Chainmail Boots"
+  },
+  "chainmail_chestplate": {
+    "x": 256,
+    "y": 96,
+    "name": "Chainmail Chestplate"
+  },
+  "chainmail_helmet": {
+    "x": 288,
+    "y": 96,
+    "name": "Chainmail Helmet"
+  },
+  "chainmail_leggings": {
+    "x": 320,
+    "y": 96,
+    "name": "Chainmail Leggings"
+  },
+  "charcoal": {
+    "x": 352,
+    "y": 96,
+    "name": "Charcoal"
+  },
+  "chest_minecart": {
+    "x": 384,
+    "y": 96,
+    "name": "Minecart with Chest"
+  },
+  "chicken": {
+    "x": 416,
+    "y": 96,
+    "name": "Raw Chicken"
+  },
+  "chiseled_quartz_block": {
+    "x": 448,
+    "y": 96,
+    "name": "Chiseled Quartz Block"
+  },
+  "chiseled_red_sandstone": {
+    "x": 480,
+    "y": 96,
+    "name": "Chiseled Red Sandstone"
+  },
+  "chiseled_sandstone": {
+    "x": 512,
+    "y": 96,
+    "name": "Chiseled Sandstone"
+  },
+  "chiseled_stone_bricks": {
+    "x": 544,
+    "y": 96,
+    "name": "Chiseled Stone Bricks"
+  },
+  "chorus_flower": {
+    "x": 576,
+    "y": 96,
+    "name": "Chorus Flower"
+  },
+  "chorus_fruit": {
+    "x": 608,
+    "y": 96,
+    "name": "Chorus Fruit"
+  },
+  "chorus_plant": {
+    "x": 640,
+    "y": 96,
+    "name": "Chorus Plant"
+  },
+  "clay": {
+    "x": 672,
+    "y": 96,
+    "name": "Clay"
+  },
+  "clay_ball": {
+    "x": 704,
+    "y": 96,
+    "name": "Clay Ball"
+  },
+  "coal": {
+    "x": 736,
+    "y": 160,
+    "name": "Coal"
+  },
+  "coal_block": {
+    "x": 768,
+    "y": 160,
+    "name": "Block of Coal"
+  },
+  "coal_ore": {
+    "x": 800,
+    "y": 160,
+    "name": "Coal Ore"
+  },
+  "coarse_dirt": {
+    "x": 832,
+    "y": 160,
+    "name": "Coarse Dirt"
+  },
+  "cobblestone": {
+    "x": 864,
+    "y": 160,
+    "name": "Cobblestone"
+  },
+  "cobweb": {
+    "x": 896,
+    "y": 160,
+    "name": "Cobweb"
+  },
+  "cocoa_beans": {
+    "x": 928,
+    "y": 160,
+    "name": "Cocoa Beans"
+  },
+  "cod": {
+    "x": 960,
+    "y": 160,
+    "name": "Raw Cod"
+  },
+  "cod_bucket": {
+    "x": 992,
+    "y": 160,
+    "name": "Bucket of Cod"
+  },
+  "command_block_minecart": {
+    "x": 0,
+    "y": 192,
+    "name": "Minecart with Command Block"
+  },
+  "comparator": {
+    "x": 32,
+    "y": 192,
+    "name": "Redstone Comparator"
+  },
+  "conduit": {
+    "x": 64,
+    "y": 224,
+    "name": "Conduit"
+  },
+  "cooked_beef": {
+    "x": 96,
+    "y": 224,
+    "name": "Steak"
+  },
+  "cooked_chicken": {
+    "x": 128,
+    "y": 224,
+    "name": "Cooked Chicken"
+  },
+  "cooked_cod": {
+    "x": 160,
+    "y": 224,
+    "name": "Cooked Cod"
+  },
+  "cooked_mutton": {
+    "x": 192,
+    "y": 224,
+    "name": "Cooked Mutton"
+  },
+  "cooked_porkchop": {
+    "x": 224,
+    "y": 224,
+    "name": "Cooked Porkchop"
+  },
+  "cooked_rabbit": {
+    "x": 256,
+    "y": 224,
+    "name": "Cooked Rabbit"
+  },
+  "cooked_salmon": {
+    "x": 288,
+    "y": 224,
+    "name": "Cooked Salmon"
+  },
+  "cookie": {
+    "x": 320,
+    "y": 224,
+    "name": "Cookie"
+  },
+  "cornflower": {
+    "x": 384,
+    "y": 224,
+    "name": "Cornflower"
+  },
+  "cracked_stone_bricks": {
+    "x": 416,
+    "y": 224,
+    "name": "Cracked Stone Bricks"
+  },
+  "creeper_banner_pattern": {
+    "x": 448,
+    "y": 224,
+    "name": "Banner Pattern"
+  },
+  "crimson_door": {
+    "x": 480,
+    "y": 224,
+    "name": "Crimson Door"
+  },
+  "crimson_sign": {
+    "x": 512,
+    "y": 224,
+    "name": "Crimson Sign"
+  },
+  "cut_red_sandstone": {
+    "x": 736,
+    "y": 224,
+    "name": "Cut Red Sandstone"
+  },
+  "cut_sandstone": {
+    "x": 768,
+    "y": 224,
+    "name": "Cut Sandstone"
+  },
+  "cyan_concrete": {
+    "x": 832,
+    "y": 224,
+    "name": "Cyan Concrete"
+  },
+  "cyan_concrete_powder": {
+    "x": 864,
+    "y": 224,
+    "name": "Cyan Concrete Powder"
+  },
+  "cyan_dye": {
+    "x": 896,
+    "y": 224,
+    "name": "Cyan Dye"
+  },
+  "cyan_glazed_terracotta": {
+    "x": 928,
+    "y": 224,
+    "name": "Cyan Glazed Terracotta"
+  },
+  "cyan_shulker_box": {
+    "x": 960,
+    "y": 224,
+    "name": "Cyan Shulker Box"
+  },
+  "cyan_stained_glass": {
+    "x": 992,
+    "y": 224,
+    "name": "Cyan Stained Glass"
+  },
+  "cyan_terracotta": {
+    "x": 0,
+    "y": 256,
+    "name": "Cyan Terracotta"
+  },
+  "cyan_wool": {
+    "x": 32,
+    "y": 256,
+    "name": "Cyan Wool"
+  },
+  "dandelion": {
+    "x": 64,
+    "y": 256,
+    "name": "Dandelion"
+  },
+  "dark_oak_boat": {
+    "x": 128,
+    "y": 256,
+    "name": "Dark Oak Boat"
+  },
+  "dark_oak_door": {
+    "x": 192,
+    "y": 256,
+    "name": "Dark Oak Door"
+  },
+  "dark_oak_leaves": {
+    "x": 224,
+    "y": 256,
+    "name": "Dark Oak Leaves"
+  },
+  "dark_oak_log": {
+    "x": 256,
+    "y": 256,
+    "name": "Dark Oak Log"
+  },
+  "dark_oak_planks": {
+    "x": 288,
+    "y": 256,
+    "name": "Dark Oak Planks"
+  },
+  "dark_oak_sapling": {
+    "x": 320,
+    "y": 256,
+    "name": "Dark Oak Sapling"
+  },
+  "dark_oak_sign": {
+    "x": 352,
+    "y": 256,
+    "name": "Dark Oak Sign"
+  },
+  "dark_oak_trapdoor": {
+    "x": 384,
+    "y": 256,
+    "name": "Dark Oak Trapdoor"
+  },
+  "dark_prismarine": {
+    "x": 416,
+    "y": 256,
+    "name": "Dark Prismarine"
+  },
+  "dead_brain_coral": {
+    "x": 448,
+    "y": 256,
+    "name": "Dead Brain Coral"
+  },
+  "dead_brain_coral_block": {
+    "x": 480,
+    "y": 256,
+    "name": "Dead Brain Coral Block"
+  },
+  "dead_brain_coral_fan": {
+    "x": 512,
+    "y": 256,
+    "name": "Dead Brain Coral Fan"
+  },
+  "dead_bubble_coral": {
+    "x": 544,
+    "y": 256,
+    "name": "Dead Bubble Coral"
+  },
+  "dead_bubble_coral_block": {
+    "x": 576,
+    "y": 256,
+    "name": "Dead Bubble Coral Block"
+  },
+  "dead_bubble_coral_fan": {
+    "x": 608,
+    "y": 256,
+    "name": "Dead Bubble Coral Fan"
+  },
+  "dead_bush": {
+    "x": 640,
+    "y": 256,
+    "name": "Dead Bush"
+  },
+  "dead_fire_coral": {
+    "x": 672,
+    "y": 256,
+    "name": "Dead Fire Coral"
+  },
+  "dead_fire_coral_block": {
+    "x": 704,
+    "y": 256,
+    "name": "Dead Fire Coral Block"
+  },
+  "dead_fire_coral_fan": {
+    "x": 736,
+    "y": 256,
+    "name": "Dead Fire Coral Fan"
+  },
+  "dead_horn_coral": {
+    "x": 768,
+    "y": 256,
+    "name": "Dead Horn Coral"
+  },
+  "dead_horn_coral_block": {
+    "x": 800,
+    "y": 256,
+    "name": "Dead Horn Coral Block"
+  },
+  "dead_horn_coral_fan": {
+    "x": 832,
+    "y": 256,
+    "name": "Dead Horn Coral Fan"
+  },
+  "dead_tube_coral": {
+    "x": 864,
+    "y": 256,
+    "name": "Dead Tube Coral"
+  },
+  "dead_tube_coral_block": {
+    "x": 896,
+    "y": 256,
+    "name": "Dead Tube Coral Block"
+  },
+  "dead_tube_coral_fan": {
+    "x": 928,
+    "y": 256,
+    "name": "Dead Tube Coral Fan"
+  },
+  "detector_rail": {
+    "x": 960,
+    "y": 256,
+    "name": "Detector Rail"
+  },
+  "diamond": {
+    "x": 992,
+    "y": 256,
+    "name": "Diamond"
+  },
+  "diamond_axe": {
+    "x": 0,
+    "y": 288,
+    "name": "Diamond Axe"
+  },
+  "diamond_block": {
+    "x": 32,
+    "y": 288,
+    "name": "Block of Diamond"
+  },
+  "diamond_boots": {
+    "x": 64,
+    "y": 288,
+    "name": "Diamond Boots"
+  },
+  "diamond_chestplate": {
+    "x": 96,
+    "y": 288,
+    "name": "Diamond Chestplate"
+  },
+  "diamond_helmet": {
+    "x": 128,
+    "y": 288,
+    "name": "Diamond Helmet"
+  },
+  "diamond_hoe": {
+    "x": 160,
+    "y": 288,
+    "name": "Diamond Hoe"
+  },
+  "diamond_horse_armor": {
+    "x": 192,
+    "y": 288,
+    "name": "Diamond Horse Armor"
+  },
+  "diamond_leggings": {
+    "x": 224,
+    "y": 288,
+    "name": "Diamond Leggings"
+  },
+  "diamond_ore": {
+    "x": 256,
+    "y": 288,
+    "name": "Diamond Ore"
+  },
+  "diamond_pickaxe": {
+    "x": 288,
+    "y": 288,
+    "name": "Diamond Pickaxe"
+  },
+  "diamond_shovel": {
+    "x": 320,
+    "y": 288,
+    "name": "Diamond Shovel"
+  },
+  "diamond_sword": {
+    "x": 352,
+    "y": 288,
+    "name": "Diamond Sword"
+  },
+  "diorite": {
+    "x": 384,
+    "y": 288,
+    "name": "Diorite"
+  },
+  "dirt": {
+    "x": 416,
+    "y": 288,
+    "name": "Dirt"
+  },
+  "dragon_breath": {
+    "x": 480,
+    "y": 288,
+    "name": "Dragon's Breath"
+  },
+  "dragon_egg": {
+    "x": 512,
+    "y": 288,
+    "name": "Dragon Egg"
+  },
+  "dried_kelp": {
+    "x": 544,
+    "y": 288,
+    "name": "Dried Kelp"
+  },
+  "egg": {
+    "x": 608,
+    "y": 288,
+    "name": "Egg"
+  },
+  "elytra": {
+    "x": 640,
+    "y": 288,
+    "name": "Elytra"
+  },
+  "emerald": {
+    "x": 672,
+    "y": 288,
+    "name": "Emerald"
+  },
+  "emerald_block": {
+    "x": 704,
+    "y": 288,
+    "name": "Block of Emerald"
+  },
+  "emerald_ore": {
+    "x": 736,
+    "y": 288,
+    "name": "Emerald Ore"
+  },
+  "enchanted_book": {
+    "x": 928,
+    "y": 288,
+    "name": "Enchanted Book"
+  },
+  "end_crystal": {
+    "x": 960,
+    "y": 288,
+    "name": "End Crystal"
+  },
+  "end_rod": {
+    "x": 992,
+    "y": 288,
+    "name": "End Rod"
+  },
+  "end_stone": {
+    "x": 0,
+    "y": 320,
+    "name": "End Stone"
+  },
+  "end_stone_bricks": {
+    "x": 32,
+    "y": 320,
+    "name": "End Stone Bricks"
+  },
+  "ender_eye": {
+    "x": 64,
+    "y": 320,
+    "name": "Eye of Ender"
+  },
+  "ender_pearl": {
+    "x": 96,
+    "y": 320,
+    "name": "Ender Pearl"
+  },
+  "experience_bottle": {
+    "x": 128,
+    "y": 320,
+    "name": "Bottle o' Enchanting"
+  },
+  "farmland": {
+    "x": 160,
+    "y": 320,
+    "name": "Farmland"
+  },
+  "feather": {
+    "x": 192,
+    "y": 320,
+    "name": "Feather"
+  },
+  "fermented_spider_eye": {
+    "x": 224,
+    "y": 320,
+    "name": "Fermented Spider Eye"
+  },
+  "fern": {
+    "x": 256,
+    "y": 320,
+    "name": "Fern"
+  },
+  "filled_map": {
+    "x": 288,
+    "y": 320,
+    "name": "Map"
+  },
+  "fire_charge": {
+    "x": 352,
+    "y": 320,
+    "name": "Fire Charge"
+  },
+  "fire_coral": {
+    "x": 384,
+    "y": 320,
+    "name": "Fire Coral"
+  },
+  "fire_coral_block": {
+    "x": 416,
+    "y": 320,
+    "name": "Fire Coral Block"
+  },
+  "fire_coral_fan": {
+    "x": 448,
+    "y": 320,
+    "name": "Fire Coral Fan"
+  },
+  "firework_rocket": {
+    "x": 480,
+    "y": 320,
+    "name": "Firework Rocket"
+  },
+  "firework_star": {
+    "x": 512,
+    "y": 320,
+    "name": "Firework Star"
+  },
+  "fishing_rod": {
+    "x": 576,
+    "y": 320,
+    "name": "Fishing Rod"
+  },
+  "flint": {
+    "x": 640,
+    "y": 320,
+    "name": "Flint"
+  },
+  "flint_and_steel": {
+    "x": 672,
+    "y": 320,
+    "name": "Flint and Steel"
+  },
+  "flower_banner_pattern": {
+    "x": 704,
+    "y": 320,
+    "name": "Banner Pattern"
+  },
+  "flower_pot": {
+    "x": 736,
+    "y": 320,
+    "name": "Flower Pot"
+  },
+  "furnace_minecart": {
+    "x": 768,
+    "y": 320,
+    "name": "Minecart with Furnace"
+  },
+  "ghast_tear": {
+    "x": 800,
+    "y": 320,
+    "name": "Ghast Tear"
+  },
+  "glass": {
+    "x": 832,
+    "y": 320,
+    "name": "Glass"
+  },
+  "glass_bottle": {
+    "x": 864,
+    "y": 320,
+    "name": "Glass Bottle"
+  },
+  "glistering_melon_slice": {
+    "x": 896,
+    "y": 320,
+    "name": "Glistering Melon Slice"
+  },
+  "globe_banner_pattern": {
+    "x": 928,
+    "y": 320,
+    "name": "Banner Pattern"
+  },
+  "glowstone": {
+    "x": 32,
+    "y": 352,
+    "name": "Glowstone"
+  },
+  "glowstone_dust": {
+    "x": 64,
+    "y": 352,
+    "name": "Glowstone Dust"
+  },
+  "gold_block": {
+    "x": 128,
+    "y": 352,
+    "name": "Block of Gold"
+  },
+  "gold_ingot": {
+    "x": 160,
+    "y": 352,
+    "name": "Gold Ingot"
+  },
+  "gold_nugget": {
+    "x": 192,
+    "y": 352,
+    "name": "Gold Nugget"
+  },
+  "gold_ore": {
+    "x": 224,
+    "y": 352,
+    "name": "Gold Ore"
+  },
+  "golden_apple": {
+    "x": 256,
+    "y": 352,
+    "name": "Golden Apple"
+  },
+  "golden_axe": {
+    "x": 288,
+    "y": 352,
+    "name": "Golden Axe"
+  },
+  "golden_boots": {
+    "x": 320,
+    "y": 352,
+    "name": "Golden Boots"
+  },
+  "golden_carrot": {
+    "x": 352,
+    "y": 352,
+    "name": "Golden Carrot"
+  },
+  "golden_chestplate": {
+    "x": 384,
+    "y": 352,
+    "name": "Golden Chestplate"
+  },
+  "golden_helmet": {
+    "x": 416,
+    "y": 352,
+    "name": "Golden Helmet"
+  },
+  "golden_hoe": {
+    "x": 448,
+    "y": 352,
+    "name": "Golden Hoe"
+  },
+  "golden_horse_armor": {
+    "x": 480,
+    "y": 352,
+    "name": "Golden Horse Armor"
+  },
+  "golden_leggings": {
+    "x": 512,
+    "y": 352,
+    "name": "Golden Leggings"
+  },
+  "golden_pickaxe": {
+    "x": 544,
+    "y": 352,
+    "name": "Golden Pickaxe"
+  },
+  "golden_shovel": {
+    "x": 576,
+    "y": 352,
+    "name": "Golden Shovel"
+  },
+  "golden_sword": {
+    "x": 608,
+    "y": 352,
+    "name": "Golden Sword"
+  },
+  "granite": {
+    "x": 640,
+    "y": 352,
+    "name": "Granite"
+  },
+  "grass": {
+    "x": 672,
+    "y": 352,
+    "name": "Grass"
+  },
+  "gravel": {
+    "x": 704,
+    "y": 352,
+    "name": "Gravel"
+  },
+  "gray_concrete": {
+    "x": 768,
+    "y": 352,
+    "name": "Gray Concrete"
+  },
+  "gray_concrete_powder": {
+    "x": 800,
+    "y": 352,
+    "name": "Gray Concrete Powder"
+  },
+  "gray_dye": {
+    "x": 832,
+    "y": 352,
+    "name": "Gray Dye"
+  },
+  "gray_glazed_terracotta": {
+    "x": 864,
+    "y": 352,
+    "name": "Gray Glazed Terracotta"
+  },
+  "gray_shulker_box": {
+    "x": 896,
+    "y": 352,
+    "name": "Gray Shulker Box"
+  },
+  "gray_stained_glass": {
+    "x": 928,
+    "y": 352,
+    "name": "Gray Stained Glass"
+  },
+  "gray_terracotta": {
+    "x": 960,
+    "y": 352,
+    "name": "Gray Terracotta"
+  },
+  "gray_wool": {
+    "x": 992,
+    "y": 352,
+    "name": "Gray Wool"
+  },
+  "green_concrete": {
+    "x": 32,
+    "y": 384,
+    "name": "Green Concrete"
+  },
+  "green_concrete_powder": {
+    "x": 64,
+    "y": 384,
+    "name": "Green Concrete Powder"
+  },
+  "green_dye": {
+    "x": 96,
+    "y": 384,
+    "name": "Green Dye"
+  },
+  "green_glazed_terracotta": {
+    "x": 128,
+    "y": 384,
+    "name": "Green Glazed Terracotta"
+  },
+  "green_shulker_box": {
+    "x": 160,
+    "y": 384,
+    "name": "Green Shulker Box"
+  },
+  "green_stained_glass": {
+    "x": 192,
+    "y": 384,
+    "name": "Green Stained Glass"
+  },
+  "green_terracotta": {
+    "x": 224,
+    "y": 384,
+    "name": "Green Terracotta"
+  },
+  "green_wool": {
+    "x": 256,
+    "y": 384,
+    "name": "Green Wool"
+  },
+  "gunpowder": {
+    "x": 288,
+    "y": 384,
+    "name": "Gunpowder"
+  },
+  "heart_of_the_sea": {
+    "x": 320,
+    "y": 384,
+    "name": "Heart of the Sea"
+  },
+  "honey_bottle": {
+    "x": 352,
+    "y": 384,
+    "name": "Honey Bottle"
+  },
+  "honeycomb": {
+    "x": 384,
+    "y": 384,
+    "name": "Honeycomb"
+  },
+  "honeycomb_block": {
+    "x": 416,
+    "y": 384,
+    "name": "Honeycomb Block"
+  },
+  "hopper": {
+    "x": 448,
+    "y": 384,
+    "name": "Hopper"
+  },
+  "hopper_minecart": {
+    "x": 480,
+    "y": 384,
+    "name": "Minecart with Hopper"
+  },
+  "horn_coral": {
+    "x": 512,
+    "y": 384,
+    "name": "Horn Coral"
+  },
+  "horn_coral_block": {
+    "x": 544,
+    "y": 384,
+    "name": "Horn Coral Block"
+  },
+  "horn_coral_fan": {
+    "x": 576,
+    "y": 384,
+    "name": "Horn Coral Fan"
+  },
+  "ice": {
+    "x": 608,
+    "y": 384,
+    "name": "Ice"
+  },
+  "ink_sac": {
+    "x": 640,
+    "y": 384,
+    "name": "Ink Sac"
+  },
+  "iron_axe": {
+    "x": 672,
+    "y": 384,
+    "name": "Iron Axe"
+  },
+  "iron_bars": {
+    "x": 704,
+    "y": 384,
+    "name": "Iron Bars"
+  },
+  "iron_block": {
+    "x": 736,
+    "y": 384,
+    "name": "Block of Iron"
+  },
+  "iron_boots": {
+    "x": 768,
+    "y": 384,
+    "name": "Iron Boots"
+  },
+  "iron_chestplate": {
+    "x": 800,
+    "y": 384,
+    "name": "Iron Chestplate"
+  },
+  "iron_door": {
+    "x": 832,
+    "y": 384,
+    "name": "Iron Door"
+  },
+  "iron_helmet": {
+    "x": 864,
+    "y": 384,
+    "name": "Iron Helmet"
+  },
+  "iron_hoe": {
+    "x": 896,
+    "y": 384,
+    "name": "Iron Hoe"
+  },
+  "iron_horse_armor": {
+    "x": 928,
+    "y": 384,
+    "name": "Iron Horse Armor"
+  },
+  "iron_ingot": {
+    "x": 960,
+    "y": 384,
+    "name": "Iron Ingot"
+  },
+  "iron_leggings": {
+    "x": 992,
+    "y": 384,
+    "name": "Iron Leggings"
+  },
+  "iron_nugget": {
+    "x": 0,
+    "y": 416,
+    "name": "Iron Nugget"
+  },
+  "iron_ore": {
+    "x": 32,
+    "y": 416,
+    "name": "Iron Ore"
+  },
+  "iron_pickaxe": {
+    "x": 64,
+    "y": 416,
+    "name": "Iron Pickaxe"
+  },
+  "iron_shovel": {
+    "x": 96,
+    "y": 416,
+    "name": "Iron Shovel"
+  },
+  "iron_sword": {
+    "x": 128,
+    "y": 416,
+    "name": "Iron Sword"
+  },
+  "iron_trapdoor": {
+    "x": 160,
+    "y": 416,
+    "name": "Iron Trapdoor"
+  },
+  "item_frame": {
+    "x": 192,
+    "y": 416,
+    "name": "Item Frame"
+  },
+  "jack_o_lantern": {
+    "x": 224,
+    "y": 416,
+    "name": "Jack o'Lantern"
+  },
+  "jungle_boat": {
+    "x": 256,
+    "y": 416,
+    "name": "Jungle Boat"
+  },
+  "jungle_door": {
+    "x": 320,
+    "y": 416,
+    "name": "Jungle Door"
+  },
+  "jungle_leaves": {
+    "x": 352,
+    "y": 416,
+    "name": "Jungle Leaves"
+  },
+  "jungle_log": {
+    "x": 384,
+    "y": 416,
+    "name": "Jungle Log"
+  },
+  "jungle_planks": {
+    "x": 416,
+    "y": 416,
+    "name": "Jungle Planks"
+  },
+  "jungle_sapling": {
+    "x": 448,
+    "y": 416,
+    "name": "Jungle Sapling"
+  },
+  "jungle_sign": {
+    "x": 480,
+    "y": 416,
+    "name": "Jungle Sign"
+  },
+  "jungle_trapdoor": {
+    "x": 512,
+    "y": 416,
+    "name": "Jungle Trapdoor"
+  },
+  "kelp": {
+    "x": 544,
+    "y": 416,
+    "name": "Kelp"
+  },
+  "knowledge_book": {
+    "x": 576,
+    "y": 416,
+    "name": "Knowledge Book"
+  },
+  "ladder": {
+    "x": 608,
+    "y": 416,
+    "name": "Ladder"
+  },
+  "lantern": {
+    "x": 640,
+    "y": 416,
+    "name": "Lantern"
+  },
+  "lapis_block": {
+    "x": 672,
+    "y": 416,
+    "name": "Lapis Lazuli Block"
+  },
+  "lapis_lazuli": {
+    "x": 704,
+    "y": 416,
+    "name": "Lapis Lazuli"
+  },
+  "lapis_ore": {
+    "x": 736,
+    "y": 416,
+    "name": "Lapis Lazuli Ore"
+  },
+  "lava_bucket": {
+    "x": 768,
+    "y": 416,
+    "name": "Lava Bucket"
+  },
+  "lead": {
+    "x": 800,
+    "y": 416,
+    "name": "Lead"
+  },
+  "leather": {
+    "x": 832,
+    "y": 416,
+    "name": "Leather"
+  },
+  "leather_boots": {
+    "x": 864,
+    "y": 416,
+    "name": "Leather Boots"
+  },
+  "leather_chestplate": {
+    "x": 928,
+    "y": 416,
+    "name": "Leather Tunic"
+  },
+  "leather_helmet": {
+    "x": 992,
+    "y": 416,
+    "name": "Leather Cap"
+  },
+  "leather_horse_armor": {
+    "x": 32,
+    "y": 448,
+    "name": "Leather Horse Armor"
+  },
+  "leather_leggings": {
+    "x": 64,
+    "y": 448,
+    "name": "Leather Pants"
+  },
+  "lever": {
+    "x": 128,
+    "y": 448,
+    "name": "Lever"
+  },
+  "light_blue_concrete": {
+    "x": 736,
+    "y": 448,
+    "name": "Light Blue Concrete"
+  },
+  "light_blue_concrete_powder": {
+    "x": 768,
+    "y": 448,
+    "name": "Light Blue Concrete Powder"
+  },
+  "light_blue_dye": {
+    "x": 800,
+    "y": 448,
+    "name": "Light Blue Dye"
+  },
+  "light_blue_glazed_terracotta": {
+    "x": 832,
+    "y": 448,
+    "name": "Light Blue Glazed Terracotta"
+  },
+  "light_blue_shulker_box": {
+    "x": 864,
+    "y": 448,
+    "name": "Light Blue Shulker Box"
+  },
+  "light_blue_stained_glass": {
+    "x": 896,
+    "y": 448,
+    "name": "Light Blue Stained Glass"
+  },
+  "light_blue_terracotta": {
+    "x": 928,
+    "y": 448,
+    "name": "Light Blue Terracotta"
+  },
+  "light_blue_wool": {
+    "x": 960,
+    "y": 448,
+    "name": "Light Blue Wool"
+  },
+  "light_gray_concrete": {
+    "x": 0,
+    "y": 480,
+    "name": "Light Gray Concrete"
+  },
+  "light_gray_concrete_powder": {
+    "x": 32,
+    "y": 480,
+    "name": "Light Gray Concrete Powder"
+  },
+  "light_gray_dye": {
+    "x": 64,
+    "y": 480,
+    "name": "Light Gray Dye"
+  },
+  "light_gray_glazed_terracotta": {
+    "x": 96,
+    "y": 480,
+    "name": "Light Gray Glazed Terracotta"
+  },
+  "light_gray_shulker_box": {
+    "x": 128,
+    "y": 480,
+    "name": "Light Gray Shulker Box"
+  },
+  "light_gray_stained_glass": {
+    "x": 160,
+    "y": 480,
+    "name": "Light Gray Stained Glass"
+  },
+  "light_gray_terracotta": {
+    "x": 192,
+    "y": 480,
+    "name": "Light Gray Terracotta"
+  },
+  "light_gray_wool": {
+    "x": 224,
+    "y": 480,
+    "name": "Light Gray Wool"
+  },
+  "lily_of_the_valley": {
+    "x": 256,
+    "y": 480,
+    "name": "Lily of the Valley"
+  },
+  "lily_pad": {
+    "x": 288,
+    "y": 480,
+    "name": "Lily Pad"
+  },
+  "lime_concrete": {
+    "x": 352,
+    "y": 480,
+    "name": "Lime Concrete"
+  },
+  "lime_concrete_powder": {
+    "x": 384,
+    "y": 480,
+    "name": "Lime Concrete Powder"
+  },
+  "lime_dye": {
+    "x": 416,
+    "y": 480,
+    "name": "Lime Dye"
+  },
+  "lime_glazed_terracotta": {
+    "x": 448,
+    "y": 480,
+    "name": "Lime Glazed Terracotta"
+  },
+  "lime_shulker_box": {
+    "x": 480,
+    "y": 480,
+    "name": "Lime Shulker Box"
+  },
+  "lime_stained_glass": {
+    "x": 512,
+    "y": 480,
+    "name": "Lime Stained Glass"
+  },
+  "lime_terracotta": {
+    "x": 544,
+    "y": 480,
+    "name": "Lime Terracotta"
+  },
+  "lime_wool": {
+    "x": 576,
+    "y": 480,
+    "name": "Lime Wool"
+  },
+  "lingering_potion": {
+    "x": 608,
+    "y": 480,
+    "name": "Lingering Potion of Luck"
+  },
+  "magenta_concrete": {
+    "x": 672,
+    "y": 480,
+    "name": "Magenta Concrete"
+  },
+  "magenta_concrete_powder": {
+    "x": 704,
+    "y": 480,
+    "name": "Magenta Concrete Powder"
+  },
+  "magenta_dye": {
+    "x": 736,
+    "y": 480,
+    "name": "Magenta Dye"
+  },
+  "magenta_glazed_terracotta": {
+    "x": 768,
+    "y": 480,
+    "name": "Magenta Glazed Terracotta"
+  },
+  "magenta_shulker_box": {
+    "x": 800,
+    "y": 480,
+    "name": "Magenta Shulker Box"
+  },
+  "magenta_stained_glass": {
+    "x": 832,
+    "y": 480,
+    "name": "Magenta Stained Glass"
+  },
+  "magenta_terracotta": {
+    "x": 864,
+    "y": 480,
+    "name": "Magenta Terracotta"
+  },
+  "magenta_wool": {
+    "x": 896,
+    "y": 480,
+    "name": "Magenta Wool"
+  },
+  "magma_cream": {
+    "x": 928,
+    "y": 480,
+    "name": "Magma Cream"
+  },
+  "map": {
+    "x": 96,
+    "y": 512,
+    "name": "Empty Map"
+  },
+  "melon_seeds": {
+    "x": 160,
+    "y": 512,
+    "name": "Melon Seeds"
+  },
+  "melon_slice": {
+    "x": 192,
+    "y": 512,
+    "name": "Melon Slice"
+  },
+  "milk_bucket": {
+    "x": 224,
+    "y": 512,
+    "name": "Milk Bucket"
+  },
+  "minecart": {
+    "x": 256,
+    "y": 512,
+    "name": "Minecart"
+  },
+  "mojang_banner_pattern": {
+    "x": 288,
+    "y": 512,
+    "name": "Banner Pattern"
+  },
+  "mossy_cobblestone": {
+    "x": 320,
+    "y": 512,
+    "name": "Mossy Cobblestone"
+  },
+  "mossy_stone_bricks": {
+    "x": 352,
+    "y": 512,
+    "name": "Mossy Stone Bricks"
+  },
+  "mushroom_stem": {
+    "x": 384,
+    "y": 512,
+    "name": "Mushroom Stem"
+  },
+  "mushroom_stew": {
+    "x": 416,
+    "y": 512,
+    "name": "Mushroom Stew"
+  },
+  "music_disc_pigstep": {
+    "x": 768,
+    "y": 512,
+    "name": "Music Disc 13"
+  },
+  "mutton": {
+    "x": 928,
+    "y": 512,
+    "name": "Raw Mutton"
+  },
+  "name_tag": {
+    "x": 960,
+    "y": 512,
+    "name": "Name Tag"
+  },
+  "nautilus_shell": {
+    "x": 992,
+    "y": 512,
+    "name": "Nautilus Shell"
+  },
+  "nether_brick": {
+    "x": 0,
+    "y": 544,
+    "name": "Nether Brick"
+  },
+  "nether_bricks": {
+    "x": 32,
+    "y": 544,
+    "name": "Nether Bricks"
+  },
+  "nether_quartz_ore": {
+    "x": 64,
+    "y": 544,
+    "name": "Nether Quartz Ore"
+  },
+  "nether_sprouts": {
+    "x": 96,
+    "y": 544,
+    "name": "Nether Sprouts"
+  },
+  "nether_star": {
+    "x": 128,
+    "y": 544,
+    "name": "Nether Star"
+  },
+  "nether_wart": {
+    "x": 160,
+    "y": 544,
+    "name": "Nether Wart"
+  },
+  "nether_wart_block": {
+    "x": 192,
+    "y": 544,
+    "name": "Nether Wart Block"
+  },
+  "netherite_axe": {
+    "x": 224,
+    "y": 544,
+    "name": "Netherite Axe"
+  },
+  "netherite_boots": {
+    "x": 256,
+    "y": 544,
+    "name": "Netherite Boots"
+  },
+  "netherite_chestplate": {
+    "x": 288,
+    "y": 544,
+    "name": "Netherite Chestplate"
+  },
+  "netherite_helmet": {
+    "x": 320,
+    "y": 544,
+    "name": "Netherite Helmet"
+  },
+  "netherite_hoe": {
+    "x": 352,
+    "y": 544,
+    "name": "Netherite Hoe"
+  },
+  "netherite_ingot": {
+    "x": 384,
+    "y": 544,
+    "name": "Netherite Ingot"
+  },
+  "netherite_leggings": {
+    "x": 416,
+    "y": 544,
+    "name": "Netherite Leggings"
+  },
+  "netherite_pickaxe": {
+    "x": 448,
+    "y": 544,
+    "name": "Netherite Pickaxe"
+  },
+  "netherite_scrap": {
+    "x": 480,
+    "y": 544,
+    "name": "Netherite Scrap"
+  },
+  "netherite_shovel": {
+    "x": 512,
+    "y": 544,
+    "name": "Netherite Shovel"
+  },
+  "netherite_sword": {
+    "x": 544,
+    "y": 544,
+    "name": "Netherite Sword"
+  },
+  "netherrack": {
+    "x": 576,
+    "y": 544,
+    "name": "Netherrack"
+  },
+  "note_block": {
+    "x": 608,
+    "y": 544,
+    "name": "Note Block"
+  },
+  "oak_boat": {
+    "x": 640,
+    "y": 544,
+    "name": "Oak Boat"
+  },
+  "oak_door": {
+    "x": 704,
+    "y": 544,
+    "name": "Oak Door"
+  },
+  "oak_leaves": {
+    "x": 736,
+    "y": 544,
+    "name": "Oak Leaves"
+  },
+  "oak_log": {
+    "x": 768,
+    "y": 544,
+    "name": "Oak Log"
+  },
+  "oak_planks": {
+    "x": 800,
+    "y": 544,
+    "name": "Oak Planks"
+  },
+  "oak_sapling": {
+    "x": 832,
+    "y": 544,
+    "name": "Oak Sapling"
+  },
+  "oak_sign": {
+    "x": 864,
+    "y": 544,
+    "name": "Oak Sign"
+  },
+  "oak_trapdoor": {
+    "x": 896,
+    "y": 544,
+    "name": "Oak Trapdoor"
+  },
+  "obsidian": {
+    "x": 928,
+    "y": 544,
+    "name": "Obsidian"
+  },
+  "orange_concrete": {
+    "x": 992,
+    "y": 544,
+    "name": "Orange Concrete"
+  },
+  "orange_concrete_powder": {
+    "x": 0,
+    "y": 576,
+    "name": "Orange Concrete Powder"
+  },
+  "orange_dye": {
+    "x": 32,
+    "y": 576,
+    "name": "Orange Dye"
+  },
+  "orange_glazed_terracotta": {
+    "x": 64,
+    "y": 576,
+    "name": "Orange Glazed Terracotta"
+  },
+  "orange_shulker_box": {
+    "x": 96,
+    "y": 576,
+    "name": "Orange Shulker Box"
+  },
+  "orange_stained_glass": {
+    "x": 128,
+    "y": 576,
+    "name": "Orange Stained Glass"
+  },
+  "orange_terracotta": {
+    "x": 160,
+    "y": 576,
+    "name": "Orange Terracotta"
+  },
+  "orange_tulip": {
+    "x": 192,
+    "y": 576,
+    "name": "Orange Tulip"
+  },
+  "orange_wool": {
+    "x": 224,
+    "y": 576,
+    "name": "Orange Wool"
+  },
+  "oxeye_daisy": {
+    "x": 256,
+    "y": 576,
+    "name": "Oxeye Daisy"
+  },
+  "packed_ice": {
+    "x": 288,
+    "y": 576,
+    "name": "Packed Ice"
+  },
+  "painting": {
+    "x": 320,
+    "y": 576,
+    "name": "Painting"
+  },
+  "paper": {
+    "x": 384,
+    "y": 576,
+    "name": "Paper"
+  },
+  "phantom_membrane": {
+    "x": 416,
+    "y": 576,
+    "name": "Phantom Membrane"
+  },
+  "piglin_banner_pattern": {
+    "x": 448,
+    "y": 576,
+    "name": "Banner Pattern"
+  },
+  "pink_concrete": {
+    "x": 512,
+    "y": 576,
+    "name": "Pink Concrete"
+  },
+  "pink_concrete_powder": {
+    "x": 544,
+    "y": 576,
+    "name": "Pink Concrete Powder"
+  },
+  "pink_dye": {
+    "x": 576,
+    "y": 576,
+    "name": "Pink Dye"
+  },
+  "pink_glazed_terracotta": {
+    "x": 608,
+    "y": 576,
+    "name": "Pink Glazed Terracotta"
+  },
+  "pink_shulker_box": {
+    "x": 640,
+    "y": 576,
+    "name": "Pink Shulker Box"
+  },
+  "pink_stained_glass": {
+    "x": 672,
+    "y": 576,
+    "name": "Pink Stained Glass"
+  },
+  "pink_terracotta": {
+    "x": 704,
+    "y": 576,
+    "name": "Pink Terracotta"
+  },
+  "pink_tulip": {
+    "x": 736,
+    "y": 576,
+    "name": "Pink Tulip"
+  },
+  "pink_wool": {
+    "x": 768,
+    "y": 576,
+    "name": "Pink Wool"
+  },
+  "poisonous_potato": {
+    "x": 832,
+    "y": 576,
+    "name": "Poisonous Potato"
+  },
+  "polished_andesite": {
+    "x": 864,
+    "y": 576,
+    "name": "Polished Andesite"
+  },
+  "polished_diorite": {
+    "x": 896,
+    "y": 576,
+    "name": "Polished Diorite"
+  },
+  "polished_granite": {
+    "x": 928,
+    "y": 576,
+    "name": "Polished Granite"
+  },
+  "popped_chorus_fruit": {
+    "x": 960,
+    "y": 576,
+    "name": "Popped Chorus Fruit"
+  },
+  "poppy": {
+    "x": 992,
+    "y": 576,
+    "name": "Poppy"
+  },
+  "porkchop": {
+    "x": 0,
+    "y": 608,
+    "name": "Raw Porkchop"
+  },
+  "potato": {
+    "x": 32,
+    "y": 608,
+    "name": "Potato"
+  },
+  "potion": {
+    "x": 64,
+    "y": 608,
+    "name": "Potion of Luck"
+  },
+  "powered_rail": {
+    "x": 160,
+    "y": 608,
+    "name": "Powered Rail"
+  },
+  "prismarine": {
+    "x": 192,
+    "y": 608,
+    "name": "Prismarine Wall"
+  },
+  "prismarine_bricks": {
+    "x": 224,
+    "y": 608,
+    "name": "Prismarine Bricks"
+  },
+  "prismarine_crystals": {
+    "x": 256,
+    "y": 608,
+    "name": "Prismarine Crystals"
+  },
+  "prismarine_shard": {
+    "x": 288,
+    "y": 608,
+    "name": "Prismarine Shard"
+  },
+  "pufferfish": {
+    "x": 320,
+    "y": 608,
+    "name": "Pufferfish"
+  },
+  "pufferfish_bucket": {
+    "x": 352,
+    "y": 608,
+    "name": "Bucket of Pufferfish"
+  },
+  "pumpkin_pie": {
+    "x": 384,
+    "y": 608,
+    "name": "Pumpkin Pie"
+  },
+  "pumpkin_seeds": {
+    "x": 416,
+    "y": 608,
+    "name": "Pumpkin Seeds"
+  },
+  "purple_concrete": {
+    "x": 480,
+    "y": 608,
+    "name": "Purple Concrete"
+  },
+  "purple_concrete_powder": {
+    "x": 512,
+    "y": 608,
+    "name": "Purple Concrete Powder"
+  },
+  "purple_dye": {
+    "x": 544,
+    "y": 608,
+    "name": "Purple Dye"
+  },
+  "purple_glazed_terracotta": {
+    "x": 576,
+    "y": 608,
+    "name": "Purple Glazed Terracotta"
+  },
+  "purple_shulker_box": {
+    "x": 608,
+    "y": 608,
+    "name": "Purple Shulker Box"
+  },
+  "purple_stained_glass": {
+    "x": 640,
+    "y": 608,
+    "name": "Purple Stained Glass"
+  },
+  "purple_terracotta": {
+    "x": 672,
+    "y": 608,
+    "name": "Purple Terracotta"
+  },
+  "purple_wool": {
+    "x": 704,
+    "y": 608,
+    "name": "Purple Wool"
+  },
+  "purpur_block": {
+    "x": 736,
+    "y": 608,
+    "name": "Purpur Block"
+  },
+  "purpur_pillar": {
+    "x": 768,
+    "y": 608,
+    "name": "Purpur Pillar"
+  },
+  "quartz": {
+    "x": 800,
+    "y": 608,
+    "name": "Nether Quartz"
+  },
+  "quartz_pillar": {
+    "x": 832,
+    "y": 608,
+    "name": "Quartz Pillar"
+  },
+  "rabbit": {
+    "x": 896,
+    "y": 608,
+    "name": "Raw Rabbit"
+  },
+  "rabbit_foot": {
+    "x": 928,
+    "y": 608,
+    "name": "Rabbit's Foot"
+  },
+  "rabbit_hide": {
+    "x": 960,
+    "y": 608,
+    "name": "Rabbit Hide"
+  },
+  "rabbit_stew": {
+    "x": 992,
+    "y": 608,
+    "name": "Rabbit Stew"
+  },
+  "rail": {
+    "x": 0,
+    "y": 640,
+    "name": "Rail"
+  },
+  "red_concrete": {
+    "x": 160,
+    "y": 672,
+    "name": "Red Concrete"
+  },
+  "red_concrete_powder": {
+    "x": 192,
+    "y": 672,
+    "name": "Red Concrete Powder"
+  },
+  "red_dye": {
+    "x": 224,
+    "y": 672,
+    "name": "Red Dye"
+  },
+  "red_glazed_terracotta": {
+    "x": 256,
+    "y": 672,
+    "name": "Red Glazed Terracotta"
+  },
+  "red_mushroom": {
+    "x": 288,
+    "y": 672,
+    "name": "Red Mushroom"
+  },
+  "red_mushroom_block": {
+    "x": 320,
+    "y": 672,
+    "name": "Red Mushroom Block"
+  },
+  "red_nether_bricks": {
+    "x": 352,
+    "y": 672,
+    "name": "Red Nether Bricks"
+  },
+  "red_sand": {
+    "x": 384,
+    "y": 672,
+    "name": "Red Sand"
+  },
+  "red_sandstone": {
+    "x": 416,
+    "y": 672,
+    "name": "Red Sandstone"
+  },
+  "red_shulker_box": {
+    "x": 448,
+    "y": 672,
+    "name": "Red Shulker Box"
+  },
+  "red_stained_glass": {
+    "x": 480,
+    "y": 672,
+    "name": "Red Stained Glass"
+  },
+  "red_terracotta": {
+    "x": 512,
+    "y": 672,
+    "name": "Red Terracotta"
+  },
+  "red_tulip": {
+    "x": 544,
+    "y": 672,
+    "name": "Red Tulip"
+  },
+  "red_wool": {
+    "x": 576,
+    "y": 672,
+    "name": "Red Wool"
+  },
+  "redstone": {
+    "x": 608,
+    "y": 672,
+    "name": "Redstone Dust"
+  },
+  "redstone_block": {
+    "x": 640,
+    "y": 672,
+    "name": "Block of Redstone"
+  },
+  "redstone_lamp": {
+    "x": 672,
+    "y": 672,
+    "name": "Redstone Lamp"
+  },
+  "redstone_ore": {
+    "x": 704,
+    "y": 672,
+    "name": "Redstone Ore"
+  },
+  "redstone_torch": {
+    "x": 736,
+    "y": 672,
+    "name": "Redstone Torch"
+  },
+  "repeater": {
+    "x": 768,
+    "y": 672,
+    "name": "Redstone Repeater"
+  },
+  "rotten_flesh": {
+    "x": 832,
+    "y": 672,
+    "name": "Rotten Flesh"
+  },
+  "saddle": {
+    "x": 896,
+    "y": 672,
+    "name": "Saddle"
+  },
+  "salmon": {
+    "x": 928,
+    "y": 672,
+    "name": "Raw Salmon"
+  },
+  "salmon_bucket": {
+    "x": 960,
+    "y": 672,
+    "name": "Bucket of Salmon"
+  },
+  "sand": {
+    "x": 992,
+    "y": 672,
+    "name": "Sand"
+  },
+  "sandstone": {
+    "x": 0,
+    "y": 704,
+    "name": "Sandstone"
+  },
+  "scute": {
+    "x": 32,
+    "y": 704,
+    "name": "Scute"
+  },
+  "sea_lantern": {
+    "x": 64,
+    "y": 704,
+    "name": "Sea Lantern BE"
+  },
+  "sea_pickle": {
+    "x": 96,
+    "y": 704,
+    "name": "Sea Pickle"
+  },
+  "seagrass": {
+    "x": 128,
+    "y": 704,
+    "name": "Seagrass"
+  },
+  "shears": {
+    "x": 160,
+    "y": 704,
+    "name": "Shears"
+  },
+  "shulker_box": {
+    "x": 192,
+    "y": 704,
+    "name": "Shulker Box"
+  },
+  "shulker_shell": {
+    "x": 224,
+    "y": 704,
+    "name": "Shulker Shell"
+  },
+  "skull_banner_pattern": {
+    "x": 288,
+    "y": 704,
+    "name": "Banner Pattern"
+  },
+  "slime_ball": {
+    "x": 480,
+    "y": 704,
+    "name": "Slimeball"
+  },
+  "slime_block": {
+    "x": 512,
+    "y": 704,
+    "name": "Slime Block"
+  },
+  "smooth_stone": {
+    "x": 544,
+    "y": 704,
+    "name": "Smooth Stone"
+  },
+  "snow": {
+    "x": 576,
+    "y": 704,
+    "name": "Snow"
+  },
+  "snowball": {
+    "x": 608,
+    "y": 704,
+    "name": "Snowball"
+  },
+  "soul_campfire": {
+    "x": 640,
+    "y": 704,
+    "name": "Soul Campfire"
+  },
+  "soul_lantern": {
+    "x": 672,
+    "y": 704,
+    "name": "Soul Lantern"
+  },
+  "soul_sand": {
+    "x": 704,
+    "y": 704,
+    "name": "Soul Sand"
+  },
+  "spawner": {
+    "x": 800,
+    "y": 704,
+    "name": "Spawner"
+  },
+  "spectral_arrow": {
+    "x": 832,
+    "y": 704,
+    "name": "Spectral Arrow"
+  },
+  "spider_eye": {
+    "x": 864,
+    "y": 704,
+    "name": "Spider Eye"
+  },
+  "splash_potion": {
+    "x": 896,
+    "y": 704,
+    "name": "Splash Potion of Luck"
+  },
+  "sponge": {
+    "x": 928,
+    "y": 704,
+    "name": "Sponge"
+  },
+  "spruce_boat": {
+    "x": 960,
+    "y": 704,
+    "name": "Spruce Boat"
+  },
+  "spruce_door": {
+    "x": 0,
+    "y": 736,
+    "name": "Spruce Door"
+  },
+  "spruce_leaves": {
+    "x": 32,
+    "y": 736,
+    "name": "Spruce Leaves"
+  },
+  "spruce_log": {
+    "x": 64,
+    "y": 736,
+    "name": "Spruce Log"
+  },
+  "spruce_planks": {
+    "x": 96,
+    "y": 736,
+    "name": "Spruce Planks"
+  },
+  "spruce_sapling": {
+    "x": 128,
+    "y": 736,
+    "name": "Spruce Sapling"
+  },
+  "spruce_sign": {
+    "x": 160,
+    "y": 736,
+    "name": "Spruce Sign"
+  },
+  "spruce_trapdoor": {
+    "x": 192,
+    "y": 736,
+    "name": "Spruce Trapdoor"
+  },
+  "stick": {
+    "x": 288,
+    "y": 736,
+    "name": "Stick"
+  },
+  "stone": {
+    "x": 320,
+    "y": 736,
+    "name": "Stone"
+  },
+  "stone_axe": {
+    "x": 352,
+    "y": 736,
+    "name": "Stone Axe"
+  },
+  "stone_bricks": {
+    "x": 384,
+    "y": 736,
+    "name": "Stone Bricks"
+  },
+  "stone_hoe": {
+    "x": 416,
+    "y": 736,
+    "name": "Stone Hoe"
+  },
+  "stone_pickaxe": {
+    "x": 448,
+    "y": 736,
+    "name": "Stone Pickaxe"
+  },
+  "stone_shovel": {
+    "x": 480,
+    "y": 736,
+    "name": "Stone Shovel"
+  },
+  "stone_sword": {
+    "x": 512,
+    "y": 736,
+    "name": "Stone Sword"
+  },
+  "string": {
+    "x": 544,
+    "y": 736,
+    "name": "String"
+  },
+  "stripped_acacia_log": {
+    "x": 576,
+    "y": 736,
+    "name": "Stripped Acacia Log"
+  },
+  "stripped_birch_log": {
+    "x": 608,
+    "y": 736,
+    "name": "Stripped Birch Log"
+  },
+  "stripped_dark_oak_log": {
+    "x": 640,
+    "y": 736,
+    "name": "Stripped Dark Oak Log"
+  },
+  "stripped_jungle_log": {
+    "x": 672,
+    "y": 736,
+    "name": "Stripped Jungle Log"
+  },
+  "stripped_oak_log": {
+    "x": 704,
+    "y": 736,
+    "name": "Stripped Oak Log"
+  },
+  "stripped_spruce_log": {
+    "x": 736,
+    "y": 736,
+    "name": "Stripped Spruce Log"
+  },
+  "structure_block": {
+    "x": 768,
+    "y": 736,
+    "name": "Structure Block"
+  },
+  "sugar": {
+    "x": 800,
+    "y": 736,
+    "name": "Sugar"
+  },
+  "sugar_cane": {
+    "x": 832,
+    "y": 736,
+    "name": "Sugar Cane"
+  },
+  "suspicious_stew": {
+    "x": 864,
+    "y": 736,
+    "name": "Suspicious Stew"
+  },
+  "sweet_berries": {
+    "x": 896,
+    "y": 736,
+    "name": "Sweet Berries"
+  },
+  "terracotta": {
+    "x": 960,
+    "y": 736,
+    "name": "Terracotta"
+  },
+  "tnt_minecart": {
+    "x": 32,
+    "y": 768,
+    "name": "Minecart with TNT"
+  },
+  "torch": {
+    "x": 64,
+    "y": 768,
+    "name": "Torch"
+  },
+  "totem_of_undying": {
+    "x": 96,
+    "y": 768,
+    "name": "Totem of Undying"
+  },
+  "trident": {
+    "x": 128,
+    "y": 768,
+    "name": "Trident"
+  },
+  "tripwire_hook": {
+    "x": 160,
+    "y": 768,
+    "name": "Tripwire Hook"
+  },
+  "tropical_fish": {
+    "x": 192,
+    "y": 768,
+    "name": "Tropical Fish"
+  },
+  "tropical_fish_bucket": {
+    "x": 224,
+    "y": 768,
+    "name": "Bucket of Tropical Fish"
+  },
+  "tube_coral": {
+    "x": 256,
+    "y": 768,
+    "name": "Tube Coral"
+  },
+  "tube_coral_block": {
+    "x": 288,
+    "y": 768,
+    "name": "Tube Coral Block"
+  },
+  "tube_coral_fan": {
+    "x": 320,
+    "y": 768,
+    "name": "Tube Coral Fan"
+  },
+  "turtle_egg": {
+    "x": 352,
+    "y": 768,
+    "name": "Turtle Egg"
+  },
+  "turtle_helmet": {
+    "x": 384,
+    "y": 768,
+    "name": "Turtle Shell"
+  },
+  "vine": {
+    "x": 416,
+    "y": 768,
+    "name": "Vines"
+  },
+  "warped_door": {
+    "x": 448,
+    "y": 768,
+    "name": "Warped Door"
+  },
+  "warped_fungus_on_a_stick": {
+    "x": 480,
+    "y": 768,
+    "name": "Warped Fungus on a Stick"
+  },
+  "warped_sign": {
+    "x": 512,
+    "y": 768,
+    "name": "Warped Sign"
+  },
+  "water_bucket": {
+    "x": 544,
+    "y": 768,
+    "name": "Water Bucket"
+  },
+  "wet_sponge": {
+    "x": 576,
+    "y": 768,
+    "name": "Wet Sponge"
+  },
+  "wheat": {
+    "x": 608,
+    "y": 768,
+    "name": "Wheat"
+  },
+  "wheat_seeds": {
+    "x": 640,
+    "y": 768,
+    "name": "Wheat Seeds"
+  },
+  "white_concrete": {
+    "x": 704,
+    "y": 768,
+    "name": "White Concrete"
+  },
+  "white_concrete_powder": {
+    "x": 736,
+    "y": 768,
+    "name": "White Concrete Powder"
+  },
+  "white_dye": {
+    "x": 768,
+    "y": 768,
+    "name": "White Dye"
+  },
+  "white_glazed_terracotta": {
+    "x": 800,
+    "y": 768,
+    "name": "White Glazed Terracotta"
+  },
+  "white_shulker_box": {
+    "x": 832,
+    "y": 768,
+    "name": "White Shulker Box"
+  },
+  "white_stained_glass": {
+    "x": 864,
+    "y": 768,
+    "name": "White Stained Glass"
+  },
+  "white_terracotta": {
+    "x": 896,
+    "y": 768,
+    "name": "White Terracotta"
+  },
+  "white_tulip": {
+    "x": 928,
+    "y": 768,
+    "name": "White Tulip"
+  },
+  "white_wool": {
+    "x": 960,
+    "y": 768,
+    "name": "White Wool"
+  },
+  "wither_rose": {
+    "x": 992,
+    "y": 768,
+    "name": "Wither Rose"
+  },
+  "wooden_axe": {
+    "x": 0,
+    "y": 800,
+    "name": "Wooden Axe"
+  },
+  "wooden_hoe": {
+    "x": 32,
+    "y": 800,
+    "name": "Wooden Hoe"
+  },
+  "wooden_pickaxe": {
+    "x": 64,
+    "y": 800,
+    "name": "Wooden Pickaxe"
+  },
+  "wooden_shovel": {
+    "x": 96,
+    "y": 800,
+    "name": "Wooden Shovel"
+  },
+  "wooden_sword": {
+    "x": 128,
+    "y": 800,
+    "name": "Wooden Sword"
+  },
+  "writable_book": {
+    "x": 160,
+    "y": 800,
+    "name": "Book and Quill"
+  },
+  "written_book": {
+    "x": 192,
+    "y": 800,
+    "name": "Written Book"
+  },
+  "yellow_concrete": {
+    "x": 256,
+    "y": 800,
+    "name": "Yellow Concrete"
+  },
+  "yellow_concrete_powder": {
+    "x": 288,
+    "y": 800,
+    "name": "Yellow Concrete Powder"
+  },
+  "yellow_dye": {
+    "x": 320,
+    "y": 800,
+    "name": "Yellow Dye"
+  },
+  "yellow_glazed_terracotta": {
+    "x": 352,
+    "y": 800,
+    "name": "Yellow Glazed Terracotta"
+  },
+  "yellow_shulker_box": {
+    "x": 384,
+    "y": 800,
+    "name": "Yellow Shulker Box"
+  },
+  "yellow_stained_glass": {
+    "x": 416,
+    "y": 800,
+    "name": "Yellow Stained Glass"
+  },
+  "yellow_terracotta": {
+    "x": 448,
+    "y": 800,
+    "name": "Yellow Terracotta"
+  },
+  "yellow_wool": {
+    "x": 480,
+    "y": 800,
+    "name": "Yellow Wool"
+  }
+}
