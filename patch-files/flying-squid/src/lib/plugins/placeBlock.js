@@ -101,6 +101,8 @@ module.exports.server = (serv, { version }) => {
 }
 
 module.exports.player = function (player, serv, { version }) {
+  const QUICK_BAR_COUNT = 36
+  const QUICK_BAR_START = 9
   const mcData = require('minecraft-data')(version)
   const blocks = mcData.blocks
 
@@ -111,7 +113,7 @@ module.exports.player = function (player, serv, { version }) {
     if (await serv.interactWithBlock({ block, player })) return
     if (player.gameMode >= 2) return
 
-    const heldItem = player.inventory.slots[36 + player.heldItemSlot]
+    const heldItem = player.inventory.slots[QUICK_BAR_START + player.heldItemSlot]
     if (!heldItem || direction === -1 || heldItem.type === -1) return
 
     const directionVector = directionToVector[direction]
@@ -153,9 +155,9 @@ module.exports.player = function (player, serv, { version }) {
     if (player.gameMode === 0) {
       heldItem.count--
       if (heldItem.count === 0) {
-        player.inventory.updateSlot(36 + player.heldItemSlot, null)
+        player.inventory.updateSlot(QUICK_BAR_START + player.heldItemSlot, null)
       } else {
-      player.inventory.updateSlot(36 + player.heldItemSlot, heldItem)
+      player.inventory.updateSlot(QUICK_BAR_START + player.heldItemSlot, heldItem)
       }
     }
 

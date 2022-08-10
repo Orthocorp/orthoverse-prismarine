@@ -111,17 +111,20 @@ class Hotbar extends LitElement {
 
   init () {
     console.log("Initializing hotbar")
+    const QUICK_BAR_COUNT = 36
+    const QUICK_BAR_START = 9
+
     this.reloadHotbar()
     this.reloadHotbarSelected(0)
 
     document.addEventListener('wheel', (e) => {
       console.log("Rolled wheel " + e.deltaY.toString())
       let newSlot = (this.bot.quickBarSlot + Math.sign(e.deltaY))
-      if (newSlot > 35) { newSlot = 35 }
+      if (newSlot > QUICK_BAR_COUNT - 1) { newSlot = QUICK_BAR_COUNT - 1 }
       if (newSlot < 0) { newSlot = 0 }
       if (newSlot > this.frameStart + 8) {
         this.frameStart = this.frameStart + 1
-        if (this.frameStart > 27) { this.frameStart = 27 }
+        if (this.frameStart > QUICK_BAR_COUNT - 9) { this.frameStart = QUICK_BAR_COUNT -9 }
       }
       if (newSlot < this.frameStart) {
         this.frameStart = this.frameStart - 1
@@ -139,13 +142,14 @@ class Hotbar extends LitElement {
       this.reloadHotbarSelected(numPressed - 1)
     })
 
-    this.bot.inventory.on('updateSlot', (slot, oldItem, newItem) => {
-      if (slot >= this.bot.inventory.hotbarStart  + this.frameStart + 9) return
-      if (slot < this.bot.inventory.hotbarStart + this.frameStart) return
+    this.bot.inventory.on('updateSlot', (invslot, oldItem, newItem) => {
+      if (invslot >= this.bot.inventory.hotbarStart  + this.frameStart + 9) return
+      if (invslot < this.bot.inventory.hotbarStart + this.frameStart) return
 
       const sprite = newItem ? invsprite[newItem.name] : invsprite.air
       console.log("Sprite is this: ", sprite)
-      const slotEl = this.shadowRoot.getElementById('hotbar-' + (slot - this.bot.inventory.hotbarStart))
+      console.log("Slot is this: ", invslot)
+      const slotEl = this.shadowRoot.getElementById('hotbar-' + (invslot - this.bot.inventory.hotbarStart - this.frameStart))
       const slotIcon = slotEl.children[0]
       const slotStack = slotEl.children[1]
       slotIcon.style['background-position-x'] = `-${sprite.x}px`
