@@ -47,7 +47,7 @@ class LandBar extends LitElement {
       }
       #boots {
         position: absolute;
-        bottom: 43px;
+        bottom: 44px;
         right: 2px;
         height: 40px;
         width: 40px;
