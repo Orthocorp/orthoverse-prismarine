@@ -121,7 +121,6 @@ class Hotbar extends LitElement {
     document.addEventListener('keydown', (e) => {
       const numPressed = e.code.substr(5)
       if (numPressed < 1 || numPressed > 9) return
-      console.log("Pressed " + numPressed.toString())
       this.reloadHotbarSelected(numPressed - 1)
     })
 
@@ -156,7 +155,6 @@ class Hotbar extends LitElement {
   }
 
   async reloadHotbarSelected (slot) {
-    console.log("Reloading slot " + slot.toString())
     const item = this.bot.inventory.slots[this.bot.inventory.hotbarStart + slot]
     const newLeftPos = (-1 + 20 * slot) + 'px'
     this.shadowRoot.getElementById('hotbar-selected').style.left = newLeftPos
