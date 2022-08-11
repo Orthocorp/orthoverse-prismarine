@@ -28,7 +28,7 @@ const orthoverse = mcServer.createMCServer({
     footer: 'Voxel World'
   },
   'everybody-op': false,
-  'max-entities': 100,
+  'max-entities': 1000,
   version: '1.15.2'
 })
 
