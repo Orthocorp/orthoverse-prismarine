@@ -17,9 +17,12 @@ module.exports.player = function (player, serv) {
     // serv.info('Current challenge is: \n', player.ethereum.challenge)
     if (msg.slice(0, 5) === 'chal:') {
       const prefix = '\x19Ethereum Signed Message:\n' // EIP-191 personal_sign prefix
+      console.log("Challenge is:")
+      console.log(player.ethereum.challenge)
       const challenge = prefix + player.ethereum.challenge.length + player.ethereum.challenge
       const response = msg.slice(5)
       const challengeHash = ethUtils.keccak(Buffer.from(challenge, 'utf-8'))
+      console.log("challenge hash: ", challengeHash)
       const { v, r, s } = ethUtils.fromRpcSig(response)
       const pubKey = ethUtils.ecrecover(ethUtils.toBuffer(challengeHash), v, r, s)
       const addrBuf = ethUtils.pubToAddress(pubKey)

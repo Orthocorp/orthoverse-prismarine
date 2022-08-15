@@ -111,11 +111,9 @@ module.exports.player = async function (player, serv, settings) {
     // ethereum init msg that kicks off the whole authentication spiel
     player._client.registerChannel('ethereum', ['string', []], true)
     const challenge = 
-      "¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´" + 
-      "¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯\n" +
+      "*+-.__.-+*+-.__.-+*+-.__.-+*+-.__.-+*+-.__.-+*\n" + 
       "           Sign this message to log on\n                    to the Orthoverse\n" +
-      "¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´" + 
-      "¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯`·.¸¸.·´¯\n\n" +
+      "*+-.__.-+*+-.__.-+*+-.__.-+*+-.__.-+*+-.__.-+*\n\n" +
       "By signing this you agree to the terms and conditions at https://orthoverse.io/terms\n" +
       "Date and time: " + new Date().toLocaleString() + '\n' +
       'Random number: ' +
