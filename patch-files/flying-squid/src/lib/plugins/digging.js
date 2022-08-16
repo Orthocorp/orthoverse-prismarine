@@ -65,19 +65,15 @@ module.exports.player = function (player, serv, { version }) {
           }
         }
         if (owned === true) {
-          if (player.gameMode === 1) {
-            console.log('Creative digging entered')
+          if (player.gameMode === 1 || player.gameMode >= 2) {
             creativeDigging(pos)
           } else {
-            console.log('Survival digging entered')
             startDigging(pos)
           }
         }
       } else if (status === 1) {
-        console.log('Trying to cancel digging')
         cancelDigging(pos)
       } else if (status === 2) {
-        console.log('Completing digging')
         completeDigging(pos)
       }
     }

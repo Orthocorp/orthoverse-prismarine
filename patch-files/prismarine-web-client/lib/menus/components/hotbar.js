@@ -89,13 +89,15 @@ class Hotbar extends LitElement {
     return {
       activeItemName: { type: String },
       bot: { type: Object },
-      viewerVersion: { type: String }
+      viewerVersion: { type: String },
+      frameStart : { type: Number }
     }
   }
 
   constructor () {
     super()
     this.activeItemName = ''
+    this.frameStart = 0
   }
 
   updated (changedProperties) {
@@ -109,29 +111,45 @@ class Hotbar extends LitElement {
 
   init () {
     console.log("Initializing hotbar")
+    const QUICK_BAR_COUNT = 36
+    const QUICK_BAR_START = 9
+
     this.reloadHotbar()
     this.reloadHotbarSelected(0)
 
     document.addEventListener('wheel', (e) => {
       console.log("Rolled wheel " + e.deltaY.toString())
-      const newSlot = ((this.bot.quickBarSlot + Math.sign(e.deltaY)) % 9 + 9) % 9
-      this.reloadHotbarSelected(newSlot)
+      let newSlot = (this.bot.quickBarSlot + Math.sign(e.deltaY))
+      if (newSlot > QUICK_BAR_COUNT - 1) { newSlot = QUICK_BAR_COUNT - 1 }
+      if (newSlot < 0) { newSlot = 0 }
+      if (newSlot > this.frameStart + 8) {
+        this.frameStart = this.frameStart + 1
+        if (this.frameStart > QUICK_BAR_COUNT - 9) { this.frameStart = QUICK_BAR_COUNT -9 }
+      }
+      if (newSlot < this.frameStart) {
+        this.frameStart = this.frameStart - 1
+        if (this.frameStart < 0) { this.frameStart = 0 }
+      }
+      console.log("newSlot: ", newSlot)
+      console.log("frameStart: ", this.frameStart)
+      this.reloadHotbar()
+      this.reloadHotbarSelected (newSlot)
     })
 
     document.addEventListener('keydown', (e) => {
       const numPressed = e.code.substr(5)
       if (numPressed < 1 || numPressed > 9) return
-      console.log("Pressed " + numPressed.toString())
       this.reloadHotbarSelected(numPressed - 1)
     })
 
-    this.bot.inventory.on('updateSlot', (slot, oldItem, newItem) => {
-      console.log("Slot updated with " + newItem?.name)
-      if (slot >= this.bot.inventory.hotbarStart + 9) return
-      if (slot < this.bot.inventory.hotbarStart) return
+    this.bot.inventory.on('updateSlot', (invslot, oldItem, newItem) => {
+      if (invslot >= this.bot.inventory.hotbarStart  + this.frameStart + 9) return
+      if (invslot < this.bot.inventory.hotbarStart + this.frameStart) return
 
       const sprite = newItem ? invsprite[newItem.name] : invsprite.air
-      const slotEl = this.shadowRoot.getElementById('hotbar-' + (slot - this.bot.inventory.hotbarStart))
+      console.log("Sprite is this: ", sprite)
+      console.log("Slot is this: ", invslot)
+      const slotEl = this.shadowRoot.getElementById('hotbar-' + (invslot - this.bot.inventory.hotbarStart - this.frameStart))
       const slotIcon = slotEl.children[0]
       const slotStack = slotEl.children[1]
       slotIcon.style['background-position-x'] = `-${sprite.x}px`
@@ -143,7 +161,7 @@ class Hotbar extends LitElement {
   async reloadHotbar () {
     console.log("Reloading hotbar")
     for (let i = 0; i < 9; i++) {
-      const item = this.bot.inventory.slots[this.bot.inventory.hotbarStart + i]
+      const item = this.bot.inventory.slots[this.bot.inventory.hotbarStart + this.frameStart + i]
       const sprite = item ? invsprite[item.name] : invsprite.air
       const slotEl = this.shadowRoot.getElementById('hotbar-' + i)
       const slotIcon = slotEl.children[0]
@@ -155,9 +173,8 @@ class Hotbar extends LitElement {
   }
 
   async reloadHotbarSelected (slot) {
-    console.log("Reloading slot " + slot.toString())
     const item = this.bot.inventory.slots[this.bot.inventory.hotbarStart + slot]
-    const newLeftPos = (-1 + 20 * slot) + 'px'
+    const newLeftPos = (-1 + 20 * (slot - this.frameStart)) + 'px'
     this.shadowRoot.getElementById('hotbar-selected').style.left = newLeftPos
     this.bot.setQuickBarSlot(slot)
     this.activeItemName = item?.displayName ?? ''
