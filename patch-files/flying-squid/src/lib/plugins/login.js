@@ -110,9 +110,14 @@ module.exports.player = async function (player, serv, settings) {
 
     // ethereum init msg that kicks off the whole authentication spiel
     player._client.registerChannel('ethereum', ['string', []], true)
-    const challenge = new Date().toLocaleString() + '\n' +
-                             'Nonce: ' +
-                             [...Array(8)].map(() => Math.floor(Math.random() * 16).toString(16)).join('')
+    const challenge = 
+      "*+-.__.-+*+-.__.-+*+-.__.-+*+-.__.-+*+-.__.-+*\n" + 
+      "           Sign this message to log on\n                    to the Orthoverse\n" +
+      "*+-.__.-+*+-.__.-+*+-.__.-+*+-.__.-+*+-.__.-+*\n\n" +
+      "By signing this you agree to the terms and conditions at https://orthoverse.io/terms\n" +
+      "Date and time: " + new Date().toLocaleString() + '\n' +
+      'Random number: ' +
+      [...Array(8)].map(() => Math.floor(Math.random() * 16).toString(16)).join('')
     player._client.writeChannel('ethereum', 'chal:' + challenge)
     player.ethereum.challenge = challenge
 
