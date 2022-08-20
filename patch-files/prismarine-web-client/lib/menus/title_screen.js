@@ -142,8 +142,8 @@ class TitleScreen extends LitElement {
       </div>
 
       <div class="bottom-info">
-        <span>Orthoverse Metaverse Client</span>
-        <span>Walk among the NFTrees</span>
+        <span>Powered by <a href="https://prismarine.js.org/" style="color: #D7A0D4">PrismarineJS</a></span>
+        <span>Textures by <a href="http://www.andrejolicoeur.com/" style="color: #D7A0D4">André Jolicoeur</a></span>
       </div>
     `;
   }
