@@ -1,9 +1,9 @@
 const mcServer = require('flying-squid')
 
 const orthoverse = mcServer.createMCServer({
-  motd: 'The Orthoverse \nMany thanks to PrismarineJS!',
+  motd: 'The Orthoverse metaverse world',
   port: 20565,
-  'max-players': 10,
+  'max-players': 100,
   'online-mode': false,
   logging: true,
   gameMode: 0,
@@ -16,7 +16,8 @@ const orthoverse = mcServer.createMCServer({
       version: '1.15.2'
     }
   },
-  kickTimeout: 10000,
+  kickTimeout: 60000,
+  checkTimoutInterval: 4000,
   plugins: {
     hengeportals: 'hengeportals',
     ethereum: 'ethereum'
