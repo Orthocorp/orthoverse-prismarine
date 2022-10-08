@@ -20,7 +20,7 @@ class OptionsScreen extends LitElement {
         place-items: center;
         place-content: center;
         transform: translate(-50%);
-        font-family: mojangles;
+        font-family: zxortho;
         font-size: 7px;
       }
 

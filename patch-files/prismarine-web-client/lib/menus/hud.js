@@ -16,7 +16,7 @@ class Hud extends LitElement {
       .crosshair {
         width: 16px;
         height: 16px;
-        background: url('textures/1.17.1/gui/icons.png');
+        background: url('textures/1.15.2/gui/icons.png');
         background-size: 256px;
         position: absolute;
         top: 50%;
@@ -31,7 +31,7 @@ class Hud extends LitElement {
         left: 50%;
         transform: translate(-50%);
         font-size: 10px;
-        font-family: minecraft, mojangles, monospace;
+        font-family: zxortho, monospace;
         color: rgb(30, 250, 30);
         text-shadow: 0px -1px #000, 0px 1px #000, 1px 0px #000, -1px 0px #000;
         z-index: 10;
@@ -44,7 +44,7 @@ class Hud extends LitElement {
         transform: translate(-50%);
         width: 182px;
         height: 5px;
-        background-image: url('textures/1.16.4/gui/icons.png');
+        background-image: url('textures/1.15.2/gui/icons.png');
         background-size: 256px;
         background-position-y: -64px;
       }
@@ -52,7 +52,7 @@ class Hud extends LitElement {
       .xp-bar {
         width: 182px;
         height: 5px;
-        background-image: url('textures/1.17.1/gui/icons.png');
+        background-image: url('textures/1.15.2/gui/icons.png');
         background-size: 256px;
         background-position-y: -69px;
       }

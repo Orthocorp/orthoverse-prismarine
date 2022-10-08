@@ -2,12 +2,12 @@ const { openURL, displayScreen } = require("./components/common");
 const { LitElement, html, css } = require("lit");
 
 const slogan = [
-  "WITH EXTRA DOOM!",
-  "GARLIC FOREVER!",
-  "THE ONION IS A LIE!",
-  "HENGES RULE!",
-  "WHY THE GARLIC?",
-  "FLIP FOR FUN",
+  "   WITH EXTRA DOOM!",
+  "   GARLIC FOREVER!!",
+  "  THE ONION'S A LIE!",
+  "     HENGES RULE!",
+  "   WHY SOME GARLIC?",
+  "    FLIP FOR FUN",
   "A QUINDECILLION IS BIG",
 ];
 
@@ -58,19 +58,19 @@ class TitleScreen extends LitElement {
 
       .splash {
         position: absolute;
-        top: 52px;
+        top: 82px;
         left: 227px;
-        color: #ff0;
-        transform: translate(-50%, -50%) rotateZ(-20deg) scale(1);
+        color: #0ff;
+        transform: translate(-110%, -100%) rotateZ(1deg) scale(1);
         width: max-content;
-        text-shadow: 1px 1px #220;
+        text-shadow: 1px 1px #022;
         font-size: 10px;
-        animation: splashAnim 400ms infinite alternate linear;
+        animation: splashAnim 800ms infinite alternate linear;
       }
 
       @keyframes splashAnim {
         to {
-          transform: translate(-50%, -50%) rotateZ(-20deg) scale(1.07);
+          transform: translate(-110%, -100%) rotateZ(-1deg) scale(1.05);
         }
       }
 

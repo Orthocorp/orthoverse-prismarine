@@ -72,7 +72,7 @@ class Hotbar extends LitElement {
         left: 50%;
         transform: translate(-50%);
         text-shadow: rgb(63, 63, 63) 1px 1px 0px;
-        font-family: mojangles, minecraft, monospace;
+        font-family: zxortho, monospace;
         font-size: 10px;
         text-align: center;
       }
