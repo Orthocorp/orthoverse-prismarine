@@ -137,9 +137,13 @@ class Hotbar extends LitElement {
     })
 
     document.addEventListener('keydown', (e) => {
-      const numPressed = e.code.substr(5)
-      if (numPressed < 1 || numPressed > 9) return
-      this.reloadHotbarSelected(numPressed - 1)
+      if (e.code === "Minus" || e.code === "Equal") {
+        this.bot._client.writeChannel('ethereum', 'save:' + e.code)
+      } else {
+        const numPressed = e.code.substr(5)
+        if (numPressed < 1 || numPressed > 9) return
+        this.reloadHotbarSelected(numPressed - 1)
+      }
     })
 
     this.bot.inventory.on('updateSlot', (invslot, oldItem, newItem) => {
