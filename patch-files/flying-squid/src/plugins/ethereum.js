@@ -1,5 +1,6 @@
 const voxel = require('../../map-data/voxel.json')
 const ethUtils = require('ethereumjs-util')
+const Vec3 = require('vec3').Vec3
 
 module.exports.player = function (player, serv) {
   let xStor = 0
@@ -44,7 +45,7 @@ module.exports.player = function (player, serv) {
       console.log('Player wants to teleport home')
       console.log('Location is ' + player.position.x + ',' + player.position.y + ',' + player.position.z)
       player.teleport(player.spawnPoint)
-      console.log("Landing block: " + player.blockAt(new Vec3(xStor, yStor - 1, zStor)))
+      // console.log("Landing block: " + player.blockAt(new Vec3(xStor, yStor - 1, zStor)))
     }
 
   })
