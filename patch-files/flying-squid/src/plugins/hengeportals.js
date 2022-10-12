@@ -19,6 +19,11 @@ module.exports.player = function (player, serv) {
     // const mykeys = Object.keys(player.world)
     // for (i = 0; i < mykeys.length; i++) {console.log(mykeys[i])}
 
+  // respawn on fallthrough
+  if (yStor < 0) {
+    player.teleport(player.spawnPoint);
+  }
+
   // orthohenge
     const jump = 30 * 6 * 16 // 2880
 
