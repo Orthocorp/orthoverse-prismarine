@@ -4,10 +4,11 @@ module.exports.player = function (player, serv) {
 
   async function inBlock(world) {
     const blocksYouCanStandIn = [
-      0, 94, 97, 26, 547
+      0, 94, 97, 26, 547, 24
     ]
     let point = player.position
     while (blocksYouCanStandIn.includes(await world.getBlockType(point)) === false) {
+      console.log("Standing in " + (await world.getBlockType(point)).toString())
       point = point.offset(0, 1, 0)
       await player.teleport(point)
     }
