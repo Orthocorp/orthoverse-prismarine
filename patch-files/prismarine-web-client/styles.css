@@ -32,12 +32,7 @@ html {
 }
 
 @font-face {
-    font-family: minecraft;
-    src: url(ZXOrtho.ttf);
-}
-
-@font-face {
-    font-family: mojangles;
+    font-family: zxortho;
     src: url(ZXOrtho.ttf);
 }
 
@@ -89,7 +84,7 @@ canvas {
   image-rendering: -o-crisp-edges;
   image-rendering: pixelated;
   -ms-interpolation-mode: nearest-neighbor;
-  font-family: pirulen, minecraft, mojangles, monospace;
+  font-family: pirulen, zxortho, monospace;
 }
 
 @media only screen and (max-width: 971px) {

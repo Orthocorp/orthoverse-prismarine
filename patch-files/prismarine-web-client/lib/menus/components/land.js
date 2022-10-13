@@ -14,7 +14,7 @@ class LandBar extends LitElement {
 
       .land-name {
         font-size: 10px;
-        font-family: minecraft, mojangles, monospace;
+        font-family: zxortho, monospace;
         font-weight: bold;
         text-align: center;
         text-shadow: 1px 1px 3px #ffffff, -1px -1px 3px #ffffff,

@@ -1,19 +1,26 @@
 const Vec3 = require('vec3').Vec3
 
 module.exports.player = function (player, serv) {
-  // make spawn a bit higher
-  player.on('spawn', () => {
+  // make spawn a bit higher - but it doesn't work
+  /* player.on('spawn', () => {
+    console.log("Player spawned")
     const xStor = player.position.x
     const zStor = player.position.z
     const yStor = player.position.y
-    player.teleport(new Vec3(xStor, yStor + 10, zStor))
-  })
+    // player.teleport(new Vec3(xStor, yStor + 10, zStor))
+  }) */
 
   player.on('move', ({ position }, cancelled) => {
+    let xStor = player.position.x
+    let yStor = player.position.y
+    let zStor = player.position.z
+  // TODO: am i in the ground?
+    // console.log("Landing block: " + player.blockAt(new Vec3(xStor, yStor - 1, zStor)))
+    // const mykeys = Object.keys(player.world)
+    // for (i = 0; i < mykeys.length; i++) {console.log(mykeys[i])}
+
   // orthohenge
     const jump = 30 * 6 * 16 // 2880
-    let xStor = player.position.x
-    let zStor = player.position.z
 
     for (let x = -jump; x <= jump; x = x + jump) {
       for (let z = -jump; z <= jump; z = z + jump) {

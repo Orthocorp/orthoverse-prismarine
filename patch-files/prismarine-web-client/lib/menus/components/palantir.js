@@ -38,7 +38,7 @@ class PalantirContainer extends LitElement {
         margin: 0px;
         line-height: calc(100% - 1px);
         text-shadow: 1px 1px 0px #3f3f3f;
-        font-family: mojangles, minecraft, monospace;
+        font-family: zxortho, monospace;
         background: rgba(255, 255, 255, 0.1);
         width: 100%;
       }

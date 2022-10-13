@@ -5,7 +5,7 @@ const commonCss = css`
     position: absolute;
     top: 0;
     left: 0;
-    background: url('textures/1.17.1/gui/options_background.png'), rgba(0, 0, 0, 0.75);
+    background: url('textures/1.15.2/gui/options_background.png'), rgba(0, 0, 0, 0.75);
     background-size: 16px;
     background-repeat: repeat;
     width: 100%;

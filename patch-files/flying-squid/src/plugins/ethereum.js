@@ -34,6 +34,11 @@ module.exports.player = function (player, serv) {
         player._client.writeChannel('ethereum', 'wack:' + addr)
       }
     }
+
+    if (msg.slice(0, 5) === 'save:') {
+      console.log('Save request is ' + msg.slice(5))
+      console.log('Location is ' + player.position.x + ',' + player.position.y + ',' + player.position.z)
+    }
   })
 
   // store initial starting position

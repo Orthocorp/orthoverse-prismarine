@@ -119,7 +119,7 @@ function addPanoramaCubeMap() {
 
   const Entity = require('prismarine-viewer/viewer/lib/entity/Entity')
   for (let i = 0; i < 22; i++) {
-    const m = new Entity('1.15.2', 'blaze').mesh
+    const m = new Entity('1.15.2', 'garlic').mesh
     m.position.set(
       Math.random() * 30 - 15,
       Math.random() * 20 - 10,
