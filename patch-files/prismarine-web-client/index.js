@@ -374,15 +374,15 @@ async function connect(options) {
 
     // Provides gradual sunrise or sunset sky
     function intensityCalc(time) {
-      if (time >= 13000 && time <= 23000) {
+      if (time >= 16000 && time <= 23000) { // night
         return 0
-      } else if (time <= 12000 && time >= 0) {
+      } else if (time <= 15000 && time >= 0) { // day
         return 0.75
-      } else if (time < 13000 && time > 12000) {
-        const transition = time - 12000
+      } else if (time < 16000 && time > 15000) { // dusk
+        const transition = time - 15000
         return 0.75 - (0.75 * transition) / 1000
       } else {
-        const transition = time - 23000
+        const transition = time - 23000 // dawn
         return (0.75 * transition) / 1000
       }
     }
@@ -539,6 +539,9 @@ async function connect(options) {
                 break
               case 'KeyP':
                 hud.palantir()
+                break
+              case 'KeyH':
+                bot._client.writeChannel('ethereum', 'home!')
                 break
             }
           }

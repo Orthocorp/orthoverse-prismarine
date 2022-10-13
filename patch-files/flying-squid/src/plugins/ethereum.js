@@ -1,5 +1,6 @@
 const voxel = require('../../map-data/voxel.json')
 const ethUtils = require('ethereumjs-util')
+const Vec3 = require('vec3').Vec3
 
 module.exports.player = function (player, serv) {
   let xStor = 0
@@ -13,7 +14,7 @@ module.exports.player = function (player, serv) {
   }
 
   player._client.on('ethereum', (msg) => {
-    // serv.info('Player ethereum channel message received:' , msg)
+    serv.info('Player ethereum channel message received:' , msg)
     // serv.info('Current challenge is: \n', player.ethereum.challenge)
     if (msg.slice(0, 5) === 'chal:') {
       const prefix = '\x19Ethereum Signed Message:\n' // EIP-191 personal_sign prefix
@@ -22,7 +23,7 @@ module.exports.player = function (player, serv) {
       const challenge = prefix + player.ethereum.challenge.length + player.ethereum.challenge
       const response = msg.slice(5)
       const challengeHash = ethUtils.keccak(Buffer.from(challenge, 'utf-8'))
-      console.log("challenge hash: ", challengeHash)
+      console.log("Challenge hash: ", challengeHash)
       const { v, r, s } = ethUtils.fromRpcSig(response)
       const pubKey = ethUtils.ecrecover(ethUtils.toBuffer(challengeHash), v, r, s)
       const addrBuf = ethUtils.pubToAddress(pubKey)
@@ -39,6 +40,14 @@ module.exports.player = function (player, serv) {
       console.log('Save request is ' + msg.slice(5))
       console.log('Location is ' + player.position.x + ',' + player.position.y + ',' + player.position.z)
     }
+
+    if (msg.slice(0, 5) === 'home!') {
+      console.log('Player wants to teleport home')
+      console.log('Location is ' + player.position.x + ',' + player.position.y + ',' + player.position.z)
+      player.teleport(player.spawnPoint)
+      // console.log("Landing block: " + player.blockAt(new Vec3(xStor, yStor - 1, zStor)))
+    }
+
   })
 
   // store initial starting position
