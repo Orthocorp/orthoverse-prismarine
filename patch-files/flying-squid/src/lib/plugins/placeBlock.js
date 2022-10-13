@@ -10,6 +10,8 @@ const materialToSound = {
   wood: 'wood'
 }
 
+let placing = false
+
 module.exports.server = (serv, { version }) => {
   const mcData = require('minecraft-data')(version)
 
@@ -107,6 +109,10 @@ module.exports.player = function (player, serv, { version }) {
   const blocks = mcData.blocks
 
   player._client.on('block_place', async ({ direction, location, cursorY } = {}) => {
+    if ( placing === true) { return }
+    placing = true
+    setTimeout( function() { placing = false}, 200)
+
     const referencePosition = new Vec3(location.x, location.y, location.z)
     const block = await player.world.getBlock(referencePosition)
     block.position = referencePosition
