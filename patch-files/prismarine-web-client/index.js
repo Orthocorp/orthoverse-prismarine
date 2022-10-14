@@ -32,6 +32,8 @@ const pathfinder = require('mineflayer-pathfinder')
 const { Vec3 } = require('vec3')
 global.THREE = require('three')
 const { initVR } = require('./lib/vr')
+let firstPerson = true
+
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -416,11 +418,23 @@ async function connect(options) {
 
     // Bot position callback
     function botPosition() {
-      viewer.setFirstPersonCamera(
-        bot.entity.position,
-        bot.entity.yaw,
-        bot.entity.pitch
-      )
+      const movingBot = bot.entity
+      movingBot.pos = bot.entity.position
+      if (firstPerson === true) {
+        viewer.setFirstPersonCamera(
+          bot.entity.position,
+          bot.entity.yaw,
+          bot.entity.pitch,
+          movingBot
+        )
+      } else {
+        viewer.setThirdPersonCamera(
+          bot.entity.position,
+          bot.entity.yaw,
+          bot.entity.pitch,
+          movingBot
+        )
+      }
       worldView.updatePosition(bot.entity.position)
     }
     bot.on('move', botPosition)
@@ -436,7 +450,13 @@ async function connect(options) {
       )
       bot.entity.yaw -= e.movementX * optionsScrn.mouseSensitivityX * 0.0001
 
-      viewer.setFirstPersonCamera(null, bot.entity.yaw, bot.entity.pitch)
+      const movingBot = bot.entity
+      movingBot.pos = bot.entity.position
+      if (firstPerson === true) {
+        viewer.setFirstPersonCamera(null, bot.entity.yaw, bot.entity.pitch, movingBot)
+      } else {
+        viewer.setThirdPersonCamera(null, bot.entity.yaw, bot.entity.pitch, movingBot)
+      }
     }
 
     function changeCallback() {
@@ -542,6 +562,9 @@ async function connect(options) {
                 break
               case 'KeyH':
                 bot._client.writeChannel('ethereum', 'home!')
+                break
+              case 'KeyO':
+                firstPerson = !firstPerson
                 break
             }
           }

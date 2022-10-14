@@ -116,7 +116,8 @@ class KeyBindsScreen extends LitElement {
       // { defaultKey: 'KeyE', key: 'KeyE', name: 'Open Inventory' }
       { defaultKey: 'KeyE', key: 'KeyE', name: 'Toggle Boots' },
       { defaultKey: 'KeyP', key: 'KeyP', name: 'Toggle Palantir' },
-      { defaultKey: 'KeyH', key: 'KeyH', name: 'Teleport to Orthohenge' }
+      { defaultKey: 'KeyH', key: 'KeyH', name: 'Teleport to Orthohenge' },
+      { defaultKey: 'KeyO', key: 'KeyO', name: 'Toggle 1st/3rd Person' }
     ]
 
     document.addEventListener('keydown', (e) => {
