@@ -20,6 +20,8 @@ require('./lib/menus/keybinds_screen')
 require('./lib/menus/options_screen')
 require('./lib/menus/title_screen')
 
+const { getName } = require('./lib/generateNames')
+
 const net = require('net')
 const Cursor = require('./lib/cursor')
 
@@ -275,6 +277,7 @@ async function connect(options) {
       const address = msg.slice(5)
       bot.player.entity.ethereum.wallet = address
       bot.player.entity.ethereum.confirmed = true
+      bot.player.entity.skin.default = address
     }
 
     if (msg.slice(0, 5) === 'ownd:' && playScreen.walletAddress !== '') {
@@ -654,8 +657,8 @@ async function fromTheOutside(params, addr) {
 
   opts.server = `${server}:${port}`
   opts.proxy = `${proxy}:${proxyPort}`
-  opts.username =
-    params.get('username') ?? `pviewer${Math.floor(Math.random() * 1000)}`
+  opts.username = 
+    params.get('username') ?? getName()
   opts.password = params.get('password') ?? ''
   opts.botVersion = params.get('version') ?? false
 

@@ -79,12 +79,5 @@ function getName (guest = false) {
   }
 }
 
-console.log(syllable1.length)
-console.log(syllable2.length)
-console.log(syllable3.length)
-console.log(syllable1.length * syllable2.length * syllable3.length)
-
-for (i = 0; i < 20; i++) {
-  console.log(getName(true))
-}
+module.exports={ getName }
 

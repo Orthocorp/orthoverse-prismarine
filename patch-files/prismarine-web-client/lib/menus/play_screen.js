@@ -1,5 +1,6 @@
 const { LitElement, html, css } = require("lit");
 const { commonCss, displayScreen } = require("./components/common");
+const { getName } = require('../generateNames')
 
 class PlayScreen extends LitElement {
   static get styles() {
@@ -70,7 +71,8 @@ class PlayScreen extends LitElement {
     this.proxyport = "";
     this.username =
       window.localStorage.getItem("username") ??
-      "pviewer" + Math.floor(Math.random() * 1000);
+      getName();
+    if (this.username === '') { this.username = getName() }
     this.password = "";
     this.version = "";
     this.walletAddress = "";
@@ -137,7 +139,7 @@ class PlayScreen extends LitElement {
             }}
           ></pmui-editbox>
         </div>
-        <div class="wrapper">
+        <div class="wrapper" style="display: none;">
           <pmui-editbox
             pmui-width="220px"
             pmui-label="Username"
