@@ -254,9 +254,7 @@ class ChatBox extends LitElement {
       document.querySelector('#hud').shadowRoot.querySelector('#chat').shadowRoot.querySelectorAll('.chat-message').forEach(e => e.classList.remove('chat-message-chat-opened'))
     }
 
-    client.on('chat', (packet) => {
-      // Reading of chat message
-      const fullmessage = JSON.parse(packet.message.toString())
+    this.chatDisplay = (fullmessage) => {
       const msglist = []
 
       const colorF = (color) => {
@@ -352,6 +350,14 @@ class ChatBox extends LitElement {
           li.classList.add('chat-message-faded')
         }, 3000)
       }, 5000)
+    }
+
+    client.on('chat', (packet) => {
+      // Reading of chat message
+      const fullmessage = JSON.parse(packet.message.toString())
+      console.log("Full message:")
+      console.log(fullmessage)
+      this.chatDisplay(fullmessage)
     })
 
     hideChat()
