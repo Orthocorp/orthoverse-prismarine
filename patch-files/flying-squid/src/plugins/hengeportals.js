@@ -2,6 +2,7 @@ const Vec3 = require('vec3').Vec3
 
 module.exports.player = function (player, serv) {
 
+  // this checks whether you should be moved up because you are in a solid
   async function inBlock(world) {
     const blocksYouCanStandIn = [
       0, 94, 97, 26, 547, 24
@@ -9,7 +10,7 @@ module.exports.player = function (player, serv) {
     let point = player.position
     while (blocksYouCanStandIn.includes(await world.getBlockType(point)) === false) {
       console.log("Standing in " + (await world.getBlockType(point)).toString())
-      point = point.offset(0, 1, 0)
+      point = point.offset(0, 2, 0)
       await player.teleport(point)
     }
     

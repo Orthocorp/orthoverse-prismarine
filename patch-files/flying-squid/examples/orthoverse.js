@@ -13,7 +13,8 @@ const orthoverse = mcServer.createMCServer({
     name: 'orthogen',
     options: {
       seed: 100,
-      version: '1.15.2'
+      version: '1.15.2',
+      pregen: 6*2
     }
   },
   kickTimeout: 60000,

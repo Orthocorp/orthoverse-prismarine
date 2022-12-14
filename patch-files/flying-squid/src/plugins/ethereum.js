@@ -211,11 +211,9 @@ module.exports.player = function (player, serv) {
       let bitmapObj
       try {
         bitmapRaw = fs.readFileSync(loadPath + "bitmap-" + loadFileName + ".json", 'utf-8')
-        console.log(bitmapRaw)
         bitmapObj = JSON.parse(bitmapRaw)
-        console.log(bitmapObj)
       } catch (e) {
-         player._client.writeChannel('ethereum', 'mseg:You cannot load an unsaved land.')
+         player._client.writeChannel('ethereum', 'mesg:You cannot load an unsaved land.')
          return
       }
 
@@ -226,15 +224,17 @@ module.exports.player = function (player, serv) {
             const chunkData = new Buffer.from(fs.readFileSync(loadPath + 
               chunkX.toString() + '.' + chunkZ.toString() + '.' + loadFileName + '.lnd'));
             const chunk = new Chunk()
-            console.log(chunkData)
-            console.log(chunkData.length)
             chunk.load(chunkData, bitmap=bitmapObj[chunkX + ':' + chunkZ])
+            // set the new chunk
             serv.overworld.sync.setColumn(chunkX, chunkZ, chunk)
+            // send the chunk to relevant players
+            serv.reloadChunks(serv.overworld, [{chunkX, chunkZ}])
           } catch (e) {
             player._client.writeChannel('ethereum', 'mesg:Error loading: ' + e)
           }
         }
       }
+
       player._client.writeChannel('ethereum', 'mesg:Loaded new state for ' + voxel[landPos][1])
 
     }
