@@ -111,7 +111,6 @@ module.exports.player = function (player, serv) {
         }
       }
       const slot = msg.slice(-1)
-      // player._client.writeChannel('ethereum', 'mesg:' + 'Trying to save slot ' + slot)
       // check what land the player is standing in
       const long = landCoord(player.position.x)
       const lat = landCoord(player.position.z)
@@ -131,6 +130,12 @@ module.exports.player = function (player, serv) {
         return
       }
       // check that the save slot is within the level of the land
+      if (voxel[landPos][2] % 8 === 0) {
+        player._client.writeChannel('ethereum', 
+          'mesg:Save is only available for levels 1 or more'
+        )
+        return     
+      }
       if (voxel[landPos][2] % 8 < slot) {
         player._client.writeChannel('ethereum', 
           'mesg:Your land is level ' + 
@@ -219,6 +224,12 @@ module.exports.player = function (player, serv) {
         return
       }
       // check that the save slot is within the level of the land
+      if (voxel[landPos][2] % 8 === 0) {
+        player._client.writeChannel('ethereum', 
+          'mesg:Load is only available for levels 1 or more'
+        )
+        return     
+      }
       if (voxel[landPos][2] % 8 < slot) {
         player._client.writeChannel('ethereum', 
           'mesg:Your land is level ' + 
