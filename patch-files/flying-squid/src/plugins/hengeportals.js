@@ -2,22 +2,27 @@ const Vec3 = require('vec3').Vec3
 
 module.exports.player = function (player, serv) {
 
+
+// the problem with falling is that every move triggers another run of the function
+// so to detect a falling problem, we need a semaphore to ensure it's only handled once.
+
+  // this checks whether you should be moved up because you are in a solid
   async function inBlock(world) {
     const blocksYouCanStandIn = [
       0, 94, 97, 26, 547, 24
     ]
     let point = player.position
-    while (blocksYouCanStandIn.includes(await world.getBlockType(point)) === false) {
-      console.log("Standing in " + (await world.getBlockType(point)).toString())
-      point = point.offset(0, 1, 0)
-      await player.teleport(point)
+    let rise = false
+    while (true) {
+      const p = await world.getBlockType(point)
+      if (blocksYouCanStandIn.includes(p)) {break}
+      rise = true
+      point = point.offset(0,1,0)
     }
-    
+    if (rise) { await player.teleport(point) }
   }
 
   player.on('move', ({ position }, cancelled) => {
-
-    inBlock(player.world)    
 
     let xStor = player.position.x
     let yStor = player.position.y
@@ -28,6 +33,9 @@ module.exports.player = function (player, serv) {
       // player.teleport(player.spawnPoint);
       player.teleport(player.spawnPoint)
     }
+
+    // move this after the safety teleport as it was preventing the fallthrough protection
+    inBlock(player.world)  
 
   // orthohenge
     const jump = 30 * 6 * 16 // 2880

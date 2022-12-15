@@ -289,6 +289,40 @@ async function connect(options) {
         hotbar.style = 'display: none;'
       }
     }
+
+    // print a message sent for information by the server
+    if (msg.slice(0, 5) === 'mesg:') {
+      console.log('Got message back - ' + msg)
+      const testObj = {
+          "text": "",
+          "extra": [
+              {
+                  "text": "<Server> ",
+                  "color": "white",
+                  "bold": false,
+                  "italic": false,
+                  "underlined": false,
+                  "strikethrough": false,
+                  "obfuscated": false
+              },
+              {
+                  "text": "",
+                  "extra": [
+                      {
+                          "text": msg.slice(5),
+                          "color": "white",
+                          "bold": false,
+                          "italic": false,
+                          "underlined": false,
+                          "strikethrough": false,
+                          "obfuscated": false
+                      }
+                  ]
+              }
+          ]
+      }
+      chat.chatDisplay(testObj)
+    }
   })
 
   bot.on('error', (err) => {
@@ -569,6 +603,7 @@ async function connect(options) {
               case 'KeyO':
                 firstPerson = !firstPerson
                 break
+              // Pressing 0 to 7 are handled in lib/menus/components/hotbar.js
             }
           }
         })

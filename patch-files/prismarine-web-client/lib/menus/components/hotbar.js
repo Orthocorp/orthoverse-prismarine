@@ -137,12 +137,16 @@ class Hotbar extends LitElement {
     })
 
     document.addEventListener('keydown', (e) => {
-      if (e.code === "Minus" || e.code === "Equal") {
-        this.bot._client.writeChannel('ethereum', 'save:' + e.code)
+      if (e.code.slice(0,5) !== 'Digit') return
+      if (parseInt(e.code.slice(5,6)) < 1 || parseInt(e.code.slice(5,6)) > 7 ) return
+      const numPressed = e.code.substr(5)
+      const isShift = !!e.shiftKey
+        // replacing hotbar quickselect with save
+        // this.reloadHotbarSelected(numPressed - 1)
+      if (isShift) {
+        bot._client.writeChannel('ethereum', 'load:' + numPressed)
       } else {
-        const numPressed = e.code.substr(5)
-        if (numPressed < 1 || numPressed > 9) return
-        this.reloadHotbarSelected(numPressed - 1)
+        bot._client.writeChannel('ethereum', 'save:' + numPressed)
       }
     })
 
