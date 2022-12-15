@@ -23,11 +23,26 @@ module.exports.player = function (player, serv) {
     return [Math.floor(lat * 96), Math.floor(long * 96)]
   }
 
+  // to prevent more than one save every 10 minutes
+  function timeLimit () {
+    if ('saveTimeLimit' in player.ethereum) {
+      if (player.saveTimeLimit + 600 < Math.floor(Date.now() / 1000) ) {
+        player.ethereum.saveTimeLimit = Math.floor(Date.now() / 1000)
+        return true
+      } else {
+        return false
+      }
+    } else {
+      player.ethereum.saveTimeLimit = Math.floor(Date.now() / 1000)
+      return true
+    }  
+  }
+
+
   // store initial starting position: turns out it's not needed.
   player.on('spawn', () => {
 
   })
-
 
   player.on('move', ({ position }, cancelled) => {
     // only act on Ethereum events if the player has verified their address
@@ -88,8 +103,13 @@ module.exports.player = function (player, serv) {
 
     // This section handles the saving of the land the player is standing on
     if (msg.slice(0, 5) === 'save:') {
-      console.log('Save request is ' + msg.slice(5))
-      console.log('Location is ' + player.position.x + ',' + player.position.y + ',' + player.position.z)
+      if (player.username !== 'Hanufre') {
+        if (timeLimit() === false) {
+          player._client.writeChannel('ethereum',
+            'mesg:You can only save or load once every 10 minutes to stop spammers overloading the server')
+          return
+        }
+      }
       const slot = msg.slice(-1)
       // player._client.writeChannel('ethereum', 'mesg:' + 'Trying to save slot ' + slot)
       // check what land the player is standing in
@@ -170,6 +190,13 @@ module.exports.player = function (player, serv) {
 
     // this is where we load a previously saved land
     if (msg.slice(0, 5) === 'load:') {
+      if (player.username !== 'Hanufre') {
+        if (timeLimit() === false) {
+          player._client.writeChannel('ethereum',
+            'mesg:You can only save or load once every 10 minutes to stop spammers overloading the server')
+          return
+        }
+      }
       console.log('Load request is ' + msg.slice(5))
       console.log('Location is ' + player.position.x + ',' + player.position.y + ',' + player.position.z)
       const slot = msg.slice(-1)

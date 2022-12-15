@@ -96,10 +96,9 @@ module.exports.server = async function (serv, { version, worldFolder, generation
     serv.players
       .filter(player => player.world === world)
       .forEach(oPlayer => {
-        console.log(oPlayer)
         chunks
           .filter(({ chunkX, chunkZ }) => oPlayer.loadedChunks[chunkX + ',' + chunkZ] !== undefined)
-          .forEach(({ chunkX, chunkZ }) => (oPlayer._unloadChunk(chunkX, chunkZ))
+          .forEach(({ chunkX, chunkZ }) => oPlayer._unloadChunk(chunkX, chunkZ))
         oPlayer.sendRestMap()
       })
   }
