@@ -23,10 +23,11 @@ module.exports.player = function (player, serv) {
     return [Math.floor(lat * 96), Math.floor(long * 96)]
   }
 
-  // to prevent more than one save every 10 minutes
-  function timeLimit () {
+  // to prevent more than one save every 10 minutes for level 1
+  // every level greater than 1 makes this 1 minutes shorter)
+  function timeLimit (lvl) {
     if ('saveTimeLimit' in player.ethereum) {
-      if (player.saveTimeLimit + 600 < Math.floor(Date.now() / 1000) ) {
+      if (player.ethereum.saveTimeLimit + 660 - (lvl * 60)  < Math.floor(Date.now() / 1000) ) {
         player.ethereum.saveTimeLimit = Math.floor(Date.now() / 1000)
         return true
       } else {
@@ -103,25 +104,15 @@ module.exports.player = function (player, serv) {
 
     // This section handles the saving of the land the player is standing on
     if (msg.slice(0, 5) === 'save:') {
-      if (player.username !== 'Hanufre') {
-        if (timeLimit() === false) {
-          player._client.writeChannel('ethereum',
-            'mesg:You can only save or load once every 10 minutes to stop spammers overloading the server')
-          return
-        }
-      }
       const slot = msg.slice(-1)
       // check what land the player is standing in
       const long = landCoord(player.position.x)
       const lat = landCoord(player.position.z)
       const landPos = long.toString() + ':' + lat.toString()
-      console.log("Trying to save land at " + landPos)
       if (landPos in voxel) {
         const landOwner = voxel[landPos][4]
         // check the player owns it
-        if (player.ethereum.wallet === landOwner){
-          player._client.writeChannel('ethereum', 'mesg:You own this land')
-        } else { 
+        if (player.ethereum.wallet !== landOwner){
           player._client.writeChannel('ethereum', 'mesg:You cannot save a land you do not own')
           return
         }
@@ -134,7 +125,17 @@ module.exports.player = function (player, serv) {
         player._client.writeChannel('ethereum', 
           'mesg:Save is only available for levels 1 or more'
         )
-        return     
+        return
+      }
+      if (player.username !== 'Hanufre') {
+        if (timeLimit(voxel[landPos][2] % 8) === false) {
+          player._client.writeChannel('ethereum',
+            'mesg:You can only save or load land once every ' + 
+             ((660 - ((voxel[landPos][2] % 8) * 60))/60).toString() + 
+             ' minutes to stop spammers overloading the server'
+          )
+          return
+        }
       }
       if (voxel[landPos][2] % 8 < slot) {
         player._client.writeChannel('ethereum', 
@@ -195,13 +196,6 @@ module.exports.player = function (player, serv) {
 
     // this is where we load a previously saved land
     if (msg.slice(0, 5) === 'load:') {
-      if (player.username !== 'Hanufre') {
-        if (timeLimit() === false) {
-          player._client.writeChannel('ethereum',
-            'mesg:You can only save or load once every 10 minutes to stop spammers overloading the server')
-          return
-        }
-      }
       console.log('Load request is ' + msg.slice(5))
       console.log('Location is ' + player.position.x + ',' + player.position.y + ',' + player.position.z)
       const slot = msg.slice(-1)
@@ -213,9 +207,7 @@ module.exports.player = function (player, serv) {
       if (landPos in voxel) {
         const landOwner = voxel[landPos][4]
         // check the player owns it
-        if (player.ethereum.wallet === landOwner) {
-          player._client.writeChannel('ethereum', 'mesg:You own this land')
-        } else { 
+        if (player.ethereum.wallet !== landOwner) { 
           player._client.writeChannel('ethereum', 'mesg:You cannot load a land you do not own')
           return
         }
@@ -229,6 +221,16 @@ module.exports.player = function (player, serv) {
           'mesg:Load is only available for levels 1 or more'
         )
         return     
+      }
+      if (player.username !== 'Hanufre') {
+        if (timeLimit(voxel[landPos][2] % 8) === false) {
+          player._client.writeChannel('ethereum',
+            'mesg:You can only save or load land once every ' + 
+             ((660 - ((voxel[landPos][2] % 8) * 60))/60).toString() + 
+             ' minutes to stop spammers overloading the server'
+          )
+          return
+        }
       }
       if (voxel[landPos][2] % 8 < slot) {
         player._client.writeChannel('ethereum', 
