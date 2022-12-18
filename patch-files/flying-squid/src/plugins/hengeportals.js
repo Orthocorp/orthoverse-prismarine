@@ -9,7 +9,8 @@ module.exports.player = function (player, serv) {
   // this checks whether you should be moved up because you are in a solid
   async function inBlock(world) {
     const blocksYouCanStandIn = [
-      0, 94, 97, 26, 547, 24
+      0, 94, 97, 26, 547, 24, 444, 445, 446, 450, 455, 456, 457, 460, 634, 
+      144, 162, 243, 244, 266, 267, 620, 622, 625, 628, 632, 185, 8, 182
     ]
     let point = player.position
     let rise = false
