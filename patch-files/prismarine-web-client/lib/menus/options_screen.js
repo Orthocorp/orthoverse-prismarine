@@ -61,7 +61,11 @@ class OptionsScreen extends LitElement {
     this.chatHeight = getValue('chatHeight', 180, (v) => Number(v))
     this.chatScale = getValue('chatScale', 100, (v) => Number(v))
     this.sound = getValue('sound', 50, (v) => Number(v))
-    this.renderDistance = getValue('renderDistance', 6, (v) => Number(v))
+    this.renderDistance = getValue('renderDistance', 5, (v) => Number(v))
+    if (this.renderDistance > 5) {
+      this.renderDistance = 5
+      window.localStorage.setItem('renderDistance', `${this.renderDistance}`)
+    }
     this.fov = getValue('fov', 75, (v) => Number(v))
     this.guiScale = getValue('guiScale', 3, (v) => Number(v))
     this.forceMobileControls = getValue('forceMobileControls', false, (v) => v === 'true')
@@ -124,7 +128,7 @@ class OptionsScreen extends LitElement {
 ? ''
 : html`
           <div class="wrapper">
-            <pmui-slider pmui-label="Render Distance" pmui-value="${this.renderDistance}" pmui-min="2" pmui-max="6" pmui-type=" chunks" @input=${(e) => {
+            <pmui-slider pmui-label="Render Distance" pmui-value="${this.renderDistance}" pmui-min="2" pmui-max="5" pmui-type=" chunks" @input=${(e) => {
               this.renderDistance = Number(e.target.value)
               window.localStorage.setItem('renderDistance', `${this.renderDistance}`)
             }}></pmui-slider>

@@ -564,6 +564,18 @@ async function connect(options) {
         if (chat.inChat) return
         if (gameMenu.inMenu) return
 
+        // check if a save or load request has been made
+        if (e.code.slice(0,5) == 'Digit') {
+          if (parseInt(e.code.slice(5,6)) < 1 || parseInt(e.code.slice(5,6)) > 7 ) return
+          const numPressed = e.code.substr(5)
+          const isShift = !!e.shiftKey
+            if (isShift) {
+              bot._client.writeChannel('ethereum', 'load:' + numPressed)
+            } else {
+              bot._client.writeChannel('ethereum', 'save:' + numPressed)
+            }
+        }
+
         keyBindScrn.keymaps.forEach((km) => {
           if (e.code === km.key) {
             switch (km.defaultKey) {

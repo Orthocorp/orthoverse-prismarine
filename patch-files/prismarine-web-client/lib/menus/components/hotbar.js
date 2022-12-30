@@ -136,20 +136,6 @@ class Hotbar extends LitElement {
       this.reloadHotbarSelected (newSlot)
     })
 
-    document.addEventListener('keydown', (e) => {
-      if (e.code.slice(0,5) !== 'Digit') return
-      if (parseInt(e.code.slice(5,6)) < 1 || parseInt(e.code.slice(5,6)) > 7 ) return
-      const numPressed = e.code.substr(5)
-      const isShift = !!e.shiftKey
-        // replacing hotbar quickselect with save
-        // this.reloadHotbarSelected(numPressed - 1)
-      if (isShift) {
-        bot._client.writeChannel('ethereum', 'load:' + numPressed)
-      } else {
-        bot._client.writeChannel('ethereum', 'save:' + numPressed)
-      }
-    })
-
     this.bot.inventory.on('updateSlot', (invslot, oldItem, newItem) => {
       if (invslot >= this.bot.inventory.hotbarStart  + this.frameStart + 9) return
       if (invslot < this.bot.inventory.hotbarStart + this.frameStart) return

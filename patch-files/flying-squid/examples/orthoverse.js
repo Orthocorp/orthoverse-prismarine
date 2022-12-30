@@ -24,7 +24,7 @@ const orthoverse = mcServer.createMCServer({
     ethereum: 'ethereum'
   },
   modpe: false,
-  'view-distance': 10,
+  'view-distance': 6,
   'player-list-text': {
     header: 'Orthoverse',
     footer: 'Voxel World'
