@@ -168,7 +168,7 @@ module.exports.player = function (player, serv) {
       for (let chunkZ = lat * 6; chunkZ < (lat * 6) + 6; chunkZ++) { 
         for (let chunkX = long * 6; chunkX < (long * 6) + 6; chunkX++) { 
 
-          let chunkDump, mask
+          let chunkDump
           console.log("Trying to save chunk " + chunkX.toString() + ":" + chunkZ.toString())
           try {
             const chunk = serv.overworld.sync.getColumn(chunkX, chunkZ)
