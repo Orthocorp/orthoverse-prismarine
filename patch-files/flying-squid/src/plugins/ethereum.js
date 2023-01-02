@@ -168,12 +168,12 @@ module.exports.player = function (player, serv) {
       for (let chunkZ = lat * 6; chunkZ < (lat * 6) + 6; chunkZ++) { 
         for (let chunkX = long * 6; chunkX < (long * 6) + 6; chunkX++) { 
 
-          let chunkDump
+          let chunkDump, mask
           console.log("Trying to save chunk " + chunkX.toString() + ":" + chunkZ.toString())
           try {
             const chunk = serv.overworld.sync.getColumn(chunkX, chunkZ)
             chunkDump = chunk.dump()
-            bitmapObj[chunkX.toString() + ':' + chunkZ.toString()] = chunk.getMask()
+            bitmapObj[chunkX.toString() + ':' + chunkZ.toString()] = chunk.dumpMask()
           } catch (e) {
             player._client.writeChannel('ethereum', 'mesg:Error chunk: ' + e)
           }
