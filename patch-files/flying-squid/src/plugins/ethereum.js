@@ -127,7 +127,7 @@ module.exports.player = function (player, serv) {
         )
         return
       }
-      if (player.username !== 'Hanufre') {
+      if (player.username !== 'Corefdo') {
         if (timeLimit(voxel[landPos][2] % 8) === false) {
           player._client.writeChannel('ethereum',
             'mesg:You can only save or load land once every ' + 
@@ -155,7 +155,8 @@ module.exports.player = function (player, serv) {
       console.log("savePath is " + savePath)
       // check if land save folder exists and make it if it doesn't
       fse.ensureDirSync(savePath)
-      const saveFileName = slot.toString() + '-' + voxel[landPos][2]
+      const saveFileName = slot.toString() // + '-' + voxel[landPos][2]
+      // for some reason I added the level to the filename, which is unnecessary
 
       // mca stands for minecraft anvil region
       // a chunk is a 16x256x16 column of data. An Orthoverse land is a 96 block wide square, 
@@ -222,7 +223,7 @@ module.exports.player = function (player, serv) {
         )
         return     
       }
-      if (player.username !== 'Hanufre') {
+      if (player.username !== 'Corefdo') {
         if (timeLimit(voxel[landPos][2] % 8) === false) {
           player._client.writeChannel('ethereum',
             'mesg:You can only save or load land once every ' + 
@@ -247,7 +248,7 @@ module.exports.player = function (player, serv) {
       // now we are ready to load that land from a file
       const loadPath = './land-saves/region/' + voxel[landPos][0] + '/'
       // check if land save folder exists and exit if it doesn't
-      const loadFileName = slot.toString() + '-' + voxel[landPos][2]
+      const loadFileName = slot.toString() // + '-' + voxel[landPos][2]
       let bitmapObj
       try {
         bitmapRaw = fs.readFileSync(loadPath + "bitmap-" + loadFileName + ".json", 'utf-8')

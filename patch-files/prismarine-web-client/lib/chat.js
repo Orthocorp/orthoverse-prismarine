@@ -124,7 +124,7 @@ class ChatBox extends LitElement {
     return html`
     <div id="chat-wrapper" class="chat-wrapper chat-display-wrapper">
       <div class="chat" id="chat">
-        <li class="chat-message chat-message-fade chat-message-faded">Welcome to prismarine-web-client! Chat appears here.</li>
+        <li class="chat-message chat-message-fade chat-message-faded">Welcome to the Orthoverse! Chat appears here.</li>
       </div>
     </div>
     <div id="chat-wrapper2" class="chat-wrapper chat-input-wrapper">
