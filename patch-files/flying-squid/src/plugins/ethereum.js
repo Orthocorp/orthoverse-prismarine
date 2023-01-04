@@ -102,7 +102,9 @@ module.exports.player = function (player, serv) {
       // console.log("Landing block: " + player.blockAt(new Vec3(xStor, yStor - 1, zStor)))
     }
 
+    // *********************************************
     // This section handles the saving of the land the player is standing on
+    // *********************************************
     if (msg.slice(0, 5) === 'save:') {
       const slot = msg.slice(-1)
       // check what land the player is standing in
@@ -151,12 +153,13 @@ module.exports.player = function (player, serv) {
       // Note that the region files containing the land data are in
       // *.mca files in flying-squid/world/region/
       // we save individual player builds in flying-squid/world/region/builds/<land-address>/
-      const savePath = './land-saves/region/' + voxel[landPos][0] + '/'
+      const savePath = './land-saves/region/'
+                       + voxel[landPos][0] + '/'
+                       + ((parseInt(voxel[landPos][2]) > 7) ? 'futuristic' : 'fantasy')
+                       + '/'
       console.log("savePath is " + savePath)
       // check if land save folder exists and make it if it doesn't
       fse.ensureDirSync(savePath)
-      const saveFileName = slot.toString() // + '-' + voxel[landPos][2]
-      // for some reason I added the level to the filename, which is unnecessary
 
       // mca stands for minecraft anvil region
       // a chunk is a 16x256x16 column of data. An Orthoverse land is a 96 block wide square, 
@@ -167,6 +170,7 @@ module.exports.player = function (player, serv) {
 
       for (let chunkZ = lat * 6; chunkZ < (lat * 6) + 6; chunkZ++) { 
         for (let chunkX = long * 6; chunkX < (long * 6) + 6; chunkX++) { 
+          const saveFileName = 'land.' + chunkX.toString() + '.' + chunkZ.toString() + '.' + slot.toString() 
 
           let chunkDump
           console.log("Trying to save chunk " + chunkX.toString() + ":" + chunkZ.toString())
@@ -179,23 +183,20 @@ module.exports.player = function (player, serv) {
           }
 
           try {
-            fs.writeFileSync(savePath + chunkX.toString() + 
-              '.' + chunkZ.toString() + 
-              '.' + saveFileName + ".lnd",
-              chunkDump
-            )
+            fs.writeFileSync(savePath + saveFileName + ".lnd", chunkDump)
           } catch (e) {
             player._client.writeChannel('ethereum', 'mesg:Error saving: ' + e)
           }
         }
       }
-      fs.writeFileSync(savePath + "bitmap-" + saveFileName + ".json", JSON.stringify(bitmapObj), 'utf-8')
+      fs.writeFileSync(savePath + "bitmap-" + slot.toString() + ".json", JSON.stringify(bitmapObj), 'utf-8')
       player._client.writeChannel('ethereum', 'mesg:Saved current state of ' + voxel[landPos][1])
 
     }
 
-
+    // *********************************************
     // this is where we load a previously saved land
+    // *********************************************
     if (msg.slice(0, 5) === 'load:') {
       console.log('Load request is ' + msg.slice(5))
       console.log('Location is ' + player.position.x + ',' + player.position.y + ',' + player.position.z)
@@ -246,12 +247,14 @@ module.exports.player = function (player, serv) {
       // check there is actually a land to load
 
       // now we are ready to load that land from a file
-      const loadPath = './land-saves/region/' + voxel[landPos][0] + '/'
+      const loadPath = './land-saves/region/'
+                       + voxel[landPos][0] + '/'
+                       + ((parseInt(voxel[landPos][2]) > 7) ? 'futuristic' : 'fantasy')
+                       + '/'
       // check if land save folder exists and exit if it doesn't
-      const loadFileName = slot.toString() // + '-' + voxel[landPos][2]
       let bitmapObj
       try {
-        bitmapRaw = fs.readFileSync(loadPath + "bitmap-" + loadFileName + ".json", 'utf-8')
+        bitmapRaw = fs.readFileSync(loadPath + "bitmap-" + slot.toString() + ".json", 'utf-8')
         bitmapObj = JSON.parse(bitmapRaw)
       } catch (e) {
          player._client.writeChannel('ethereum', 'mesg:You cannot load an unsaved land.')
@@ -261,9 +264,9 @@ module.exports.player = function (player, serv) {
 
       for (let chunkZ = lat * 6; chunkZ < (lat * 6) + 6; chunkZ++) { 
         for (let chunkX = long * 6; chunkX < (long * 6) + 6; chunkX++) { 
+          const loadFileName =  'land.' + chunkX.toString() + '.' + chunkZ.toString() + '.' + slot.toString()
           try {
-            const chunkData = new Buffer.from(fs.readFileSync(loadPath + 
-              chunkX.toString() + '.' + chunkZ.toString() + '.' + loadFileName + '.lnd'));
+            const chunkData = new Buffer.from(fs.readFileSync(loadPath + loadFileName + '.lnd'));
             const chunk = new Chunk()
             chunk.load(chunkData, bitmap=bitmapObj[chunkX + ':' + chunkZ])
             // set the new chunk
