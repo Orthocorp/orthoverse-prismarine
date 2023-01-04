@@ -177,7 +177,7 @@ module.exports.player = function (player, serv) {
           try {
             const chunk = serv.overworld.sync.getColumn(chunkX, chunkZ)
             chunkDump = chunk.dump()
-            bitmapObj[chunkX.toString() + ':' + chunkZ.toString()] = chunk.getMask()
+            bitmapObj[chunkX.toString() + ':' + chunkZ.toString()] = chunk.dumpMask()
           } catch (e) {
             player._client.writeChannel('ethereum', 'mesg:Error chunk: ' + e)
           }
