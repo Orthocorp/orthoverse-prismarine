@@ -3,7 +3,7 @@ const mcServer = require('flying-squid')
 const orthoverse = mcServer.createMCServer({
   motd: 'The Orthoverse metaverse world',
   port: 20565,
-  'max-players': 100,
+  'max-players': 12,
   'online-mode': false,
   logging: true,
   gameMode: 0,
