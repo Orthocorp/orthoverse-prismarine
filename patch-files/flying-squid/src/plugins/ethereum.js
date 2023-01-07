@@ -129,7 +129,7 @@ module.exports.player = function (player, serv) {
         )
         return
       }
-      if (player.username !== 'Corefdo') {
+      if (player.username !== 'BCGandalf') {
         if (timeLimit(voxel[landPos][2] % 8) === false) {
           player._client.writeChannel('ethereum',
             'mesg:You can only save or load land once every ' + 
@@ -224,7 +224,7 @@ module.exports.player = function (player, serv) {
         )
         return     
       }
-      if (player.username !== 'Corefdo') {
+      if (player.username !== 'BCGandalf') {
         if (timeLimit(voxel[landPos][2] % 8) === false) {
           player._client.writeChannel('ethereum',
             'mesg:You can only save or load land once every ' + 
