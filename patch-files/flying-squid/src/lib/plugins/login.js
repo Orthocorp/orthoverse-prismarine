@@ -50,9 +50,11 @@ module.exports.player = async function (player, serv, settings) {
   async function addPlayer () {
     player.type = 'player'
     player.crouching = false // Needs added in prismarine-entity later
-    // player.op = settings['everybody-op'] // REMOVE THIS WHEN OUT OF TESTING
+    player.op = settings['everybody-op'] // REMOVE THIS WHEN OUT OF TESTING
     player.username = player._client.username
     player.uuid = player._client.uuid
+
+    if (settings['operators'].includes(player.username)) { player.op = true }
 
     await player.findSpawnPoint()
 
