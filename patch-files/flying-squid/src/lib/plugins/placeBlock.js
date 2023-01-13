@@ -108,7 +108,8 @@ module.exports.player = function (player, serv, { version }) {
   const mcData = require('minecraft-data')(version)
   const blocks = mcData.blocks
 
-  player._client.on('block_place', async ({ direction, location, cursorY } = {}) => {
+  player._client.on('block_place', async ({ direction, location, cursorY, hand } = {}) => {
+    serv.info("Hand value is " + hand.toString())
     if ( placing === true) { return }
     placing = true
     setTimeout( function() { placing = false}, 200)
@@ -121,6 +122,11 @@ module.exports.player = function (player, serv, { version }) {
 
     const heldItem = player.inventory.slots[QUICK_BAR_START + player.heldItemSlot]
     if (!heldItem || direction === -1 || heldItem.type === -1) return
+    if (hand === 2 && heldItem.name === 'dirt') {
+      serv.info("Control with dirt to make grass")
+      heldItem.name = 'grass'
+      heldItem.type = 8
+    }
 
     const directionVector = directionToVector[direction]
     const placedPosition = referencePosition.plus(directionVector)
