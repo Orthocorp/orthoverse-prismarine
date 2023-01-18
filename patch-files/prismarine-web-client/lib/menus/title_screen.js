@@ -135,9 +135,9 @@ class TitleScreen extends LitElement {
         ></pmui-button>
         <pmui-button
           pmui-width="200px"
-          pmui-label="Read The Degen's Guide"
+          pmui-label="Read The User's Guide"
           @pmui-click=${() =>
-            openURL("https://orthoverse.io/orthoverse-degens-guide.pdf")}
+            openURL("https://orthoverse.io/orthoverse-users-guide.pdf")}
         ></pmui-button>
       </div>
 
