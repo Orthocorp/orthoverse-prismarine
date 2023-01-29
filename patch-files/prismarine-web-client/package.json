@@ -63,6 +63,7 @@
     "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
     "prismarine-viewer": "^1.22.0",
+    "prismarine-realms": "1.2.0",
     "process": "PrismarineJS/node-process",
     "standard": "^17.0.0",
     "stream-browserify": "^3.0.0",
