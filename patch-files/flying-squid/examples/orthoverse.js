@@ -32,7 +32,8 @@ const orthoverse = mcServer.createMCServer({
   'everybody-op': false,
   'operators': ['BCGandalf', 'TheOtherGuy'],
   'max-entities': 1000,
-  version: '1.15.2'
+  version: '1.15.2',
+  'lands-api': 'https://orthoverse.io/api/land/search/byCoordinates'
 })
 
 console.log(orthoverse.motd)
