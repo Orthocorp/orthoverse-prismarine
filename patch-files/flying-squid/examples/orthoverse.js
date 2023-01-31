@@ -36,4 +36,4 @@ const orthoverse = mcServer.createMCServer({
   'lands-api': 'https://orthoverse.io/api/land/search/byCoordinates'
 })
 
-console.log(orthoverse.motd)
+// console.log(orthoverse.motd)

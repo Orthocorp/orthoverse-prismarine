@@ -1,4 +1,3 @@
-const voxel = require('../../map-data/voxel.json')
 const ethUtils = require('ethereumjs-util')
 const Vec3 = require('vec3').Vec3
 const Chunk = require('prismarine-chunk')('1.15.2')
@@ -54,8 +53,8 @@ module.exports.player = function (player, serv) {
         zCoord = landCoord(zStor)
         // we have moved into a new tile
         const landPos = xCoord.toString() + ':' + zCoord.toString()
-        if (landPos in voxel) {
-          const landOwner = voxel[landPos][4]
+        if (landPos in serv.voxel.data) {
+          const landOwner = serv.voxel.data[landPos][4]
           if (player.ethereum.wallet === landOwner) {
             player._client.writeChannel('ethereum', 'ownd:true')
           } else {
@@ -111,8 +110,8 @@ module.exports.player = function (player, serv) {
       const long = landCoord(player.position.x)
       const lat = landCoord(player.position.z)
       const landPos = long.toString() + ':' + lat.toString()
-      if (landPos in voxel) {
-        const landOwner = voxel[landPos][4]
+      if (landPos in serv.voxel.data) {
+        const landOwner = serv.voxel.data[landPos][4]
         // check the player owns it
         if (player.ethereum.wallet !== landOwner){
           player._client.writeChannel('ethereum', 'mesg:You cannot save a land you do not own')
@@ -123,26 +122,26 @@ module.exports.player = function (player, serv) {
         return
       }
       // check that the save slot is within the level of the land
-      if (voxel[landPos][2] % 8 === 0) {
+      if (serv.voxel.data[landPos][2] % 8 === 0) {
         player._client.writeChannel('ethereum', 
           'mesg:Save is only available for levels 1 or more'
         )
         return
       }
       if (player.username !== 'BCGandalf') {
-        if (timeLimit(voxel[landPos][2] % 8) === false) {
+        if (timeLimit(serv.voxel.data[landPos][2] % 8) === false) {
           player._client.writeChannel('ethereum',
             'mesg:You can only save or load land once every ' + 
-             ((660 - ((voxel[landPos][2] % 8) * 60))/60).toString() + 
+             ((660 - ((serv.voxel.data[landPos][2] % 8) * 60))/60).toString() + 
              ' minutes to stop spammers overloading the server'
           )
           return
         }
       }
-      if (voxel[landPos][2] % 8 < slot) {
+      if (serv.voxel.data[landPos][2] % 8 < slot) {
         player._client.writeChannel('ethereum', 
           'mesg:Your land is level ' + 
-          (voxel[landPos][2] % 8).toString() + 
+          (serv.voxel.data[landPos][2] % 8).toString() + 
           ' so save/load slot ' + slot.toString() + 
           ' is not available.'
         )
@@ -154,8 +153,8 @@ module.exports.player = function (player, serv) {
       // *.mca files in flying-squid/world/region/
       // we save individual player builds in flying-squid/world/region/builds/<land-address>/
       const savePath = './land-saves/region/'
-                       + voxel[landPos][0] + '/'
-                       + ((parseInt(voxel[landPos][2]) > 7) ? 'futuristic' : 'fantasy')
+                       + serv.voxel.data[landPos][0] + '/'
+                       + ((parseInt(serv.voxel.data[landPos][2]) > 7) ? 'futuristic' : 'fantasy')
                        + '/'
       console.log("savePath is " + savePath)
       // check if land save folder exists and make it if it doesn't
@@ -190,7 +189,7 @@ module.exports.player = function (player, serv) {
         }
       }
       fs.writeFileSync(savePath + "bitmap-" + slot.toString() + ".json", JSON.stringify(bitmapObj), 'utf-8')
-      player._client.writeChannel('ethereum', 'mesg:Saved current state of ' + voxel[landPos][1])
+      player._client.writeChannel('ethereum', 'mesg:Saved current state of ' + serv.voxel.data[landPos][1])
 
     }
 
@@ -206,8 +205,8 @@ module.exports.player = function (player, serv) {
       const long = landCoord(player.position.x)
       const lat = landCoord(player.position.z)
       const landPos = long.toString() + ':' + lat.toString()
-      if (landPos in voxel) {
-        const landOwner = voxel[landPos][4]
+      if (landPos in serv.voxel.data) {
+        const landOwner = serv.voxel.data[landPos][4]
         // check the player owns it
         if (player.ethereum.wallet !== landOwner) { 
           player._client.writeChannel('ethereum', 'mesg:You cannot load a land you do not own')
@@ -218,26 +217,26 @@ module.exports.player = function (player, serv) {
         return
       }
       // check that the save slot is within the level of the land
-      if (voxel[landPos][2] % 8 === 0) {
+      if (serv.voxel.data[landPos][2] % 8 === 0) {
         player._client.writeChannel('ethereum', 
           'mesg:Load is only available for levels 1 or more'
         )
         return     
       }
       if (player.username !== 'BCGandalf') {
-        if (timeLimit(voxel[landPos][2] % 8) === false) {
+        if (timeLimit(serv.voxel.data[landPos][2] % 8) === false) {
           player._client.writeChannel('ethereum',
             'mesg:You can only save or load land once every ' + 
-             ((660 - ((voxel[landPos][2] % 8) * 60))/60).toString() + 
+             ((660 - ((serv.voxel.data[landPos][2] % 8) * 60))/60).toString() + 
              ' minutes to stop spammers overloading the server'
           )
           return
         }
       }
-      if (voxel[landPos][2] % 8 < slot) {
+      if (serv.voxel.data[landPos][2] % 8 < slot) {
         player._client.writeChannel('ethereum', 
           'mesg:Your land is level ' + 
-          (voxel[landPos][2] % 8).toString() + 
+          (serv.voxel.data[landPos][2] % 8).toString() + 
           ' so save/load slot ' + 
           slot.toString() + 
           ' is not available.'
@@ -248,8 +247,8 @@ module.exports.player = function (player, serv) {
 
       // now we are ready to load that land from a file
       const loadPath = './land-saves/region/'
-                       + voxel[landPos][0] + '/'
-                       + ((parseInt(voxel[landPos][2]) > 7) ? 'futuristic' : 'fantasy')
+                       + serv.voxel.data[landPos][0] + '/'
+                       + ((parseInt(serv.voxel.data[landPos][2]) > 7) ? 'futuristic' : 'fantasy')
                        + '/'
       // check if land save folder exists and exit if it doesn't
       let bitmapObj
@@ -279,7 +278,7 @@ module.exports.player = function (player, serv) {
         }
       }
 
-      player._client.writeChannel('ethereum', 'mesg:Loaded new state for ' + voxel[landPos][1])
+      player._client.writeChannel('ethereum', 'mesg:Loaded new state for ' + serv.voxel.data[landPos][1])
 
     }
 
