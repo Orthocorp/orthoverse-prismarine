@@ -1,5 +1,4 @@
 const Vec3 = require('vec3').Vec3
-const voxel = require('../../../map-data/voxel.json')
 
 module.exports.player = function (player, serv, { version }) {
   const mcData = require('minecraft-data')(version)
@@ -58,8 +57,8 @@ module.exports.player = function (player, serv, { version }) {
         //
         let owned = false
         const landPos = currentlyDugBlock.position.x.toString() + ':' + currentlyDugBlock.position.z.toString()
-        if (landPos in voxel) {
-          const landOwner = voxel[landPos][4]
+        if (landPos in serv.voxel.data) {
+          const landOwner = serv.voxel.data[landPos][4]
           if (player.ethereum.wallet === landOwner) {
             owned = true
           }
