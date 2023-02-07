@@ -15,6 +15,7 @@ require('emit-then').register()
 if (process.env.NODE_ENV === 'dev') {
   require('longjohn')
 }
+const axios = require('axios')
 
 const supportFeature = require('./lib/supportFeature')
 const fs = require('fs')
@@ -45,14 +46,35 @@ class MCServer extends EventEmitter {
     // This section initialises the voxel object for the world
     this.voxel = {}
     this.voxel.data = {}
-    this.voxel.timestamp = ()  => {
-      if(!fs.existsSync('./map-data/voxel.json')) {
-        throw('Could not read voxel.json')
-      } else {
-        return fs.statSync('./map-data/voxel.json').mtimeMs
-      }  
-    }
+    this.voxel.timestamp = Date.now()
+
+    // the initial voxel data structure loading
     this.voxel.load = () => {
+      axios.get('https://orthoverse.io/api/land/generate/voxel')
+        .then(response => {
+          this.voxel.data = response.data
+          this.voxel.timestamp = Date.now()
+        })
+        .catch(err => {
+          throw(err)
+        })
+    }
+
+    // loads everything that has changed since the last upload
+    this.voxel.loadDiff = async () => {
+      axios.get('' + new Date(this.voxel.timestamp).toISOString())
+        .then(response => {
+          const diff = response.data
+          this.voxel.timestamp = Date.now()
+          console.log('Loaded world from database')
+        })
+        .catch(err => {
+          throw(err)
+        })
+    }
+
+    // for backup purposes we can have a load and save file option
+    this.voxel.loadFile = () => {
       if(!fs.existsSync('./map-data/voxel.json')) {
         throw('Could not read voxel.json')
       } else {
@@ -60,33 +82,33 @@ class MCServer extends EventEmitter {
       }
     }
 
-    this.voxel.save = () => {
+    this.voxel.saveFile = () => {
       this.voxel.data['tamestamp'] = Date.now()
       fs.writeFileSync('./map-data/voxel.json', JSON.stringify(this.voxel.data), (err) => {
         if (err) throw err
       })
     }
 
-    this.voxel.load()
   }
 
 
   connect (options) {
-    const version = require('minecraft-data')(options.version).version
-    if (!supportedVersions.some(v => v.includes(version.majorVersion))) {
-      throw new Error(`Version ${version.minecraftVersion} is not supported.`)
-    }
-    this.supportFeature = feature => supportFeature(feature, version.majorVersion)
+      this.voxel.load()
+      const version = require('minecraft-data')(options.version).version
+      if (!supportedVersions.some(v => v.includes(version.majorVersion))) {
+        throw new Error(`Version ${version.minecraftVersion} is not supported.`)
+      }
+      this.supportFeature = feature => supportFeature(feature, version.majorVersion)
 
-    const plugins = requireIndex(path.join(__dirname, 'lib', 'plugins'))
-    this.commands = new Command({})
-    this._server = mc.createServer(options)
-    Object.keys(plugins)
-      .filter(pluginName => plugins[pluginName].server !== undefined)
-      .forEach(pluginName => plugins[pluginName].server(this, options))
-    if (options.logging === true) this.createLog()
-    this._server.on('error', error => this.emit('error', error))
-    this._server.on('listening', () => this.emit('listening', this._server.socketServer.address().port))
-    this.emit('asap')
+      const plugins = requireIndex(path.join(__dirname, 'lib', 'plugins'))
+      this.commands = new Command({})
+      this._server = mc.createServer(options)
+      Object.keys(plugins)
+        .filter(pluginName => plugins[pluginName].server !== undefined)
+        .forEach(pluginName => plugins[pluginName].server(this, options))
+      if (options.logging === true) this.createLog()
+      this._server.on('error', error => this.emit('error', error))
+      this._server.on('listening', () => this.emit('listening', this._server.socketServer.address().port))
+      this.emit('asap')
   }
 }
