@@ -91,7 +91,7 @@ class LandBar extends LitElement {
 
   async updateLand(x, z) {
     axios.get(
-      'http://localhost:8010/proxy/api/land/search/byCoordinates?x=' + 
+      'https://orthoverse.io/api/land/search/byCoordinates?x=' + 
       x.toString() + '&y=' + z.toString()
     )
     .then(response => {
