@@ -1,9 +1,5 @@
 const ethUtils = require('ethereumjs-util')
 const Vec3 = require('vec3').Vec3
-const Chunk = require('prismarine-chunk')('1.15.2')
-const fse = require('fs-extra')
-const fs = require('fs')
-
 
 module.exports.player = function (player, serv) {
   let xStor = 0
@@ -147,49 +143,10 @@ module.exports.player = function (player, serv) {
         )
         return     
       }
-      // now we are ready to save that land into a file
-      // file name format: <slot>-<realm>.lnd
-      // Note that the region files containing the land data are in
-      // *.mca files in flying-squid/world/region/
-      // we save individual player builds in flying-squid/world/region/builds/<land-address>/
-      const savePath = './land-saves/region/'
-                       + serv.voxel.data[landPos][0] + '/'
-                       + ((parseInt(serv.voxel.data[landPos][2]) > 7) ? 'futuristic' : 'fantasy')
-                       + '/'
-      console.log("savePath is " + savePath)
-      // check if land save folder exists and make it if it doesn't
-      fse.ensureDirSync(savePath)
 
-      // mca stands for minecraft anvil region
-      // a chunk is a 16x256x16 column of data. An Orthoverse land is a 96 block wide square, 
-      // making it a 6 by 6 collection of chunks
-      // so to save a land we just need to save an array of 6x6 = 36 chunks
-
-      let bitmapObj = {}
-
-      for (let chunkZ = lat * 6; chunkZ < (lat * 6) + 6; chunkZ++) { 
-        for (let chunkX = long * 6; chunkX < (long * 6) + 6; chunkX++) { 
-          const saveFileName = 'land.' + chunkX.toString() + '.' + chunkZ.toString() + '.' + slot.toString() 
-
-          let chunkDump
-          console.log("Trying to save chunk " + chunkX.toString() + ":" + chunkZ.toString())
-          try {
-            const chunk = serv.overworld.sync.getColumn(chunkX, chunkZ)
-            chunkDump = chunk.dump()
-            bitmapObj[chunkX.toString() + ':' + chunkZ.toString()] = chunk.dumpMask()
-          } catch (e) {
-            player._client.writeChannel('ethereum', 'mesg:Error chunk: ' + e)
-          }
-
-          try {
-            fs.writeFileSync(savePath + saveFileName + ".lnd", chunkDump)
-          } catch (e) {
-            player._client.writeChannel('ethereum', 'mesg:Error saving: ' + e)
-          }
-        }
-      }
-      fs.writeFileSync(savePath + "bitmap-" + slot.toString() + ".json", JSON.stringify(bitmapObj), 'utf-8')
-      player._client.writeChannel('ethereum', 'mesg:Saved current state of ' + serv.voxel.data[landPos][1])
+      const result = serv.voxel.saveLand(slot, lat, long)
+      console.log(result)
+      player._client.writeChannel('ethereum', result)
 
     }
 
@@ -243,42 +200,10 @@ module.exports.player = function (player, serv) {
         )
         return     
       } 
-      // check there is actually a land to load
 
-      // now we are ready to load that land from a file
-      const loadPath = './land-saves/region/'
-                       + serv.voxel.data[landPos][0] + '/'
-                       + ((parseInt(serv.voxel.data[landPos][2]) > 7) ? 'futuristic' : 'fantasy')
-                       + '/'
-      // check if land save folder exists and exit if it doesn't
-      let bitmapObj
-      try {
-        bitmapRaw = fs.readFileSync(loadPath + "bitmap-" + slot.toString() + ".json", 'utf-8')
-        bitmapObj = JSON.parse(bitmapRaw)
-      } catch (e) {
-         player._client.writeChannel('ethereum', 'mesg:You cannot load an unsaved land.')
-         return
-      }
-
-
-      for (let chunkZ = lat * 6; chunkZ < (lat * 6) + 6; chunkZ++) { 
-        for (let chunkX = long * 6; chunkX < (long * 6) + 6; chunkX++) { 
-          const loadFileName =  'land.' + chunkX.toString() + '.' + chunkZ.toString() + '.' + slot.toString()
-          try {
-            const chunkData = new Buffer.from(fs.readFileSync(loadPath + loadFileName + '.lnd'));
-            const chunk = new Chunk()
-            chunk.load(chunkData, bitmap=bitmapObj[chunkX + ':' + chunkZ])
-            // set the new chunk
-            serv.overworld.sync.setColumn(chunkX, chunkZ, chunk)
-            // send the chunk to relevant players
-            serv.reloadChunks(serv.overworld, [{chunkX, chunkZ}])
-          } catch (e) {
-            player._client.writeChannel('ethereum', 'mesg:Error loading: ' + e)
-          }
-        }
-      }
-
-      player._client.writeChannel('ethereum', 'mesg:Loaded new state for ' + serv.voxel.data[landPos][1])
+      const result = serv.voxel.loadLand(slot, lat, long)
+      console.log(result)
+      player._client.writeChannel('ethereum', result)
 
     }
 

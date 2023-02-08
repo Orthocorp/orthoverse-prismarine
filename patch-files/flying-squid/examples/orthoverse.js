@@ -33,7 +33,8 @@ const options = {
   'operators': ['BCGandalf', 'TheOtherGuy'],
   'max-entities': 1000,
   version: '1.15.2',
-  'landsApi': 'https://orthoverse.io/api/land/generate/voxel'
+  'landsApi': 'https://orthoverse.io/api/land/generate/voxel',
+  'landSaves': './land-saves/region/'
 }
 
 function main() {
@@ -43,8 +44,11 @@ function main() {
 
 
 main().then( (orthoverse) => {
-  orthoverse.voxel.load()
-  setTimeout(function() { orthoverse.connect(options)}, 5000)
+  orthoverse.voxel.load().then( () => {
+    orthoverse.voxel.loadFile()
+    orthoverse.voxel.loadStatus()
+    orthoverse.connect(options)
+  })
 })
 
 // console.log(orthoverse.motd)
