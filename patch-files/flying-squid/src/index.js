@@ -31,15 +31,14 @@ module.exports = {
   supportedVersions
 }
 
-function createMCServer (options) {
+async function createMCServer (options) {
   options = options || {}
-  const mcServer = new MCServer()
-  mcServer.connect(options)
+  const mcServer = new MCServer(options.landsApi)
   return mcServer
 }
 
 class MCServer extends EventEmitter {
-  constructor () {
+  constructor (landsApi) {
     super()
     this._server = null
 
@@ -49,11 +48,12 @@ class MCServer extends EventEmitter {
     this.voxel.timestamp = Date.now()
 
     // the initial voxel data structure loading
-    this.voxel.load = () => {
-      axios.get('https://orthoverse.io/api/land/generate/voxel')
+    this.voxel.load = async () => {
+      axios.get(landsApi)
         .then(response => {
           this.voxel.data = response.data
           this.voxel.timestamp = Date.now()
+          console.log('Loaded world from database')
         })
         .catch(err => {
           throw(err)
@@ -62,11 +62,12 @@ class MCServer extends EventEmitter {
 
     // loads everything that has changed since the last upload
     this.voxel.loadDiff = async () => {
+      // TODO; need to add the API string here
       axios.get('' + new Date(this.voxel.timestamp).toISOString())
         .then(response => {
           const diff = response.data
           this.voxel.timestamp = Date.now()
-          console.log('Loaded world from database')
+          console.log('Loaded diff from database')
         })
         .catch(err => {
           throw(err)
@@ -88,27 +89,27 @@ class MCServer extends EventEmitter {
         if (err) throw err
       })
     }
-
   }
 
 
   connect (options) {
-      this.voxel.load()
-      const version = require('minecraft-data')(options.version).version
-      if (!supportedVersions.some(v => v.includes(version.majorVersion))) {
-        throw new Error(`Version ${version.minecraftVersion} is not supported.`)
-      }
-      this.supportFeature = feature => supportFeature(feature, version.majorVersion)
+    console.log('Is land loaded')
+    console.log(this.voxel.data)
+    const version = require('minecraft-data')(options.version).version
+    if (!supportedVersions.some(v => v.includes(version.majorVersion))) {
+      throw new Error(`Version ${version.minecraftVersion} is not supported.`)
+    }
+    this.supportFeature = feature => supportFeature(feature, version.majorVersion)
 
-      const plugins = requireIndex(path.join(__dirname, 'lib', 'plugins'))
-      this.commands = new Command({})
-      this._server = mc.createServer(options)
-      Object.keys(plugins)
-        .filter(pluginName => plugins[pluginName].server !== undefined)
-        .forEach(pluginName => plugins[pluginName].server(this, options))
-      if (options.logging === true) this.createLog()
-      this._server.on('error', error => this.emit('error', error))
-      this._server.on('listening', () => this.emit('listening', this._server.socketServer.address().port))
-      this.emit('asap')
+    const plugins = requireIndex(path.join(__dirname, 'lib', 'plugins'))
+    this.commands = new Command({})
+    this._server = mc.createServer(options)
+    Object.keys(plugins)
+      .filter(pluginName => plugins[pluginName].server !== undefined)
+      .forEach(pluginName => plugins[pluginName].server(this, options))
+    if (options.logging === true) this.createLog()
+    this._server.on('error', error => this.emit('error', error))
+    this._server.on('listening', () => this.emit('listening', this._server.socketServer.address().port))
+    this.emit('asap')
   }
 }

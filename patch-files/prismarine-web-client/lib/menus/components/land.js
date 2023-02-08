@@ -1,5 +1,5 @@
 const { LitElement, html, css } = require('lit')
-const lands = require('../../../lands/voxel.json')
+const axios = require('axios')
 
 class LandBar extends LitElement {
   static get styles() {
@@ -81,33 +81,42 @@ class LandBar extends LitElement {
 
   constructor() {
     super()
-    this.landName = lands['0:0'][1]
+    this.landName = 'Orthohenge'
     this.landColor = '#000000'
-    this.landShield = '../../../extra-textures/escutcheons/' + lands['0:0'][3]
+    this.landShield = '../../../extra-textures/escutcheons/993.png'
     this.landCrown = '../../../extra-textures/crown7.png'
     this.bootImg = '../../../extra-textures/boot-dark.png'
     this.palantirImg = '../../../extra-textures/palantir-dark.png'
   }
 
   async updateLand(x, z) {
-    const landKey = x.toString() + ':' + z.toString()
-    if (landKey in lands) {
-      this.landName = lands[landKey][1]
-      const shield = lands[landKey][3]
-      if (shield === 'none') {
+    axios.get(
+      'http://localhost:8010/proxy/api/land/search/byCoordinates?x=' + 
+      x.toString() + '&y=' + z.toString()
+    )
+    .then(response => {
+      this.landName = response.data.name
+      const crest = response.data.crest
+      if (crest === 'none') {
         this.landShield = '../../../extra-textures/escutcheons/none.png'
       } else {
         this.landShield =
-          '../../../extra-textures/escutcheons/' + lands[landKey][3]
+          '../../../extra-textures/escutcheons/' + crest
       }
-      const adjustedLevel = lands[landKey][2] % 8
+      const adjustedLevel = response.data.level % 8
       this.landCrown =
         '../../../extra-textures/crown' + adjustedLevel.toString() + '.png'
-    } else {
-      this.landName = 'The Open Sea'
-      this.landShield = '../../../extra-textures/escutcheons/none.png'
-      this.landCrown = '../../../extra-textures/crown0.png'
-    }
+    })
+    .catch(err => {
+      if (err.response.data === {"error":"Not found"}) {
+        this.landName = 'The Open Sea'
+        this.landShield = '../../../extra-textures/escutcheons/none.png'
+        this.landCrown = '../../../extra-textures/crown0.png' 
+      } else {   
+        console.log('Unexpected error')
+        console.log(err)
+      }
+    }) 
   }
 
   async updateDir(dir) {

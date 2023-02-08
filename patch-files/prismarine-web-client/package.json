@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "assert": "^2.0.0",
+    "axios": "^1.2.6",
     "browserify-zlib": "^0.2.0",
     "buffer": "^6.0.3",
     "clean-webpack-plugin": "^4.0.0",

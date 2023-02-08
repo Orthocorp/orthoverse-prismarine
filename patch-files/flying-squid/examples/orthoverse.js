@@ -1,6 +1,6 @@
 const mcServer = require('flying-squid')
 
-const orthoverse = mcServer.createMCServer({
+const options = {
   motd: 'The Orthoverse metaverse world',
   port: 20565,
   'max-players': 12,
@@ -33,7 +33,18 @@ const orthoverse = mcServer.createMCServer({
   'operators': ['BCGandalf', 'TheOtherGuy'],
   'max-entities': 1000,
   version: '1.15.2',
-  'lands-api': 'https://orthoverse.io/api/land/search/byCoordinates'
+  'landsApi': 'https://orthoverse.io/api/land/generate/voxel'
+}
+
+function main() {
+  const orthoverse = mcServer.createMCServer(options)
+  return orthoverse
+}
+
+
+main().then( (orthoverse) => {
+  orthoverse.voxel.load()
+  setTimeout(function() { orthoverse.connect(options)}, 5000)
 })
 
 // console.log(orthoverse.motd)
