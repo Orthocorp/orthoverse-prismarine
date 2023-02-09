@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'dev') {
 const axios = require('axios')
 const fse = require('fs-extra')
 const fs = require('fs')
-const Chunk = require('prismarine-chunk')('1.15.2')
+const Chunk = require('prismarine-chunk')('1.15')
 
 const supportFeature = require('./lib/supportFeature')
 
@@ -93,54 +93,39 @@ class MCServer extends EventEmitter {
       })
     }
 
-    // the status object keeps track of which land uses what save file (if any)
-    this.voxel.loadStatus = () => {
-      if(fs.existsSync('./map-data/status.json')) {
-        this.voxel.status = JSON.parse(fs.readFileSync('./map-data/status.json'))
-      } else {
-        this.voxel.status['timestamp'] = Date.now()
-        fs.writeFileSync('./map-data/status.json', JSON.stringify(this.voxel.status), (err) => {
-          if (err) throw err
-        })
-      }
-    }
-
-    // need to be able to save status to file in case the server is restarted
-    this.voxel.saveStatus = () => {
-      this.voxel.status['timestamp'] = Date.now()
-      fs.writeFileSync('./map-data/status.json', JSON.stringify(this.voxel.status), (err) => {
-        if (err) throw err
-      })
-    }
-
     // function to load a 6x6 land from a save file to the mca file
-    this.voxel.loadLand = (slot, x, z) => {
-      const landPos = x.toString() + ':' + z.toString()
-      // check there is actually a land to load
-
+    this.voxel.loadLand = (slot, landX, landZ) => {
+      const landKey = landX.toString() + ':' + landZ.toString()
       // now we are ready to load that land from a file
       const loadPath = this.voxel.landSaves
-                       + this.voxel.data[landPos][0] + '/'
-                       + ((parseInt(this.voxel.data[landPos][2]) > 7) ? 'futuristic' : 'fantasy')
+                       + this.voxel.data[landKey][0] + '/'
+                       + ((parseInt(this.voxel.data[landKey][2]) > 7) ? 'futuristic' : 'fantasy')
                        + '/'
       // check if land save folder exists and exit if it doesn't
-      let bitmapObj
+      let bitmapObj, bitmapRaw
       try {
         bitmapRaw = fs.readFileSync(loadPath + "bitmap-" + slot.toString() + ".json", 'utf-8')
-        bitmapObj = JSON.parse(bitmapRaw)
       } catch (e) {
          return 'mesg:You cannot load an unsaved land.'
       }
-      for (let chunkZ = z * 6; chunkZ < (z * 6) + 6; chunkZ++) { 
-        for (let chunkX = x * 6; chunkX < (x * 6) + 6; chunkX++) { 
+      try {
+        bitmapObj = JSON.parse(bitmapRaw)
+      } catch (e) {
+        return 'mesg:Error parsing bitmap file'
+      }
+      console.log(bitmapObj)
+      for (let chunkZ = landZ * 6; chunkZ < (landZ * 6) + 6; chunkZ++) { 
+        for (let chunkX = landX * 6; chunkX < (landX * 6) + 6; chunkX++) { 
           const loadFileName =  'land.' + 
                                 chunkX.toString() + '.' + 
                                 chunkZ.toString() + '.' + 
                                 slot.toString()
+          console.log(chunkX, chunkZ)
+          console.log(bitmapObj[chunkX.toString() + ':' + chunkZ.toString()])
           try {
             const chunkData = new Buffer.from(fs.readFileSync(loadPath + loadFileName + '.lnd'));
             const chunk = new Chunk()
-            chunk.load(chunkData, bitmap=bitmapObj[chunkX + ':' + chunkZ])
+            chunk.load(chunkData, bitmapObj[chunkX.toString() + ':' + chunkZ.toString()])
             // set the new chunk
             this.overworld.sync.setColumn(chunkX, chunkZ, chunk)
             // send the chunk to relevant players
@@ -150,23 +135,24 @@ class MCServer extends EventEmitter {
           }
         }
       }
-      return 'mesg:Loaded new state for ' + this.voxel.data[landPos][1] + ' in slot ' + slot.toString()
+      return 'mesg:Loaded new state for ' + this.voxel.data[landKey][1] + ' in slot ' + slot.toString()
     }
 
     // function to save a 6x6 land to a save file from the mca file
     // takes a land position
-    this.voxel.saveLand = (slot, x, z) => {
-      const landPos = x.toString() + ':' + z.toString()
+    this.voxel.saveLand = (slot, landX, landZ) => {
+      const landKey = landX.toString() + ':' + landZ.toString()
       // now we are ready to save that land into a file
       // file name format: <slot>-<realm>.lnd
       // Note that the region files containing the land data are in
       // *.mca files in flying-squid/world/region/
       // we save individual player builds in flying-squid/world/region/builds/<land-address>/
       const savePath = this.voxel.landSaves
-                       + this.voxel.data[landPos][0] + '/'
-                       + ((parseInt(this.voxel.data[landPos][2]) > 7) ? 'futuristic' : 'fantasy')
+                       + this.voxel.data[landKey][0] + '/'
+                       + ((parseInt(this.voxel.data[landKey][2]) > 7) ? 'futuristic' : 'fantasy')
                        + '/'
       console.log("savePath is " + savePath)
+      console.log("working dir is " + process.cwd())
       // check if land save folder exists and make it if it doesn't
       fse.ensureDirSync(savePath)
       // mca stands for minecraft anvil region
@@ -175,8 +161,8 @@ class MCServer extends EventEmitter {
       // so to save a land we just need to save an array of 6x6 = 36 chunks
       let bitmapObj = {}
 
-      for (let chunkZ = z * 6; chunkZ < (z * 6) + 6; chunkZ++) { 
-        for (let chunkX = x * 6; chunkX < (x * 6) + 6; chunkX++) { 
+      for (let chunkZ = landZ * 6; chunkZ < (landZ * 6) + 6; chunkZ++) { 
+        for (let chunkX = landX * 6; chunkX < (landX * 6) + 6; chunkX++) { 
           const saveFileName = 'land.' + chunkX.toString() + '.' + chunkZ.toString() + '.' + slot.toString() 
 
           let chunkDump
@@ -200,16 +186,17 @@ class MCServer extends EventEmitter {
                        "bitmap-" + 
                        slot.toString() + 
                        ".json", JSON.stringify(bitmapObj), 'utf-8')
-      return 'mesg:Saved new state for ' + this.voxel.data[landPos][1] + ' in slot ' + slot.toString()
+      return 'mesg:Saved new state for ' + this.voxel.data[landKey][1] + ' in slot ' + slot.toString()
     }
 
+    // saves a single chunk to the relevant land-saves folder
     this.voxel.saveChunkToFile = (slot, chunkX, chunkZ) => {
       const landX = Math.floor(chunkX / 6)
       const landZ = Math.floor(chunkZ / 6)
-      const landPos = landX.toString() + ':' + landZ.toString()
+      const landKey = landX.toString() + ':' + landZ.toString()
       const savePath = this.voxel.landSaves
-                       + this.voxel.data[landPos][0] + '/'
-                       + ((parseInt(this.voxel.data[landPos][2]) > 7) ? 'futuristic' : 'fantasy')
+                       + this.voxel.data[landKey][0] + '/'
+                       + ((parseInt(this.voxel.data[landKey][2]) > 7) ? 'futuristic' : 'fantasy')
                        + '/'
       // check if land save folder exists and make it if it doesn't
       fse.ensureDirSync(savePath)
@@ -217,7 +204,15 @@ class MCServer extends EventEmitter {
 
     }
 
-    this.voxel.loadChunkFromFile = (slot, x, z) => { 
+    // reads a single chunk from a land-saves folder and returns it
+    this.voxel.loadChunkFromFile = (slot, ChunkX, ChunkZ) => { 
+      const landX = Math.floor(chunkX / 6)
+      const landZ = Math.floor(chunkZ / 6)
+      const landKey = landX.toString() + ':' + landZ.toString()
+      const loadPath = this.voxel.landSaves
+                       + this.voxel.data[landKey][0] + '/'
+                       + ((parseInt(this.voxel.data[landKey][2]) > 7) ? 'futuristic' : 'fantasy')
+                       + '/'
     }
 
   }

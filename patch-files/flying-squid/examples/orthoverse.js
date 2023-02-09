@@ -46,7 +46,6 @@ function main() {
 main().then( (orthoverse) => {
   orthoverse.voxel.load().then( () => {
     orthoverse.voxel.loadFile()
-    orthoverse.voxel.loadStatus()
     orthoverse.connect(options)
   })
 })
