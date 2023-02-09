@@ -101,7 +101,6 @@ class MCServer extends EventEmitter {
                        + this.voxel.data[landKey][0] + '/'
                        + ((parseInt(this.voxel.data[landKey][2]) > 7) ? 'futuristic' : 'fantasy')
                        + '/'
-      // check if land save folder exists and exit if it doesn't
       let bitmapObj, bitmapRaw
       try {
         bitmapRaw = fs.readFileSync(loadPath + "bitmap-" + slot.toString() + ".json", 'utf-8')
@@ -113,7 +112,6 @@ class MCServer extends EventEmitter {
       } catch (e) {
         return 'mesg:Error parsing bitmap file'
       }
-      console.log(bitmapObj)
       for (let chunkZ = landZ * 6; chunkZ < (landZ * 6) + 6; chunkZ++) { 
         for (let chunkX = landX * 6; chunkX < (landX * 6) + 6; chunkX++) { 
           const loadFileName =  'land.' + 
@@ -142,25 +140,18 @@ class MCServer extends EventEmitter {
     // takes a land position
     this.voxel.saveLand = (slot, landX, landZ) => {
       const landKey = landX.toString() + ':' + landZ.toString()
-      // now we are ready to save that land into a file
-      // file name format: <slot>-<realm>.lnd
-      // Note that the region files containing the land data are in
-      // *.mca files in flying-squid/world/region/
-      // we save individual player builds in flying-squid/world/region/builds/<land-address>/
       const savePath = this.voxel.landSaves
                        + this.voxel.data[landKey][0] + '/'
                        + ((parseInt(this.voxel.data[landKey][2]) > 7) ? 'futuristic' : 'fantasy')
                        + '/'
-      console.log("savePath is " + savePath)
-      console.log("working dir is " + process.cwd())
-      // check if land save folder exists and make it if it doesn't
       fse.ensureDirSync(savePath)
-      // mca stands for minecraft anvil region
-      // a chunk is a 16x256x16 column of data. An Orthoverse land is a 96 block wide square, 
-      // making it a 6 by 6 collection of chunks
-      // so to save a land we just need to save an array of 6x6 = 36 chunks
-      let bitmapObj = {}
-
+      let bitmapObj, bitmapRaw
+      try {
+        bitmapRaw = fs.readFileSync(savePath + "bitmap-" + slot.toString() + ".json", 'utf-8')
+        bitmapObj = JSON.parse(bitmapRaw)
+      } catch (e) {
+        bitmapObj = {}
+      }
       for (let chunkZ = landZ * 6; chunkZ < (landZ * 6) + 6; chunkZ++) { 
         for (let chunkX = landX * 6; chunkX < (landX * 6) + 6; chunkX++) { 
           const saveFileName = 'land.' + chunkX.toString() + '.' + chunkZ.toString() + '.' + slot.toString() 
@@ -186,26 +177,50 @@ class MCServer extends EventEmitter {
                        "bitmap-" + 
                        slot.toString() + 
                        ".json", JSON.stringify(bitmapObj), 'utf-8')
-      return 'mesg:Saved new state for ' + this.voxel.data[landKey][1] + ' in slot ' + slot.toString()
     }
 
     // saves a single chunk to the relevant land-saves folder
-    this.voxel.saveChunkToFile = (slot, chunkX, chunkZ) => {
+    this.voxel.saveChunkToFile = (slot, chunkX, chunkZ, chunk) => {
       const landX = Math.floor(chunkX / 6)
       const landZ = Math.floor(chunkZ / 6)
       const landKey = landX.toString() + ':' + landZ.toString()
+      console.log("Saving chunk to file for land " + landKey)
       const savePath = this.voxel.landSaves
                        + this.voxel.data[landKey][0] + '/'
                        + ((parseInt(this.voxel.data[landKey][2]) > 7) ? 'futuristic' : 'fantasy')
                        + '/'
-      // check if land save folder exists and make it if it doesn't
       fse.ensureDirSync(savePath)
-      let bitmapObj = {}
-
+      // load bitmap if it already exists
+      let bitmapObj, bitmapRaw
+      try {
+        bitmapRaw = fs.readFileSync(savePath + "bitmap-" + slot.toString() + ".json", 'utf-8')
+        console.log("Found bitmap file")
+        bitmapObj = JSON.parse(bitmapRaw)
+      } catch (e) {
+        console.log("Had to create bitmap")
+        bitmapObj = {}
+      }
+      const saveFileName = 'land.' + chunkX.toString() + '.' + chunkZ.toString() + '.' + slot.toString() 
+      let chunkDump
+      try {
+        chunkDump = chunk.dump()
+        bitmapObj[chunkX.toString() + ':' + chunkZ.toString()] = chunk.dumpMask()
+      } catch (e) {
+        player._client.writeChannel('ethereum', 'mesg:Error chunk: ' + e)
+      }
+      try {
+        fs.writeFileSync(savePath + saveFileName + ".lnd", chunkDump)
+      } catch (e) {
+        player._client.writeChannel('ethereum', 'mesg:Error saving: ' + e)
+      }
+      fs.writeFileSync(savePath + 
+                       "bitmap-" + 
+                       slot.toString() + 
+                       ".json", JSON.stringify(bitmapObj), 'utf-8')
     }
 
     // reads a single chunk from a land-saves folder and returns it
-    this.voxel.loadChunkFromFile = (slot, ChunkX, ChunkZ) => { 
+    this.voxel.loadChunkFromFile = (slot, chunkX, chunkZ) => { 
       const landX = Math.floor(chunkX / 6)
       const landZ = Math.floor(chunkZ / 6)
       const landKey = landX.toString() + ':' + landZ.toString()
@@ -213,8 +228,28 @@ class MCServer extends EventEmitter {
                        + this.voxel.data[landKey][0] + '/'
                        + ((parseInt(this.voxel.data[landKey][2]) > 7) ? 'futuristic' : 'fantasy')
                        + '/'
-    }
-
+      let bitmapObj, bitmapRaw
+      try {
+        bitmapRaw = fs.readFileSync(loadPath + "bitmap-" + slot.toString() + ".json", 'utf-8')
+        console.log("Found bitmap file")
+        bitmapObj = JSON.parse(bitmapRaw)
+      } catch (e) {
+        console.log("Had to create bitmap")
+        bitmapObj = {}
+      }
+      let chunk = new Chunk()
+      const loadFileName =  'land.' + 
+                            chunkX.toString() + '.' + 
+                            chunkZ.toString() + '.' + 
+                            slot.toString()
+      try {
+        const chunkData = new Buffer.from(fs.readFileSync(loadPath + loadFileName + '.lnd'));
+        chunk.load(chunkData, bitmapObj[chunkX.toString() + ':' + chunkZ.toString()])
+      } catch (e) {
+        console.log ('Error loading: ' + e)
+      }
+      return chunk
+    }    
   }
 
 
