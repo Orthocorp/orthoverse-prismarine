@@ -113,9 +113,9 @@ class MCServer extends EventEmitter {
       })
     }
 
-    // function to load a 6x6 land from a save file
-    this.voxel.loadLand = (slot, lat, long) => {
-      const landPos = long.toString() + ':' + lat.toString()
+    // function to load a 6x6 land from a save file to the mca file
+    this.voxel.loadLand = (slot, x, z) => {
+      const landPos = x.toString() + ':' + z.toString()
       // check there is actually a land to load
 
       // now we are ready to load that land from a file
@@ -131,8 +131,8 @@ class MCServer extends EventEmitter {
       } catch (e) {
          return 'mesg:You cannot load an unsaved land.'
       }
-      for (let chunkZ = lat * 6; chunkZ < (lat * 6) + 6; chunkZ++) { 
-        for (let chunkX = long * 6; chunkX < (long * 6) + 6; chunkX++) { 
+      for (let chunkZ = z * 6; chunkZ < (z * 6) + 6; chunkZ++) { 
+        for (let chunkX = x * 6; chunkX < (x * 6) + 6; chunkX++) { 
           const loadFileName =  'land.' + 
                                 chunkX.toString() + '.' + 
                                 chunkZ.toString() + '.' + 
@@ -153,9 +153,10 @@ class MCServer extends EventEmitter {
       return 'mesg:Loaded new state for ' + this.voxel.data[landPos][1] + ' in slot ' + slot.toString()
     }
 
-    // function to save a 6x6 land to a save file
-    this.voxel.saveLand = (slot, lat, long) => {
-      const landPos = long.toString() + ':' + lat.toString()
+    // function to save a 6x6 land to a save file from the mca file
+    // takes a land position
+    this.voxel.saveLand = (slot, x, z) => {
+      const landPos = x.toString() + ':' + z.toString()
       // now we are ready to save that land into a file
       // file name format: <slot>-<realm>.lnd
       // Note that the region files containing the land data are in
@@ -168,16 +169,14 @@ class MCServer extends EventEmitter {
       console.log("savePath is " + savePath)
       // check if land save folder exists and make it if it doesn't
       fse.ensureDirSync(savePath)
-
       // mca stands for minecraft anvil region
       // a chunk is a 16x256x16 column of data. An Orthoverse land is a 96 block wide square, 
       // making it a 6 by 6 collection of chunks
       // so to save a land we just need to save an array of 6x6 = 36 chunks
-
       let bitmapObj = {}
 
-      for (let chunkZ = lat * 6; chunkZ < (lat * 6) + 6; chunkZ++) { 
-        for (let chunkX = long * 6; chunkX < (long * 6) + 6; chunkX++) { 
+      for (let chunkZ = z * 6; chunkZ < (z * 6) + 6; chunkZ++) { 
+        for (let chunkX = x * 6; chunkX < (x * 6) + 6; chunkX++) { 
           const saveFileName = 'land.' + chunkX.toString() + '.' + chunkZ.toString() + '.' + slot.toString() 
 
           let chunkDump
@@ -204,6 +203,22 @@ class MCServer extends EventEmitter {
       return 'mesg:Saved new state for ' + this.voxel.data[landPos][1] + ' in slot ' + slot.toString()
     }
 
+    this.voxel.saveChunkToFile = (slot, chunkX, chunkZ) => {
+      const landX = Math.floor(chunkX / 6)
+      const landZ = Math.floor(chunkZ / 6)
+      const landPos = landX.toString() + ':' + landZ.toString()
+      const savePath = this.voxel.landSaves
+                       + this.voxel.data[landPos][0] + '/'
+                       + ((parseInt(this.voxel.data[landPos][2]) > 7) ? 'futuristic' : 'fantasy')
+                       + '/'
+      // check if land save folder exists and make it if it doesn't
+      fse.ensureDirSync(savePath)
+      let bitmapObj = {}
+
+    }
+
+    this.voxel.loadChunkFromFile = (slot, x, z) => { 
+    }
 
   }
 

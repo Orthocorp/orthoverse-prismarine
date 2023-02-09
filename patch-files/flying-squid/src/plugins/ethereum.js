@@ -8,14 +8,14 @@ module.exports.player = function (player, serv) {
   let xCoord = 0
   let zCoord = 0
 
-  // this converts an in-world x or z coordinate into a land tile coordinate
+  // this converts an in-world x or z coordinate into a land coordinate
   function landCoord (m) {
     return (Math.floor(m / 96))
   }
 
-  // this returns the top-left block coordiante given a tile position
-  function tileCorner (lat, long) {
-    return [Math.floor(lat * 96), Math.floor(long * 96)]
+  // this returns the top-left block coordinate given a land position
+  function landCorner (landX, landZ) {
+    return [Math.floor(landX * 96), Math.floor(landZ * 96)]
   }
 
   // to prevent more than one save every 10 minutes for level 1
@@ -43,11 +43,11 @@ module.exports.player = function (player, serv) {
   player.on('move', ({ position }, cancelled) => {
     // only act on Ethereum events if the player has verified their address
     if (player.ethereum.confirmed === true) {
-      // check whether player has moved onto a new tile
+      // check whether player has moved onto a new land
       if ((xCoord !== landCoord(player.position.x)) || (zCoord !== landCoord(player.position.z))) {
         xCoord = landCoord(xStor)
         zCoord = landCoord(zStor)
-        // we have moved into a new tile
+        // we have moved into a new land
         const landPos = xCoord.toString() + ':' + zCoord.toString()
         if (landPos in serv.voxel.data) {
           const landOwner = serv.voxel.data[landPos][4]
@@ -92,7 +92,10 @@ module.exports.player = function (player, serv) {
     // This section handles teleporting back to the Orthohenge
     if (msg.slice(0, 5) === 'home!') {
       console.log('Player wants to teleport home')
-      console.log('Location is ' + player.position.x + ',' + player.position.y + ',' + player.position.z)
+      console.log('Location is ' +
+                   player.position.x + ',' + 
+                   player.position.y + ',' + 
+                   player.position.z)
       player.teleport(player.spawnPoint)
       // console.log("Landing block: " + player.blockAt(new Vec3(xStor, yStor - 1, zStor)))
     }
@@ -103,9 +106,9 @@ module.exports.player = function (player, serv) {
     if (msg.slice(0, 5) === 'save:') {
       const slot = msg.slice(-1)
       // check what land the player is standing in
-      const long = landCoord(player.position.x)
-      const lat = landCoord(player.position.z)
-      const landPos = long.toString() + ':' + lat.toString()
+      const landX = landCoord(player.position.x)
+      const landZ = landCoord(player.position.z)
+      const landPos = landX.toString() + ':' + landZ.toString()
       if (landPos in serv.voxel.data) {
         const landOwner = serv.voxel.data[landPos][4]
         // check the player owns it
@@ -144,7 +147,7 @@ module.exports.player = function (player, serv) {
         return     
       }
 
-      const result = serv.voxel.saveLand(slot, lat, long)
+      const result = serv.voxel.saveLand(slot, landX, landZ)
       console.log(result)
       player._client.writeChannel('ethereum', result)
 
@@ -155,13 +158,14 @@ module.exports.player = function (player, serv) {
     // *********************************************
     if (msg.slice(0, 5) === 'load:') {
       console.log('Load request is ' + msg.slice(5))
-      console.log('Location is ' + player.position.x + ',' + player.position.y + ',' + player.position.z)
+      console.log('Location is ' + player.position.x + ',' + 
+                  player.position.y + ',' + player.position.z)
       const slot = msg.slice(-1)
       player._client.writeChannel('ethereum', 'mesg:' + 'Trying to load slot ' + slot)
       // check what land the player is standing in
-      const long = landCoord(player.position.x)
-      const lat = landCoord(player.position.z)
-      const landPos = long.toString() + ':' + lat.toString()
+      const landX = landCoord(player.position.x)
+      const landZ = landCoord(player.position.z)
+      const landPos = landX.toString() + ':' + landZ.toString()
       if (landPos in serv.voxel.data) {
         const landOwner = serv.voxel.data[landPos][4]
         // check the player owns it
@@ -201,7 +205,7 @@ module.exports.player = function (player, serv) {
         return     
       } 
 
-      const result = serv.voxel.loadLand(slot, lat, long)
+      const result = serv.voxel.loadLand(slot, landX, landZ)
       console.log(result)
       player._client.writeChannel('ethereum', result)
 
