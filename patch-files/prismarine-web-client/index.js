@@ -442,6 +442,12 @@ async function connect(options) {
 
     const skybox = new THREE.Mesh(skyGeo, skyMaterials)
     viewer.scene.add(skybox);
+    // rotate the clouds
+    new TWEEN.Tween(skybox.rotation)
+      .to({y: "-" + (Math.PI/2) * 8}, 2000000)
+      .repeat(Infinity)
+      .start()
+
 
     // add the sun
     const sunGeo = new THREE.SphereGeometry(32, 16, 16)
@@ -535,7 +541,7 @@ async function connect(options) {
             x: sunP[0] + bot.entity.position.x, 
             y: sun.position.y = sunP[1] + bot.entity.position.y,
             z: bot.entity.position.z
-          }, 500)
+          }, 5)
           .start()
         sun.material.color.setHex(sunP[2])
         sun.scale.set(sunP[3], sunP[3], sunP[3])
