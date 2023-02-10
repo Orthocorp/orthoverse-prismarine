@@ -46,6 +46,16 @@ main().then( (orthoverse) => {
   orthoverse.voxel.load().then( () => {
     orthoverse.voxel.loadFile()
     orthoverse.connect(options)
+
+    // check on land sync state every 10 minutes and save the land status
+    const landSyncCheck = setInterval(function() {
+       console.log('Land sync check')
+      // check database diff
+
+      // save current status
+      orthoverse.voxel.saveFile()
+    }, 1000*600) 
+
   })
 })
 
