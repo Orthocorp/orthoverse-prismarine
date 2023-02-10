@@ -33,6 +33,7 @@ const { WorldView, Viewer } = require('prismarine-viewer/viewer')
 const pathfinder = require('mineflayer-pathfinder')
 const { Vec3 } = require('vec3')
 global.THREE = require('three')
+const TWEEN = require('@tweenjs/tween.js')
 const { initVR } = require('./lib/vr')
 let firstPerson = true
 
@@ -401,6 +402,79 @@ async function connect(options) {
     // Day and night
     const skyColor = viewer.scene.background.getHexString()
 
+    // skybox
+    const skyGeo = new THREE.BoxGeometry(800, 800, 800)
+    const feature = 'sh'
+
+    const loader = new THREE.TextureLoader()
+    const skyMaterials = [
+      new THREE.MeshBasicMaterial({
+        map: loader.load('extra-textures/background/' + feature + '_ft.png'),
+        transparent: true,
+        side: THREE.DoubleSide,
+      }), // WS
+      new THREE.MeshBasicMaterial({
+        map: loader.load('extra-textures/background/' + feature + '_bk.png'),
+        transparent: true,
+        side: THREE.DoubleSide,
+      }), // ES
+      new THREE.MeshBasicMaterial({
+        map: loader.load('extra-textures/background/' + feature + '_up.png'),
+        transparent: true,
+        side: THREE.DoubleSide,
+      }), // Up
+      new THREE.MeshBasicMaterial({
+        map: loader.load('extra-textures/background/' + feature + '_dn.png'),
+        transparent: true,
+        side: THREE.DoubleSide,
+      }), // Down
+      new THREE.MeshBasicMaterial({
+        map: loader.load('extra-textures/background/' + feature + '_rt.png'),
+        transparent: true,
+        side: THREE.DoubleSide,
+      }), // NS
+      new THREE.MeshBasicMaterial({
+        map: loader.load('extra-textures/background/' + feature + '_lf.png'),
+        transparent: true,
+        side: THREE.DoubleSide,
+      }), // SS
+    ]
+
+    const skybox = new THREE.Mesh(skyGeo, skyMaterials)
+    viewer.scene.add(skybox);
+
+    // add the sun
+    const sunGeo = new THREE.SphereGeometry(32, 16, 16)
+    const sunMaterial = new THREE.MeshBasicMaterial( {color: 0xffff00} )
+    const sun = new THREE.Mesh(sunGeo, sunMaterial)
+
+    function sunPositionCalculation(time) {
+      if (time >= 16000 && time <= 23000) { // night
+        return [0, -60, 0, 1]
+      } else { // day
+         const adjTime = ((time + 1000) % 24000) - 1000 // make dawn -1000, dusk 1600
+         const rads = adjTime * (Math.PI / 15000)
+         const sunX = Math.cos(rads) * 600
+         const sunY = Math.sin(rads) * 600
+         const scaleFactor = 1.5 - Math.abs(Math.sin(rads))
+         const colorFactor = Math.abs(Math.sin(rads))
+         const red = 0xff
+         const green = Math.floor(0xff * (colorFactor))
+         const blue = Math.floor(0xff * (colorFactor/2))
+         const color = (red * 0x10000) + (green * 0x100) + blue
+         return [sunX, sunY, color, scaleFactor]
+      } 
+    } 
+
+    viewer.scene.add(sun)
+
+    const sunParams = sunPositionCalculation(bot.time.timeOfDay)
+    console.log(sunParams)
+    sun.position.x = sunParams[0]
+    sun.position.y = sunParams[1]
+    sun.material.color.setHex(sunParams[2])
+    sun.position.z = 0
+
     // Darken by factor (0 to black, 0.5 half as bright, 1 unchanged)
     function darkenSky(color, factor) {
       color = parseInt(color, 16)
@@ -437,9 +511,11 @@ async function connect(options) {
       const moonPhase = bot.time.moonPhase
       if (typeof currentTime !== 'undefined') {
         const intensity = intensityCalc(currentTime)
+
         viewer.scene.background = new THREE.Color(
-          '#' + darkenSky(skyColor, intensity).padStart(6, 0)
+           '#' + darkenSky(skyColor, intensity).padStart(6, 0)
         )
+
         viewer.ambientLight.intensity =
           (intensity < 0.25 ? 0.25 : intensity) + (0.07 - moonPhase / 100)
         viewer.directionalLight.intensity = intensity + (0.07 - moonPhase / 100)
@@ -451,6 +527,20 @@ async function connect(options) {
           )
           .normalize()
       }
+      // change the position of the sun
+      if (typeof bot.entity.position.x !== 'undefined' ) {
+        const sunP = sunPositionCalculation(currentTime)
+        new TWEEN.Tween(sun.position)
+          .to( {
+            x: sunP[0] + bot.entity.position.x, 
+            y: sun.position.y = sunP[1] + bot.entity.position.y,
+            z: bot.entity.position.z
+          }, 500)
+          .start()
+        sun.material.color.setHex(sunP[2])
+        sun.scale.set(sunP[3], sunP[3], sunP[3])
+      }
+
     }, 750)
 
     // Bot position callback
@@ -472,8 +562,17 @@ async function connect(options) {
           movingBot
         )
       }
+
+      // move the sun and the sky
+      if (typeof bot.entity.position.x !== 'undefined' ) {
+        skybox.position.x = bot.entity.position.x
+        skybox.position.y = bot.entity.position.y
+        skybox.position.z = bot.entity.position.z
+      }
+
       worldView.updatePosition(bot.entity.position)
     }
+
     bot.on('move', botPosition)
     botPosition()
 
@@ -592,10 +691,10 @@ async function connect(options) {
                 bot.setControlState('jump', true)
                 break
               case 'KeyD':
-                bot.setControlState('left', true)
+                bot.setControlState('right', true)
                 break
               case 'KeyA':
-                bot.setControlState('right', true)
+                bot.setControlState('left', true)
                 break
               case 'KeyS':
                 bot.setControlState('back', true)
@@ -639,10 +738,10 @@ async function connect(options) {
                 bot.setControlState('jump', false)
                 break
               case 'KeyD':
-                bot.setControlState('left', false)
+                bot.setControlState('right', false)
                 break
               case 'KeyA':
-                bot.setControlState('right', false)
+                bot.setControlState('left', false)
                 break
               case 'KeyS':
                 bot.setControlState('back', false)
