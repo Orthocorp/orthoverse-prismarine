@@ -48,9 +48,9 @@ module.exports.player = function (player, serv) {
         xCoord = landCoord(xStor)
         zCoord = landCoord(zStor)
         // we have moved into a new land
-        const landPos = xCoord.toString() + ':' + zCoord.toString()
-        if (landPos in serv.voxel.data) {
-          const landOwner = serv.voxel.data[landPos][4]
+        const landKey = xCoord.toString() + ':' + zCoord.toString()
+        if (landKey in serv.voxel.data) {
+          const landOwner = serv.voxel.data[landKey][4]
           if (player.ethereum.wallet === landOwner) {
             player._client.writeChannel('ethereum', 'ownd:true')
           } else {
@@ -66,7 +66,7 @@ module.exports.player = function (player, serv) {
   })
 
   player._client.on('ethereum', (msg) => {
-    serv.info('Player ethereum channel message received:' , msg)
+    // serv.info('Player ethereum channel message received:' , msg)
 
     // This section handles the ethereum address signing challenge/response
     if (msg.slice(0, 5) === 'chal:') {
@@ -108,9 +108,9 @@ module.exports.player = function (player, serv) {
       // check what land the player is standing in
       const landX = landCoord(player.position.x)
       const landZ = landCoord(player.position.z)
-      const landPos = landX.toString() + ':' + landZ.toString()
-      if (landPos in serv.voxel.data) {
-        const landOwner = serv.voxel.data[landPos][4]
+      const landKey = landX.toString() + ':' + landZ.toString()
+      if (landKey in serv.voxel.data) {
+        const landOwner = serv.voxel.data[landKey][4]
         // check the player owns it
         if (player.ethereum.wallet !== landOwner){
           player._client.writeChannel('ethereum', 'mesg:You cannot save a land you do not own')
@@ -121,26 +121,26 @@ module.exports.player = function (player, serv) {
         return
       }
       // check that the save slot is within the level of the land
-      if (serv.voxel.data[landPos][2] % 8 === 0) {
+      if (serv.voxel.data[landKey][2] % 8 === 0) {
         player._client.writeChannel('ethereum', 
           'mesg:Save is only available for levels 1 or more'
         )
         return
       }
       if (player.username !== 'BCGandalf') {
-        if (timeLimit(serv.voxel.data[landPos][2] % 8) === false) {
+        if (timeLimit(serv.voxel.data[landKey][2] % 8) === false) {
           player._client.writeChannel('ethereum',
             'mesg:You can only save or load land once every ' + 
-             ((660 - ((serv.voxel.data[landPos][2] % 8) * 60))/60).toString() + 
+             ((660 - ((serv.voxel.data[landKey][2] % 8) * 60))/60).toString() + 
              ' minutes to stop spammers overloading the server'
           )
           return
         }
       }
-      if (serv.voxel.data[landPos][2] % 8 < slot) {
+      if (serv.voxel.data[landKey][2] % 8 < slot) {
         player._client.writeChannel('ethereum', 
           'mesg:Your land is level ' + 
-          (serv.voxel.data[landPos][2] % 8).toString() + 
+          (serv.voxel.data[landKey][2] % 8).toString() + 
           ' so save/load slot ' + slot.toString() + 
           ' is not available.'
         )
@@ -148,7 +148,6 @@ module.exports.player = function (player, serv) {
       }
 
       const result = serv.voxel.saveLand(slot, landX, landZ)
-      console.log(result)
       player._client.writeChannel('ethereum', result)
 
     }
@@ -157,17 +156,14 @@ module.exports.player = function (player, serv) {
     // this is where we load a previously saved land
     // *********************************************
     if (msg.slice(0, 5) === 'load:') {
-      console.log('Load request is ' + msg.slice(5))
-      console.log('Location is ' + player.position.x + ',' + 
-                  player.position.y + ',' + player.position.z)
       const slot = msg.slice(-1)
       player._client.writeChannel('ethereum', 'mesg:' + 'Trying to load slot ' + slot)
       // check what land the player is standing in
       const landX = landCoord(player.position.x)
       const landZ = landCoord(player.position.z)
-      const landPos = landX.toString() + ':' + landZ.toString()
-      if (landPos in serv.voxel.data) {
-        const landOwner = serv.voxel.data[landPos][4]
+      const landKey = landX.toString() + ':' + landZ.toString()
+      if (landKey in serv.voxel.data) {
+        const landOwner = serv.voxel.data[landKey][4]
         // check the player owns it
         if (player.ethereum.wallet !== landOwner) { 
           player._client.writeChannel('ethereum', 'mesg:You cannot load a land you do not own')
@@ -178,35 +174,34 @@ module.exports.player = function (player, serv) {
         return
       }
       // check that the save slot is within the level of the land
-      if (serv.voxel.data[landPos][2] % 8 === 0) {
+      if (serv.voxel.data[landKey][2] % 8 === 0) {
         player._client.writeChannel('ethereum', 
           'mesg:Load is only available for levels 1 or more'
         )
         return     
       }
       if (player.username !== 'BCGandalf') {
-        if (timeLimit(serv.voxel.data[landPos][2] % 8) === false) {
+        if (timeLimit(serv.voxel.data[landKey][2] % 8) === false) {
           player._client.writeChannel('ethereum',
             'mesg:You can only save or load land once every ' + 
-             ((660 - ((serv.voxel.data[landPos][2] % 8) * 60))/60).toString() + 
+             ((660 - ((serv.voxel.data[landKey][2] % 8) * 60))/60).toString() + 
              ' minutes to stop spammers overloading the server'
           )
           return
         }
       }
-      if (serv.voxel.data[landPos][2] % 8 < slot) {
+      if (serv.voxel.data[landKey][2] % 8 < slot) {
         player._client.writeChannel('ethereum', 
           'mesg:Your land is level ' + 
-          (serv.voxel.data[landPos][2] % 8).toString() + 
+          (serv.voxel.data[landKey][2] % 8).toString() + 
           ' so save/load slot ' + 
           slot.toString() + 
           ' is not available.'
         )
         return     
-      } 
+      }
 
       const result = serv.voxel.loadLand(slot, landX, landZ)
-      console.log(result)
       player._client.writeChannel('ethereum', result)
 
     }

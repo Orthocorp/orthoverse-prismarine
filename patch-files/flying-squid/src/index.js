@@ -102,6 +102,9 @@ class MCServer extends EventEmitter {
                        + ((parseInt(this.voxel.data[landKey][2]) > 7) ? 'futuristic' : 'fantasy')
                        + '/'
       let bitmapObj, bitmapRaw
+      if (!(fs.existsSync(loadPath + "bitmap-" + slot.toString() + ".json"))) {
+         return 'mesg:You cannot load an unsaved land.'
+      }
       try {
         bitmapRaw = fs.readFileSync(loadPath + "bitmap-" + slot.toString() + ".json", 'utf-8')
       } catch (e) {
@@ -118,8 +121,6 @@ class MCServer extends EventEmitter {
                                 chunkX.toString() + '.' + 
                                 chunkZ.toString() + '.' + 
                                 slot.toString()
-          console.log(chunkX, chunkZ)
-          console.log(bitmapObj[chunkX.toString() + ':' + chunkZ.toString()])
           try {
             const chunkData = new Buffer.from(fs.readFileSync(loadPath + loadFileName + '.lnd'));
             const chunk = new Chunk()
@@ -157,7 +158,6 @@ class MCServer extends EventEmitter {
           const saveFileName = 'land.' + chunkX.toString() + '.' + chunkZ.toString() + '.' + slot.toString() 
 
           let chunkDump
-          console.log("Trying to save chunk " + chunkX.toString() + ":" + chunkZ.toString())
           try {
             const chunk = this.overworld.sync.getColumn(chunkX, chunkZ)
             chunkDump = chunk.dump()
@@ -177,6 +177,7 @@ class MCServer extends EventEmitter {
                        "bitmap-" + 
                        slot.toString() + 
                        ".json", JSON.stringify(bitmapObj), 'utf-8')
+      return "mesg:Saved land to slot " + slot.toString()
     }
 
     // saves a single chunk to the relevant land-saves folder
@@ -184,7 +185,6 @@ class MCServer extends EventEmitter {
       const landX = Math.floor(chunkX / 6)
       const landZ = Math.floor(chunkZ / 6)
       const landKey = landX.toString() + ':' + landZ.toString()
-      console.log("Saving chunk to file for land " + landKey)
       const savePath = this.voxel.landSaves
                        + this.voxel.data[landKey][0] + '/'
                        + ((parseInt(this.voxel.data[landKey][2]) > 7) ? 'futuristic' : 'fantasy')
@@ -194,10 +194,8 @@ class MCServer extends EventEmitter {
       let bitmapObj, bitmapRaw
       try {
         bitmapRaw = fs.readFileSync(savePath + "bitmap-" + slot.toString() + ".json", 'utf-8')
-        console.log("Found bitmap file")
         bitmapObj = JSON.parse(bitmapRaw)
       } catch (e) {
-        console.log("Had to create bitmap")
         bitmapObj = {}
       }
       const saveFileName = 'land.' + chunkX.toString() + '.' + chunkZ.toString() + '.' + slot.toString() 
@@ -231,10 +229,8 @@ class MCServer extends EventEmitter {
       let bitmapObj, bitmapRaw
       try {
         bitmapRaw = fs.readFileSync(loadPath + "bitmap-" + slot.toString() + ".json", 'utf-8')
-        console.log("Found bitmap file")
         bitmapObj = JSON.parse(bitmapRaw)
       } catch (e) {
-        console.log("Had to create bitmap")
         bitmapObj = {}
       }
       let chunk = new Chunk()
