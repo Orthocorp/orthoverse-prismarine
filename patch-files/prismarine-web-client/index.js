@@ -440,28 +440,30 @@ async function connect(options) {
       }), // SS
     ]
 
-    const skybox = new THREE.Mesh(skyGeo, skyMaterials)
-    viewer.scene.add(skybox);
-    // rotate the clouds
-    new TWEEN.Tween(skybox.rotation)
-      .to({y: "-" + (Math.PI/2) * 8}, 2000000)
-      .repeat(Infinity)
-      .start()
-
-
     // add the sun
-    const sunGeo = new THREE.SphereGeometry(32, 16, 16)
+    const sunGeo = new THREE.SphereGeometry(64, 16, 16)
     const sunMaterial = new THREE.MeshBasicMaterial( {color: 0xffff00} )
     const sun = new THREE.Mesh(sunGeo, sunMaterial)
 
+    const moonTexture = new THREE.MeshBasicMaterial({
+      map: loader.load('extra-textures/background/moon.jpg'),
+    })
+    const moonGeo = new THREE.SphereGeometry(64, 24, 24)
+    const moon = new THREE.Mesh( moonGeo, moonTexture)
+
+    const skybox = new THREE.Mesh(skyGeo, skyMaterials)
+
+    const sunDist = 1000
+    const moonDist = sunDist - 100
+
     function sunPositionCalculation(time) {
       if (time >= 16000 && time <= 23000) { // night
-        return [0, -60, 0, 1]
+        return [0, -1 * sunDist, 0, 1]
       } else { // day
          const adjTime = ((time + 1000) % 24000) - 1000 // make dawn -1000, dusk 1600
          const rads = adjTime * (Math.PI / 15000)
-         const sunX = Math.cos(rads) * 600
-         const sunY = Math.sin(rads) * 600
+         const sunX = Math.cos(rads) * sunDist
+         const sunY = Math.sin(rads) * sunDist
          const scaleFactor = 1.5 - Math.abs(Math.sin(rads))
          const colorFactor = Math.abs(Math.sin(rads))
          const red = 0xff
@@ -472,14 +474,38 @@ async function connect(options) {
       } 
     } 
 
-    viewer.scene.add(sun)
+    function moonPositionCalculation(time) {
+      if (time <= 15000 && time >= 1000) { // day
+        return [0, -1 * moonDist, 0, 1]
+      } else { // night
+         let adjTime = time
+         if (time < 1000) {adjTime = adjTime + 24000}
+         adjTime = adjTime - 16000
+         const rads = adjTime * (Math.PI / 8000)
+         const moonX = Math.cos(rads) * moonDist
+         const moonY = Math.sin(rads) * moonDist
+         const moonZ = 0
+         const scaleFactor = 1.5 - Math.abs(Math.sin(rads) / 1.5)
+         return [moonX, moonY, moonZ, scaleFactor]
+      } 
+    } 
 
-    const sunParams = sunPositionCalculation(bot.time.timeOfDay)
-    console.log(sunParams)
-    sun.position.x = sunParams[0]
-    sun.position.y = sunParams[1]
-    sun.material.color.setHex(sunParams[2])
-    sun.position.z = 0
+    sun.position.y = -1 * sunDist
+    moon.position.y = -1 * moonDist
+
+    viewer.scene.add(sun)
+    viewer.scene.add(moon)
+    viewer.scene.add(skybox);
+    // rotate the clouds
+    new TWEEN.Tween(skybox.rotation)
+      .to({y: "-" + (Math.PI/2) * 8}, 2000000)
+      .repeat(Infinity)
+      .start()
+    // rotate the moon
+    new TWEEN.Tween(moon.rotation)
+      .to({z: "-" + (Math.PI/2) * 8}, 800000)
+      .repeat(Infinity)
+      .start()
 
     // Darken by factor (0 to black, 0.5 half as bright, 1 unchanged)
     function darkenSky(color, factor) {
@@ -514,7 +540,6 @@ async function connect(options) {
     // Every 750ms change light settings
     window.setInterval(function () {
       const currentTime = bot.time.timeOfDay
-      const moonPhase = bot.time.moonPhase
       if (typeof currentTime !== 'undefined') {
         const intensity = intensityCalc(currentTime)
 
@@ -523,8 +548,8 @@ async function connect(options) {
         )
 
         viewer.ambientLight.intensity =
-          (intensity < 0.25 ? 0.25 : intensity) + (0.07 - moonPhase / 100)
-        viewer.directionalLight.intensity = intensity + (0.07 - moonPhase / 100)
+          (intensity < 0.25 ? 0.25 : intensity)
+        viewer.directionalLight.intensity = intensity
         viewer.directionalLight.position
           .set(
             Math.cos(timeToRads(currentTime)),
@@ -532,19 +557,32 @@ async function connect(options) {
             0.2
           )
           .normalize()
-      }
-      // change the position of the sun
-      if (typeof bot.entity.position.x !== 'undefined' ) {
-        const sunP = sunPositionCalculation(currentTime)
-        new TWEEN.Tween(sun.position)
-          .to( {
-            x: sunP[0] + bot.entity.position.x, 
-            y: sun.position.y = sunP[1] + bot.entity.position.y,
-            z: bot.entity.position.z
-          }, 5)
-          .start()
-        sun.material.color.setHex(sunP[2])
-        sun.scale.set(sunP[3], sunP[3], sunP[3])
+  
+        // change the position of the sun
+        if (typeof bot.entity.position.x !== 'undefined' ) {
+          const sunP = sunPositionCalculation(currentTime)
+          new TWEEN.Tween(sun.position)
+            .to( {
+              x: sunP[0] + bot.entity.position.x, 
+              y: sunP[1] + bot.entity.position.y,
+              z: bot.entity.position.z
+            }, 750)
+            .start()
+          sun.material.color.setHex(sunP[2])
+          sun.scale.set(sunP[3], sunP[3], sunP[3])
+        }
+
+        if (typeof bot.entity.position.x !== 'undefined' ) {
+          const moonP = moonPositionCalculation(currentTime)
+          new TWEEN.Tween(moon.position)
+            .to( {
+              x: moonP[0] + bot.entity.position.x, 
+              y: moonP[1] + bot.entity.position.y,
+              z: moonP[2] + bot.entity.position.z
+            }, 750)
+            .start()
+          moon.scale.set(moonP[3], moonP[3], moonP[3])
+        }
       }
 
     }, 750)
@@ -569,7 +607,7 @@ async function connect(options) {
         )
       }
 
-      // move the sun and the sky
+      // move the sky if the player moves
       if (typeof bot.entity.position.x !== 'undefined' ) {
         skybox.position.x = bot.entity.position.x
         skybox.position.y = bot.entity.position.y
