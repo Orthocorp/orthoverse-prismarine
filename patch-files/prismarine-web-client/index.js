@@ -503,7 +503,7 @@ async function connect(options) {
       .start()
     // rotate the moon
     new TWEEN.Tween(moon.rotation)
-      .to({z: "-" + (Math.PI/2) * 8}, 800000)
+      .to({z: (Math.PI/2) * 8, y: (Math.PI/2) * 8}, 700000)
       .repeat(Infinity)
       .start()
 
