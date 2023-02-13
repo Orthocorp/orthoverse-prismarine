@@ -440,17 +440,20 @@ async function connect(options) {
       }), // SS
     ]
 
-    // add the sun
-    const sunGeo = new THREE.SphereGeometry(28, 16, 16)
+    const skybox = new THREE.Mesh(skyGeo, skyMaterials)
+
+    // add the sun and moon
+    const sunGeo = new THREE.SphereGeometry(28, 24, 24)
     const sunMaterial = new THREE.MeshBasicMaterial( {color: 0xffff00} )
     const sun = new THREE.Mesh(sunGeo, sunMaterial)
 
     const moonMaterial = new THREE.MeshBasicMaterial( {color: 0xaaaaaa} )
-    const moonGeo = new THREE.SphereGeometry(20, 16, 16)
+    const moonGeo = new THREE.SphereGeometry(20, 32, 32)
     const moon = new THREE.Mesh( moonGeo, moonMaterial)
-    moon.material.opacity = 0.3
 
-    const skybox = new THREE.Mesh(skyGeo, skyMaterials)
+    const phaseMaterial = new THREE.MeshBasicMaterial( {color: 0xffff00} )
+    const phaseGeo = new THREE.SphereGeometry(21, 32, 32, 0, 2*Math.PI, 0, Math.PI/2)
+    const phase = new THREE.Mesh( phaseGeo, phaseMaterial)
 
     const sunDist = 400
     const moonDist = 300
@@ -499,9 +502,11 @@ async function connect(options) {
 
     sun.position.y = -1 * sunDist
     moon.position.y = -1 * moonDist
+    phase.position.y = -1 * moonDist
 
     viewer.scene.add(sun)
     viewer.scene.add(moon)
+    viewer.scene.add(phase)
     viewer.scene.add(skybox);
 
     // rotate the clouds
@@ -509,16 +514,21 @@ async function connect(options) {
       .to({y: "-" + (Math.PI/2) * 8}, 2000000)
       .repeat(Infinity)
       .start()
-    // rotate the moon
+    // rotate the phase for testing
+    const PhaseRotateTween = new TWEEN.Tween(phase.rotation)
+      .to({z: (Math.PI/2) * 8, y: (Math.PI/2) * 8}, 70000)
+      .repeat(Infinity)
+      .start()
+
 
     // Darken by factor (0 to black, 0.5 half as bright, 1 unchanged)
     function darkenSky(color, factor) {
       color = parseInt(color, 16)
-      return (
+      return '#' + (
         Math.round((color & 0x0000ff) * factor) |
         (Math.round(((color >> 8) & 0x00ff) * factor) << 8) |
         (Math.round((color >> 16) * factor) << 16)
-      ).toString(16)
+      ).toString(16).padStart(6, 0)
     }
 
     // Provides gradual sunrise or sunset sky
@@ -545,9 +555,14 @@ async function connect(options) {
       if (typeof currentTime !== 'undefined') {
         const intensity = intensityCalc(currentTime)
 
-        viewer.scene.background = new THREE.Color(
-           '#' + darkenSky(skyColor, intensity).padStart(6, 0)
-        )
+        adjustedSkyColor = new THREE.Color(
+           darkenSky(skyColor, intensity)
+        ) 
+
+        viewer.scene.background = adjustedSkyColor
+ 
+
+        phase.material.color.set(adjustedSkyColor)
 
         viewer.ambientLight.intensity =
           (intensity < 0.25 ? 0.25 : intensity)
@@ -578,7 +593,12 @@ async function connect(options) {
           .to(moonP.pos, tweenFuture)
           .start()
 
+        const phaseA = new TWEEN.Tween(phase.position)
+          .to(moonP.pos, tweenFuture)
+          .start()
+
         moon.scale.set(moonP['scale'], moonP['scale'], moonP['scale'])
+        phase.scale.set(moonP['scale'], moonP['scale'], moonP['scale'])
       }
 
     }, 750)
