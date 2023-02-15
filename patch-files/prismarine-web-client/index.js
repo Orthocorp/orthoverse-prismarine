@@ -515,10 +515,11 @@ async function connect(options) {
       .repeat(Infinity)
       .start()
     // rotate the phase for testing
-    const PhaseRotateTween = new TWEEN.Tween(phase.rotation)
+    /* const PhaseRotateTween = new TWEEN.Tween(phase.rotation)
       .to({z: (Math.PI/2) * 8, y: (Math.PI/2) * 8}, 70000)
       .repeat(Infinity)
       .start()
+    */
 
 
     // Darken by factor (0 to black, 0.5 half as bright, 1 unchanged)
@@ -561,7 +562,6 @@ async function connect(options) {
 
         viewer.scene.background = adjustedSkyColor
  
-
         phase.material.color.set(adjustedSkyColor)
 
         viewer.ambientLight.intensity =
@@ -576,6 +576,9 @@ async function connect(options) {
         const lightDir = (new THREE.Vector3().subVectors(sun.position, playerPos3)).normalize()
         viewer.directionalLight.position
           .set(lightDir.x, lightDir.y, lightDir.z)
+
+        const phaseDir = (new THREE.Vector3().subVectors(sun.position, phase.position)).normalize()
+        phase.up.copy(phaseDir)
 
         sunP = sunPositionCalculation(currentTime)   
 
