@@ -21,6 +21,7 @@ require('./lib/menus/options_screen')
 require('./lib/menus/title_screen')
 
 const { getName } = require('./lib/generateNames')
+const { celestial } = require('./celestial')
 
 const net = require('net')
 const Cursor = require('./lib/cursor')
@@ -33,7 +34,6 @@ const { WorldView, Viewer } = require('prismarine-viewer/viewer')
 const pathfinder = require('mineflayer-pathfinder')
 const { Vec3 } = require('vec3')
 global.THREE = require('three')
-const TWEEN = require('@tweenjs/tween.js')
 const { initVR } = require('./lib/vr')
 let firstPerson = true
 
@@ -399,212 +399,8 @@ async function connect(options) {
     worldView.listenToBot(bot)
     worldView.init(bot.entity.position)
 
-    // Day and night
-    const skyColor = viewer.scene.background.getHexString()
-
-    // skybox
-    const skyGeo = new THREE.BoxGeometry(240, 240, 240)
-    const feature = 'sh'
-
-    const loader = new THREE.TextureLoader()
-    const skyMaterials = [
-      new THREE.MeshBasicMaterial({
-        map: loader.load('extra-textures/background/' + feature + '_ft.png'),
-        transparent: true,
-        side: THREE.DoubleSide,
-      }), // WS
-      new THREE.MeshBasicMaterial({
-        map: loader.load('extra-textures/background/' + feature + '_bk.png'),
-        transparent: true,
-        side: THREE.DoubleSide,
-      }), // ES
-      new THREE.MeshBasicMaterial({
-        map: loader.load('extra-textures/background/' + feature + '_up.png'),
-        transparent: true,
-        side: THREE.DoubleSide,
-      }), // Up
-      new THREE.MeshBasicMaterial({
-        map: loader.load('extra-textures/background/' + feature + '_dn.png'),
-        transparent: true,
-        side: THREE.DoubleSide,
-      }), // Down
-      new THREE.MeshBasicMaterial({
-        map: loader.load('extra-textures/background/' + feature + '_rt.png'),
-        transparent: true,
-        side: THREE.DoubleSide,
-      }), // NS
-      new THREE.MeshBasicMaterial({
-        map: loader.load('extra-textures/background/' + feature + '_lf.png'),
-        transparent: true,
-        side: THREE.DoubleSide,
-      }), // SS
-    ]
-
-    const skybox = new THREE.Mesh(skyGeo, skyMaterials)
-
-    // add the sun and moon
-    const sunGeo = new THREE.SphereGeometry(28, 24, 24)
-    const sunMaterial = new THREE.MeshBasicMaterial( {color: 0xffff00} )
-    const sun = new THREE.Mesh(sunGeo, sunMaterial)
-
-    const moonMaterial = new THREE.MeshBasicMaterial( {color: 0xaaaaaa} )
-    const moonGeo = new THREE.SphereGeometry(20, 32, 32)
-    const moon = new THREE.Mesh( moonGeo, moonMaterial)
-
-    const phaseMaterial = new THREE.MeshBasicMaterial( {color: 0xffff00} )
-    const phaseGeo = new THREE.SphereGeometry(21, 32, 32, 0, 2*Math.PI, 0, Math.PI/2)
-    const phase = new THREE.Mesh( phaseGeo, phaseMaterial)
-
-    const sunDist = 400
-    const moonDist = 300
-
-    function sunPositionCalculation(time) {
-      if (typeof bot.entity.position.x === 'undefined' ) {
-        return { pos: {x: 0, y: -1 * sunDist, z: 0}, color: 0, scale: 1 }
-      }
-      if (time >= 16000 && time <= 23000) { // night
-        return { pos: {x: 0, y: -1 * sunDist, z: 0}, color: 0, scale: 1 }
-      } else { // day
-         const adjTime = ((time + 1000) % 24000) - 1000 // make dawn -1000, dusk 1600
-         const rads = adjTime * (Math.PI / 15000)
-         const sunX = bot.entity.position.x + Math.cos(rads) * sunDist 
-         const sunY = bot.entity.position.y + Math.sin(rads) * sunDist
-         const sunZ = bot.entity.position.z
-         const scaleFactor = 1.5 - Math.abs(Math.sin(rads))
-         const colorFactor = Math.abs(Math.sin(rads))
-         const red = 0xff
-         const green = Math.floor(0xff * (colorFactor))
-         const blue = Math.floor(0xff * (colorFactor/2))
-         const color = (red * 0x10000) + (green * 0x100) + blue
-         return { 
-           pos: {x: sunX, y: sunY, z: sunZ},
-           color: color, 
-           scale: scaleFactor
-         }
-      } 
-    }  
-
-    function moonPositionCalculation(time) {
-      if ((typeof bot.entity.position.x === 'undefined' ) || (time <= 15000 && time >= 1000)) { // day
-        return { pos: {x: 0, y: -1 * moonDist, z: 0}, scale: 1 }
-      } else { // night
-         let adjTime = time
-         if (time < 1000) {adjTime = adjTime + 24000}
-         adjTime = adjTime - 16000
-         const rads = adjTime * (Math.PI / 8000)
-         const moonX = Math.cos(rads) * moonDist + bot.entity.position.x
-         const moonY = Math.sin(rads) * moonDist + bot.entity.position.y
-         const moonZ = 0 + bot.entity.position.z
-         const scaleFactor = 1.5 - Math.abs(Math.sin(rads))
-         return { pos:{x: moonX, y: moonY, z: moonZ}, scale: scaleFactor }
-      } 
-    }  
-
-    sun.position.y = -1 * sunDist
-    moon.position.y = -1 * moonDist
-    phase.position.y = -1 * moonDist
-
-    viewer.scene.add(sun)
-    viewer.scene.add(moon)
-    viewer.scene.add(phase)
-    viewer.scene.add(skybox);
-
-    // rotate the clouds
-    new TWEEN.Tween(skybox.rotation)
-      .to({y: "-" + (Math.PI/2) * 8}, 2000000)
-      .repeat(Infinity)
-      .start()
-    // rotate the phase for testing
-    /* const PhaseRotateTween = new TWEEN.Tween(phase.rotation)
-      .to({z: (Math.PI/2) * 8, y: (Math.PI/2) * 8}, 70000)
-      .repeat(Infinity)
-      .start()
-    */
-
-
-    // Darken by factor (0 to black, 0.5 half as bright, 1 unchanged)
-    function darkenSky(color, factor) {
-      color = parseInt(color, 16)
-      return '#' + (
-        Math.round((color & 0x0000ff) * factor) |
-        (Math.round(((color >> 8) & 0x00ff) * factor) << 8) |
-        (Math.round((color >> 16) * factor) << 16)
-      ).toString(16).padStart(6, 0)
-    }
-
-    // Provides gradual sunrise or sunset sky
-    function intensityCalc(time) {
-      if (time >= 16000 && time <= 23000) { // night
-        return 0
-      } else if (time <= 15000 && time >= 0) { // day
-        return 0.75
-      } else if (time < 16000 && time > 15000) { // dusk
-        const transition = time - 15000
-        return 0.75 - (0.75 * transition) / 1000
-      } else {
-        const transition = time - 23000 // dawn
-        return (0.75 * transition) / 1000
-      }
-    }
-
-
-    // Every 750ms change light settings
-    const tweenFuture = 1500
-    let sunP = sunPositionCalculation(bot.time.timeOfDay)
-    window.setInterval(function () {
-      const currentTime = bot.time.timeOfDay
-      if (typeof currentTime !== 'undefined') {
-        const intensity = intensityCalc(currentTime)
-
-        adjustedSkyColor = new THREE.Color(
-           darkenSky(skyColor, intensity)
-        ) 
-
-        viewer.scene.background = adjustedSkyColor
- 
-        phase.material.color.set(adjustedSkyColor)
-
-        viewer.ambientLight.intensity =
-          (intensity < 0.25 ? 0.25 : intensity)
-        viewer.directionalLight.intensity = intensity
-
-        const playerPos3 = new THREE.Vector3(
-          bot.entity.position.x,
-          bot.entity.position.y,
-          bot.entity.position.z
-        ) 
-        const lightDir = (new THREE.Vector3().subVectors(sun.position, playerPos3)).normalize()
-        viewer.directionalLight.position
-          .set(lightDir.x, lightDir.y, lightDir.z)
-
-        const phaseDir = (new THREE.Vector3().subVectors(sun.position, phase.position)).normalize()
-        phase.up.copy(phaseDir)
-
-        sunP = sunPositionCalculation(currentTime)   
-
-        const sunA = new TWEEN.Tween(sun.position)
-          .to(sunP.pos, tweenFuture)
-          .start()
-
-        sun.material.color.setHex(sunP['color'])
-        viewer.directionalLight.color.setHex(sunP['color'])
-        sun.scale.set(sunP['scale'], sunP['scale'], sunP['scale'])
-
-        moonP = moonPositionCalculation(currentTime)
-
-        const moonA = new TWEEN.Tween(moon.position)
-          .to(moonP.pos, tweenFuture)
-          .start()
-
-        const phaseA = new TWEEN.Tween(phase.position)
-          .to(moonP.pos, tweenFuture)
-          .start()
-
-        moon.scale.set(moonP['scale'], moonP['scale'], moonP['scale'])
-        phase.scale.set(moonP['scale'], moonP['scale'], moonP['scale'])
-      }
-
-    }, 750)
+    // sky stuff
+    celestial(viewer, bot)
 
     // Bot position callback
     function botPosition() {
@@ -624,13 +420,6 @@ async function connect(options) {
           bot.entity.pitch,
           movingBot
         )
-      }
-
-      // move the sky if the player moves
-      if (typeof bot.entity.position.x !== 'undefined' ) {
-        skybox.position.x = bot.entity.position.x
-        skybox.position.y = bot.entity.position.y
-        skybox.position.z = bot.entity.position.z
       }
 
       worldView.updatePosition(bot.entity.position)
