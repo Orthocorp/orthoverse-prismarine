@@ -21,6 +21,7 @@ require('./lib/menus/options_screen')
 require('./lib/menus/title_screen')
 
 const { getName } = require('./lib/generateNames')
+const { celestial } = require('./celestial')
 
 const net = require('net')
 const Cursor = require('./lib/cursor')
@@ -398,146 +399,8 @@ async function connect(options) {
     worldView.listenToBot(bot)
     worldView.init(bot.entity.position)
 
-    // Day and night
-    const skyColor = viewer.scene.background.getHexString()
-
-    // skybox
-    const skyGeo = new THREE.BoxGeometry(800, 800, 800)
-    const feature = 'sh'
-
-    const loader = new THREE.TextureLoader()
-    const skyMaterials = [
-      new THREE.MeshBasicMaterial({
-        map: loader.load('extra-textures/background/' + feature + '_ft.png'),
-        transparent: true,
-        side: THREE.DoubleSide,
-      }), // WS
-      new THREE.MeshBasicMaterial({
-        map: loader.load('extra-textures/background/' + feature + '_bk.png'),
-        transparent: true,
-        side: THREE.DoubleSide,
-      }), // ES
-      new THREE.MeshBasicMaterial({
-        map: loader.load('extra-textures/background/' + feature + '_up.png'),
-        transparent: true,
-        side: THREE.DoubleSide,
-      }), // Up
-      new THREE.MeshBasicMaterial({
-        map: loader.load('extra-textures/background/' + feature + '_dn.png'),
-        transparent: true,
-        side: THREE.DoubleSide,
-      }), // Down
-      new THREE.MeshBasicMaterial({
-        map: loader.load('extra-textures/background/' + feature + '_rt.png'),
-        transparent: true,
-        side: THREE.DoubleSide,
-      }), // NS
-      new THREE.MeshBasicMaterial({
-        map: loader.load('extra-textures/background/' + feature + '_lf.png'),
-        transparent: true,
-        side: THREE.DoubleSide,
-      }), // SS
-    ]
-
-    const skybox = new THREE.Mesh(skyGeo, skyMaterials)
-    viewer.scene.add(skybox);
-
-    // add the sun
-    const sunGeo = new THREE.SphereGeometry(32, 16, 16)
-    const sunMaterial = new THREE.MeshBasicMaterial( {color: 0xffff00} )
-    const sun = new THREE.Mesh(sunGeo, sunMaterial)
-
-    function sunPositionCalculation(time) {
-      if (time >= 16000 && time <= 23000) { // night
-        return [0, -60, 0, 1]
-      } else { // day
-         const adjTime = ((time + 1000) % 24000) - 1000 // make dawn -1000, dusk 1600
-         const rads = adjTime * (Math.PI / 15000)
-         const sunX = Math.cos(rads) * 600
-         const sunY = Math.sin(rads) * 600
-         const scaleFactor = 1.5 - Math.abs(Math.sin(rads))
-         const colorFactor = Math.abs(Math.sin(rads))
-         const red = 0xff
-         const green = Math.floor(0xff * (colorFactor))
-         const blue = Math.floor(0xff * (colorFactor/2))
-         const color = (red * 0x10000) + (green * 0x100) + blue
-         return [sunX, sunY, color, scaleFactor]
-      } 
-    } 
-
-    viewer.scene.add(sun)
-
-    const sunParams = sunPositionCalculation(bot.time.timeOfDay)
-    console.log(sunParams)
-    sun.position.x = sunParams[0]
-    sun.position.y = sunParams[1]
-    sun.material.color.setHex(sunParams[2])
-    sun.position.z = 0
-
-    // Darken by factor (0 to black, 0.5 half as bright, 1 unchanged)
-    function darkenSky(color, factor) {
-      color = parseInt(color, 16)
-      return (
-        Math.round((color & 0x0000ff) * factor) |
-        (Math.round(((color >> 8) & 0x00ff) * factor) << 8) |
-        (Math.round((color >> 16) * factor) << 16)
-      ).toString(16)
-    }
-
-    // Provides gradual sunrise or sunset sky
-    function intensityCalc(time) {
-      if (time >= 16000 && time <= 23000) { // night
-        return 0
-      } else if (time <= 15000 && time >= 0) { // day
-        return 0.75
-      } else if (time < 16000 && time > 15000) { // dusk
-        const transition = time - 15000
-        return 0.75 - (0.75 * transition) / 1000
-      } else {
-        const transition = time - 23000 // dawn
-        return (0.75 * transition) / 1000
-      }
-    }
-
-    // used for directionalLight vector calculation
-    function timeToRads(time) {
-      return time * (Math.PI / 12000)
-    }
-
-    // Every 750ms change light settings
-    window.setInterval(function () {
-      const currentTime = bot.time.timeOfDay
-      const moonPhase = bot.time.moonPhase
-      if (typeof currentTime !== 'undefined') {
-        const intensity = intensityCalc(currentTime)
-
-        viewer.scene.background = new THREE.Color(
-           '#' + darkenSky(skyColor, intensity).padStart(6, 0)
-        )
-
-        viewer.ambientLight.intensity =
-          (intensity < 0.25 ? 0.25 : intensity) + (0.07 - moonPhase / 100)
-        viewer.directionalLight.intensity = intensity + (0.07 - moonPhase / 100)
-        viewer.directionalLight.position
-          .set(
-            Math.cos(timeToRads(currentTime)),
-            Math.sin(timeToRads(currentTime)),
-            0.2
-          )
-          .normalize()
-      }
-      // change the position of the sun
-      if (typeof bot.entity.position.x !== 'undefined' ) {
-        const sunP = sunPositionCalculation(currentTime)
-        console.log(sunP)
-        sun.position.x = sunP[0] + bot.entity.position.x
-        sun.position.y = sunP[1] + bot.entity.position.y
-        sun.position.z = bot.entity.position.z
-        sun.material.color.setHex(sunP[2])
-        sun.scale.set(sunP[3], sunP[3], sunP[3])
-      }
-
-    }, 750)
+    // sky stuff
+    celestial(viewer, bot)
 
     // Bot position callback
     function botPosition() {
@@ -557,13 +420,6 @@ async function connect(options) {
           bot.entity.pitch,
           movingBot
         )
-      }
-
-      // move the sun and the sky
-      if (typeof bot.entity.position.x !== 'undefined' ) {
-        skybox.position.x = bot.entity.position.x
-        skybox.position.y = bot.entity.position.y
-        skybox.position.z = bot.entity.position.z
       }
 
       worldView.updatePosition(bot.entity.position)
