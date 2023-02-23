@@ -59,11 +59,11 @@ export function celestial (viewer, bot) {
     side: THREE.DoubleSide
   }) */
 
-  const moonGeo = new THREE.SphereGeometry(30, 32, 32)
+  const moonGeo = new THREE.SphereGeometry(31, 32, 32)
   const moon = new THREE.Mesh(moonGeo, moonMaterial)
 
   const phaseMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
-  const phaseGeo = new THREE.SphereGeometry(31, 32, 32, Math.PI, Math.PI, 0, Math.PI)
+  const phaseGeo = new THREE.SphereGeometry(32, 32, 32, Math.PI, Math.PI, 0, Math.PI)
   const phase = new THREE.Mesh(phaseGeo, phaseMaterial)
 
   const sunDist = 610
