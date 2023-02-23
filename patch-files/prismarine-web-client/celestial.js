@@ -70,8 +70,7 @@ export function celestial (viewer, bot) {
   const moonDist = 600
   // orbit raise factor
   const sunH = Math.cos(2 * Math.PI * 4000 / 24000) * sunDist
-  const moonH = Math.cos(4000 * Math.PI / 24000) * moonDist
-  console.log(sunH)
+  const moonH = Math.cos(2 * Math.PI * 4000 / 24000) * moonDist
 
   function sunPositionCalculation (age) {
     const time = age % 24000
@@ -98,12 +97,11 @@ export function celestial (viewer, bot) {
       + sunH
       // + bot.entity.position.y
     const sunZ = bot.entity.position.z - (Math.cos(theta) * Math.cos(rads) * (sunDist + sunH))
-    const colorFactor = (bot.entity.y - sunY)/sunDist
     return { pos: {x: sunX, y: sunY, z: sunZ } }
   }
 
   function moonPositionCalculation (age) {
-    const time = age % 20000
+    const time = (age + 6000) % 20000
     if (typeof bot.entity.position.x === 'undefined') {
       return { pos: {x: 0, y: -1 * moonDist, z: 0 } }
     }
