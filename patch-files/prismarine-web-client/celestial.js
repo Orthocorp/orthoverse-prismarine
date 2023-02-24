@@ -6,7 +6,7 @@ export function celestial (viewer, bot) {
   const skyColor = viewer.scene.background.getHexString()
 
   // skybox
-  const skyGeo = new THREE.BoxGeometry(520, 520, 520)
+  const skyGeo = new THREE.BoxGeometry(300, 300, 300)
   const feature = 'sh'
 
   const loader = new THREE.TextureLoader()
@@ -46,89 +46,85 @@ export function celestial (viewer, bot) {
   const skybox = new THREE.Mesh(skyGeo, skyMaterials)
 
   // add the sun and moon
-  const sunGeo = new THREE.SphereGeometry(46, 24, 24)
+  const sunGeo = new THREE.SphereGeometry(32, 24, 24)
   const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 })
   const sun = new THREE.Mesh(sunGeo, sunMaterial)
 
   const moonColor = '#aaaaaa'
   const moonMaterial = new THREE.MeshBasicMaterial({ color: moonColor })
-  const moonGeo = new THREE.SphereGeometry(42, 32, 32)
+  /*
+  const moonMaterial = new THREE.MeshBasicMaterial({
+    map: loader.load('extra-textures/background/moon.jpg'),
+    transparent: true,
+    side: THREE.DoubleSide
+  }) */
+
+  const moonGeo = new THREE.SphereGeometry(31, 32, 32)
   const moon = new THREE.Mesh(moonGeo, moonMaterial)
 
   const phaseMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
-  const phaseGeo = new THREE.SphereGeometry(43, 32, 32, Math.PI, Math.PI, 0, Math.PI)
+  const phaseGeo = new THREE.SphereGeometry(32, 32, 32, Math.PI, Math.PI, 0, Math.PI)
   const phase = new THREE.Mesh(phaseGeo, phaseMaterial)
 
-  const sunDist = 750
-  const moonDist = 720
+  const sunDist = 610
+  const moonDist = 600
   // orbit raise factor
-  const sunH = Math.cos(4000 * Math.PI / 24000) * sunDist
-  const moonH = Math.cos(4000 * Math.PI / 24000) * moonDist
+  const sunH = Math.cos(2 * Math.PI * 4000 / 24000) * sunDist
+  const moonH = Math.cos(2 * Math.PI * 4000 / 24000) * moonDist
 
   function sunPositionCalculation (age) {
     const time = age % 24000
     if (typeof bot.entity.position.x === 'undefined') {
-      return { pos: { x: 0, y: -1 * sunDist, z: 0 }, color: 0 }
+      return { pos: { x: 0, y: -1 * sunDist, z: 0 } }
     }
     const theta =
-      Math.PI / 8 +
+      Math.PI / 4 +
       (
         ((
           Math.floor(bot.time.day / 180) / 2 === Math.floor(Math.floor(bot.time.day / 180) / 2)
             ? bot.time.day % 180 + 1
             : 180 - (bot.time.day % 180)
         ) / 180) *
-        3 * Math.PI / 8
+        Math.PI / 4
       )
     // const theta = Math.PI/2
-    const rads = ((time / 24000) * 2 * Math.PI) - (Math.PI / 2)
+    const rads = ((time / 24000) * 2 * Math.PI)
     const sunX =
       bot.entity.position.x +
-      Math.cos(rads) * sunDist
+      Math.sin(rads) * sunDist
     const sunY =
-      (Math.sin(rads) * Math.sin(theta) * sunDist) +
-      sunH
+      (-1 * Math.cos(rads) * Math.sin(theta) * sunDist)
+      + sunH
       // + bot.entity.position.y
-    const sunZ = bot.entity.position.z + (Math.cos(theta) * sunDist)
-    const colorFactor = Math.abs(Math.sin(rads))
-    const red = 0xff
-    const green = Math.floor(0xff * (colorFactor))
-    const blue = Math.floor(0xff * (colorFactor / 2))
-    const color = (red * 0x10000) + (green * 0x100) + blue
-    return {
-      pos: { x: sunX, y: sunY, z: sunZ },
-      color
-    }
+    const sunZ = bot.entity.position.z - (Math.cos(theta) * Math.cos(rads) * (sunDist + sunH))
+    return { pos: {x: sunX, y: sunY, z: sunZ } }
   }
 
   function moonPositionCalculation (age) {
-    const time = age % 20000
+    const time = (age + 6000) % 20000
     if (typeof bot.entity.position.x === 'undefined') {
-      return { pos: { x: 0, y: -1 * moonDist, z: 0 } }
+      return { pos: {x: 0, y: -1 * moonDist, z: 0 } }
     }
     const theta =
-      Math.PI / 4 +
+      Math.PI / 6 +
       (
         ((
           Math.floor(bot.time.day / 14) / 2 === Math.floor(Math.floor(bot.time.day / 14) / 2)
             ? bot.time.day % 14 + 1
             : 14 - (bot.time.day % 14)
-        ) / 14) *
-        Math.PI / 2
+        ) / 14)
+        * Math.PI / 2
       )
-    // const theta = Math.PI/2
-    const rads = ((time / 20000) * 2 * Math.PI) - (Math.PI / 2)
+    const rads = ((time / 20000) * 2 * Math.PI)
     const moonX =
       bot.entity.position.x +
-      Math.cos(rads) * moonDist
+      Math.sin(rads) * moonDist
     const moonY =
-      (Math.sin(rads) * Math.sin(theta) * moonDist) +
-      moonH
+      (-1 * Math.cos(rads) * Math.sin(theta) * moonDist)
+      + moonH
       // + bot.entity.position.y
-    const moonZ = bot.entity.position.z + (Math.cos(theta) * moonDist)
-    return {
-      pos: { x: moonX, y: moonY, z: moonZ }
-    }
+    const moonZ = bot.entity.position.z - (Math.cos(theta) * Math.cos(rads) * (moonDist + moonH))
+    return  { pos: { x: moonX, y: moonY, z: moonZ } }
   }
 
   sun.position.y = -1 * sunDist
@@ -161,8 +157,20 @@ export function celestial (viewer, bot) {
 
   // Provides gradual sunrise or sunset sky
   function intensityCalc (time) {
-    const rads = (time / 24000) * 2 * Math.PI - Math.PI / 2
-    const sunY = (Math.sin(rads) * sunDist) + sunH
+    const rads = (time / 24000) * 2 * Math.PI
+    const theta =
+      Math.PI / 4 +
+      (
+        ((
+          Math.floor(bot.time.day / 180) / 2 === Math.floor(Math.floor(bot.time.day / 180) / 2)
+            ? bot.time.day % 180 + 1
+            : 180 - (bot.time.day % 180)
+        ) / 180) *
+        Math.PI / 4
+      )
+    const sunY =
+      (-1 * Math.cos(rads) * Math.sin(theta) * sunDist)
+      + sunH
     const factor = sunY / sunDist
     if (factor < -1 * depthIntensity) {
       return 0
@@ -223,17 +231,19 @@ export function celestial (viewer, bot) {
       sunP = sunPositionCalculation(bot.time.time)
       moonP = moonPositionCalculation(bot.time.time)
 
+      // sun color at sunset
+      const red = 0xff
+      const green = Math.floor(0xff * (intensity))
+      const blue = Math.floor(0xff * (intensity / 2))
+      const color = (red * 0x10000) + (green * 0x100) + blue
+
       if (intensity != 0) {
-        sun.material.color.setHex(sunP.color)
-        viewer.directionalLight.color.setHex(sunP.color)
+        sun.material.color.setHex(color)
+        viewer.directionalLight.color.setHex(color)
       } else {
         sun.material.color.setHex(adjustedSkyColor)
         viewer.directionalLight.color.setHex(adjustedSkyColor)
       }
-
-      // sun.scale.set(sunP['scale'], sunP['scale'], sunP['scale'])
-      // moon.scale.set(moonP['scale'], moonP['scale'], moonP['scale'])
-      // phase.scale.set(moonP['scale'], moonP['scale'], moonP['scale'])
 
       phase.lookAt(sun.position.x * 1000, sun.position.y * 1000, sun.position.z * 1000)
 
@@ -242,8 +252,10 @@ export function celestial (viewer, bot) {
       const adjustedMoonColor = new THREE.Color(
         blendColors(moonColor, '#' + adjustedSkyColor.getHexString(), intensity * 0.8)
       )
-      moon.material.color.set(adjustedMoonColor)
 
+      moon.material.color.set(adjustedMoonColor)
+      // moon.material.opacity = 1 - (0.8 * intensity)
+      
       const sunA = new TWEEN.Tween(sun.position)
         .to(sunP.pos, tweenFuture)
         .start()
