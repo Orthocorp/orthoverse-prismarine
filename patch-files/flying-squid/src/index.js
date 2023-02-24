@@ -72,6 +72,7 @@ class MCServer extends EventEmitter {
           console.log('Loaded diff from database')
         })
         .catch(err => {
+          console.log("loadDiff error")
           throw(err)
         })
     }
@@ -89,7 +90,10 @@ class MCServer extends EventEmitter {
     this.voxel.saveFile = () => {
       this.voxel.data['timestamp'] = Date.now()
       fs.writeFileSync('./map-data/doxel.json', JSON.stringify(this.voxel.data), (err) => {
-        if (err) throw err
+        if (err) {
+          console.log("saveFile error")
+          throw err
+        }
       })
     }
 
@@ -98,7 +102,7 @@ class MCServer extends EventEmitter {
       const landKey = landX.toString() + ':' + landZ.toString()
       // now we are ready to load that land from a file
       const loadPath = this.voxel.landSaves
-                       + this.voxel.data[landKey][0] + '/'
+                       + this.voxel.data[landKey][1] + '/'
                        + ((parseInt(this.voxel.data[landKey][2]) > 7) ? 'futuristic' : 'fantasy')
                        + '/'
       let bitmapObj, bitmapRaw
@@ -142,7 +146,7 @@ class MCServer extends EventEmitter {
     this.voxel.saveLand = (slot, landX, landZ) => {
       const landKey = landX.toString() + ':' + landZ.toString()
       const savePath = this.voxel.landSaves
-                       + this.voxel.data[landKey][0] + '/'
+                       + this.voxel.data[landKey][1] + '/'
                        + ((parseInt(this.voxel.data[landKey][2]) > 7) ? 'futuristic' : 'fantasy')
                        + '/'
       fse.ensureDirSync(savePath)
@@ -186,7 +190,7 @@ class MCServer extends EventEmitter {
       const landZ = Math.floor(chunkZ / 6)
       const landKey = landX.toString() + ':' + landZ.toString()
       const savePath = this.voxel.landSaves
-                       + this.voxel.data[landKey][0] + '/'
+                       + this.voxel.data[landKey][1] + '/'
                        + ((parseInt(this.voxel.data[landKey][2]) > 7) ? 'futuristic' : 'fantasy')
                        + '/'
       fse.ensureDirSync(savePath)
@@ -223,7 +227,7 @@ class MCServer extends EventEmitter {
       const landZ = Math.floor(chunkZ / 6)
       const landKey = landX.toString() + ':' + landZ.toString()
       const loadPath = this.voxel.landSaves
-                       + this.voxel.data[landKey][0] + '/'
+                       + this.voxel.data[landKey][1] + '/'
                        + ((parseInt(this.voxel.data[landKey][2]) > 7) ? 'futuristic' : 'fantasy')
                        + '/'
       let bitmapObj, bitmapRaw
@@ -243,11 +247,11 @@ class MCServer extends EventEmitter {
         chunk.load(chunkData, bitmapObj[chunkX.toString() + ':' + chunkZ.toString()])
       } catch (e) {
         console.log ('Error loading: ' + e)
+        throw()
       }
       return chunk
     }   
   }
-
 
   connect (options) {
     const version = require('minecraft-data')(options.version).version

@@ -108,7 +108,7 @@ class LandBar extends LitElement {
         '../../../extra-textures/crown' + adjustedLevel.toString() + '.png'
     })
     .catch(err => {
-      if (err.response.data === {"error":"Not found"}) {
+      if (err.response.data?.error === "Not found") {
         this.landName = 'The Open Sea'
         this.landShield = '../../../extra-textures/escutcheons/none.png'
         this.landCrown = '../../../extra-textures/crown0.png' 
