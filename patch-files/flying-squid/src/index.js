@@ -79,17 +79,17 @@ class MCServer extends EventEmitter {
 
     // we use the file system to store the current state regularly
     this.voxel.loadFile = () => {
-      if(!fs.existsSync('./map-data/doxel.json')) {
+      if(!fs.existsSync(this.voxel.landSaves + 'doxel.json')) {
         this.voxel.saveFile()
       } else {
-        this.voxel.data = JSON.parse(fs.readFileSync('./map-data/doxel.json'))
+        this.voxel.data = JSON.parse(fs.readFileSync(this.voxel.landSaves + 'doxel.json'))
       }
     }
 
     // helper function to save the current state of the voxel world
     this.voxel.saveFile = () => {
       this.voxel.data['timestamp'] = Date.now()
-      fs.writeFileSync('./map-data/doxel.json', JSON.stringify(this.voxel.data), (err) => {
+      fs.writeFileSync(this.voxel.landSaves + 'doxel.json', JSON.stringify(this.voxel.data), (err) => {
         if (err) {
           console.log("saveFile error")
           throw err
@@ -246,8 +246,8 @@ class MCServer extends EventEmitter {
         const chunkData = new Buffer.from(fs.readFileSync(loadPath + loadFileName + '.lnd'));
         chunk.load(chunkData, bitmapObj[chunkX.toString() + ':' + chunkZ.toString()])
       } catch (e) {
-        console.log ('Error loading: ' + e)
-        throw()
+        console.log('Error loading: ' + e);
+        throw(e)
       }
       return chunk
     }   
