@@ -6,5 +6,5 @@
  3   crest png or none,
  4   owner-address,
  5   last updated,
- 6   slot if it exists
+ 6   slot if it exists : note that this must be the last entry, because we pop() it when the token changes
   ]

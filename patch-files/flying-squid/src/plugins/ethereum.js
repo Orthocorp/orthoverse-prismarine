@@ -50,8 +50,8 @@ module.exports.player = function (player, serv) {
         // we have moved into a new land
         const landKey = xCoord.toString() + ':' + zCoord.toString()
         if (landKey in serv.voxel.data) {
-          const landOwner = serv.voxel.data[landKey][4]
-          if (player.ethereum.wallet === landOwner) {
+          const landOwners = serv.voxel.data[landKey][4]
+        if (landOwners.includes(player.ethereum.wallet)) { 
             player._client.writeChannel('ethereum', 'ownd:true')
           } else {
             player._client.writeChannel('ethereum', 'ownd:false')
@@ -110,9 +110,9 @@ module.exports.player = function (player, serv) {
       const landZ = landCoord(player.position.z)
       const landKey = landX.toString() + ':' + landZ.toString()
       if (landKey in serv.voxel.data) {
-        const landOwner = serv.voxel.data[landKey][4]
+        const landOwners = serv.voxel.data[landKey][4]
         // check the player owns it
-        if (player.ethereum.wallet !== landOwner){
+        if (!(landOwners.includes(player.ethereum.wallet))) { 
           player._client.writeChannel('ethereum', 'mesg:You cannot save a land you do not own')
           return
         }
@@ -163,10 +163,10 @@ module.exports.player = function (player, serv) {
       const landZ = landCoord(player.position.z)
       const landKey = landX.toString() + ':' + landZ.toString()
       if (landKey in serv.voxel.data) {
-        const landOwner = serv.voxel.data[landKey][4]
+        const landOwners = serv.voxel.data[landKey][4]
         // check the player owns it
-        if (player.ethereum.wallet !== landOwner) { 
-          player._client.writeChannel('ethereum', 'mesg:You cannot load a land you do not own')
+        if (!(landOwners.includes(player.ethereum.wallet))) { 
+          player._client.writeChannel('ethereum', 'mesg:You cannot load a land you do not own or have rights to')
           return
         }
       } else { 

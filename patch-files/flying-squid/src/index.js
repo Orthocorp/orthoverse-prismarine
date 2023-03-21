@@ -51,7 +51,7 @@ class MCServer extends EventEmitter {
     this.voxel.status = {}
     this.voxel.landSaves = landSaves
 
-    // load current data structure for world from API database
+    //  function to load current data structure for world from API database
     this.voxel.load = async () => {
       return axios.get(landsApi)
         .then(response => {
@@ -64,32 +64,26 @@ class MCServer extends EventEmitter {
         })
     }
 
-    // loads everything that has changed since the current stored timestamp
+    // function to load everything that has changed since the current stored timestamp
     this.voxel.loadDiff = async () => {
-       return axios.get(landsApi + '?updated_at=' + new Date(this.voxel.timestamp).toISOString())
-        .then(response => {
-          const diff = response.data
-          console.log('Loaded diff from database')
-        })
-        .catch(err => {
-          console.log("loadDiff error")
-          throw(err)
-        })
+      return axios.get(landsApi + '?updated_at=' + (new Date(this.voxel.data.timestamp).toISOString()))
     }
 
     // we use the file system to store the current state regularly
+    // doxel.js is a dump of the current database state
+    // function to load doxel.json
     this.voxel.loadFile = () => {
-      if(!fs.existsSync(this.voxel.landSaves + 'doxel.json')) {
+      if(!fs.existsSync(this.voxel.landSaves + '../doxel.json')) {
         this.voxel.saveFile()
       } else {
-        this.voxel.data = JSON.parse(fs.readFileSync(this.voxel.landSaves + 'doxel.json'))
+        this.voxel.data = JSON.parse(fs.readFileSync(this.voxel.landSaves + '../doxel.json'))
       }
     }
 
-    // helper function to save the current state of the voxel world
+    // function to save the current state of the voxel world
     this.voxel.saveFile = () => {
       this.voxel.data['timestamp'] = Date.now()
-      fs.writeFileSync(this.voxel.landSaves + 'doxel.json', JSON.stringify(this.voxel.data), (err) => {
+      fs.writeFileSync(this.voxel.landSaves + '../doxel.json', JSON.stringify(this.voxel.data), (err) => {
         if (err) {
           console.log("saveFile error")
           throw err
@@ -97,7 +91,7 @@ class MCServer extends EventEmitter {
       })
     }
 
-    // function to load a 6x6 land from a save file to the mca file
+    // function to load a 6x6 land from a save file to the .mca file
     this.voxel.loadLand = (slot, landX, landZ) => {
       const landKey = landX.toString() + ':' + landZ.toString()
       // now we are ready to load that land from a file
@@ -181,6 +175,8 @@ class MCServer extends EventEmitter {
                        "bitmap-" + 
                        slot.toString() + 
                        ".json", JSON.stringify(bitmapObj), 'utf-8')
+      // need to store the fact that this is the slot that is being used
+      this.voxel.data[landKey][2] = slot
       return "mesg:Saved land to slot " + slot.toString()
     }
 
