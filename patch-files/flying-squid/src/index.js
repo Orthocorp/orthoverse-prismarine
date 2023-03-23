@@ -36,37 +36,39 @@ module.exports = {
 
 async function createMCServer (options) {
   options = options || {}
-  const mcServer = new MCServer(options.landsApi, options.landSaves)
+  const mcServer = new MCServer(options)
   return mcServer
 }
 
 class MCServer extends EventEmitter {
-  constructor (landsApi, landSaves) {
+  constructor (options) {
     super()
     this._server = null
+    this.options = options
 
     // This section initialises the voxel object for the world
     this.voxel = {}
     this.voxel.data = {}
     this.voxel.status = {}
-    this.voxel.landSaves = landSaves
+    this.voxel.landSaves = options.landSaves
 
     //  function to load current data structure for world from API database
     this.voxel.load = async () => {
-      return axios.get(landsApi)
+      return axios.get(options.landsApi)
         .then(response => {
           this.voxel.data = response.data
           this.voxel.data['timestamp'] = Date.now()
           console.log('Loaded world from database')
         })
         .catch(err => {
-          throw(err)
+          console.error("Voxel load error: ", err)
         })
     }
 
     // function to load everything that has changed since the current stored timestamp
     this.voxel.loadDiff = async () => {
-      return axios.get(landsApi + '?updated_at=' + (new Date(this.voxel.data.timestamp).toISOString()))
+      return axios.get(options.landsApi + '?updated_at=' 
+        + (new Date(this.voxel.data.timestamp).toISOString()))
     }
 
     // we use the file system to store the current state regularly
@@ -74,6 +76,7 @@ class MCServer extends EventEmitter {
     // function to load doxel.json
     this.voxel.loadFile = () => {
       if(!fs.existsSync(this.voxel.landSaves + '../doxel.json')) {
+        console.log("doxel doesn't exist so I'm saving it")
         this.voxel.saveFile()
       } else {
         this.voxel.data = JSON.parse(fs.readFileSync(this.voxel.landSaves + '../doxel.json'))
@@ -85,8 +88,7 @@ class MCServer extends EventEmitter {
       this.voxel.data['timestamp'] = Date.now()
       fs.writeFileSync(this.voxel.landSaves + '../doxel.json', JSON.stringify(this.voxel.data), (err) => {
         if (err) {
-          console.log("saveFile error")
-          throw err
+          console.error("Voxel save file error: ", err)
         }
       })
     }
@@ -241,9 +243,8 @@ class MCServer extends EventEmitter {
       try {
         const chunkData = new Buffer.from(fs.readFileSync(loadPath + loadFileName + '.lnd'));
         chunk.load(chunkData, bitmapObj[chunkX.toString() + ':' + chunkZ.toString()])
-      } catch (e) {
-        console.log('Error loading: ' + e);
-        throw(e)
+      } catch (err) {
+        console.error("Load chunk from file error: ", err)
       }
       return chunk
     }   
