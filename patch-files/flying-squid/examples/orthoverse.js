@@ -35,7 +35,8 @@ const options = {
   'landsApi': 'https://orthoverse.io/api/land/generate/voxel',
   'landSaves': './land-saves/region/',
   'debug': {
-    'landupdate': true, // ****** DEDUG: artificially change level of Fangwanina in landSyncCheck
+    // 'landupdate': true, // ****** DEBUG: artificially change level of Fangwanina in landSyncCheck
+    'revealtest': true, // ****** DEBUG: check that revealed tokens work
   }
 }
 
@@ -44,17 +45,27 @@ function main() {
   return orthoverse
 }
 
+function forceLandRefresh (orthoverse, key) {
+  // call orthogen to create the default land, which also saves it to slot 0
+  // and records this fact
+  const coords = key.split(':')  // coords[0] === landX and coords[1] === landZ
+  // this should trigger a regeneration of the land
+  orthoverse.overworld.chunkGenerator(orthoverse, coords[0] * 6, coords[1] * 6)
+  // finally, load the land
+  const triggerLoad = orthoverse
+    .voxel
+    .loadLand(orthoverse.voxel.data[key][6], coords[0], coords[1])
+}
+
 function checkChange (orthoverse, key, value) {
+  let result = false
   // cases:
-  // land has been revealed for the first time
+    // land has been revealed for the first time
   if (!(key in orthoverse.voxel.data)) {
-    console.log("Key not in voxel.data")
-    orthoverse.voxel.data[key] = value
-    // save the land into the .mca file and the save file
-         
-    // finally, load the land because someone might be swimming in the sea that it was before
-    const coords = key.split(':')
-    const triggerLoad = orthoverse.voxel.loadLand(orthoverse.voxel.data[key][2], coords[0], coords[1])
+    console.log("Adding land " + value[1])
+    orthoverse.voxel.data[key] = {...value}
+    forceLandRefresh(orthoverse, key)
+    result = true
   } else {
     // land has flipped or land has leveled up (these are handled the same way)
     if (orthoverse.voxel.data[key][2] !== value[2]) {
@@ -65,15 +76,8 @@ function checkChange (orthoverse, key, value) {
       if (orthoverse.voxel.data[key].length === 7) {
         orthoverse.voxel.data[key].pop()
       }
-      // now call orthogen to create the default land, which also saves it to slot 0
-      // and records this fact
-      const coords = key.split(':')  // coords[0] === landX and coords[1] === landZ
-      // this should trigger a regeneration of the land
-      orthoverse.overworld.chunkGenerator(orthoverse, coords[0] * 6, coords[1] * 6)
-      // finally, load the land
-      const triggerLoad = orthoverse
-        .voxel
-        .loadLand(orthoverse.voxel.data[key][6], coords[0], coords[1])
+      forceLandRefresh(orthoverse, key)
+      result = true
     }
     // land has changed owners    
     if (orthoverse.voxel.data[key][4].toString() !== value[4].toString()) {
@@ -83,13 +87,16 @@ function checkChange (orthoverse, key, value) {
       // placeholder for any other stuff that needs to be done, e.g.
       // check that someone can no longer build, but I'm not sure
       // anything like that is actually needed.
+      result = true
     }
     // land has changed position
     if (orthoverse.voxel.data[key][0] != value[0]) {
       console.log("Position of land changed for " + value[1])
       // placeholder for second wave of lockdowns
+      result = true
     }
   }
+  return result
 }
 
 
@@ -104,24 +111,64 @@ main().then( (orthoverse) => {
   orthoverse.voxel.load().then( () => {
     orthoverse.voxel.loadFile()
     orthoverse.connect(options)
+    // ****** DEBUG: check that revealed tokens work
+      if (orthoverse.options.debug.revealtest === true) {
+        // only have the orthohenge loaded
+        orthoverse.voxel.data = {
+          "0:0": [
+          "0xdecaf9eb81d2e2289aad58f4df641a5a44bd84ff",
+          "Orthohenge",
+          7,
+          "933.png",
+          [
+            "0xdecaf9eb81d2e2289aad58f4df641a5a44bd84ff"
+          ],
+          "2023-02-01T21:45:41.375Z",
+        ],
+        "timestamp": 100
+        }
+      }
+    // ******
 
     // check on land sync state every 10 minutes and save the land status
+    let unhandled = {}
     const landSyncCheck = setInterval(function() {
-      orthoverse.voxel.loadDiff().then( (result) => {
-        // ****** DEDUG: artificially change level of Fangwanina in landSyncCheck
-          if (orthoverse.options.debug.landupdate === true) {
-            console.log("Faking Fangwanina level change")
-            Object.assign(result.data, {["0:-1"]: [...orthoverse.voxel.data["0:-1"]]})
-            result.data["0:-1"][2] = (result.data["0:-1"][2] + 1) % 16
-          }
-        // ******
-        console.log("Checking changes")
-        for (const [key, value] of Object.entries(result.data)) {
-          checkChange(orthoverse, key, value)
+      if (Object.keys(unhandled).length) {
+        console.log("Processing unhandled land updates")
+        // forcing a synchronous loop
+        const keys = Object.keys(unhandled)
+        let change = false
+        for (let i = 0; i < Math.min(keys.length, 16); i++) {
+          const key = keys[i]
+          const value = unhandled[key]
+          if (checkChange(orthoverse, key, value) === true) {change = true}
+          delete unhandled[keys[i]]
         }
-        orthoverse.voxel.saveFile()
-      })
-    }, 1000*60*0.5) 
+        if (change) orthoverse.voxel.saveFile()
+      } else {
+        orthoverse.voxel.loadDiff().then( (result) => {
+          unhandled = JSON.parse(JSON.stringify(result.data))
+          // ****** DEBUG: artificially change level of Fangwanina in landSyncCheck
+            if (orthoverse.options.debug.landupdate === true) {
+              console.log("Faking Fangwanina level change")
+              Object.assign(result.data, {["0:-1"]: [...orthoverse.voxel.data["0:-1"]]})
+              result.data["0:-1"][2] = (result.data["0:-1"][2] + 1) % 16
+            }
+          // ******
+          console.log("Checking for new land updates")
+          // forcing a synchronous loop
+          const keys = Object.keys(unhandled)
+          let change = false
+          for (let i = 0; i < Math.min(keys.length, 16); i++) {
+            const key = keys[i]
+            const value = unhandled[key]
+            if (checkChange(orthoverse, key, value) === true) {change = true}
+            delete unhandled[keys[i]]
+          }
+          if (change) orthoverse.voxel.saveFile()
+        })
+      }
+    }, 1000*60*1) 
   })
 })
 
