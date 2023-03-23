@@ -112,21 +112,11 @@ main().then( (orthoverse) => {
           if (orthoverse.options.debug.landupdate === true) {
             console.log("Faking Fangwanina level change")
             Object.assign(result.data, {["0:-1"]: [...orthoverse.voxel.data["0:-1"]]})
-            console.log(result.data["0:-1"][2])
             result.data["0:-1"][2] = (result.data["0:-1"][2] + 1) % 16
-            console.log((result.data["0:-1"][2] + 1) % 16)
-            console.log(result.data["0:-1"][2])
-            console.log(orthoverse.voxel.data["0:-1"][2])
           }
         // ******
         console.log("Checking changes")
         for (const [key, value] of Object.entries(result.data)) {
-          if (value[1] === "Fangwanina") {
-            console.log("Fangwanina change found")
-            console.log(value)
-            console.log(orthoverse.voxel.data[key])
-          }
-          
           checkChange(orthoverse, key, value)
         }
         orthoverse.voxel.saveFile()

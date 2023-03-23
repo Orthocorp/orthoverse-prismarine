@@ -23,6 +23,7 @@ cp -r ./patch-files/flying-squid ./
 rm -fr ./flying-squid/world/*
 
 cd flying-squid
+# artificially put system in the past to trigger updates after off-line time
 sed -i 's/"timestamp":[0-9]\+/"timestamp":164879251000/g' ./land-saves/doxel.json
 node ./examples/orthoverse.js
 
