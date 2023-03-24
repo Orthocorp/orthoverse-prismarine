@@ -36,7 +36,7 @@ const options = {
   'landSaves': './land-saves/region/',
   'debug': {
     // 'landupdate': true, // ****** DEBUG: artificially change level of Fangwanina in landSyncCheck
-    'revealtest': true, // ****** DEBUG: check that revealed tokens work
+    // 'revealtest': true, // ****** DEBUG: check that revealed tokens work
   }
 }
 
