@@ -1,0 +1,10 @@
+{
+ "<landX>:<landZ>" : [
+ 0   tokenID,
+ 1   name,
+ 2   level,
+ 3   crest png or none,
+ 4   owner-address,
+ 5   last updated,
+ 6   slot if it exists : note that this must be the last entry, because we pop() it when the token changes
+  ]
