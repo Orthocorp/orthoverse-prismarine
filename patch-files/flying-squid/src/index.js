@@ -178,7 +178,7 @@ class MCServer extends EventEmitter {
                        slot.toString() + 
                        ".json", JSON.stringify(bitmapObj), 'utf-8')
       // need to store the fact that this is the slot that is being used
-      this.voxel.data[landKey][2] = slot
+      this.voxel.data[landKey][6] = slot
       return "mesg:Saved land to slot " + slot.toString()
     }
 
