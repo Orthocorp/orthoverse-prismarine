@@ -34,6 +34,7 @@ const options = {
   version: '1.15.2',
   'landsApi': 'https://orthoverse.io/api/land/generate/voxel',
   'landSaves': './land-saves/region/',
+  'visitApi': 'https://orthoverse.io/api/land/visit',
   'debug': {
     // 'landupdate': true, // ****** DEBUG: artificially change level of Fangwanina in landSyncCheck
     // 'revealtest': true, // ****** DEBUG: check that revealed tokens work

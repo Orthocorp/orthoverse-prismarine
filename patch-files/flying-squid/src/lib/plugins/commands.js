@@ -68,7 +68,7 @@ module.exports.server = function (serv, { version }) {
     info: 'to bug report',
     usage: '/bug',
     action () {
-      return 'Report bugs or issues here: https://github.com/PrismarineJS/flying-squid/issues'
+      return 'Report bugs or issues here: keir@chainfrog.com'
     }
   })
 
