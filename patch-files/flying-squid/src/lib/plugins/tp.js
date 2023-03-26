@@ -74,7 +74,7 @@ module.exports.server = (serv) => {
       axios.get(serv.options.visitApi + "?name=" + landname)
       .then( (response) => {
         const x = (response.data.x * 6 * 16) + 48
-        const y = ctx.player.position.y + 2
+        const y = 46 // ctx.player.position.y + 2
         const z = (response.data.y * 6 * 16) + 48
         ctx.player.teleport(new Vec3(x, y, z))
         return "Teleporting to a land."
