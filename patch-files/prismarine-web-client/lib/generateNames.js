@@ -1,4 +1,4 @@
-function getName () {
+export function getName (address = '') {
 
 const syllable1 = [
   // 'B','C','D','F','G','H','J','K','L','M','N', 'P', 'R', 'S', 'T', 'V',
@@ -58,19 +58,29 @@ const syllable3 = [
  'wir', 'wen', 'win', 'we', 'wan', 'wa', 'wur',
 ]
 
-
-  let a = syllable1[Math.floor(Math.random()*syllable1.length)]
-  let b = syllable2[Math.floor(Math.random()*syllable2.length)]
-  let c = ''
-  if (a.length === 1) {
-   while (c === '') { c = syllable3[Math.floor(Math.random()*syllable3.length)] }
-  } else { c = syllable3[Math.floor(Math.random()*syllable3.length)] }
-  if (b !== c[0]) {
-    return a + b + c
+  let a, b, c
+  if ( address === '') {
+    a = "Gæst"
+    b = syllable2[Math.floor(Math.random()*syllable2.length)]
+    c = syllable3[Math.floor(Math.random()*syllable3.length)]
   } else {
-    return a + b
+    a = syllable1[Number(address.slice(0,16)) % syllable1.length]
+    b = syllable2[Number(address.slice(0,16)) % syllable2.length]
+    c = ''
+    if (a.length === 1) {
+      let i = 1
+      while (c === '') {
+        c = syllable3[Number((address.slice(0,16)) + i) % syllable3.length]
+        i++
+      }
+    } else { c = syllable3[Number(address.slice(0,16)) % syllable3.length] }
   }
+  console.log(a,b,c)
+  if (c !== '') {
+    if (b === c.charAt(0)) {
+      return a + b
+    }
+  }
+  return a + b + c
 }
-
-module.exports={ getName }
 

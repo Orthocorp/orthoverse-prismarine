@@ -69,10 +69,7 @@ class PlayScreen extends LitElement {
     this.serverport = 25565;
     this.proxy = "";
     this.proxyport = "";
-    this.username =
-      window.localStorage.getItem("username") ??
-      getName();
-    if (this.username === '') { this.username = getName() }
+    this.username = getName('')
     this.password = "";
     this.version = "";
     this.walletAddress = "";
@@ -257,8 +254,7 @@ class PlayScreen extends LitElement {
       // console.log("Got accounts", accounts);
       this.walletAddress = accounts[0];
       console.log("Wallet connected: " + this.walletAddress);
-      window.localStorage.setItem("username", this.username);
-      window.localStorage.setItem("password", "");
+      this.username = getName(this.walletAddress)
       this.dispatchEvent(
         new window.CustomEvent("connect", {
           detail: {
@@ -289,8 +285,7 @@ class PlayScreen extends LitElement {
         .then((accounts) => {
           this.walletAddress = accounts[0];
           console.log("Wallet connected: " + this.walletAddress);
-          window.localStorage.setItem("username", this.username);
-          window.localStorage.setItem("password", "");
+          this.username = getName(this.walletAddress)
           this.dispatchEvent(
             new window.CustomEvent("connect", {
               detail: {
@@ -329,6 +324,7 @@ class PlayScreen extends LitElement {
           }`,
           username: this.username,
           password: "",
+          wallet: "",
           botVersion: this.version,
         },
       })
