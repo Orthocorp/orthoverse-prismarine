@@ -1,6 +1,7 @@
 const { LitElement, html, css } = require("lit");
 const { commonCss, displayScreen } = require("./components/common");
-const { getName } = require('../generateNames')
+
+const axios = require('axios')
 
 class PlayScreen extends LitElement {
   static get styles() {
@@ -69,15 +70,17 @@ class PlayScreen extends LitElement {
     this.serverport = 25565;
     this.proxy = "";
     this.proxyport = "";
-    this.username = getName('')
+    this.username = ''
     this.password = "";
     this.version = "";
     this.walletAddress = "";
+    this.avatarAPI = "";
 
     window
       .fetch("config.json")
       .then((res) => res.json())
       .then((config) => {
+        console.log(config)
         this.server = config.defaultHost;
         this.serverport = config.defaultHostPort ?? 25565;
         this.proxy = config.defaultProxy;
@@ -86,6 +89,7 @@ class PlayScreen extends LitElement {
             ? ""
             : config.defaultProxyPort ?? 443;
         this.version = config.defaultVersion;
+        this.avatarAPI = config.avatarAPI
       });
   }
 
@@ -204,6 +208,21 @@ class PlayScreen extends LitElement {
     return script;
   }
 
+  async getName(address) {
+    console.log("Axios getName for " + this.avatarAPI + 'nameFromAddress?id=' + address)
+    return axios.get(this.avatarAPI + 'nameFromAddress?id=' + address)
+      .then(response => {
+        console.log("This was the Axios response")
+        console.log(response.data.name)
+        return response.data.name
+      })
+      .catch(err => {
+        console.log("Axios error")
+        console.log(err)
+        return "NameError"
+      })
+  }
+
   async onWalletConnectPress() {
     // Unpkg imports
     const Web3Modal = window.Web3Modal.default;
@@ -254,21 +273,27 @@ class PlayScreen extends LitElement {
       // console.log("Got accounts", accounts);
       this.walletAddress = accounts[0];
       console.log("Wallet connected: " + this.walletAddress);
-      this.username = getName(this.walletAddress)
-      this.dispatchEvent(
-        new window.CustomEvent("connect", {
-          detail: {
-            server: `${this.server}:${this.serverport}`,
-            proxy: `${this.proxy}${
-              this.proxy !== "" ? `:${this.proxyport}` : ""
-            }`,
-            username: this.username,
-            password: "",
-            wallet: this.walletAddress,
-            botVersion: this.version,
-          },
-        })
-      );
+      this.getName(this.walletAddress)
+      .then(result => {
+        this.username = result
+        this.dispatchEvent(
+          new window.CustomEvent("connect", {
+            detail: {
+              server: `${this.server}:${this.serverport}`,
+              proxy: `${this.proxy}${
+                this.proxy !== "" ? `:${this.proxyport}` : ""
+              }`,
+              username: this.username,
+              password: "",
+              wallet: this.walletAddress,
+              botVersion: this.version,
+            },
+          })
+        );
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     } catch (error) {
       console.log("Could not get a wallet connection", error);
       console.log(error, error.code);
@@ -285,21 +310,24 @@ class PlayScreen extends LitElement {
         .then((accounts) => {
           this.walletAddress = accounts[0];
           console.log("Wallet connected: " + this.walletAddress);
-          this.username = getName(this.walletAddress)
-          this.dispatchEvent(
-            new window.CustomEvent("connect", {
-              detail: {
-                server: `${this.server}:${this.serverport}`,
-                proxy: `${this.proxy}${
-                  this.proxy !== "" ? `:${this.proxyport}` : ""
-                }`,
-                username: this.username,
-                password: "",
-                wallet: this.walletAddress,
-                botVersion: this.version,
-              },
-            })
-          );
+          this.getName(this.walletAddress)
+          .then( name => {
+            this.username = name
+            this.dispatchEvent(
+              new window.CustomEvent("connect", {
+                detail: {
+                  server: `${this.server}:${this.serverport}`,
+                  proxy: `${this.proxy}${
+                    this.proxy !== "" ? `:${this.proxyport}` : ""
+                  }`,
+                  username: this.username,
+                  password: "",
+                  wallet: this.walletAddress,
+                  botVersion: this.version,
+                },
+              })
+            );
+          })
         })
         .catch((error) => {
           console.log(error, error.code);
@@ -324,7 +352,7 @@ class PlayScreen extends LitElement {
           }`,
           username: this.username,
           password: "",
-          wallet: "",
+          wallet: "0x0000000000000000000000000000000000000000",
           botVersion: this.version,
         },
       })

@@ -20,7 +20,6 @@ require('./lib/menus/keybinds_screen')
 require('./lib/menus/options_screen')
 require('./lib/menus/title_screen')
 
-const { getName } = require('./lib/generateNames')
 const { celestial } = require('./celestial')
 
 const net = require('net')
