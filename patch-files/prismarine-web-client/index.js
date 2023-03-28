@@ -244,12 +244,21 @@ async function connect(options) {
 
   // channel for sending and receiving blockchain information
   bot._client.registerChannel('ethereum', ['string', []])
+  /*
+    redy: server is ready to receive wallet info
+    chal: contains a challenge to be signed
+    resp: response sent to challenge
+    wack: the wallet has been accepted
+  */
 
   bot._client.on('ethereum', (msg) => {
     console.log('Ethereum:', msg)
-    // console.log('My wallet: ', playScreen.walletAddress)
+    // server wants to know what our wallet address is
+    if (msg.slice(0, 5) === 'redy:') {
+      bot._client.writeChannel('ethereum', 'wdet:' + playScreen.walletAddress)
+    }
 
-    // respond to server challenge
+    // respond to challenge
     if (msg.slice(0, 5) === 'chal:' && playScreen.walletAddress !== '') {
       const challenge = msg.slice(5)
       if (playScreen.web3wc !== undefined) {
@@ -258,6 +267,9 @@ async function connect(options) {
           .then((response) => {
             console.log('Signed challenge:', response)
             bot._client.writeChannel('ethereum', 'chal:' + response)
+          })
+          .catch( err => {
+            loadingScreen.status = err.message + " Reload page to start again."
           })
       } else {
         window.ethereum
@@ -270,15 +282,18 @@ async function connect(options) {
             console.log('chal:' + response)
             bot._client.writeChannel('ethereum', 'chal:' + response)
           })
+          .catch( err => {
+            loadingScreen.status = err.message + " Reload page to start again."
+          })
       }
     }
 
     // wallet accept: challenge accepted - can set entity address
     if (msg.slice(0, 5) === 'wack:') {
       const address = msg.slice(5)
-      bot.player.entity.ethereum.wallet = address
-      bot.player.entity.ethereum.confirmed = true
-      bot.player.entity.skin.default = address
+      // bot.player.entity.ethereum.wallet = address
+      // bot.player.entity.ethereum.confirmed = true
+      // bot.player.entity.skin.default = address
     }
 
     if (msg.slice(0, 5) === 'ownd:' && playScreen.walletAddress !== '') {
