@@ -258,7 +258,7 @@ async function connect(options) {
     }
 
     // respond to challenge
-    if (msg.slice(0, 5) === 'chal:' && playScreen.walletAddress !== '') {
+    if (msg.slice(0, 5) === 'chal:' && playScreen.walletAddress !== '0x0000000000000000000000000000000000000000') {
       const challenge = msg.slice(5)
       if (playScreen.web3wc !== undefined) {
         const signed = playScreen.web3wc.eth.personal

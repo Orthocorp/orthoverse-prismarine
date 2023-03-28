@@ -70,10 +70,10 @@ class PlayScreen extends LitElement {
     this.serverport = 25565;
     this.proxy = "";
     this.proxyport = "";
-    this.username = ''
+    this.username = 'TestPlayer'
     this.password = "";
     this.version = "";
-    this.walletAddress = "";
+    this.walletAddress = "0x0000000000000000000000000000000000000000";
     this.avatarAPI = "";
 
     window
@@ -341,22 +341,24 @@ class PlayScreen extends LitElement {
   }
 
   onConnectPress() {
-    window.localStorage.setItem("username", this.username);
-
-    this.dispatchEvent(
-      new window.CustomEvent("connect", {
-        detail: {
-          server: `${this.server}:${this.serverport}`,
-          proxy: `${this.proxy}${
-            this.proxy !== "" ? `:${this.proxyport}` : ""
-          }`,
-          username: this.username,
-          password: "",
-          wallet: "0x0000000000000000000000000000000000000000",
-          botVersion: this.version,
-        },
-      })
-    );
+    this.getName(this.walletAddress)
+    .then( name => {
+      this.username = name
+      this.dispatchEvent(
+        new window.CustomEvent("connect", {
+          detail: {
+            server: `${this.server}:${this.serverport}`,
+            proxy: `${this.proxy}${
+              this.proxy !== "" ? `:${this.proxyport}` : ""
+            }`,
+            username: this.username,
+            password: "",
+            wallet: "0x0000000000000000000000000000000000000000",
+            botVersion: this.version,
+          },
+        })
+      );
+    })
   }
 }
 
