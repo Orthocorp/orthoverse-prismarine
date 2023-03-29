@@ -203,6 +203,7 @@ async function connect(options) {
   const proxyprompt = options.proxy
   const username = options.username
   const password = options.password
+  const wallet = options.wallet
 
   let host, port, proxy, proxyport
   if (!hostprompt.includes(':')) {
@@ -243,12 +244,6 @@ async function connect(options) {
 
   // channel for sending and receiving blockchain information
   bot._client.registerChannel('ethereum', ['string', []])
-  /*
-    redy: server is ready to receive wallet info
-    chal: contains a challenge to be signed
-    resp: response sent to challenge
-    wack: the wallet has been accepted
-  */
 
   bot._client.on('ethereum', (msg) => {
     console.log('Ethereum:', msg)
@@ -290,9 +285,9 @@ async function connect(options) {
     // wallet accept: challenge accepted - can set entity address
     if (msg.slice(0, 5) === 'wack:') {
       const address = msg.slice(5)
-      // bot.player.entity.ethereum.wallet = address
-      // bot.player.entity.ethereum.confirmed = true
-      // bot.player.entity.skin.default = address
+      bot.player.entity.ethereum.confirmed = true
+      bot.player.entity.ethereum.wallet = address
+      bot.player.entity.skin.default = address
     }
 
     if (msg.slice(0, 5) === 'ownd:' && playScreen.walletAddress !== '') {
@@ -349,7 +344,7 @@ async function connect(options) {
 
   bot.on('kicked', (kickReason) => {
     console.log('User was kicked!', kickReason)
-    loadingScreen.status = `The Minecraft server kicked you. Kick reason: ${kickReason}. Please reload the page to rejoin`
+    loadingScreen.status = `The Orthoverse server kicked you. Kick reason: ${kickReason}. Please reload the page to rejoin`
     loadingScreen.style = 'display: block;'
     loadingScreen.hasError = true
   })
