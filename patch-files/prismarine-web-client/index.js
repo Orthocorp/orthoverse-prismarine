@@ -284,10 +284,9 @@ async function connect(options) {
 
     // wallet accept: challenge accepted - can set entity address
     if (msg.slice(0, 5) === 'wack:') {
+
       const address = msg.slice(5)
-      bot.player.entity.ethereum.confirmed = true
-      bot.player.entity.ethereum.wallet = address
-      bot.player.entity.skin.default = address
+      bot.entity.ethereum.confirmed = true   
     }
 
     if (msg.slice(0, 5) === 'ownd:' && playScreen.walletAddress !== '') {
@@ -357,6 +356,8 @@ async function connect(options) {
   })
 
   bot.once('login', () => {
+     bot.entity.ethereum.wallet = wallet
+     bot.entity.skin.default = wallet
     loadingScreen.status = 'Loading world'
   })
 
