@@ -247,6 +247,13 @@ module.exports.player = async function (player, serv, settings) {
       return
     }
 
+    // terminate player if they don't sign the login transaction in time
+    setTimeout(() => {
+      if (player.skin.cape = "unconfirmed") {
+        player.kick('Failed to confirm Ethereum address within one minute')
+      }
+    }, 60*1000)  
+
     await addPlayer()
     sendChallenge()
     sendLogin()
