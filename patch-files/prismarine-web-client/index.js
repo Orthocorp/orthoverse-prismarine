@@ -231,15 +231,15 @@ async function connect(options) {
   loadingScreen.status = 'Logging in'
 
   const bot = mineflayer.createBot({
-    host,
-    port,
-    version: options.botVersion === '' ? false : options.botVersion,
-    username,
-    password,
-    viewDistance: 'short',
-    checkTimeoutInterval: 240 * 1000,
-    noPongTimeout: 240 * 1000,
-    closeTimeout: 240 * 1000,
+    'host': host,
+    'port': port,
+    'version': options.botVersion === '' ? false : options.botVersion,
+    'username': options.username,
+    'password': password,
+    'viewDistance': 'short',
+    'checkTimeoutInterval': 240 * 1000,
+    'noPongTimeout': 240 * 1000,
+    'closeTimeout': 240 * 1000,
   })
 
   // channel for sending and receiving blockchain information
@@ -284,9 +284,9 @@ async function connect(options) {
 
     // wallet accept: challenge accepted - can set entity address
     if (msg.slice(0, 5) === 'wack:') {
-
       const address = msg.slice(5)
-      bot.entity.ethereum.confirmed = true   
+      bot.entity.skin.default = address
+      bot.entity.skin.cape = "confirmed"   
     }
 
     if (msg.slice(0, 5) === 'ownd:' && playScreen.walletAddress !== '') {
@@ -356,8 +356,6 @@ async function connect(options) {
   })
 
   bot.once('login', () => {
-     bot.entity.ethereum.wallet = wallet
-     bot.entity.skin.default = wallet
     loadingScreen.status = 'Loading world'
   })
 
@@ -371,6 +369,11 @@ async function connect(options) {
     const version = bot.version
 
     const center = bot.entity.position
+    if (!("skin" in bot.entity)) {
+      bot.entity.skin = {}
+      bot.entity.default = playScreen.walletAddress
+      bot.entity.cape = "unconfirmed"
+    }
 
     const worldView = new WorldView(bot.world, viewDistance, center)
 

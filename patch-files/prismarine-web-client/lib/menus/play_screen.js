@@ -273,27 +273,7 @@ class PlayScreen extends LitElement {
       // console.log("Got accounts", accounts);
       this.walletAddress = accounts[0];
       console.log("Wallet connected: " + this.walletAddress);
-      this.getName(this.walletAddress)
-      .then(result => {
-        this.username = result
-        this.dispatchEvent(
-          new window.CustomEvent("connect", {
-            detail: {
-              server: `${this.server}:${this.serverport}`,
-              proxy: `${this.proxy}${
-                this.proxy !== "" ? `:${this.proxyport}` : ""
-              }`,
-              username: this.username,
-              password: "",
-              wallet: this.walletAddress,
-              botVersion: this.version,
-            },
-          })
-        );
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+      this.onConnectPress()
     } catch (error) {
       console.log("Could not get a wallet connection", error);
       console.log(error, error.code);
@@ -310,24 +290,7 @@ class PlayScreen extends LitElement {
         .then((accounts) => {
           this.walletAddress = accounts[0];
           console.log("Wallet connected: " + this.walletAddress);
-          this.getName(this.walletAddress)
-          .then( name => {
-            this.username = name
-            this.dispatchEvent(
-              new window.CustomEvent("connect", {
-                detail: {
-                  server: `${this.server}:${this.serverport}`,
-                  proxy: `${this.proxy}${
-                    this.proxy !== "" ? `:${this.proxyport}` : ""
-                  }`,
-                  username: this.username,
-                  password: "",
-                  wallet: this.walletAddress,
-                  botVersion: this.version,
-                },
-              })
-            );
-          })
+          this.onConnectPress()
         })
         .catch((error) => {
           console.log(error, error.code);
@@ -353,11 +316,13 @@ class PlayScreen extends LitElement {
             }`,
             username: this.username,
             password: "",
-            wallet: "0x0000000000000000000000000000000000000000",
             botVersion: this.version,
           },
         })
       );
+    })
+    .catch((error) => {
+      console.log(error, error.code);  
     })
   }
 }

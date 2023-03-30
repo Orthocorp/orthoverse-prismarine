@@ -21,15 +21,15 @@ module.exports.player = function (player, serv) {
   // to prevent more than one save every 10 minutes for level 1
   // every level greater than 1 makes this 1 minutes shorter)
   function timeLimit (lvl) {
-    if ('saveTimeLimit' in player.ethereum) {
-      if (player.ethereum.saveTimeLimit + 660 - (lvl * 60)  < Math.floor(Date.now() / 1000) ) {
-        player.ethereum.saveTimeLimit = Math.floor(Date.now() / 1000)
+    if ('saveTimeLimit' in player.skin) {
+      if (player.skin.saveTimeLimit + 660 - (lvl * 60)  < Math.floor(Date.now() / 1000) ) {
+        player.skin.saveTimeLimit = Math.floor(Date.now() / 1000)
         return true
       } else {
         return false
       }
     } else {
-      player.ethereum.saveTimeLimit = Math.floor(Date.now() / 1000)
+      player.skin.saveTimeLimit = Math.floor(Date.now() / 1000)
       return true
     }  
   }
@@ -42,7 +42,7 @@ module.exports.player = function (player, serv) {
 
   player.on('move', ({ position }, cancelled) => {
     // only act on Ethereum events if the player has verified their address
-    if (player.ethereum.confirmed === true) {
+    if (player.skin.confirmed === true) {
       // check whether player has moved onto a new land
       if ((xCoord !== landCoord(player.position.x)) || (zCoord !== landCoord(player.position.z))) {
         xCoord = landCoord(xStor)
@@ -51,7 +51,7 @@ module.exports.player = function (player, serv) {
         const landKey = xCoord.toString() + ':' + zCoord.toString()
         if (landKey in serv.voxel.data) {
           const landOwners = serv.voxel.data[landKey][4]
-        if (landOwners.includes(player.ethereum.wallet)) { 
+        if (landOwners.includes(player.skin.default)) { 
             player._client.writeChannel('ethereum', 'ownd:true')
           } else {
             player._client.writeChannel('ethereum', 'ownd:false')
@@ -72,8 +72,8 @@ module.exports.player = function (player, serv) {
     if (msg.slice(0, 5) === 'chal:') {
       const prefix = '\x19Ethereum Signed Message:\n' // EIP-191 personal_sign prefix
       console.log("Challenge is:")
-      console.log(player.ethereum.challenge)
-      const challenge = prefix + player.ethereum.challenge.length + player.ethereum.challenge
+      console.log(player.skin.challenge)
+      const challenge = prefix + player.skin.challenge.length + player.skin.challenge
       const response = msg.slice(5)
       const challengeHash = ethUtils.keccak(Buffer.from(challenge, 'utf-8'))
       console.log("Challenge hash: ", challengeHash)
@@ -83,8 +83,8 @@ module.exports.player = function (player, serv) {
       const addr = ethUtils.bufferToHex(addrBuf)
       if (addr.length === 42) {
         serv.info('Confirmed ' + player.username + ' controls ' + addr)
-        player.ethereum.wallet = addr
-        player.ethereum.confirmed = true
+        player.skin.default = addr
+        player.skin.cape = "confirmed"
         player._client.writeChannel('ethereum', 'wack:' + addr)
       }
     }
@@ -112,7 +112,7 @@ module.exports.player = function (player, serv) {
       if (landKey in serv.voxel.data) {
         const landOwners = serv.voxel.data[landKey][4]
         // check the player owns it
-        if (!(landOwners.includes(player.ethereum.wallet))) { 
+        if (!(landOwners.includes(player.skin.default))) { 
           player._client.writeChannel('ethereum', 'mesg:You cannot save a land you do not own')
           return
         }
@@ -165,7 +165,7 @@ module.exports.player = function (player, serv) {
       if (landKey in serv.voxel.data) {
         const landOwners = serv.voxel.data[landKey][4]
         // check the player owns it
-        if (!(landOwners.includes(player.ethereum.wallet))) { 
+        if (!(landOwners.includes(player.skin.default))) { 
           player._client.writeChannel('ethereum', 'mesg:You cannot load a land you do not own or have rights to')
           return
         }
