@@ -20,7 +20,6 @@ require('./lib/menus/keybinds_screen')
 require('./lib/menus/options_screen')
 require('./lib/menus/title_screen')
 
-const { getName } = require('./lib/generateNames')
 const { celestial } = require('./celestial')
 
 const net = require('net')
@@ -204,6 +203,7 @@ async function connect(options) {
   const proxyprompt = options.proxy
   const username = options.username
   const password = options.password
+  const wallet = options.wallet
 
   let host, port, proxy, proxyport
   if (!hostprompt.includes(':')) {
@@ -231,15 +231,15 @@ async function connect(options) {
   loadingScreen.status = 'Logging in'
 
   const bot = mineflayer.createBot({
-    host,
-    port,
-    version: options.botVersion === '' ? false : options.botVersion,
-    username,
-    password,
-    viewDistance: 'short',
-    checkTimeoutInterval: 240 * 1000,
-    noPongTimeout: 240 * 1000,
-    closeTimeout: 240 * 1000,
+    'host': host,
+    'port': port,
+    'version': options.botVersion === '' ? false : options.botVersion,
+    'username': options.username,
+    'password': password,
+    'viewDistance': 'short',
+    'checkTimeoutInterval': 240 * 1000,
+    'noPongTimeout': 240 * 1000,
+    'closeTimeout': 240 * 1000,
   })
 
   // channel for sending and receiving blockchain information
@@ -247,10 +247,13 @@ async function connect(options) {
 
   bot._client.on('ethereum', (msg) => {
     console.log('Ethereum:', msg)
-    // console.log('My wallet: ', playScreen.walletAddress)
+    // server wants to know what our wallet address is
+    if (msg.slice(0, 5) === 'redy:') {
+      bot._client.writeChannel('ethereum', 'wdet:' + playScreen.walletAddress)
+    }
 
-    // respond to server challenge
-    if (msg.slice(0, 5) === 'chal:' && playScreen.walletAddress !== '') {
+    // respond to challenge
+    if (msg.slice(0, 5) === 'chal:' && playScreen.walletAddress !== '0x0000000000000000000000000000000000000000') {
       const challenge = msg.slice(5)
       if (playScreen.web3wc !== undefined) {
         const signed = playScreen.web3wc.eth.personal
@@ -258,6 +261,9 @@ async function connect(options) {
           .then((response) => {
             console.log('Signed challenge:', response)
             bot._client.writeChannel('ethereum', 'chal:' + response)
+          })
+          .catch( err => {
+            loadingScreen.status = err.message + " Reload page to start again."
           })
       } else {
         window.ethereum
@@ -270,15 +276,17 @@ async function connect(options) {
             console.log('chal:' + response)
             bot._client.writeChannel('ethereum', 'chal:' + response)
           })
+          .catch( err => {
+            loadingScreen.status = err.message + " Reload page to start again."
+          })
       }
     }
 
     // wallet accept: challenge accepted - can set entity address
     if (msg.slice(0, 5) === 'wack:') {
       const address = msg.slice(5)
-      bot.player.entity.ethereum.wallet = address
-      bot.player.entity.ethereum.confirmed = true
-      bot.player.entity.skin.default = address
+      bot.entity.skin.default = address
+      bot.entity.skin.cape = "confirmed"   
     }
 
     if (msg.slice(0, 5) === 'ownd:' && playScreen.walletAddress !== '') {
@@ -335,7 +343,7 @@ async function connect(options) {
 
   bot.on('kicked', (kickReason) => {
     console.log('User was kicked!', kickReason)
-    loadingScreen.status = `The Minecraft server kicked you. Kick reason: ${kickReason}. Please reload the page to rejoin`
+    loadingScreen.status = `The Orthoverse server kicked you. Kick reason: ${kickReason}. Please reload the page to rejoin`
     loadingScreen.style = 'display: block;'
     loadingScreen.hasError = true
   })
@@ -361,6 +369,11 @@ async function connect(options) {
     const version = bot.version
 
     const center = bot.entity.position
+    if (!("skin" in bot.entity)) {
+      bot.entity.skin = {}
+      bot.entity.default = playScreen.walletAddress
+      bot.entity.cape = "unconfirmed"
+    }
 
     const worldView = new WorldView(bot.world, viewDistance, center)
 
@@ -622,56 +635,8 @@ async function connect(options) {
   })
 }
 
-/**
- * @param {URLSearchParams} params
- */
-async function fromTheOutside(params, addr) {
-  const opts = {}
-  const dfltConfig = await (await window.fetch('config.json')).json()
+// And enable the main screen
+console.log("Title screen")
+showEl('title-screen')
+main()
 
-  let server, port, proxy, proxyPort
-
-  if (address.includes(':')) {
-    const s = address.split(':')
-    server = s[0]
-    port = Number(s[1]) || 25565
-  } else {
-    server = address
-    port = Number(params.get('port')) || 25565
-  }
-
-  const proxyAddr = params.get('proxy')
-  if (proxyAddr) {
-    const s = proxyAddr.split(':')
-    proxy = s[0]
-    proxyPort = Number(s[1] ?? 'NaN') || 22
-  } else {
-    proxy = dfltConfig.defaultProxy
-    proxyPort =
-      !dfltConfig.defaultProxy && !dfltConfig.defaultProxyPort
-        ? ''
-        : dfltConfig.defaultProxyPort ?? 443
-  }
-
-  opts.server = `${server}:${port}`
-  opts.proxy = `${proxy}:${proxyPort}`
-  opts.username = 
-    params.get('username') ?? getName()
-  opts.password = params.get('password') ?? ''
-  opts.botVersion = params.get('version') ?? false
-
-  console.log(opts)
-
-  showEl('loading-screen')
-  removePanorama()
-  connect(opts)
-}
-
-const params = new URLSearchParams(window.location.search)
-let address
-if ((address = params.get('address'))) {
-  fromTheOutside(params, address)
-} else {
-  showEl('title-screen')
-  main()
-}

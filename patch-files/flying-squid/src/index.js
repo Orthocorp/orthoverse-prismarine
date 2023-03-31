@@ -52,6 +52,38 @@ class MCServer extends EventEmitter {
     this.voxel.status = {}
     this.voxel.landSaves = options.landSaves
 
+    // function to get name from address
+    this.getAddressFromName = async (name) => {
+      console.log("Axios getName for " + options.avatarAPI + 'addressFromName?name=' + name)
+      return axios.get(options.avatarAPI + 'addressFromName?name=' + name)
+        .then(response => {
+          console.log("This was the Axios response")
+          console.log(response.data.address)
+          return response.data.address
+        })
+        .catch(err => {
+          console.log("Axios error")
+          console.log(err)
+          return "NameError"
+        })
+    }
+
+    // function to get address from name
+    this.getNameFromAddress = async (address) => {
+      console.log("Axios getName for " + options.avatarAPI + 'nameFromAddress?id=' + address)
+      return axios.get(options.avatarAPI + 'nameFromAddress?id=' + address)
+        .then(response => {
+          console.log("This was the Axios response")
+          console.log(response.data.name)
+          return response.data.name
+        })
+        .catch(err => {
+          console.log("Axios error")
+          console.log(err)
+          return "NameError"
+        })
+    }
+
     //  function to load current data structure for world from API database
     this.voxel.load = async () => {
       return axios.get(options.landsApi)

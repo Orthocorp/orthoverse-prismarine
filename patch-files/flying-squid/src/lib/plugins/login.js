@@ -9,12 +9,16 @@ const playerDat = require('../playerDat')
 const convertInventorySlotId = require('../convertInventorySlotId')
 
 module.exports.server = function (serv, options) {
-  serv._server.on('connection', client =>
-    client.on('error', error => serv.emit('clientError', client, error)))
+  serv._server.on('connection', client => {
+    client.on('error', error => serv.emit('clientError', client, error))
+  })
 
   serv._server.on('login', async (client) => {
     if (client.socket.listeners('end').length === 0) return // TODO: should be fixed properly in nmp instead
     try {
+      // console.log(client) at this point client has username and so on
+      // so that is sent from prismarine-web-client
+      const address = await serv.getAddressFromName(client.username)
       const player = serv.initEntity('player', null, serv.overworld, new Vec3(0, 0, 0))
       player._client = client
 
@@ -23,6 +27,12 @@ module.exports.server = function (serv, options) {
       Object.keys(plugins)
         .filter(pluginName => plugins[pluginName].player !== undefined)
         .forEach(pluginName => plugins[pluginName].player(player, serv, options))
+
+      // we are using skin object to store address and confirmation of signature
+
+      player.skin = {}
+      player.skin.default = address
+      player.skin.cape = "unconfirmed"
 
       serv.emit('newPlayer', player)
       player.emit('asap')
@@ -101,7 +111,7 @@ module.exports.player = async function (player, serv, settings) {
       'Random number: ' +
       [...Array(8)].map(() => Math.floor(Math.random() * 16).toString(16)).join('')
     player._client.writeChannel('ethereum', 'chal:' + challenge)
-    player.ethereum.challenge = challenge
+    player.skin.challenge = challenge
   }
 
   function sendLogin () {
@@ -236,6 +246,13 @@ module.exports.player = async function (player, serv, settings) {
       player.kick(serv.bannedIPs[player._client.socket.remoteAddress].reason)
       return
     }
+
+    // terminate player if they don't sign the login transaction in time
+    setTimeout(() => {
+      if (player.skin.cape = "unconfirmed") {
+        player.kick('Failed to confirm Ethereum address within one minute')
+      }
+    }, 60*1000)  
 
     await addPlayer()
     sendChallenge()
