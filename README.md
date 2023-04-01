@@ -16,6 +16,7 @@ cd orthoverse-prismarine
 Then you need to edit the config files to point at the Orthoverse Avatars server.
 
 pws: open `patch-files/prismarine-web-client/config.json` and change `"avatarAPI"`.
+
 fs: open `patch-files/flying-squid/examples/orthoverse.js` and  change`"avatarAPI"` as well.
 
 
