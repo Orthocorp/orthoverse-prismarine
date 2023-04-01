@@ -248,12 +248,14 @@ module.exports.player = async function (player, serv, settings) {
     }
 
     // terminate player if they don't sign the login transaction in time
+    const timeoutTime = 60
     setTimeout(() => {
-      if (player.skin.cape === "unconfirmed") {
+      if ( player.skin.default != '0x0000000000000000000000000000000000000000' &&
+           player.skin.cape === "unconfirmed") {
         console.log("Removing " + player.username + " due to failure to authenticate properly")
-        player.kick('Failed to confirm Ethereum address within one minute')
+        player.kick('Failed to confirm Ethereum address within ' + timeoutTime + ' seconds')
       }
-    }, 60*1000)  
+    }, timeoutTime*1000)  
 
     await addPlayer()
     sendChallenge()
