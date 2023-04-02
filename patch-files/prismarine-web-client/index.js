@@ -290,6 +290,7 @@ async function connect(options) {
     }
 
     if (msg.slice(0, 5) === 'ownd:' && playScreen.walletAddress !== '') {
+      console.log(msg)
       if (msg.slice(5) === 'true') {
         landbar.landnameswap('true')
         hotbar.style = 'display: block;'

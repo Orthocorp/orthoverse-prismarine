@@ -42,7 +42,7 @@ module.exports.player = function (player, serv) {
 
   player.on('move', ({ position }, cancelled) => {
     // only act on Ethereum events if the player has verified their address
-    if (player.skin.confirmed === true) {
+    if (player.skin.cape === "confirmed") {
       // check whether player has moved onto a new land
       if ((xCoord !== landCoord(player.position.x)) || (zCoord !== landCoord(player.position.z))) {
         xCoord = landCoord(xStor)

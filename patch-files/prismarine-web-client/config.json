@@ -4,5 +4,5 @@
   "defaultProxy": "",
   "defaultProxyPort": 0,
   "defaultVersion": "1.15.2",
-  "avatarAPI": "http://localhost:8911/"
+  "avatarAPI": "https://orthoverse.me/.redwood/functions/"
 }
