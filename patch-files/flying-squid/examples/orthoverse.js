@@ -32,10 +32,10 @@ const options = {
   'operators': ['BCGandalf', 'TheOtherGuy'],
   'max-entities': 1000,
   version: '1.15.2',
-  'landsApi': 'http://localhost:9090/api/land/generate/voxel', // 'https://orthoverse.io/api/land/generate/voxel',
+  'landsApi': 'https://orthoverse.io/api/land/generate/voxel',
   'landSaves': './land-saves/region/',
-  'visitApi': 'http://localhost:9090/api/land/visit', // 'https://orthoverse.io/api/land/visit',
-  'avatarAPI': 'http://localhost:8910/.redwood/functions/', // http://localhost:8911/'.
+  'visitApi': 'https://orthoverse.io/api/land/visit',
+  'avatarAPI': 'https://orthoverse.me/.redwood/functions/', // http://localhost:8911/'
   'debug': {
     // 'landupdate': true, // ****** DEBUG: artificially change level of Fangwanina in landSyncCheck
     // 'revealtest': true, // ****** DEBUG: check that revealed tokens work
