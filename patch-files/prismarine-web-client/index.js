@@ -294,9 +294,11 @@ async function connect(options) {
       if (msg.slice(5) === 'true') {
         landbar.landnameswap('true')
         hotbar.style = 'display: block;'
+        bot.entity.skin.onOwned = true
       } else {
         landbar.landnameswap('false')
         hotbar.style = 'display: none;'
+        bot.entity.skin.onOwned = false
       }
     }
 
@@ -372,8 +374,9 @@ async function connect(options) {
     const center = bot.entity.position
     if (!("skin" in bot.entity)) {
       bot.entity.skin = {}
-      bot.entity.default = playScreen.walletAddress
-      bot.entity.cape = "unconfirmed"
+      bot.entity.skin.default = playScreen.walletAddress
+      bot.entity.skin.cape = "unconfirmed"
+      bot.entity.skin.onOwned = false
     }
 
     const worldView = new WorldView(bot.world, viewDistance, center)

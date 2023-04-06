@@ -91,6 +91,7 @@ class MCServer extends EventEmitter {
           this.voxel.data = response.data
           this.voxel.data['timestamp'] = Date.now()
           console.log('Loaded world from database')
+          // TODO: check that there aren't any old string owners
         })
         .catch(err => {
           console.error("Voxel load error: ", err)
@@ -117,6 +118,16 @@ class MCServer extends EventEmitter {
 
     // function to save the current state of the voxel world
     this.voxel.saveFile = () => {
+      // update doxel.json owner from string to array where necessary
+      const keys = Object.keys(this.voxel.data)
+      for (let i = 0; i < keys.length; i++) {
+        if (keys[i] !== 'timestamp') {
+          if (!(Array.isArray(this.voxel.data[keys[i]][4]))) {
+            this.voxel.data[keys[i]][4] = [ this.voxel.data[keys[i]][4] ]
+            console.log("Converting owner of " + this.voxel.data[keys[i]][1] + " to delegate array")
+          }
+        }
+      }
       this.voxel.data['timestamp'] = Date.now()
       fs.writeFileSync(this.voxel.landSaves + '../doxel.json', JSON.stringify(this.voxel.data), (err) => {
         if (err) {

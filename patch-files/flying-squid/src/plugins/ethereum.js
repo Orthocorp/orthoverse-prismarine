@@ -51,11 +51,11 @@ module.exports.player = function (player, serv) {
         const landKey = xCoord.toString() + ':' + zCoord.toString()
         if (landKey in serv.voxel.data) {
           const landOwners = serv.voxel.data[landKey][4]
-        if (landOwners.includes(player.skin.default)) { 
-            player._client.writeChannel('ethereum', 'ownd:true')
-          } else {
-            player._client.writeChannel('ethereum', 'ownd:false')
-          }
+          if (landOwners.includes(player.skin.default)) { 
+              player._client.writeChannel('ethereum', 'ownd:true')
+            } else {
+              player._client.writeChannel('ethereum', 'ownd:false')
+            }
         } else { player._client.writeChannel('ethereum', 'ownd:false') }
       }
 
