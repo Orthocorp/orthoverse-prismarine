@@ -83,9 +83,9 @@ function checkChange (orthoverse, key, value) {
     }
     // land has changed owners    
     if (orthoverse.voxel.data[key][4].toString() !== value[4].toString()) {
+      console.log("Ownership or delegates for " + orthoverse.voxel.data[key][1] + " changed")
       console.log(orthoverse.voxel.data[key][4], value[4])
       orthoverse.voxel.data[key][4] = value[4]
-      console.log("Owner or delegates changed")
       // placeholder for any other stuff that needs to be done, e.g.
       // check that someone can no longer build, but I'm not sure
       // anything like that is actually needed.
@@ -132,15 +132,16 @@ main().then( (orthoverse) => {
       }
     // ******
 
-    // check on land sync state every 10 minutes and save the land status
+    // check on land sync state every minute and save the land status
+    
     let unhandled = {}
     const landSyncCheck = setInterval(function() {
-      if (Object.keys(unhandled).length) {
-        console.log("Processing unhandled land updates")
+      if (Object.keys(unhandled).length > 0) {
+        console.log("Processing unhandled land updates. This many left: " + Object.keys(unhandled).length)
         // forcing a synchronous loop
         const keys = Object.keys(unhandled)
         let change = false
-        for (let i = 0; i < Math.min(keys.length, 16); i++) {
+        for (let i = 0; i < Math.min(keys.length, 32); i++) {
           const key = keys[i]
           const value = unhandled[key]
           if (checkChange(orthoverse, key, value) === true) {change = true}
@@ -157,11 +158,11 @@ main().then( (orthoverse) => {
               result.data["0:-1"][2] = (result.data["0:-1"][2] + 1) % 16
             }
           // ******
-          console.log("Checking for new land updates")
+          console.log("Checking for new land updates: found " + Object.keys(unhandled).length)
           // forcing a synchronous loop
           const keys = Object.keys(unhandled)
           let change = false
-          for (let i = 0; i < Math.min(keys.length, 16); i++) {
+          for (let i = 0; i < Math.min(keys.length, 32); i++) {
             const key = keys[i]
             const value = unhandled[key]
             if (checkChange(orthoverse, key, value) === true) {change = true}
