@@ -118,6 +118,8 @@ class PalantirContainer extends LitElement {
 
     if (this.panelOpened) {
       this.requestUpdate()
+      // trigger list of players from server
+      bot._client.writeChannel('ethereum', 'play:')
 
       console.log('**** Palantir Init', this.players)
 
