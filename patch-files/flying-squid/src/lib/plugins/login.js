@@ -15,6 +15,19 @@ module.exports.server = function (serv, options) {
 
   serv._server.on('login', async (client) => {
     if (client.socket.listeners('end').length === 0) return // TODO: should be fixed properly in nmp instead
+
+    // check for duplicate login here
+    let playerNames = []
+    for (let i = 0; i < serv.players.length; i++) {
+        playerNames.push(serv.players[i].username)
+    }
+    if (playerNames.includes(client.username)) {
+      console.log("Duplicate login attempted by " + client.username)
+      //// something to cleanly end the client connection here
+      client.write('kick_disconnect', {reason: "Duplicate login attempt for " + client.username})
+      return
+    }
+
     try {
       // console.log(client) at this point client has username and so on
       // so that is sent from prismarine-web-client
@@ -238,6 +251,7 @@ module.exports.player = async function (player, serv, settings) {
       player.kick('You are already connected')
       return
     }
+
     if (serv.bannedPlayers[player.uuid]) {
       player.kick(serv.bannedPlayers[player.uuid].reason)
       return
@@ -250,10 +264,10 @@ module.exports.player = async function (player, serv, settings) {
     // terminate player if they don't sign the login transaction in time
     const timeoutTime = 60
     setTimeout(() => {
-      if ( player.skin.default != '0x0000000000000000000000000000000000000000' &&
+      if ( player.skin.default !== '0x0000000000000000000000000000000000000000' &&
            player.skin.cape === "unconfirmed") {
         console.log("Removing " + player.username + " due to failure to authenticate properly")
-        player.kick('Failed to confirm Ethereum address within ' + timeoutTime + ' seconds')
+        player._client.write('kick_disconnect', { reason: 'Failed to confirm Ethereum address within ' + timeoutTime + ' seconds'})
       }
     }, timeoutTime*1000)  
 

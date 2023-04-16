@@ -118,6 +118,8 @@ class PalantirContainer extends LitElement {
 
     if (this.panelOpened) {
       this.requestUpdate()
+      // trigger list of players from server
+      bot._client.writeChannel('ethereum', 'play:')
 
       console.log('**** Palantir Init', this.players)
 
@@ -128,6 +130,8 @@ class PalantirContainer extends LitElement {
   }
 
   ownerTitleFor(player) {
+    // this needs to be changed to use avatars API as we can search on unique username
+    // player.entity.ethereum.wallet is deprecated
     if (
       player.entity?.ethereum !== undefined &&
       player.entity.ethereum.wallet.startsWith('0x')

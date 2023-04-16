@@ -147,6 +147,8 @@ module.exports.player = function (player, serv, { version }) {
 
 
   player._client.on('block_place', async ({ direction, location, cursorY, hand } = {}) => {
+    // at the moment we use the client to vet placing object, we should check here too to prevent hackers
+
     serv.info("Hand value is " + hand.toString())
     if ( placing === true) { return }
     placing = true

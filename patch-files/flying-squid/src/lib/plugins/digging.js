@@ -59,7 +59,11 @@ module.exports.player = function (player, serv, { version }) {
         const landPos = currentlyDugBlock.position.x.toString() + ':' + currentlyDugBlock.position.z.toString()
         if (landPos in serv.voxel.data) {
           const landOwner = serv.voxel.data[landPos][4]
-          if (player.ethereum.wallet === landOwner) {
+            // player can only dig if their address is in the list of allowed builders for the land
+          console.log("List of land owners: ", serv.voxel.data[landPos][4])
+          console.log("My address: ", player.skin.default)
+          console.log("Confirmed? ", player.skin.cape)
+          if (landOwner.includes(player.skin.default) && player.skin.cape === "confirmed") {
             owned = true
           }
         }

@@ -51,11 +51,11 @@ module.exports.player = function (player, serv) {
         const landKey = xCoord.toString() + ':' + zCoord.toString()
         if (landKey in serv.voxel.data) {
           const landOwners = serv.voxel.data[landKey][4]
-        if (landOwners.includes(player.skin.default)) { 
-            player._client.writeChannel('ethereum', 'ownd:true')
-          } else {
-            player._client.writeChannel('ethereum', 'ownd:false')
-          }
+          if (landOwners.includes(player.skin.default)) { 
+              player._client.writeChannel('ethereum', 'ownd:true')
+            } else {
+              player._client.writeChannel('ethereum', 'ownd:false')
+            }
         } else { player._client.writeChannel('ethereum', 'ownd:false') }
       }
 
@@ -67,6 +67,39 @@ module.exports.player = function (player, serv) {
 
   player._client.on('ethereum', (msg) => {
     // serv.info('Player ethereum channel message received:' , msg)
+
+    // return a list of players and the land they are in
+    if (msg.slice(0, 5) === 'play:') {
+      console.log("Returning list of players")
+      let response = []
+      for (let i = 0; i < serv.players.length; i++) {
+        const player = serv.players[i]
+        // 
+        const details = {
+          name: player.username,
+          position: player.position,
+          op: player.op,
+          land: ''
+        }
+        const xLand = Math.floor(player.position.x / 96)
+        const zLand = Math.floor(player.position.z / 96)
+        const landKey = xLand + ":" + zLand
+        console.log(landKey)
+        if (landKey in serv.voxel.data) {
+          console.log(serv.voxel.data[landKey])
+          details['land'] = serv.voxel.data[landKey][1]
+        } else if (
+          xLand < -51 || xLand > 51 || zLand < -51 || zLand > 51
+        ) {
+          details['land'] = "The Edge of the World"           
+        } else {
+          details['land'] = "The Open Sea" 
+        }
+        response.push(details)
+      }
+      console.log(response)
+      player._client.writeChannel('ethereum', 'play:' + JSON.stringify(response))
+    }
 
     // This section handles the ethereum address signing challenge/response
     if (msg.slice(0, 5) === 'chal:') {
