@@ -107,43 +107,42 @@ module.exports.player = function (player, serv, { version }) {
   const QUICK_BAR_START = 9
   const mcData = require('minecraft-data')(version)
   const blocks = mcData.blocks
-    const specialPlace = {
+  const specialPlace = {
       'dirt': ['grass', 8],
-      'grass': ['dirt', 9], 
       'grass_block': ['dirt', 9], 
-      'white_concrete_stairs': ['white_concrete', -1],
-      'white_concrete': ['white_concrete_stairs', -1],
-      'orange_concrete_stairs': ['orange_concrete', -1],
-      'orange_concrete': ['orange_concrete_stairs', -1],
-      'magenta_concrete_stairs': ['magenta_concrete', -1],
-      'magenta_concrete': ['magenta_concrete_stairs', -1],
-      'light_blue_concrete_stairs': ['light_blue_concrete', -1],
-      'light_blue_concrete': ['light_blue_concrete_stairs', -1],
-      'yellow_concrete_stairs': ['yellow_concrete', -1],
-      'yellow_concrete': ['yellow_concrete_stairs', -1],
-      'lime_concrete_stairs': ['lime_concrete', -1],
-      'lime_concrete': ['lime_concrete_stairs', -1],
-      'pink_concrete_stairs': ['pink_concrete', -1],
-      'pink_concrete': ['pink_concrete_stairs', -1],
-      'gray_concrete_stairs': ['gray_concrete', -1],
-      'gray_concrete': ['gray_concrete_stairs', -1],
-      'light_gray_concrete_stairs': ['light_gray_concrete', -1],
-      'light_gray_concrete': ['light_gray_concrete_stairs', -1],
-      'cyan_concrete_stairs': ['cyan_concrete', -1],
-      'cyan_concrete': ['cyan_concrete_stairs', -1],
-      'purple_concrete_stairs': ['purple_concrete', -1],
-      'purple_concrete': ['purple_concrete_stairs', -1],
-      'blue_concrete_stairs': ['blue_concrete', -1],
-      'blue_concrete': ['blue_concrete_stairs', -1],
-      'brown_concrete_stairs': ['brown_concrete', -1],
-      'brown_concrete': ['brown_concrete_stairs', -1],
-      'green_concrete_stairs': ['green_concrete', -1],
-      'green_concrete': ['green_concrete_stairs', -1],
-      'red_concrete_stairs': ['red_concrete', -1],
-      'red_concrete': ['red_concrete_stairs', -1],
-      'black_concrete_stairs': ['black_concrete', -1],
-      'black_concrete': ['black_concrete_stairs', -1]
-    }
+      'white_concrete_stairs': ['white_concrete', 413],
+      'white_concrete': ['white_concrete_stairs', 680],
+      'orange_concrete_stairs': ['orange_concrete', 414],
+      'orange_concrete': ['orange_concrete_stairs', 681],
+      'magenta_concrete_stairs': ['magenta_concrete', 415],
+      'magenta_concrete': ['magenta_concrete_stairs', 682],
+      'light_blue_concrete_stairs': ['light_blue_concrete', 416],
+      'light_blue_concrete': ['light_blue_concrete_stairs', 683],
+      'yellow_concrete_stairs': ['yellow_concrete', 417],
+      'yellow_concrete': ['yellow_concrete_stairs', 684],
+      'lime_concrete_stairs': ['lime_concrete', 418],
+      'lime_concrete': ['lime_concrete_stairs', 685],
+      'pink_concrete_stairs': ['pink_concrete', 419],
+      'pink_concrete': ['pink_concrete_stairs', 686],
+      'gray_concrete_stairs': ['gray_concrete', 420],
+      'gray_concrete': ['gray_concrete_stairs', 687],
+      'light_gray_concrete_stairs': ['light_gray_concrete', 421],
+      'light_gray_concrete': ['light_gray_concrete_stairs', 688],
+      'cyan_concrete_stairs': ['cyan_concrete', 422],
+      'cyan_concrete': ['cyan_concrete_stairs', 689],
+      'purple_concrete_stairs': ['purple_concrete', 423],
+      'purple_concrete': ['purple_concrete_stairs', 690],
+      'blue_concrete_stairs': ['blue_concrete', 424],
+      'blue_concrete': ['blue_concrete_stairs', 691],
+      'brown_concrete_stairs': ['brown_concrete', 425],
+      'brown_concrete': ['brown_concrete_stairs', 692],
+      'green_concrete_stairs': ['green_concrete', 426],
+      'green_concrete': ['green_concrete_stairs', 693],
+      'red_concrete_stairs': ['red_concrete', 427],
+      'red_concrete': ['red_concrete_stairs', 694],
+      'black_concrete_stairs': ['black_concrete', 428],
+      'black_concrete': ['black_concrete_stairs', 695]
+  }
 
 
   player._client.on('block_place', async ({ direction, location, cursorY, hand } = {}) => {
@@ -170,6 +169,7 @@ module.exports.player = function (player, serv, { version }) {
       console.log("Ctrl place action")
       heldItem.type = specialPlace[heldItem.name][1]
       heldItem.name = specialPlace[heldItem.name][0]
+      console.log("New name and item: ", heldItem.type, heldItem.name)
     }
 
     const directionVector = directionToVector[direction]
