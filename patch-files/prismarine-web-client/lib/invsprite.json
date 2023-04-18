@@ -2049,6 +2049,11 @@
     "y": 672,
     "name": "Honeycomb Block"
   },
+   "white_concrete_powder_stairs": {
+    "x": 0,
+    "y": 512,
+    "name": "White Concrete Powder Stairs"
+  },
   "hopper": {
     "x": 832,
     "y": 672,
