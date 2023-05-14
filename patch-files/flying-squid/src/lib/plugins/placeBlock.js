@@ -112,6 +112,7 @@ module.exports.player = function (player, serv, { version }) {
       'grass': ['dirt', 9], 
       'granite': ['white_concrete_powder', 429],
       'white_concrete_powder': ['white_concrete_powder_stairs', 884],
+      'white_concrete_powder_stairs': ['white_concrete_powder', 429],
       'orange_concrete_powder_stairs': ['orange_concrete_powder', 430],
       'orange_concrete_powder': ['orange_concrete_powder_stairs', 681],
       'magenta_concrete_powder_stairs': ['magenta_concrete_powder', 431],
