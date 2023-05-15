@@ -98,7 +98,7 @@ class LandBar extends LitElement {
     this.landCrown = '../../../extra-textures/crown7.png'
     this.bootImg = '../../../extra-textures/boot-dark.png'
     this.palantirImg = '../../../extra-textures/palantir-dark.png'
-    this.speakerImg = '../../../extra-textures/speaker-off.png'
+    this.speakerImg = '../../../extra-textures/speaker-all.png'
   }
 
   async updateLand(x, z) {

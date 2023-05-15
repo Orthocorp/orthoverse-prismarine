@@ -447,6 +447,7 @@ async function connect(options) {
 
     // Sound callbacks
     this.speakerStatus = 3
+    playMusic('sounds/music/melancholicbird.mp3')
     this.speaker = function () {
       this.speakerStatus = (this.speakerStatus + 1) % 4
       hud.speakers(this.speakerStatus)
