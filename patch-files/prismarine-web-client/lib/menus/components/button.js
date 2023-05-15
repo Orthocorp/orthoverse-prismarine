@@ -4,7 +4,6 @@ const audioContext = new window.AudioContext()
 const musicGainNode = audioContext.createGain()
 let musicSource = audioContext.createBufferSource()
 musicSource.connect(musicGainNode)
-musicSource.loop = true
 musicGainNode.connect(audioContext.destination)
 const sounds = {}
 
@@ -56,6 +55,7 @@ export async function playMusic (path) {
     sounds[path] = soundBuffer
   }
 
+  musicSource.loop = true
   musicSource.connect(musicGainNode)
   musicSource.buffer = soundBuffer
   musicGainNode.gain.value = volume
