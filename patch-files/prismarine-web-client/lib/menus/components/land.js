@@ -1,5 +1,16 @@
 const { LitElement, html, css } = require('lit')
 const axios = require('axios')
+const { playSound, playMusic, stopMusic } = require('./button')
+
+function switchMusic(level) {
+    if (level === -1) {
+      playMusic('sounds/music/ocean.mp3')
+    } else if (level < 8) {
+      playMusic('sounds/music/clearskies.mp3')
+    } else {
+      playMusic('sounds/music/cyberpunkcity.mp3')
+    }
+}
 
 class LandBar extends LitElement {
   static get styles() {
@@ -86,7 +97,8 @@ class LandBar extends LitElement {
       landCrown: { type: String },
       bootImg: { type: String },
       palantirImg: { type: String },
-      speakerImg: { type: String}
+      speakerImg: { type: String },
+      speakerStatus:  { type: Number }
     }
   }
 
@@ -96,9 +108,11 @@ class LandBar extends LitElement {
     this.landColor = '#000000'
     this.landShield = '../../../extra-textures/escutcheons/993.png'
     this.landCrown = '../../../extra-textures/crown7.png'
+    this.landLevel = 7
     this.bootImg = '../../../extra-textures/boot-dark.png'
     this.palantirImg = '../../../extra-textures/palantir-dark.png'
-    this.speakerImg = '../../../extra-textures/speaker-all.png'
+    this.speakerImg = '../../../extra-textures/speaker-on.png'
+    this.speakerStatus = 2
   }
 
   async updateLand(x, z) {
@@ -108,6 +122,11 @@ class LandBar extends LitElement {
     )
     .then(response => {
       this.landName = response.data.name
+      // check 4th bit for futuristic/fantasy
+      if (((this.landLevel >> 3) &  1) !== ((response.data.level >> 3) & 1)) {
+        this.landLevel = response.data.level
+        switchMusic(this.landLevel)
+      }
       const crest = response.data.crest
       if (crest === 'none') {
         this.landShield = '../../../extra-textures/escutcheons/none.png'
@@ -123,7 +142,11 @@ class LandBar extends LitElement {
       if (err.response.data?.error === "Not found") {
         this.landName = 'The Open Sea'
         this.landShield = '../../../extra-textures/escutcheons/none.png'
-        this.landCrown = '../../../extra-textures/crown0.png' 
+        this.landCrown = '../../../extra-textures/crown0.png'
+        if (this.landLevel !== -1) {
+          switchMusic(-1)
+        }
+        this.landLevel = -1
       } else {   
         console.log('Unexpected error')
         console.log(err)
@@ -160,11 +183,31 @@ class LandBar extends LitElement {
     }
   }
 
-  async speakerswap(status) {
-    if (status === 0) { this.speakerImg = '../../../extra-textures/speaker-off.png' }
-    if (status === 1) { this.speakerImg = '../../../extra-textures/speaker-music.png' }
-    if (status === 2) { this.speakerImg = '../../../extra-textures/speaker-on.png' }
-    if (status === 3) { this.speakerImg = '../../../extra-textures/speaker-all.png' }
+  // sound activity
+
+  async speakerswap() {
+    if (this.speakerStatus === 0) { this.speakerImg = '../../../extra-textures/speaker-off.png' }
+    if (this.speakerStatus === 1) { this.speakerImg = '../../../extra-textures/speaker-music.png' }
+    if (this.speakerStatus === 2) { this.speakerImg = '../../../extra-textures/speaker-on.png' }
+    if (this.speakerStatus === 3) { this.speakerImg = '../../../extra-textures/speaker-all.png' }
+  }
+
+  async sound(soundType) { 
+    if (this.speakerStatus > 1) {
+      playSound('sounds/' + soundType + '.ogg')
+    }
+  }
+
+  async speaker() {
+    this.speakerStatus = (this.speakerStatus + 1) % 4
+    this.speakerswap()
+    // decide whether to play music
+    console.log("Speaker status is " +  this.speakerStatus)
+    if (this.speakerStatus === 1 || this.speakerStatus === 3) {
+      switchMusic(this.landLevel)
+    } else {
+      stopMusic()
+    }
   }
 
   render() {

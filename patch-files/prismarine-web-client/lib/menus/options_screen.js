@@ -62,7 +62,7 @@ class OptionsScreen extends LitElement {
     this.chatHeight = getValue('chatHeight', 180, (v) => Number(v))
     this.chatScale = getValue('chatScale', 100, (v) => Number(v))
     this.sound = getValue('sound', 50, (v) => Number(v))
-    this.music = getValue('music', 50, (v) => Number(v))
+    this.music = getValue('music', 33, (v) => Number(v))
     this.renderDistance = getValue('renderDistance', 5, (v) => Number(v))
     if (this.renderDistance > 5) {
       this.renderDistance = 5
