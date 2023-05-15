@@ -1,7 +1,7 @@
 /* global THREE */
 require('./lib/chat')
 
-require('./lib/menus/components/button')
+const { playSound, playMusic, stopMusic } = require('./lib/menus/components/button')
 require('./lib/menus/components/edit_box')
 require('./lib/menus/components/slider')
 require('./lib/menus/components/hotbar')
@@ -445,6 +445,41 @@ async function connect(options) {
     bot.on('move', botPosition)
     botPosition()
 
+    // Sound callbacks
+    this.speakerStatus = 3
+    playMusic('sounds/music/melancholicbird.mp3')
+    this.speaker = function () {
+      this.speakerStatus = (this.speakerStatus + 1) % 4
+      hud.speakers(this.speakerStatus)
+      // decide whether to play music
+      if (this.speakerStatus === 1 || this.speakerStatus === 3) {
+        playMusic('sounds/music/melancholicbird.mp3')
+      } else {
+        stopMusic()
+      }
+    }
+
+    bot.on('soundEffectHeard', (sound) => {
+      console.log('Heard a sound: ', sound)
+      if (this.speakerStatus > 1) {
+        playSound('sounds/' + sound + '.ogg')
+      }
+    })
+
+    bot.on('hardcodedSoundEffectHeard', (sound) => {
+      console.log('Heard a hardcoded sound: ', sound)
+      if ( this.speakerStatus > 1) {
+
+      }
+    })
+
+    bot.on('noteHeard', (sound) => {
+      console.log('Heard a note: ', sound)
+      if (this.speakerStatus === 1 || this.speakerStatus === 3) {
+
+      }
+    })
+
     loadingScreen.status = 'Setting callbacks'
 
     function moveCallback(e) {
@@ -546,6 +581,7 @@ async function connect(options) {
 
         keyBindScrn.keymaps.forEach((km) => {
           if (e.code === km.key) {
+            // console.log("Key pressed is " + km.defaultKey)
             switch (km.defaultKey) {
               case 'KeyX':
                 if (bot.heldItem) bot.tossStack(bot.heldItem)
@@ -576,6 +612,9 @@ async function connect(options) {
                 break
               case 'KeyP':
                 hud.palantir()
+                break
+              case 'KeyV':
+                this.speaker()
                 break
               case 'KeyH':
                 bot._client.writeChannel('ethereum', 'home!')

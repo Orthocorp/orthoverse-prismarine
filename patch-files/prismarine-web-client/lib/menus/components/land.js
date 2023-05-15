@@ -55,6 +55,16 @@ class LandBar extends LitElement {
         margin: 0;
         text-align: center;
       }
+      #speaker {
+        position: absolute;
+        bottom: 2px;
+        left: 2px;
+        height: 40px;
+        width: 40px;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+      }
       #palantir {
         position: absolute;
         bottom: 84px;
@@ -76,6 +86,7 @@ class LandBar extends LitElement {
       landCrown: { type: String },
       bootImg: { type: String },
       palantirImg: { type: String },
+      speakerImg: { type: String}
     }
   }
 
@@ -87,6 +98,7 @@ class LandBar extends LitElement {
     this.landCrown = '../../../extra-textures/crown7.png'
     this.bootImg = '../../../extra-textures/boot-dark.png'
     this.palantirImg = '../../../extra-textures/palantir-dark.png'
+    this.speakerImg = '../../../extra-textures/speaker-all.png'
   }
 
   async updateLand(x, z) {
@@ -147,6 +159,14 @@ class LandBar extends LitElement {
       this.palantirImg = '../../../extra-textures/palantir-dark.png'
     }
   }
+
+  async speakerswap(status) {
+    if (status === 0) { this.speakerImg = '../../../extra-textures/speaker-off.png' }
+    if (status === 1) { this.speakerImg = '../../../extra-textures/speaker-music.png' }
+    if (status === 2) { this.speakerImg = '../../../extra-textures/speaker-on.png' }
+    if (status === 3) { this.speakerImg = '../../../extra-textures/speaker-all.png' }
+  }
+
   render() {
     return html`
       <div id="landbar" class="landbar">
@@ -166,6 +186,9 @@ class LandBar extends LitElement {
       </div>
       <div id="compass">
         <img style="width: 40px; height: auto;" src="../../../extra-textures/compass.png"><img/>
+      </div>
+      <div id="speaker">
+        <img style="width: 30px; height: auto;" src=${this.speakerImg}><img/>
       </div>
     `
   }

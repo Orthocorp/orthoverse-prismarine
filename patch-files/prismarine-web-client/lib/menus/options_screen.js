@@ -43,6 +43,7 @@ class OptionsScreen extends LitElement {
       chatHeight: { type: Number },
       chatScale: { type: Number },
       sound: { type: Number },
+      music: { type: Number },
       renderDistance: { type: Number },
       fov: { type: Number },
       guiScale: { type: Number }
@@ -61,6 +62,7 @@ class OptionsScreen extends LitElement {
     this.chatHeight = getValue('chatHeight', 180, (v) => Number(v))
     this.chatScale = getValue('chatScale', 100, (v) => Number(v))
     this.sound = getValue('sound', 50, (v) => Number(v))
+    this.music = getValue('music', 50, (v) => Number(v))
     this.renderDistance = getValue('renderDistance', 5, (v) => Number(v))
     if (this.renderDistance > 5) {
       this.renderDistance = 5
@@ -118,10 +120,9 @@ class OptionsScreen extends LitElement {
         </div>
         <div class="wrapper">
           <pmui-button pmui-width="150px" pmui-label="Key Binds" @pmui-click=${() => displayScreen(this, document.getElementById('keybinds-screen'))}></pmui-button>
-          <pmui-slider pmui-label="Gui Scale" pmui-value="${this.guiScale}" pmui-min="1" pmui-max="4" pmui-type="" @input=${(e) => {
-            this.guiScale = Number(e.target.value)
-            window.localStorage.setItem('guiScale', `${this.guiScale}`)
-            document.documentElement.style.setProperty('--guiScale', `${this.guiScale}`)
+          <pmui-slider pmui-label="Music Volume" pmui-value="${this.music}" pmui-min="0" pmui-max="100" @input=${(e) => {
+            this.music = Number(e.target.value)
+            window.localStorage.setItem('music', `${this.music}`)
           }}></pmui-slider>
         </div>
         ${this.isInsideWorld
@@ -153,6 +154,11 @@ class OptionsScreen extends LitElement {
               this.requestUpdate()
             }
           }></pmui-button>
+          <pmui-slider pmui-label="Gui Scale" pmui-value="${this.guiScale}" pmui-min="1" pmui-max="4" pmui-type="" @input=${(e) => {
+            this.guiScale = Number(e.target.value)
+            window.localStorage.setItem('guiScale', `${this.guiScale}`)
+            document.documentElement.style.setProperty('--guiScale', `${this.guiScale}`)
+          }}></pmui-slider>
         </div>
 
         <pmui-button pmui-width="200px" pmui-label="Done" @pmui-click=${() => displayScreen(this, document.getElementById(this.isInsideWorld ? 'pause-screen' : 'title-screen'))}></pmui-button>

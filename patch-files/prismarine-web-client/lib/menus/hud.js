@@ -240,6 +240,10 @@ class Hud extends LitElement {
         palantirContainer.hide(this, land)
       }
     }
+    
+    this.speakers = function (status) {
+      land.speakerswap(status)
+    }
 
     chat.init(bot._client, renderer)
     console.log("Trying to init hotbar")
