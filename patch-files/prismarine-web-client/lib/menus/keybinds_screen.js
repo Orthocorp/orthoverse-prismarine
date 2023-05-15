@@ -103,6 +103,7 @@ class KeyBindsScreen extends LitElement {
       { defaultKey: 'Slash', key: 'Slash', name: 'Open Command' },
       { defaultKey: 'KeyE', key: 'KeyE', name: 'Toggle Boots' },
       { defaultKey: 'KeyP', key: 'KeyP', name: 'Toggle Palantir' },
+      { defaultKey: 'KeyV', key: 'KeyV', name:  'Toggle Sound' },
       { defaultKey: 'KeyH', key: 'KeyH', name: 'Teleport to Orthohenge' },
       { defaultKey: 'KeyO', key: 'KeyO', name: 'Toggle 1st/3rd Person' }
     ]
