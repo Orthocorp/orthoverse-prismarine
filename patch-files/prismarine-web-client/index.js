@@ -546,6 +546,7 @@ async function connect(options) {
 
         keyBindScrn.keymaps.forEach((km) => {
           if (e.code === km.key) {
+            // console.log("Key pressed is " + km.defaultKey)
             switch (km.defaultKey) {
               case 'KeyX':
                 if (bot.heldItem) bot.tossStack(bot.heldItem)
@@ -576,6 +577,9 @@ async function connect(options) {
                 break
               case 'KeyP':
                 hud.palantir()
+                break
+              case 'KeyV':
+                hud.sounds()
                 break
               case 'KeyH':
                 bot._client.writeChannel('ethereum', 'home!')

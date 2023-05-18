@@ -1,9 +1,13 @@
 const { LitElement, html, css } = require('lit')
 
 const audioContext = new window.AudioContext()
+const musicGainNode = audioContext.createGain()
+let musicSource = audioContext.createBufferSource()
+musicSource.connect(musicGainNode)
+musicGainNode.connect(audioContext.destination)
 const sounds = {}
 
-async function playSound (path) {
+export async function playSound (path) {
   let volume = 1
   const options = document.getElementById('options-screen')
   if (options) {
@@ -27,6 +31,43 @@ async function playSound (path) {
   gainNode.connect(audioContext.destination)
   gainNode.gain.value = volume
   source.start(0)
+}
+
+export async function playMusic (path) {
+  let volume = 1
+  try {
+    musicSource.disconnect()
+  } catch (err) {
+
+  }
+  musicSource = audioContext.createBufferSource()
+  const options = document.getElementById('options-screen')
+  if (options) {
+    volume = options.music / 100
+  }
+
+  let soundBuffer = sounds[path]
+
+  if (!soundBuffer) {
+    const res = await window.fetch(path)
+    const data = await res.arrayBuffer()
+    soundBuffer = await audioContext.decodeAudioData(data)
+    sounds[path] = soundBuffer
+  }
+
+  musicSource.loop = true
+  musicSource.connect(musicGainNode)
+  musicSource.buffer = soundBuffer
+  musicGainNode.gain.value = volume
+  musicSource.start(0)
+}
+
+export async function stopMusic (source) {
+  try {
+    musicSource.stop()
+  } catch (err) {
+
+  }
 }
 
 class Button extends LitElement {
@@ -137,5 +178,3 @@ class Button extends LitElement {
 }
 
 window.customElements.define('pmui-button', Button)
-const _playSound = playSound
-export { _playSound as playSound }

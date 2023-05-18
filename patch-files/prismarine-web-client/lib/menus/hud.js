@@ -215,6 +215,9 @@ class Hud extends LitElement {
     hotbar.bot = bot
     debugMenu.bot = bot
 
+    // start music
+    land.speaker()
+
     this.bootStatus = false
     this.boots = function () {
       if (this.bootStatus === false) {
@@ -239,6 +242,10 @@ class Hud extends LitElement {
       } else {
         palantirContainer.hide(this, land)
       }
+    }
+    
+    this.sounds = function () {
+      land.speaker()
     }
 
     chat.init(bot._client, renderer)
@@ -313,6 +320,28 @@ class Hud extends LitElement {
       // landbar may need update too
       // breathbar.updateOxygen(bot.oxygenLevel ?? 20)
     })
+
+    // Sound callbacks
+    bot.on('soundEffectHeard', (sound) => {
+      console.log('Heard a sound: ', sound)
+      land.sound(sound)
+    })
+
+    /*
+    bot.on('hardcodedSoundEffectHeard', (sound) => {
+      console.log('Heard a hardcoded sound: ', sound)
+      if ( this.speakerStatus > 1) {
+
+      }
+    })
+
+    bot.on('noteHeard', (sound) => {
+      console.log('Heard a note: ', sound)
+      if (this.speakerStatus === 1 || this.speakerStatus === 3) {
+
+      }
+    })
+    */
 
     if (
       document.getElementById('options-screen').forceMobileControls ||
