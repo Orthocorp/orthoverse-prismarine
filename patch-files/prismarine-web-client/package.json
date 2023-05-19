@@ -1,7 +1,7 @@
 {
   "name": "orthoverse-web-client",
   "version": "1.4.0",
-  "description": "A minecraft client running in a browser",
+  "description": "A voxel client running in a browser",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PrismarineJS/prismarine-web-client.git"
+    "url": "git+https://gitlab.com/PrismarineJS/prismarine-web-client.git"
   },
   "keywords": [
     "prismarine",
@@ -65,15 +65,14 @@
     "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
     "prismarine-viewer": "^1.22.0",
-    "prismarine-realms": "1.2.0",
     "process": "PrismarineJS/node-process",
     "standard": "^17.0.0",
     "stream-browserify": "^3.0.0",
     "three": "0.128.0",
     "timers-browserify": "^2.0.12",
     "webpack": "^5.11.0",
-    "webpack-cli": "^4.2.0",
-    "webpack-dev-middleware": "^5.1.0",
+    "webpack-cli": "^5.0.0",
+    "webpack-dev-middleware": "^6.0.0",
     "webpack-dev-server": "^4.0.0",
     "webpack-merge": "^5.7.3",
     "workbox-webpack-plugin": "^6.1.2"
