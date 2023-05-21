@@ -107,6 +107,44 @@ module.exports.player = function (player, serv, { version }) {
   const QUICK_BAR_START = 9
   const mcData = require('minecraft-data')(version)
   const blocks = mcData.blocks
+  const specialPlace = {
+      'dirt': ['grass', 8],
+      'grass': ['dirt', 9], 
+      'granite': ['white_concrete_powder', 429],
+      'white_concrete_powder': ['white_concrete_powder_stairs', 884],
+      'white_concrete_powder_stairs': ['white_concrete_powder', 429],
+      'orange_concrete_powder_stairs': ['orange_concrete_powder', 430],
+      'orange_concrete_powder': ['orange_concrete_powder_stairs', 681],
+      'magenta_concrete_powder_stairs': ['magenta_concrete_powder', 431],
+      'magenta_concrete_powder': ['magenta_concrete_powder_stairs', 682],
+      'light_blue_concrete_powder_stairs': ['light_blue_concrete_powder', 432],
+      'light_blue_concrete_powder': ['light_blue_concrete_powder_stairs', 683],
+      'yellow_concrete_powder_stairs': ['yellow_concrete_powder', 433],
+      'yellow_concrete_powder': ['yellow_concrete_powder_stairs', 684],
+      'lime_concrete_powder_stairs': ['lime_concrete_powder', 434],
+      'lime_concrete_powder': ['lime_concrete_powder_stairs', 685],
+      'pink_concrete_powder_stairs': ['pink_concrete_powder', 435],
+      'pink_concrete_powder': ['pink_concrete_powder_stairs', 686],
+      'gray_concrete_stairs': ['gray_concrete', 420],
+      'gray_concrete': ['gray_concrete_stairs', 687],
+      'light_gray_concrete_stairs': ['light_gray_concrete', 421],
+      'light_gray_concrete': ['light_gray_concrete_stairs', 688],
+      'cyan_concrete_stairs': ['cyan_concrete', 422],
+      'cyan_concrete': ['cyan_concrete_stairs', 689],
+      'purple_concrete_stairs': ['purple_concrete', 423],
+      'purple_concrete': ['purple_concrete_stairs', 690],
+      'blue_concrete_stairs': ['blue_concrete', 424],
+      'blue_concrete': ['blue_concrete_stairs', 691],
+      'brown_concrete_stairs': ['brown_concrete', 425],
+      'brown_concrete': ['brown_concrete_stairs', 692],
+      'green_concrete_stairs': ['green_concrete', 426],
+      'green_concrete': ['green_concrete_stairs', 693],
+      'red_concrete_stairs': ['red_concrete', 427],
+      'red_concrete': ['red_concrete_stairs', 694],
+      'black_concrete_stairs': ['black_concrete', 428],
+      'black_concrete': ['black_concrete_stairs', 695]
+  }
+
 
   player._client.on('block_place', async ({ direction, location, cursorY, hand } = {}) => {
     // at the moment we use the client to vet placing object, we should check here too to prevent hackers
@@ -123,11 +161,16 @@ module.exports.player = function (player, serv, { version }) {
     if (player.gameMode >= 2) return
 
     const heldItem = player.inventory.slots[QUICK_BAR_START + player.heldItemSlot]
+    console.log("Held item name: " + heldItem.name)
+    console.log("Held item type: " + heldItem.type)
+    console.log("Hand: " + hand)
     if (!heldItem || direction === -1 || heldItem.type === -1) return
-    if (hand === 2 && heldItem.name === 'dirt') {
-      serv.info("Control with dirt to make grass")
-      heldItem.name = 'grass'
-      heldItem.type = 8
+    console.log("Block data: ", mcData.blocksByName[heldItem.name])
+    if (hand === 2 && specialPlace.hasOwnProperty(heldItem.name)) {
+      console.log("Ctrl place action")
+      heldItem.type = specialPlace[heldItem.name][1]
+      heldItem.name = specialPlace[heldItem.name][0]
+      console.log("New name and item: ", heldItem.type, heldItem.name)
     }
 
     const directionVector = directionToVector[direction]
