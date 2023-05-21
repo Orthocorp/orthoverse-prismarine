@@ -17,7 +17,7 @@ echo "Node version: $(node --version)"
 set -x
 
 git clone https://github.com/PrismarineJS/flying-squid.git
-git clone https://github.com/PrismarineJS/prismarine-web-client.git
+git clone https://gitlab.com/PrismarineJS/prismarine-web-client.git
 cp -r ./patch-files/prismarine-web-client ./
 cp -r ./patch-files/flying-squid ./
 
